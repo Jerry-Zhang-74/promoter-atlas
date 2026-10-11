@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import os
+from .layout import project_path
 import sys
 
 HUMAN_KEY = "human"
@@ -82,10 +83,10 @@ def sha256_file(path, chunk=1 << 22):
 def _memmap_rows(root, key, row_len):
     """Rows in the sym400/up2000 memmap for a memmap_key, or None if absent."""
     if key == HUMAN_KEY:
-        p = os.path.join(root, "promoters", "memmap",
+        p = project_path(root, "promoters", "memmap",
                          "promoter_%s_uint8.memmap" % ("sym400" if row_len == 400 else "up2000"))
     else:
-        p = os.path.join(root, "data", "multispecies", "memmap",
+        p = project_path(root, "data", "multispecies", "memmap",
                          "%s_%s_uint8.memmap" % (key, "sym400" if row_len == 400 else "up2000"))
     if not os.path.exists(p):
         return None
@@ -107,7 +108,7 @@ def verify(root, deep=False, verbose=True):
         rep["failures"].append(msg)
 
     for name, s in SOURCES.items():
-        p = os.path.join(root, s["path"])
+        p = project_path(root, s["path"])
         c = {"asset": name, "path": s["path"], "kind": s["kind"], "required": s["required"],
              "exists": os.path.exists(p)}
         if c["exists"]:
@@ -142,7 +143,7 @@ def verify(root, deep=False, verbose=True):
 
 
 def _check_esb(root, rep, fail):
-    esb = os.path.join(root, SOURCES["esb_table"]["path"])
+    esb = project_path(root, SOURCES["esb_table"]["path"])
     if not os.path.exists(esb):
         return
     import numpy as np
@@ -182,9 +183,9 @@ def _check_esb(root, rep, fail):
 
 def _check_fragments(root, rep, fail):
     import numpy as np
-    codes_p = os.path.join(root, SOURCES["frag_codes"]["path"])
-    endp_p = os.path.join(root, SOURCES["frag_endpoints"]["path"])
-    grp_p = os.path.join(root, SOURCES["frag_groups"]["path"])
+    codes_p = project_path(root, SOURCES["frag_codes"]["path"])
+    endp_p = project_path(root, SOURCES["frag_endpoints"]["path"])
+    grp_p = project_path(root, SOURCES["frag_groups"]["path"])
     if os.path.exists(codes_p):
         shape = tuple(np.load(codes_p, mmap_mode="r").shape)
         rep["frag_codes_shape"] = list(shape)

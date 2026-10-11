@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from .layout import project_path
 
 import numpy as np
 
@@ -21,7 +22,7 @@ class ESBStream:
     def __init__(self, root):
         import pandas as pd
         self.root = root
-        self.table = os.path.join(root, "labels", "build", "promoter_atlas_v6_input.tsv")
+        self.table = project_path(root, "labels", "build", "promoter_atlas_v6_input.tsv")
         df = pd.read_csv(self.table, sep="\t", low_memory=False, usecols=ESB_USECOLS)
         keep = df["split"].isin(list(CANON_SPLIT)).to_numpy()
         self.excluded_unknown_split = int((~keep).sum())
@@ -43,11 +44,11 @@ class ESBStream:
             self.mask[ok, j] = 1.0
         self.source_paths = {"table": self.table}
         self._mm = {}
-        sp_dir = os.path.join(root, "data", "multispecies", "memmap")
+        sp_dir = project_path(root, "data", "multispecies", "memmap")
         for k in np.unique(self.keys):
             if k == "human":
-                p2 = os.path.join(root, "promoters", "memmap", "promoter_up2000_uint8.memmap")
-                p4 = os.path.join(root, "promoters", "memmap", "promoter_sym400_uint8.memmap")
+                p2 = project_path(root, "promoters", "memmap", "promoter_up2000_uint8.memmap")
+                p4 = project_path(root, "promoters", "memmap", "promoter_sym400_uint8.memmap")
             else:
                 p2 = os.path.join(sp_dir, "%s_up2000_uint8.memmap" % k)
                 p4 = os.path.join(sp_dir, "%s_sym400_uint8.memmap" % k)
@@ -85,7 +86,7 @@ class FragmentStream:
 
     def __init__(self, root):
         self.root = root
-        cohort = os.path.join(root, "data", "breakthrough_20261002", "batch52",
+        cohort = project_path(root, "data", "breakthrough_20261002", "batch52",
                               "corrected", "cohort_v2")
         self.source_paths = {name: os.path.join(cohort, name) for name in
                              ("codes_int64.npy", "endpoints.tsv", "groups.tsv", "manifest.json")}
