@@ -65,8 +65,8 @@ seed=20261004。每个 epoch 确定性排列并遍历 347,241 条至少含一个
 以及 531,860 条片段 TRAIN 记录。两流按计数均匀分布于 16,868 个训练步。DEV/TEST 用于评估。
 
 ```bash
-python -m promoter_atlas.data_prepare --data-root research
-python -m promoter_atlas.data_prepare --data-root research --deep --out data_check.json
+python -m promoter_atlas.data_prepare --data-root .
+python -m promoter_atlas.data_prepare --data-root . --deep --out data_check.json
 ```
 
 检查程序核对结构和计数，`--deep` 增加源文件 SHA 校验。数据构建顺序见[源码指南](ORIGINAL_SOURCES.md)。
@@ -136,8 +136,8 @@ The seed is 20261004. Each epoch deterministically permutes and traverses 347,24
 Both streams are spread across 16,868 training steps according to their counts. DEV and TEST serve evaluation.
 
 ```bash
-python -m promoter_atlas.data_prepare --data-root research
-python -m promoter_atlas.data_prepare --data-root research --deep --out data_check.json
+python -m promoter_atlas.data_prepare --data-root .
+python -m promoter_atlas.data_prepare --data-root . --deep --out data_check.json
 ```
 
 The checker verifies structure and counts; `--deep` adds source-file SHA verification. See the [source guide](ORIGINAL_SOURCES.md#english) for construction order.
