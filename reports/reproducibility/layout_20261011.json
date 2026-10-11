@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-11",
+  "status": "PASS",
+  "local_inventory_files": 20040,
+  "local_moves_with_unchanged_identity_size_time": 10239,
+  "local_editorial_updates": 116,
+  "local_model_files_sha256_verified": 710,
+  "public_historical_files_sha256_verified": 1834,
+  "public_historical_python_sources_byte_identical": 828,
+  "broken_markdown_links": 0,
+  "previous_tracked_files_found_in_new_index": 1899,
+  "layout_tests": 4,
+  "CPU_ESB_examples": 8,
+  "CPU_activity_examples": 3,
+  "example_max_absolute_difference": 0.0,
+  "ESB_eligible_TRAIN": 347241,
+  "fragment_split_counts": {
+    "TRAIN": 531860,
+    "DEV": 112640,
+    "TEST": 117155
+  },
+  "historical_cli_help": "PASS (local and public)",
+  "gradients_computed": 0,
+  "optimizer_steps": 0,
+  "errors": []
+}
