@@ -8,7 +8,9 @@
 
 E 为 [0,1] 的 `Score_E`，S 为可检出组织的 `S_raw=-MAD(log2(1+TPM))`，B 为 `detectable_tissue_count/tissue_count`。主 seed 为 20261016；共享臂 B/C 验证增益 -0.0061/-0.0049，选择门槛 +0.02。
 
-### 运行
+### 解压完整历史包后运行
+
+此文件是打包文档源稿。下列命令对应完整包内的 `code/`、权重与 transforms；本目录用于维护文档内容。
 
 ```bash
 python code/run_example.py
@@ -42,7 +44,9 @@ This experimental candidate predicts human gene-level natural expression with th
 
 E is `Score_E` in [0,1], S is detectable-tissue `S_raw=-MAD(log2(1+TPM))`, and B is `detectable_tissue_count/tissue_count`. The reference seed is 20261016; shared-arm B/C validation gains were -0.0061/-0.0049 against a +0.02 selection threshold.
 
-### Run
+### Run after extracting the complete historical package
+
+This file is packaging-document source. The commands below refer to the complete package’s `code/`, weights, and transforms; this directory maintains the documentation.
 
 ```bash
 python code/run_example.py
