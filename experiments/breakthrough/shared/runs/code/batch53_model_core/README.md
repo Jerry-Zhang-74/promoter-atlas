@@ -26,6 +26,8 @@ data_adapter 读取并验证 TSV/FASTA 或 NPZ；model_core 定义 SeqCNN、enco
 
 原 batch53 测试记录为 test_nofit 21/21、test_pipeline 4/4；其中包含一次小型 ridge solve，后续 batch57 改为纯软件检查并修订续训行为。旧实现的续训台账语义和修复见 batch57。
 
+下列模块命令在历史目录布局的工作副本内执行。先从仓库根目录运行 `python scripts/run_historical.py --prepare-only`，再进入 `workspaces/historical`；将示例中的 `.venv/Scripts/python.exe` 换成已安装依赖的 Python。
+
 ```bash
 .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch53_model_core/data_adapter.py <cohort_dir>
 .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch53_model_core/pipeline_coordinator.py --cohort-dir <cohort_dir> --out-root runs/breakthrough_20261002/batch52/models --ledger runs/breakthrough_20261002/batch52/exec_gate_ledger.jsonl --accepted-data-sha <source_sha256> --i-understand-this-is-a-real-fit
@@ -65,6 +67,8 @@ Data contract: endpoints.tsv contains coord_id, union_id, split, length, and Log
 Startup reads batch52/PARENT_DATA_ACCEPTANCE.txt and PARALLEL_PIPELINE.txt. Fits require `--i-understand-this-is-a-real-fit`, matching `--accepted-data-sha`, and an execution reservation. The four-slot ledger originally planned R0/Nabs/Njoint plus one failed-run retry. Vendored gate SHA is `e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571`.
 
 Original batch53 test records show test_nofit 21/21 and test_pipeline 4/4. That suite included a small ridge solve; batch57 subsequently adopted software-only checks and revised resume behavior. See batch57 for the old resume-accounting behavior and repairs.
+
+Run the module commands below inside a prepared original-layout workspace. From the repository root run `python scripts/run_historical.py --prepare-only`, then enter `workspaces/historical`; replace `.venv/Scripts/python.exe` in the examples with the Python interpreter containing the dependencies.
 
 ```bash
 .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch53_model_core/data_adapter.py <cohort_dir>
