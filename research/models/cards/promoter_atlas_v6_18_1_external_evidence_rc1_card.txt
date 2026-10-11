@@ -1,33 +1,25 @@
-VERSION CARD  promoter_atlas v6.18.1-external-evidence.rc1
-parent_version: v6.18.0-hek-kernel.rc1 (batch24)
-date_local: 2026-10-03T17:28:44+0800
-batch: batch25 (external-evidence resolution + zero-fit eval freeze)
+# v6.18.1-external-evidence.rc1 记录卡 · Evidence card
 
-WHAT CHANGED
-  - No new model, no refit, no neural training, no GPU. Zero estimator fits of any kind in this batch.
-  - The frozen batch24 H1 (whole-spectrum k4/k5 kernel, S_global) and the batch22 R1 fold-ensemble were NOT applied to any new cohort:
-    no external cohort compatible with that promoter model was found.
-  - Added: external-evidence resolution of GSE245191 and GSE306816 plus a FROZEN, zero-fit dataset for a SEPARATE STR-variant task.
+[中文](#中文) · [English](#english)
 
-MODEL STATE
-  H1 = 0.5*cos(k4 full-insert counts) + 0.5*cos(k5 counts), forward-only, kernel ridge alpha=1.0, train-fold-only centering (unchanged).
-  R1 = batch22 compositional baseline (unchanged). H2 = fixed-133bp positional model (unchanged, not primary).
-  batch24 retrospective ranking gain (H1 rho 0.526449 vs R1 0.456622; MAE 0.539729 vs 0.571670) remains UNPROMOTED:
-  the predeclared all-metric 10% MAE bar is not met and no HELD-OUT/PROSPECTIVE cohort exists yet.
+## 中文
 
-EVIDENCE RESOLVED THIS BATCH
-  GSE245191: complete 3,218,832-row processed table + SOFT + paper + author repo. The series is FIVE FIXED control promoters
-    (minP, EEF1A1p, noP, UBCp, Pgk1p) with architecture variants; there is NO sequence column and no promoter-sequence library.
-    The '0.3k/3k/10k/30k' figures are clone/bottleneck sizes, not library sizes. NOT a sequence-varied promoter cohort.
-  GSE306816: resolved to an STR variant-effect library (hSTR1 arm, HEK293T, 3 biological replicates, transient plasmid,
-    cDNA/gDNA ratio endpoint). Variable region = STR + hg38 genomic flank, recovered from the author design repo
-    (gymreklab/str_mpra_design array_probes.tsv) between the 5' adapter and the Gibson_AsiSI site; constant reporter context
-    is a minimal-promoter-GFP cassette in pGL4.23. Frozen as a SEPARATE task; the promoter kernels were NOT applied.
+batch25，2026-10-03T17:28:44+0800，继承batch24并整理外部数据。保持H1核 `0.5*cos(k4 counts)+0.5*cos(k5 counts)`、alpha1、TRAIN折中心化，以及R1组成基线和H2固定133bp位置模型。H1历史rho0.526449/MAE0.539729，R1为0.456622/0.571670，MAE改善低于10%门槛。
 
-FROZEN ARTIFACT
-  data/breakthrough_20261002/batch25/str_variant_variants.tsv -> 57,674 variants over 19,742 independent STR loci,
-  columns: variant, locus_id, motif, vreg_len, n_barcodes, mean_log2_ratio, vreg_seq.
-  Freeze record: reports/breakthrough_20261002/batch25/external_eval_freeze.json (written before any model score).
+GSE245191完整表有3,218,832行，结合SOFT、论文和作者仓库确认是minP/EEF1A1p/noP/UBCp/Pgk1p五种固定控制启动子的结构变体。0.3k/3k/10k/30k指克隆/瓶颈规模；序列列缺失。
 
-PROMOTION STATUS: none. Nothing promoted; all prior artifacts preserved.
-INTEGRITY: independent review is NOT written by this worker (fresh reviewer writes independent_review.json).
+GSE306816为HEK293T hSTR1变体效应，3生物重复、瞬转质粒、cDNA/gDNA端点。可变区为STR+hg38侧翼，从 gymreklab/str_mpra_design 的array_probes.tsv中5′adapter至Gibson_AsiSI之间恢复，固定背景为pGL4.23的minP-GFP。
+
+独立冻结STR任务：data/.../batch25/str_variant_variants.tsv含57,674变体/19,742位点，字段variant、locus_id、motif、vreg_len、n_barcodes、mean_log2_ratio、vreg_seq。external_eval_freeze.json在评分前生成。本批完成证据整理和数据冻结，拟合次数0；启动子核的外部验证队列继续寻找。
+
+---
+
+## English
+
+batch25, dated2026-10-03T17:28:44+0800, continues batch24 with external-data resolution. It retains H1 kernel `0.5*cos(k4 counts)+0.5*cos(k5 counts)`, alpha1, TRAIN-fold centering, R1 composition, and H2 fixed-133-bp position features. Historical H1 rho/MAE is0.526449/0.539729 versus R1 0.456622/0.571670; MAE gain remains below10%.
+
+The complete GSE245191 table has3,218,832 rows. SOFT, paper, and author repository identify architecture variants of five fixed control promoters: minP/EEF1A1p/noP/UBCp/Pgk1p. The0.3k/3k/10k/30k figures describe clone/bottleneck sizes; sequence columns are absent.
+
+GSE306816 measures HEK293T hSTR1 variant effects with three biological replicates, transient plasmids, and cDNA/gDNA endpoints. Variable inserts are STR+hg38 flanks recovered between the5′ adapter and Gibson_AsiSI site in gymreklab/str_mpra_design array_probes.tsv. The fixed context is pGL4.23 minP-GFP.
+
+Freeze the separate STR task in data/.../batch25/str_variant_variants.tsv:57,674 variants/19,742 loci, fields variant, locus_id, motif, vreg_len, n_barcodes, mean_log2_ratio, vreg_seq. external_eval_freeze.json was written before scoring. This batch completed evidence preparation and dataset freezing with zero fits; the search for an external promoter-kernel cohort continues.

@@ -1,39 +1,29 @@
-# Temporal Stability Target Note
+# 时间持久性目标 · Temporal durability target
 
-Current Candidate E uses cross-tissue stability rather than temporal durability.
+[中文](#中文) · [English](#english)
 
-Current tissue-stability definition:
+## 中文
 
-$$
-S_{tissue}(g) = -\mathrm{MAD}\left(\left\{\log_2(1+x_{g,t}) : t \in D(g)\right\}\right)
-$$
+跨组织稳定性与时间持久性分别描述组织差异和时间变化，作为独立输出保存。
 
-where $D(g)$ is the detectable tissue set for gene $g$.
+`S_tissue = -MAD{log2(1+x_gt), t ∈ D_g}`
 
-This captures cross-tissue snapshot consistency, not long-term persistence over time.
+`D_time = -MAD{log2(1+y_pτ), τ ∈ T}`
 
-The new design target should be formulated as a separate durability axis:
+`R_late/early = (y_late + ε)/(y_early + ε)`
 
-$$
-D_{time}(p) = -\mathrm{MAD}\left(\left\{\log_2(1+y_{p,\tau}) : \tau \in \mathcal{T}\right\}\right)
-$$
+现有 GTEx 标签支持 E、S_tissue、B。D_time 和保留率需要额外的纵向活动测量；完成数据整理后可增设对应预测头。
 
-where $p$ is a promoter and $y_{p,\tau}$ is expression measured at time point $\tau$.
+---
 
-To explicitly penalize hit-and-run behavior, use an early/late retention score:
+## English
 
-$$
-R_{late/early}(p) = \frac{y_{p,\tau_{late}} + \varepsilon}{y_{p,\tau_{early}} + \varepsilon}
-$$
+Cross-tissue stability describes differences among tissues; temporal durability describes change over time. Store them as separate outputs.
 
-Interpretation:
+`S_tissue = -MAD{log2(1+x_gt), t ∈ D_g}`
 
-- high $S_{tissue}$: broad endogenous stability across tissues
-- high $D_{time}$: durable expression across time
-- high $R_{late/early}$: less hit-and-run behavior
+`D_time = -MAD{log2(1+y_pτ), τ ∈ T}`
 
-Recommendation before Phase 5:
+`R_late/early = (y_late + ε)/(y_early + ε)`
 
-- keep current Candidate E unchanged as the GTEx-grounded tissue-stability label system
-- treat temporal durability as a new downstream target, not a replacement for current S
-- when time-course assay data becomes available, model durability as an additional output
+The existing GTEx labels support E, S_tissue, and B. D_time and retention require additional longitudinal activity measurements. Corresponding prediction heads can be added after those data are prepared.

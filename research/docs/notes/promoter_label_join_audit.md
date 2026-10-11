@@ -1,22 +1,19 @@
-# Promoter Label Join Audit
+# 启动子标签连接检查 · Promoter-label join audit
 
-## Overall
+[中文](#中文) · [English](#english)
 
-- promoter_rows: `1014730`
-- matched_rows: `872582`
-- unmatched_rows: `142148`
-- matched_frac: `0.859915`
+## 中文
 
-## Exported Modeling Inputs
+1,014,730 条启动子记录中，872,582 条匹配表达标签，142,148 条未匹配，匹配率0.859915。
 
-- core_model_input: `labels/build/promoter_model_input_core.tsv`
-- extended_model_input: `labels/build/promoter_model_input_extended.tsv`
-- core_rows: `423473`
-- extended_rows: `270123`
+输出为 `labels/build/promoter_model_input_core.tsv`（423,473行）和 `labels/build/promoter_model_input_extended.tsv`（270,123行）。GENCODE 注释覆盖范围比 GTEx 更广，差异主要涉及 lncRNA、假基因、miRNA 和新注释位点。
 
-## Interpretation
+---
 
-- unmatched promoter rows are expected when promoter annotation gene set is broader than GTEx gene matrix
-- this mismatch is especially likely for lncRNA, pseudogene, miRNA, and newly annotated loci
-- first baseline should use promoter_model_input_core.tsv
-- extended context comparison should use promoter_model_input_extended.tsv
+## English
+
+Of 1,014,730 promoter rows, 872,582 matched expression labels and 142,148 remained unmatched (match fraction 0.859915).
+
+The resulting model inputs are `labels/build/promoter_model_input_core.tsv` (423,473 rows) and `labels/build/promoter_model_input_extended.tsv` (270,123 rows).
+
+GENCODE annotation covers a broader gene set than GTEx, particularly lncRNAs, pseudogenes, miRNAs, and newly annotated loci.

@@ -1,76 +1,143 @@
-# 数据说明
+# 数据说明 · Data notes
 
-本模型用到两套数据：ESB 启动子记录（主任务）与 MPRA 片段活性（辅助任务）。完整数据单独保存，来源、SHA-256、清洗与切分规则记录在此，`data_prepare.py`
-可在本地副本上重新校验这些数字。真实的数据预处理实现见 `ORIGINAL_SOURCES.md 及 orig_*.py`。
+[中文](#中文) · [English](#english)
 
-## 1. ESB 启动子记录（项目内派生资产）
+## 中文
 
-| 项目 | 值 |
+模型使用 E/S/B 启动子记录与 MPRA 片段活性两套数据。以下路径均相对于恢复后的 `research/`。
+
+### E/S/B 启动子
+
+| 项目 | 内容 |
 |---|---|
-| 表 | `labels/build/promoter_atlas_v6_input.tsv` |
-| 行数 | 1,746,138（TRAIN 1,533,642 / DEV 105,364 / TEST 107,132） |
-| 物种 | 19（人 + 18 个直系同源物种） |
-| 坐标与序列 | GENCODE v49 转录本启动子。人用 GRCh38；其余 18 个物种使用各自装配。核心窗 `[-200,+200)` 400 bp、上游窗 `[-2000,0)` 2000 bp，分别以 uint8 记忆映射存放：人为 `promoters/memmap/promoter_{sym400,up2000}_uint8.memmap`，其余为 `data/multispecies/memmap/<key>_{sym400,up2000}_uint8.memmap` |
-| 标签 | `Score_E` / `Score_S` / `Score_B`；TRAIN 集统计量：E (0.7360959, 0.2327551)、S (0.8307955, 0.0871514)、B (0.7283229, 0.2314467)（均值, 标准差） |
+| 训练输入表 | `labels/build/promoter_atlas_v6_input.tsv` |
+| 全表记录数 | 1,746,138；TRAIN 1,533,642 / DEV 105,364 / TEST 107,132 |
+| 物种 | 人类及 18 个直系同源物种 |
+| 人类参考 | GRCh38 / GENCODE v49 转录本启动子 |
+| 窗口 | 局部 `[-200,+200)` 400 bp；上游 `[-2000,0)` 2000 bp |
+| 人类序列 | `promoters/memmap/promoter_{sym400,up2000}_uint8.memmap` |
+| 其他物种序列 | `data/multispecies/memmap/<key>_{sym400,up2000}_uint8.memmap` |
+| TRAIN 均值、标准差 | E (0.7360959, 0.2327551)；S (0.8307955, 0.0871514)；B (0.7283229, 0.2314467) |
 
-标签来源：三者都由 GTEx 基因表达量（`mean_tpm`）派生，人类标签经直系同源映射形成多物种训练记录。
-按 `labels/spec/label_definition.md` 与构建脚本（产物 `labels/build/gene_expression_label_table.tsv`）：
+三轴标签派生自 GTEx 的组织平均表达量 `mean_tpm`，人类标签通过直系同源映射形成多物种记录。
+定义见 `labels/spec/label_definition.md`，产物为 `labels/build/gene_expression_label_table.tsv`。
 
-* `E_raw = mean_tissues( log2(1 + mean_tpm) )` —— 表达强度；
-* `B_raw = #{tissue: mean_tpm >= 1} / #tissue` —— 表达广度（可检出组织占比）；
-* `S_raw = -MAD_detectable_tissues( log2(1 + mean_tpm) )` —— 跨组织稳定性，只在 `B_raw >= 0.30` 且
-  可检出组织数 `>= 3` 时定义；
-* `Score_X = rank_scale(X_raw)`，即从 0 开始的升序秩 / (n-1)，取自完整 58,988 基因目录；同值按源表顺序稳定排序，S 未定义项先置底排序，再将输出设为空；`S_raw` 未定义处 `Score_S` 为空。
-
-清洗与切分：
-
-* 缺失标签保留为缺失并被掩蔽（`finite_mask = 0`），不填 0、不做插补。
-* `split` 值不在 `{train, val, test}` 内的行被排除，不并入 TRAIN。
-* 同一基因下的转录本记录共享首轮 E/S/B 标签。
-* ESB 切分为基因级：人用冻结的 `promoter_split_core.tsv`，18 个直系同源物种各自做物种内
-  基因级切分。同一物种内没有同基因跨集；但直系同源关系跨物种，同一基因家族在不同物种的
-  记录可能落在不同集，切分单位为物种内基因，跨物种直系同源关系保留。
-
-## 2. 片段活性记录（MPRA，GEO GSE301246）
-
-| 项目 | 值 |
-|---|---|
-| 源文件 | `GSE301246_PARM_Training_Library_v2_MH4_normalized_fold0.bed.gz` |
-| 源 SHA-256 | `1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96` |
-| 源字节数 | 103,144,961 |
-| 目标 | `Log2RPM_HEK293`（v2_MH4 fold0，HEK293） |
-| 参考序列 | `Homo_sapiens.GRCh37.dna.primary_assembly.fa.gz`，SHA-256 `0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865`，869,923,173 字节，来源 Ensembl FTP GRCh37 主装配 |
-| 派生表 | `data/breakthrough_20261002/batch52/corrected/cohort_v2/`（`codes_int64.npy`、`endpoints.tsv`、`groups.tsv`、`manifest.json`、`build_report.json`） |
-| 行数 | 761,655（TRAIN 531,860 / DEV 112,640 / TEST 117,155） |
-| 组 | 5,332（TRAIN 3,724 / DEV 814 / TEST 794） |
-| 目标归一化 | TRAIN 集 mean 1.6329246759414673，std 1.3893377780914307 |
-
-清洗与切分：
-
-* 片段长度限定 100–600 bp，超出行被丢弃；编码 `A/C/G/T -> 0..3`，其余（含 padding）为 4。
-* 坐标为 hg19 / GRCh37 的 0-based 半开区间；负链取反向互补；片段 3' 端在正链为 `end`、
-  负链为 `start`。
-* 切分由 `union_id` 的加盐哈希（`b52-full-hek-v1|`）在**组级别**决定，5,332 组 -> TRAIN
-  3,724 / DEV 814 / TEST 794；同一 `union_id` 组不跨集，因此 MPRA 片段在其组内无跨集泄漏。
-* 含 131,928 个目标值为 0 的行照原样保留，不做过滤。
-
-## 3. 两条数据流的采样
-
-TRAIN 每个 epoch 按种子 20261004 的确定性排列遍历：ESB 侧遍历有监督（至少一个标签非缺失）
-的记录（347,241 行），片段侧遍历 531,860 行，两者按计数均匀铺开，共 16,868 步。
-DEV / TEST 不参与训练。
-
-## 4. 复现
-
-```bash
-python -m promoter_atlas.data_prepare --data-root /path/to/promoter_atlas            # 结构 + 计数核对
-python -m promoter_atlas.data_prepare --data-root /path/to/promoter_atlas --deep     # 追加源文件 SHA-256 核对
+```text
+E_raw = mean_tissues(log2(1 + mean_tpm))
+B_raw = count(tissues with mean_tpm >= 1) / count(all tissues)
+S_raw = -MAD_detectable_tissues(log2(1 + mean_tpm))
+Score_X = rank_ascending_from_zero(X_raw) / (n - 1)
 ```
 
-`--data-root` 是只读校验器；ESB 记忆映射与片段 cohort 的完整预处理实现（依赖、顺序与路径映射）
-见 `ORIGINAL_SOURCES.md 及 orig_*.py`。运行 data_prepare.py --data-root <项目路径> --out data_check.json 可生成本地数据检查记录。
+S 在 B_raw≥0.30 且至少 3 个组织可检出时定义。秩归一化使用完整的 58,988 基因目录；
+同值按原表顺序稳定排序。S 缺失项在排序阶段置底，最终输出恢复为空。
+缺失标签通过 `finite_mask=0` 排除于对应损失计算。保留的 split 值为 `train, val, test`。
+同一基因下的转录本共享该基因的 E/S/B 标签。
 
+人类使用冻结的 `promoter_split_core.tsv`，其他物种分别做物种内基因级划分。
+同源家族在不同物种的记录可能分布于不同集合，具体评估条件见[评估说明](LIMITATIONS.md)。
+
+### HEK293 片段活性
+
+| 项目 | 内容 |
+|---|---|
+| 源文件 | `GSE301246_PARM_Training_Library_v2_MH4_normalized_fold0.bed.gz` |
+| 源文件大小 | 103,144,961 bytes |
+| 源 SHA-256 | `1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96` |
+| 目标 | `Log2RPM_HEK293`，v2_MH4 fold0 |
+| 参考 | `Homo_sapiens.GRCh37.dna.primary_assembly.fa.gz`，869,923,173 bytes |
+| 参考 SHA-256 | `0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865` |
+| 派生目录 | `data/breakthrough_20261002/batch52/corrected/cohort_v2/` |
+| 记录数 | 761,655；TRAIN 531,860 / DEV 112,640 / TEST 117,155 |
+| 分组数 | 5,332；TRAIN 3,724 / DEV 814 / TEST 794 |
+| TRAIN 目标归一化 | mean=1.6329246759414673；std=1.3893377780914307 |
+
+派生目录保存 `codes_int64.npy`、`endpoints.tsv`、`groups.tsv`、`manifest.json` 和 `build_report.json`。
+片段长度为 100–600 bp；`A/C/G/T` 编码为 0–3，其他字符及 padding 编码为 4。
+坐标采用 hg19/GRCh37 的 0-based 半开区间，负链取反向互补；正链 3′ 端为 `end`，负链为 `start`。
+
+`union_id` 加盐 `b52-full-hek-v1|` 后哈希分组，组内记录进入同一集合。
+目标值为 0 的 131,928 条记录完整保留。
+
+### 双流采样与核验
+
+seed=20261004。每个 epoch 确定性排列并遍历 347,241 条至少含一个有效标签的 ESB TRAIN 记录，
+以及 531,860 条片段 TRAIN 记录。两流按计数均匀分布于 16,868 个训练步。DEV/TEST 用于评估。
+
+```bash
+python -m promoter_atlas.data_prepare --data-root research
+python -m promoter_atlas.data_prepare --data-root research --deep --out data_check.json
+```
+
+检查程序核对结构和计数，`--deep` 增加源文件 SHA 校验。数据构建顺序见[源码指南](ORIGINAL_SOURCES.md)。
 
 ---
-公开目录整理说明：原项目路径位于 `research/` 内；当前入口为 `src/promoter_atlas/`，配置为 `configs/joint.json`。
-下载与复现步骤以 [REPRODUCIBILITY.md](REPRODUCIBILITY.md) 为准；旧路径引用用于追溯原始记录。
+
+## English
+
+The model uses E/S/B promoter records and MPRA fragment activity. Paths below are relative to the restored `research/` directory.
+
+### E/S/B promoters
+
+| Item | Details |
+|---|---|
+| Training-input table | `labels/build/promoter_atlas_v6_input.tsv` |
+| All records | 1,746,138; TRAIN 1,533,642 / DEV 105,364 / TEST 107,132 |
+| Species | Human and 18 orthologous species |
+| Human reference | GRCh38 / GENCODE v49 transcript promoters |
+| Windows | Local `[-200,+200)`, 400 bp; upstream `[-2000,0)`, 2000 bp |
+| Human sequences | `promoters/memmap/promoter_{sym400,up2000}_uint8.memmap` |
+| Other-species sequences | `data/multispecies/memmap/<key>_{sym400,up2000}_uint8.memmap` |
+| TRAIN mean and standard deviation | E (0.7360959, 0.2327551); S (0.8307955, 0.0871514); B (0.7283229, 0.2314467) |
+
+All three targets derive from GTEx tissue-average expression, `mean_tpm`. Human labels are transferred through orthology to form multispecies records.
+Definitions are in `labels/spec/label_definition.md`; the resulting table is `labels/build/gene_expression_label_table.tsv`.
+
+```text
+E_raw = mean_tissues(log2(1 + mean_tpm))
+B_raw = count(tissues with mean_tpm >= 1) / count(all tissues)
+S_raw = -MAD_detectable_tissues(log2(1 + mean_tpm))
+Score_X = rank_ascending_from_zero(X_raw) / (n - 1)
+```
+
+S is defined when B_raw≥0.30 and at least three tissues are detectable. Ranking uses the complete catalog of 58,988 genes, with ties ordered stably by their source-table positions.
+Missing S values are placed at the bottom during ranking and restored to missing values in the output.
+Missing targets receive `finite_mask=0` and are excluded from the corresponding loss. Accepted split labels are `train, val, test`.
+Transcripts of the same gene share that gene's E/S/B targets.
+
+Human records use the frozen `promoter_split_core.tsv`; the other species are split by gene within each species.
+Orthologous families may have records in different sets across species. See the [evaluation notes](LIMITATIONS.md#english) for interpretation.
+
+### HEK293 fragment activity
+
+| Item | Details |
+|---|---|
+| Source file | `GSE301246_PARM_Training_Library_v2_MH4_normalized_fold0.bed.gz` |
+| Source size | 103,144,961 bytes |
+| Source SHA-256 | `1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96` |
+| Target | `Log2RPM_HEK293`, v2_MH4 fold0 |
+| Reference | `Homo_sapiens.GRCh37.dna.primary_assembly.fa.gz`, 869,923,173 bytes |
+| Reference SHA-256 | `0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865` |
+| Derived directory | `data/breakthrough_20261002/batch52/corrected/cohort_v2/` |
+| Records | 761,655; TRAIN 531,860 / DEV 112,640 / TEST 117,155 |
+| Groups | 5,332; TRAIN 3,724 / DEV 814 / TEST 794 |
+| TRAIN target normalization | mean=1.6329246759414673; std=1.3893377780914307 |
+
+The derived directory contains `codes_int64.npy`, `endpoints.tsv`, `groups.tsv`, `manifest.json` and `build_report.json`.
+Fragments span 100–600 bp. `A/C/G/T` map to 0–3, and other characters and padding map to 4.
+Coordinates use 0-based half-open hg19/GRCh37 intervals. Negative-strand sequences are reverse-complemented; the 3′ endpoint is `end` on the positive strand and `start` on the negative strand.
+
+Groups are assigned by hashing `union_id` with salt `b52-full-hek-v1|`, keeping each group in one split.
+All 131,928 zero-valued target records are retained.
+
+### Dual-stream sampling and checks
+
+The seed is 20261004. Each epoch deterministically permutes and traverses 347,241 ESB TRAIN records with at least one valid label and 531,860 fragment TRAIN records.
+Both streams are spread across 16,868 training steps according to their counts. DEV and TEST serve evaluation.
+
+```bash
+python -m promoter_atlas.data_prepare --data-root research
+python -m promoter_atlas.data_prepare --data-root research --deep --out data_check.json
+```
+
+The checker verifies structure and counts; `--deep` adds source-file SHA verification. See the [source guide](ORIGINAL_SOURCES.md#english) for construction order.

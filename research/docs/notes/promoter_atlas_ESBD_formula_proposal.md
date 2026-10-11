@@ -1,399 +1,109 @@
-promoter_atlas E / S / B / D Formula Proposal
-========================================
+# E / S / B / D 公式提案 · E / S / B / D formula proposal
 
-Purpose
--------
-This document proposes a label system for promoter_atlas that is aligned with the experimental goal:
-design promoters that can drive relatively stable expression over a long time span, rather than producing
-a short-lived hit-and-run activation pattern.
+[中文](#中文) · [English](#english)
 
-The current project already has a useful GTEx-grounded label system for expression strength and cross-tissue
-behavior. The key design decision in this proposal is that cross-tissue stability and temporal durability
-should be treated as different biological axes.
+## 中文
 
-Recommended label axes
-----------------------
-The recommended label system is:
+本历史提案围绕长期稳定表达，讨论四个生物学维度及其候选排序方式。
 
-1. $$E$$: expression strength
-2. $$S_{tissue}$$: cross-tissue stability
-3. $$B$$: expression breadth
-4. $$D_{time}$$: temporal durability
+### 标签含义与公式
 
-Interpretation:
+E 为表达强度，S_tissue 为跨组织稳定性，B 为表达广度，D_time 为时间持久性，R_time 为晚期相对早期的保留率。S_tissue 和 D_time 分别保留。`x` 为组织平均 TPM，`y` 为启动子在某生物情境和时间点的活性，`C_p` 为有效情境集合，epsilon 为正的小常数。
 
-- $$E$$ measures how strong expression is.
-- $$S_{tissue}$$ measures how stable expression is across tissues.
-- $$B$$ measures how broadly expression is detected across tissues.
-- $$D_{time}$$ measures whether expression remains relatively sustained over time.
+```text
+E_raw(g) = mean_t log2(1 + x_(g,t))
+B_raw(g) = mean_t I(x_(g,t) >= 1 TPM)
+D(g) = {t: x_(g,t) >= 1 TPM}
+S_tissue_raw(g) = -MAD({log2(1+x_(g,t)): t in D(g)})
+    domain: B_raw >= 0.30 and |D(g)| >= 3
+D_c_raw(p) = -MAD({log2(1+y_(p,c,tau)): tau in Tau_c})
+D_time_raw(p) = median_(c in C_p) D_c_raw(p)
+R_c(p) = (y_(p,c,tau_late)+epsilon)/(y_(p,c,tau_early)+epsilon)
+R_time(p) = median_(c in C_p) R_c(p)
+Score_Q = rank(Q_raw)/(n-1)
+Score_HKG_3 = exp(0.40*log(Score_E+epsilon)
+                 +0.35*log(Score_S_tissue+epsilon)+0.25*log(Score_B+epsilon))
+Score_HKG_star = exp(0.25*log(Score_E+epsilon)
+                    +0.25*log(Score_S_tissue+epsilon)+0.15*log(Score_B+epsilon)
+                    +0.35*log(Score_D+epsilon))
+```
 
-Why $$S_{tissue}$$ and $$D_{time}$$ should be separated
--------------------------------------------
-The current GTEx-style stability axis is based on tissue snapshots:
+rank 使用从 0 开始的秩，有效观测数为 n；每一轴在其定义域内缩放到 [0,1]，缺失值保持缺失。现行 Candidate E 的实现与后续草案提议分别记录在构建脚本和版本说明中。
 
-$$
-S_{tissue}(g) = - MAD \big( \{ \log_2(1 + x_{g,t}) : t \in D(g) \} \big)
-$$
+### 时间数据准入与缺失值
 
-where:
+情境需有明确生物学意义、有序时间点、可比测量单位、清晰的启动子/TSS 映射、足够的有效时间点、重复处理规则，以及有解释意义的晚期阶段。优先使用启动子原生活性测定。
 
-- $$g$$ is a gene
-- $$t$$ is a tissue
-- $$x_{g,t}$$ is expression in tissue t
-- $$D(g)$$ is the detectable tissue set for gene g
+无有效情境、映射待解决、全部情境未通过准入或时间结构过稀时，D_time_raw 与 Score_D 保持缺失。无有效早晚配对时 R_time 保持缺失。S_tissue 未定义时 Score_S 与 Candidate E 风格的 HKG 保持缺失。
 
-This quantity measures cross-tissue consistency.
+持久性还需活动门控，例如 `max_tau y >= tau_min`，可进一步要求至少 m 个时间点达到阈值。这样可将持续活动与低信号平坦曲线区分。R≈1 表示晚期活动接近早期，R≪1 表示早期激活后衰减。
 
-However, the new experimental goal is different. The key question is:
+### 排序与实验设计
 
-Can a promoter maintain a relatively stable output over a long time span?
+主设计轴保持 E × S_tissue，B 用于门控和分层。时间标签达到覆盖率和质量要求后，将 D_time 与 R_time 用于实验候选筛选。三轴排序建议权重为 0.40/0.35/0.25；四轴草案为 0.25/0.25/0.15/0.35，总和为 1。加权几何均值强调各维度共同满足需求，弱维度对结果有较大影响。这些权重是设计提案，等待实验评估。
 
-This is not the same as cross-tissue stability. A promoter can be broadly active across tissues and still
-show fast decay in a time-course assay. Conversely, a promoter can be temporally persistent in one context
-but not broadly active across tissues.
+### 数据流程
 
-Therefore:
+Candidate E：GTEx → `gene_expression_table.tsv` → `gene_expression_label_table.tsv` → `promoter_label_table.tsv` → `promoter_model_input_core.tsv` / `promoter_model_input_extended.tsv`。
 
-$$
-S_{tissue} \neq D_{time}
-$$
+Candidate F：FANTOM5 等时间数据 → 情境清单 → `promoter_temporal_mapping_table.tsv` → `context_level_durability_table.tsv` → `promoter_durability_table.tsv`，按稳定启动子 ID 左连接现有标签。
 
-and they should not be merged into one raw label.
+FANTOM5 的 CAGE 数据提供启动子/TSS 活性及部分时间序列，GTEx 提供组织表达汇总。时间数据按各自情境计算后再聚合；短期响应与长期维持分别解释。
 
-Recommended formula for $$E$$
--------------------------
-For a gene $$g$$, define expression strength as:
+拟输出 `labels/build/` 下上述时间标签表、`labels/qc/candidate_f_durability_missingness_summary.tsv`、`labels/qc/candidate_f_context_coverage_summary.tsv` 及 `docs/notes/candidate_f_temporal_data_inventory.md`。
 
-$$
-E_{raw}(g) = \frac{1}{T_g} \sum_{t=1}^{T_g} \log_2(1 + x_{g,t})
-$$
+下一步依次整理资源、冻结启动子/TSS 映射、情境准入及早晚配对规则，再实现构建脚本。
 
-where:
+---
 
-- $$T_g$$ is the number of tissues observed for gene g
-- $$x_{g,t}$$ is the mean TPM in tissue t
+## English
 
-Rationale:
-- log transformation reduces domination by extreme high-expression genes
-- averaging across tissues reflects overall strength rather than tissue-specific peaks
+This historical proposal considers four biological dimensions and candidate-ranking strategies for sustained expression.
 
-Recommended formula for $$B$$
--------------------------
-Define expression breadth as:
+### Label meanings and equations
 
-$$
-B_{raw}(g) = \frac{1}{T_g} \sum_{t=1}^{T_g} \mathbf{1}(x_{g,t} \ge \tau)
-$$
+E is expression strength; S_tissue is cross-tissue stability; B is breadth; D_time is temporal durability; R_time is late-to-early retention. Keep S_tissue and D_time separate. `x` is mean tissue TPM, `y` is promoter activity in a biological context at a timepoint, `C_p` is the set of valid contexts, and epsilon is a small positive constant.
 
-where the detectable threshold is:
+```text
+E_raw(g) = mean_t log2(1 + x_(g,t))
+B_raw(g) = mean_t I(x_(g,t) >= 1 TPM)
+D(g) = {t: x_(g,t) >= 1 TPM}
+S_tissue_raw(g) = -MAD({log2(1+x_(g,t)): t in D(g)})
+    domain: B_raw >= 0.30 and |D(g)| >= 3
+D_c_raw(p) = -MAD({log2(1+y_(p,c,tau)): tau in Tau_c})
+D_time_raw(p) = median_(c in C_p) D_c_raw(p)
+R_c(p) = (y_(p,c,tau_late)+epsilon)/(y_(p,c,tau_early)+epsilon)
+R_time(p) = median_(c in C_p) R_c(p)
+Score_Q = rank(Q_raw)/(n-1)
+Score_HKG_3 = exp(0.40*log(Score_E+epsilon)
+                 +0.35*log(Score_S_tissue+epsilon)+0.25*log(Score_B+epsilon))
+Score_HKG_star = exp(0.25*log(Score_E+epsilon)
+                    +0.25*log(Score_S_tissue+epsilon)+0.15*log(Score_B+epsilon)
+                    +0.35*log(Score_D+epsilon))
+```
 
-$$
-\tau = 1 \text{ TPM}
-$$
+Rank starts at zero and n is the number of valid observations. Scale each axis to [0,1] within its defined domain and preserve missing values. Build scripts and version documentation distinguish the implemented Candidate E policy from subsequent proposals.
 
-Rationale:
-- breadth should describe how often a gene is genuinely expressed
-- this should remain a separate axis rather than being folded into stability
+### Temporal-data eligibility and missing values
 
-Recommended formula for S_tissue
---------------------------------
-Only define tissue stability when the gene has enough detectable tissues to support a meaningful variability estimate.
+An eligible context has coherent biological meaning, ordered timepoints, comparable measurement units, explicit promoter/TSS mapping, sufficient observations, documented replicate handling, and an interpretable late phase. Prefer promoter-native activity assays.
 
-Main subset gate:
+D_time_raw and Score_D remain missing when valid contexts are absent, mapping is unresolved, every context fails eligibility, or the time structure is too sparse. R_time remains missing without a valid early/late pair. Undefined S_tissue produces missing Score_S and Candidate E-style HKG.
 
-$$
-B_{raw}(g) \ge B_{min}
-$$
+Durability also requires an activity gate, such as `max_tau y >= tau_min`, optionally with at least m timepoints above threshold. This separates sustained activity from flat low-signal traces. R≈1 means late activity is close to early activity; R≪1 indicates decay after initial activation.
 
-with:
+### Ranking and experimental design
 
-$$
-B_{min} = 0.30
-$$
+Keep E × S_tissue as the primary design space and use B for gating and stratification. Add D_time and R_time to experimental nomination after coverage and label quality are adequate. Proposed three-axis weights are 0.40/0.35/0.25; four-axis weights are 0.25/0.25/0.15/0.35, summing to 1. A weighted geometric mean emphasizes joint suitability and penalizes weak dimensions. These weights are design proposals awaiting experimental evaluation.
 
-Detectable tissue requirement:
+### Data flow
 
-$$
-|D(g)| \ge 3
-$$
+Candidate E: GTEx → `gene_expression_table.tsv` → `gene_expression_label_table.tsv` → `promoter_label_table.tsv` → `promoter_model_input_core.tsv` / `promoter_model_input_extended.tsv`.
 
-Then define:
+Candidate F: temporal sources including FANTOM5 → context inventory → `promoter_temporal_mapping_table.tsv` → `context_level_durability_table.tsv` → `promoter_durability_table.tsv`, followed by a left join on stable promoter IDs.
 
-$$
-z_{g,t} = \log_2(1 + x_{g,t}), \qquad t \in D(g)
-$$
+FANTOM5 CAGE provides promoter/TSS activity and selected time courses; GTEx provides tissue-expression summaries. Calculate temporal statistics within each context before aggregation and interpret short-term response separately from long-term maintenance.
 
-and:
+Planned outputs include the temporal tables above under `labels/build/`, `labels/qc/candidate_f_durability_missingness_summary.tsv`, `labels/qc/candidate_f_context_coverage_summary.tsv`, and `docs/notes/candidate_f_temporal_data_inventory.md`.
 
-$$
-S_{tissue,raw}(g) = - MAD \big( \{ z_{g,t} : t \in D(g) \} \big)
-$$
-
-Rationale:
-- the gate avoids calling tissue-specific genes "stable"
-- the minimum detectable tissue count avoids degenerate variance estimates
-- using MAD makes the label more robust than variance-based definitions
-
-Recommended formula for $$D_{time}$$
-------------------------------
-For promoter $$p$$ in a specific temporal context $$c$$ with time points $$\tau \in \mathcal{T}_c$$, define:
-
-$$
-D_{c,raw}(p) = - MAD \big( \{ \log_2(1 + y_{p,c,\tau}) : \tau \in \mathcal{T}_c \} \big)
-$$
-
-where:
-
-- $$y_{p,c,\tau}$$ is promoter activity at time point \tau
-- $$c$$ may represent a differentiation trajectory, stimulus response, or other time-course context
-
-This is the temporal analogue of S_tissue.
-
-Recommended activation gate for $$D_{time}$$
---------------------------------------
-$$D_{time}$$ should only be defined if the promoter is genuinely active in the time course. For example:
-
-$$
-\max_{\tau \in \mathcal{T}_c} y_{p,c,\tau} \ge \tau_{min}
-$$
-
-and optionally:
-
-$$
-\sum_{\tau \in \mathcal{T}_c} \mathbf{1}(y_{p,c,\tau} \ge \tau_{min}) \ge m
-$$
-
-Rationale:
-- very low flat traces should not be treated as "durable"
-- $$D_{time}$$ should reflect sustained active transcription, not merely low noise
-
-Recommended multi-context durability aggregation
-------------------------------------------------
-Because temporal data will usually come from multiple experimental contexts rather than one unified database,
-first compute $$D$$ in each context, then aggregate across contexts.
-
-For promoter $$p$$:
-
-$$
-D_{time,raw}(p) = median_{c \in C_p} D_{c,raw}(p)
-$$
-
-where $$C_p$$ is the set of contexts in which promoter p has valid temporal measurements.
-
-This avoids forcing incompatible time-course experiments into one single matrix.
-
-Recommended hit-and-run penalty
--------------------------------
-Temporal durability should be complemented with a retention-style quantity.
-
-For each context c:
-
-$$
-R_{c}(p) = \frac{y_{p,c,\tau_{late}} + \epsilon} {y_{p,c,\tau_{early}} + \epsilon}
-$$
-
-Interpretation:
-
-- $$R_c(p) \approx 1$$ means late expression remains close to early expression
-- $$R_c(p) \ll 1$$ means strong decay after early activation, i.e. hit-and-run-like behavior
-
-A robust aggregate form is:
-
-$$
-R_{time}(p) = median_{c \in C_p} R_c(p)
-$$
-
-This quantity is especially relevant if the experimental objective explicitly rejects CRISPR-a-like transient activation.
-
-Why simple equal-weight geometric mean is no longer ideal
----------------------------------------------------------
-The current Candidate E style ranking can be written as:
-
-$$
-Score_{HKG} = \big(Score_E \cdot Score_{S_{tissue}} \cdot Score_B \big)^{1/3}
-$$
-
-This is mathematically simple and reasonable for a three-axis system, but once temporal durability becomes
-a primary experimental goal, equal weighting is no longer the most appropriate choice.
-
-The project goal is not merely to find genes that are:
-- highly expressed
-- broad
-- cross-tissue stable
-
-It is also to find promoters that are likely to maintain expression over time.
-
-Therefore $$D_{time}$$ should not be a minor afterthought.
-
-Recommended normalization
--------------------------
-Each raw label should be converted to a rank-scaled score in [0, 1].
-
-For any raw label $$Q_{raw}$$ over $$n$$ valid observations:
-
-$$
-Score_Q = \frac{rank(Q_{raw})}{n - 1}
-$$
-
-This is appropriate for:
-- $$Score_E$$
-- $$Score_{S_{tissue}}$$
-- $$Score_B$$
-- $$Score_D$$
-
-Rationale:
-- avoids assuming raw labels are Gaussian
-- stabilizes downstream multi-objective combination
-- is robust to heavy-tailed expression distributions
-
-Recommended final HKG-like ranking score
-----------------------------------------
-The best overall choice for the current experimental purpose is a weighted geometric mean:
-
-$$
-Score_{HKG^*} = \exp \Big(w_E \log(Score_E + \epsilon) + w_S \log(Score_{S_tissue} + \epsilon) + w_B \log(Score_B + \epsilon) + w_D \log(Score_D + \epsilon) \Big)
-$$
-
-with:
-
-$$
-w_E + w_S + w_B + w_D = 1
-$$
-
-Recommended weights:
-
-$$
-w_E = 0.25
-$$
-
-$$
-w_S = 0.25
-$$
-
-$$
-w_B = 0.15
-$$
-
-$$
-w_D = 0.35
-$$
-
-Therefore:
-
-$$
-Score_{HKG^*} = \exp \Big(0.25 \log(Score_E + \epsilon) + 0.25 \log(Score_{S_tissue} + \epsilon) + 0.15 \log(Score_B + \epsilon) + 0.35 \log(Score_D + \epsilon) \Big)
-$$
-
-Why this is the best choice
----------------------------
-This formula is recommended because:
-
-1. It preserves the conjunctive nature of housekeeping-like behavior.
-   A promoter should not rank highly if one essential dimension is extremely poor.
-
-2. It gives temporal durability the largest weight.
-   This directly reflects the updated experimental goal: sustained output over time is one of the main objectives.
-
-3. It still preserves expression strength and cross-tissue stability as major axes.
-   A durable promoter that is too weak or too context-restricted is not a practical target.
-
-4. It prevents breadth from dominating the final score.
-   Breadth matters, but it should not overwhelm the more mechanistic stability dimensions.
-
-Why weighted geometric mean is preferable to weighted sum
----------------------------------------------------------
-A weighted sum such as
-
-$$
-Score = a Score_E + b Score_S + c Score_B + d Score_D
-$$
-
-is easier to interpret, but it allows a very high value in one dimension to compensate too easily for
-a very poor value in another.
-
-For promoter design, this is undesirable. A promoter with very high expression but very poor durability
-should not rank among the best candidates for long-term stable systems.
-
-The geometric mean imposes a stronger penalty on weak dimensions and is therefore better aligned with
-the experimental objective.
-
-Recommended current-stage implementation
-----------------------------------------
-Before temporal data are fully available, the project can proceed in two stages.
-
-Stage 1:
-Use the current GTEx-grounded system:
-
-$$
-(E,\ S_{tissue},\ B)
-$$
-
-with the current three-axis score:
-
-$$
-Score_{HKG,3} = \exp \Big(0.40 \log(Score_E + \epsilon) + 0.35 \log(Score_{S_tissue} + \epsilon) + 0.25 \log(Score_B + \epsilon) \Big)
-$$
-
-This is preferred over equal weights even now, because breadth should be a little less dominant than
-expression strength and cross-tissue stability.
-
-Stage 2:
-Once FANTOM5 or other time-course promoter-level data are integrated, move to:
-
-$$
-(E,\ S_{tissue},\ B,\ D_{time})
-$$
-
-and then use the four-axis final score:
-
-$$
-Score_{HKG^*} = \exp \Big(0.25 \log(Score_E + \epsilon) + 0.25 \log(Score_{S_tissue} + \epsilon) + 0.15 \log(Score_B + \epsilon) + 0.35 \log(Score_D + \epsilon) \Big)
-$$
-
-Practical interpretation of the four axes
------------------------------------------
-The four-axis system should be read as:
-
-- $$E$$ : how strong the promoter-driven output can be
-- $$S_{tissue}$$ : how consistently that output is supported across tissues or biological backgrounds
-- $$B$$ : how broadly the output is detected
-- $$D_{time}$$ : how well the promoter maintains output across time
-
-This means:
-
-- a high- $$E$$ promoter is strong
-- a high- $$S_{tissue}$$ promoter is broadly stable across tissues
-- a high- $$B$$ promoter is broadly detectable
-- a high- $$D_{time}$$ promoter is persistent rather than transient
-
-Final recommendation
---------------------
-For scientific clarity and experimental usefulness, the recommended path is:
-
-1. Keep current GTEx-grounded labels as:
-
-$$E , \ S_{tissue} , \ B$$
-
-2. Do not redefine $$S_{tissue}$$ to mean temporal stability.
-
-3. Introduce temporal durability as a new independent axis:
-
-$$D_{time}$$
-
-4. Use a weighted geometric mean as the final HKG-like ranking formula.
-
-5. Once temporal proxy data are available, make $$D_{time}$$ the highest-weight stability-related axis.
-
-The core conceptual recommendation is:
-
-$$
-S_{tissue} \neq D_{time}
-$$
-
-and the final long-term promoter design objective should be centered on:
-
-$$
-(E,\ S_{tissue},\ B,\ D_{time})
-$$
-
-rather than forcing all notions of stability into one single label.
+Next, inventory resources and freeze promoter/TSS mapping, context eligibility, and early/late pairing rules before implementing the build scripts.

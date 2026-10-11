@@ -1,96 +1,29 @@
-# Motif feature pipeline v1
+# Motif 特征流程 · Motif feature pipeline
 
-## Purpose
+[中文](#中文) · [English](#english)
 
-This document freezes the first formal motif feature schema for promoter_atlas.
+## 中文
 
-The current step is schema freeze only.
-PWM source freeze and motif scanning are still pending.
+### Phase 6b 特征设计
 
-## Current project state
+以 up200 的 `record_id` 和已有序列 memmap 为基础，方案包含18个 motif、10对 motif 和256个特征。分层为 A_core（优先候选）、B_support（广度/稳定性支持）和 C_control（QC对照）。
 
-- Sequence memmap for core promoters already exists.
-- `features/motif/` was empty before this schema step.
-- Phase 6b now freezes:
-  - motif panel
-  - motif pair whitelist
-  - motif feature manifest
+单 motif 特征为 `count_loose`、`count_strict`、`presence_strict`、`density_loose`、`best_score_norm`、`best_pos_rel_tss`。位置分为远端[-200,-101]、中段[-100,-41]和近端[-40,-1]。
 
-## Scope of v1 motif schema
+配对特征为 `present`、`min_spacing_bp`、`spacing_bin`、`same_orientation_flag`。
 
-### Training-aligned scope
+下一步确定 PWM accession、归一化和阈值，扫描 memmap/FASTA，在 features/motif 输出 hit、aggregate、grammar 表；下游训练入口为 train_promoter_model_v2.py。
 
-The first motif feature version is aligned to the current core promoter window:
+---
 
-- promoter window: up200
-- primary key: `record_id`
+## English
 
-### Formal outputs planned for later build steps
+### Phase 6b design
 
-- `features/motif/promoter_motif_hits.tsv`
-- `features/motif/promoter_motif_agg.tsv`
-- `features/motif/promoter_motif_grammar.tsv`
+The schema uses up200 `record_id` values and the existing sequence memmap. It contains 18 motifs, 10 motif pairs, and 256 features. Motif tiers are `A_core` (priority candidates), `B_support` (breadth/stability support), and `C_control` (QC controls).
 
-These files are not built yet in this step.
+Single-motif features: `count_loose`, `count_strict`, `presence_strict`, `density_loose`, `best_score_norm`, and `best_pos_rel_tss`. Position zones are distal `[-200,-101]`, middle `[-100,-41]`, and proximal `[-40,-1]`.
 
-## Frozen panel summary
+Pair features: `present`, `min_spacing_bp`, `spacing_bin`, and `same_orientation_flag`.
 
-- motif count: 18
-- pair count: 10
-- planned feature count: 256
-
-### Tier interpretation
-
-- `A_core`: high-priority promoter-relevant motifs
-- `B_support`: useful secondary motifs for expression breadth / stability contrast
-- `C_control`: control motifs, mainly for contrast and QC
-
-## Planned single-motif features
-
-For each motif, v1 reserves these promoter-level aggregated features:
-
-- `count_loose`
-- `count_strict`
-- `presence_strict`
-- `density_loose`
-- `best_score_norm`
-- `best_pos_rel_tss`
-
-Additionally, v1 reserves zone-specific counts for:
-
-- distal: `[-200,-101]`
-- mid: `[-100,-41]`
-- proximal: `[-40,-1]`
-
-## Planned pair grammar features
-
-For each whitelisted pair, v1 reserves:
-
-- `pair_present`
-- `min_spacing_bp`
-- `spacing_bin`
-- `same_orientation_flag`
-
-## Pending items before real motif scanning
-
-1. Freeze PWM source and accession for every motif in `motif_panel_v1.tsv`
-2. Freeze score normalization rule
-3. Freeze loose / strict threshold policy
-4. Implement scan script against `promoters/memmap` or the aligned FASTA source
-5. Build hits / agg / grammar tables
-6. Train `train_promoter_model_v2.py`
-
-## Design constraints
-
-This schema is designed to support:
-
-- expression strength prediction
-- cross-tissue stability prediction
-- motif overlap interpretation
-- motif grammar interpretation
-- small-step promoter editing for wetlab follow-up
-
-## Important project rule
-
-This motif layer is not for benchmark decoration.
-It is a formal interface between promoter sequence, model explanation, and experimental design.
+Next steps are to resolve PWM accession IDs, define normalization and thresholds, scan the memmap/FASTA, and write hit, aggregate, and grammar tables under `features/motif`. The downstream training entry point is `train_promoter_model_v2.py`.

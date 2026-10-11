@@ -1,3 +1,44 @@
+# v2_dual_nobn_zs_card · 模型卡 / Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+本卡记录对应历史模型的配置与评估。技术标识沿用原字段名，便于与脚本及结果表对应。
+
+| 字段 | 值 |
+|---|---|
+| 名称 (`name`) | v2_dual_nobn_zs |
+| 结构 (`arch`) | dual_stream_200_2000 |
+| 特征配置 (`features`) | none |
+| 特征维数 (`feat_dim`) | 0 |
+| 设备 (`device`) | cuda |
+| 参数数 (`params`) | 534435 |
+
+### 测试指标
+`gene` 为基因级汇总，`sp` 为其他物种评估，`dist` 为蒸馏目标，`omics` 为组学目标，`tf` 为 TF 标签，`mpra` 为片段任务；`r2`、`spearman`、`rmse`、`n` 和 `ci_lo/ci_hi` 分别为 R²、秩相关、均方根误差、记录数及区间端点。NaN/null 保留为未定义值。
+```json
+{
+  "Score_E_r2": 0.2412676504769986,
+  "Score_E_spearman": 0.4789395117621221,
+  "Score_E_n": 44387,
+  "Score_S_r2": 0.11465074208785553,
+  "Score_S_spearman": 0.3490760755204331,
+  "Score_S_n": 29467,
+  "Score_B_r2": 0.21882458054484066,
+  "Score_B_spearman": 0.4630240455732587,
+  "Score_B_n": 44387,
+  "combined_spearman": 0.42950844253031517
+}
+```
+
+---
+
+## English
+
+Historical model configuration and evaluation. Original field identifiers and numeric records follow.
+
+```text
 name	v2_dual_nobn_zs
 arch	dual_stream_200_2000
 features	none
@@ -5,3 +46,4 @@ feat_dim	0
 device	cuda
 params	534435
 test_metrics	{"Score_E_r2": 0.2412676504769986, "Score_E_spearman": 0.4789395117621221, "Score_E_n": 44387, "Score_S_r2": 0.11465074208785553, "Score_S_spearman": 0.3490760755204331, "Score_S_n": 29467, "Score_B_r2": 0.21882458054484066, "Score_B_spearman": 0.4630240455732587, "Score_B_n": 44387, "combined_spearman": 0.42950844253031517}
+```

@@ -1,56 +1,49 @@
-# Promoter Analysis Set Notes
+# 启动子分析集 · Promoter analysis sets
 
-## Purpose
+[中文](#中文) · [English](#english)
 
-- build an analysis-ready transcript-level promoter table
-- separate clean core-promoter inputs from extended-context inputs
-- keep risky promoter records visible instead of silently dropping them
-- prepare later E / S / B label integration
+## 中文
 
-## Tier Definitions
+分层为 core_clean（up200严格通过）、extended_clean（up2000严格通过）、qc_pass_but_review（建议通过且需复核）及 qc_fail。
 
-- core_clean: up200 and strict_pass = 1
-- extended_clean: up2000 and strict_pass = 1
-- qc_pass_but_review: recommended_pass = 1 but not strict_pass
-- qc_fail: failed sequence QC
+额外标记包括 start0<2000、长度低于标称，以及有边界/高N/缩短问题的 CHM13 救援候选。
 
-## New Flags
+| 指标 | up200 | up2000 |
+|---|---:|---:|
+| 记录数 | 507365 | 507365 |
+| 建议通过 | 492108 | 315445 |
+| 建议通过率 | 0.969929 | 0.621732 |
+| 严格通过 | 492104 | 315436 |
+| 严格通过率 | 0.969921 | 0.621714 |
+| core_clean | 492104 | 0 |
+| extended_clean | 0 | 315436 |
+| qc_fail | 15257 | 191920 |
+| 边界标记 | 4 | 6 |
+| 缩短 | 0 | 7 |
+| 救援候选 | 0 | 156 |
 
-- flag_boundary_near_start: promoter start0 < 2000
-- flag_shorter_than_nominal: extracted length shorter than nominal window
-- flag_chm13_rescue_candidate: up2000 record with boundary/highN/shortening risk
+基线用 core，扩展上下文用于成对窗口比较，中间层用于敏感性分析。救援候选进入设计前先单独评估。
 
-## Recommended Usage
+---
 
-- first promoter-only baseline model should use core_clean
-- extended_clean should be used only as a paired comparison against core_clean
-- qc_pass_but_review can be retained for sensitivity analysis
-- flag_chm13_rescue_candidate records should not enter main design library directly
+## English
 
-## Window Summary
+Analysis tiers are `core_clean` (strict-pass up200), `extended_clean` (strict-pass up2000), `qc_pass_but_review` (recommended pass requiring review), and `qc_fail`.
 
-### up200
-- record_count: `507365`
-- recommended_pass_count: `492108`
-- recommended_pass_frac: `0.969929`
-- strict_pass_count: `492104`
-- strict_pass_frac: `0.969921`
-- core_model_pass_count: `492104`
-- extended_context_pass_count: `0`
-- qc_fail_count: `15257`
-- flag_boundary_near_start_count: `4`
-- flag_shorter_than_nominal_count: `0`
-- flag_chm13_rescue_candidate_count: `0`
+Additional flags cover `start0 < 2000`, shorter-than-nominal sequences, and CHM13 rescue candidates with boundary/high-N/shortening issues.
 
-### up2000
-- record_count: `507365`
-- recommended_pass_count: `315445`
-- recommended_pass_frac: `0.621732`
-- strict_pass_count: `315436`
-- strict_pass_frac: `0.621714`
-- core_model_pass_count: `0`
-- extended_context_pass_count: `315436`
-- qc_fail_count: `191920`
-- flag_boundary_near_start_count: `6`
-- flag_shorter_than_nominal_count: `7`
-- flag_chm13_rescue_candidate_count: `156`
+| Statistic | up200 | up2000 |
+|---|---:|---:|
+| Records | 507365 | 507365 |
+| Recommended pass | 492108 | 315445 |
+| Recommended fraction | 0.969929 | 0.621732 |
+| Strict pass | 492104 | 315436 |
+| Strict fraction | 0.969921 | 0.621714 |
+| core_clean | 492104 | 0 |
+| extended_clean | 0 | 315436 |
+| qc_fail | 15257 | 191920 |
+| Boundary flag | 4 | 6 |
+| Shortened | 0 | 7 |
+| Rescue candidates | 0 | 156 |
+
+Use the core set for baseline training and the extended set for paired window comparisons. Review the intermediate tier in sensitivity analyses and assess rescue candidates before sequence design.

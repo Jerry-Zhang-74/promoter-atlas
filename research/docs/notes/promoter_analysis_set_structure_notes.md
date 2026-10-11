@@ -1,19 +1,25 @@
-# Promoter Analysis Set Structure Notes
+# 分析集结构检查 · Analysis-set structure checks
 
-## Purpose
+[中文](#中文) · [English](#english)
 
-- audit the structural integrity of labels/build/promoter_analysis_set.tsv before rebuilding labels
-- verify constant column count across rows
-- detect malformed binary flags and basic field-format issues
-- identify suspicious rows before the next full label rebuild
+## 中文
 
-## Output Files
+审核 `labels/build/promoter_analysis_set.tsv` 的列数、二进制标记和数据格式，输出：
 
-- audit summary: `labels/qc/promoter_analysis_set_structure_audit.tsv`
-- bad row examples: `labels/qc/promoter_analysis_set_bad_rows.tsv`
-- column null audit: `labels/qc/promoter_analysis_set_column_null_audit.tsv`
+- `labels/qc/promoter_analysis_set_structure_audit.tsv`
+- `labels/qc/promoter_analysis_set_bad_rows.tsv`
+- `labels/qc/promoter_analysis_set_column_null_audit.tsv`
 
-## Next Step
+修复结构后再继续 Candidate C 稳定性标签构建。
 
-- if structural audit is clean, rebuild labels using S candidate C
-- if structural audit is not clean, repair promoter_analysis_set.tsv first
+---
+
+## English
+
+Audit `labels/build/promoter_analysis_set.tsv` for field counts, binary flags, and data formats. Outputs:
+
+- `labels/qc/promoter_analysis_set_structure_audit.tsv`
+- `labels/qc/promoter_analysis_set_bad_rows.tsv`
+- `labels/qc/promoter_analysis_set_column_null_audit.tsv`
+
+Repair structural issues before proceeding to Candidate C stability labels.

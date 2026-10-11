@@ -1,66 +1,53 @@
-# batch58 -- v6.39.0-throughput-checkpoint.rc1 (throughput resource variant + REAL resume)
+# batch58 吞吐与续训变体 · batch58 throughput and resume variant
 
-RESOURCE CONFIGURATION variant. NOT evidence of better accuracy; NOT exact replication when the
-effective batch changes. Parent explicitly authorized this variant and the b58-only cap-3 gate.
+[中文](#中文) · [English](#english)
 
-## What it is
-* A fresh **Nabs** (activity-only) training of the reviewed frozen batch57 model, trained on the
-  SAME corrected cohort (531860 TRAIN rows / all frozen groups / target `Log2RPM_HEK293`),
-  SAME architecture / fp32 / lr / loss / seed / per-epoch deterministic order -- changing ONLY
-  the **effective optimizer batch** (fewer optimizer steps per epoch, recorded explicitly).
-* A **REAL checkpoint resume** (fresh `batch58.checkpoint.v2` schema) replacing the batch57
-  fail-closed stub. Weights + AdamW state + python/numpy/torch-CPU/CUDA RNG + normalizer +
-  pooled-feature(loglen/GC) state + epoch + exact `next_pos` + order seed + pair pointer +
-  history + best + global optimizer steps + config/data hashes + device are persisted.
+## 中文
 
-## Files
-| file | role |
-|---|---|
-| `b58_gate.py` | NEW separate ledger, cap **3**, every reservation CONSUMING; re-verifies the vendored gate bytes `e1ff80a6...` |
-| `_exec_gate_vendored.py` | byte-identical reviewed executor gate (sha `e1ff80a6...`) |
-| `b58_core.py` | resume-capable trainer (schema v2, 2-generation retention, stopfile/SIG, OOM pre-step restore) |
-| `b58_probe.py` | forward+backward (NO optimizer step) throughput/memory profiler, batches 32..2048 |
-| `b58_run.py` | bounded GPU waiter + driver (profile -> train -> resume) + status artifacts |
-| `selfcheck_b58.py` | artificial CPU selfcheck (gate/resume/retention/coverage/selector units) |
-| `smoke_b58.py` | artificial CPU end-to-end stop+resume integration test |
-| `dryrun_b58.py` | CPU dry-run over a small REAL cohort slice (validates the exact call path, no gate) |
-| `freeze_code_ready.py` | re-freezes CODE_READY.json with current bytes + per-file sha256 |
-| `finalize_b58.py` | honest memory-target assessment + TRAINING_DONE + worker status |
-| `b58_manifest.py` | immutable manifest (excludes mutable progress/review/mail) |
+版本 `v6.39.0-throughput-checkpoint.rc1` 改变有效优化器 batch，研究资源配置与续训。数据为修正队列全部 531860 TRAIN 行，目标 Log2RPM_HEK293；沿用 batch57 架构、fp32、学习率、损失、seed 和逐 epoch 顺序。batch 变化同时改变每 epoch 优化器步数。
 
-## Executions (b58-only allowance, cap-3) -- all three CONSUMED
-1. `b58-profile` -- gradient profile only, no optimizer step.
-2. `b58-Nabs-throughput-variant` -- fresh training, controlled graceful stop inside epoch 0.
-3. `b58-resume-continuation` -- NEW process resumes the saved generation and finishes 2 epochs.
+### 实现与执行
 
-The original batch52 ledger (MAX 4) is untouched; the frozen batch32 comparison is unchanged.
+b58_gate 管理独立上限 3 的台账；_exec_gate_vendored 固定已审核 gate；b58_core 实现 v2 checkpoint、两代保留、停止信号和 OOM 恢复；b58_probe 测试 batch32..2048 的前向/反向吞吐；b58_run 等待 GPU 并执行 profile/train/resume；selfcheck_b58 检查单元行为；smoke_b58 检查人工 stop/resume；dryrun_b58 检查真实数据小切片调用；freeze_code_ready 固定文件哈希；finalize_b58 记录结果；b58_manifest 管理产物清单。
 
-## Resume semantics (falsifiable)
-* `next_pos` = position AFTER the last processed batch. An old-style mid checkpoint (b57 schema,
-  whose `pos` points AT the processed batch) is REJECTED, never silently replayed.
-* On resume the loader recomputes the deterministic order, checks the saved next/last batch id
-  lists AND a running coverage-prefix hash (skip/repeat detection) before any gradient.
-* Keep the last TWO valid immutable generations; sha256 + sidecar are written BEFORE `latest.json`
-  is atomically updated.
-* Stop only after a fully saved optimizer boundary (SIGINT/SIGTERM/stopfile).
-* CUDA OOM -> restore whole pre-step state + RNG, retry with smaller micro-batch; retries recorded.
-  No CPU neural fallback, no fake GPU load.
+三次执行均计入台账：b58-profile（梯度吞吐检查）、b58-Nabs-throughput-variant（epoch0 内受控停止）、b58-resume-continuation（新进程恢复并完成 2 epochs）。batch52 的 batch32 比较单独保留。
 
-## GPU-use precondition
-GPU is touched ONLY after the original healthy run's actual PID+OS-creation is gone, BOTH
-`Nabs_ready.json` and `Njoint_ready.json` exist, `batch52/GPU_EVALUATION_DONE.json` (first-model
-evaluation handoff) exists, and no competing python compute process remains. The shared repaired
-b57 GPU lock is taken in `runs/breakthrough_20261002/batch52`.
+### 续训语义
 
-## PARENT pre-GPU patch (2026-10-04 10:12) -- KEPT, never reverted
-`PARENT_PRE_GPU_CORRECTION.json` corrected the batch selector to **samples/second**
-(`batch/median_s`), made unmeasured memory fail-closed, and added the GPU handoff prerequisite +
-shared lock. Verified by `selfcheck_b58.check_selector_throughput_units`
-(batch32@0.010 s vs batch128@0.020 s -> 128 wins despite worse latency). `CODE_READY.json` was
-re-frozen afterwards with the current bytes.
+`batch58.checkpoint.v2` 保存权重、AdamW、Python/NumPy/CPU/CUDA RNG、normalizer、loglen/GC 状态、epoch、next_pos、顺序 seed、配对指针、历史、best、优化器步数、config/data 哈希和设备。next_pos 指向已处理批次之后；旧 b57 的 pos 含义不同，加载时校验 schema。
 
-## Honest resource outcome (see reports/.../batch58/throughput_analysis.json)
-The requested ~6.7-7.1 GiB device target was **NOT reached**: the corrected selector picks the
-fastest measured memory-safe batch (64 -> ~2.8 GiB peak). Only batch 2048 approached the target
-(7.61 GiB used) but left 0.015 GiB free (< 0.7 GiB floor) and was ~22x slower per step. Usage was
-not padded. Resource result only -- no accuracy/perf-superiority claim.
+恢复时重建顺序并核对前后批次 ID 与覆盖前缀哈希；先写 SHA/sidecar 再原子更新 latest.json，保留最近两代。SIGINT/SIGTERM/stopfile 在完整优化器保存边界退出；CUDA OOM 恢复步前状态/RNG，缩小 microbatch 重试并记录。
+
+### GPU 条件与结果
+
+等待原训练 PID/创建时间结束、Nabs_ready 和 Njoint_ready、batch52/GPU_EVALUATION_DONE 齐备且计算设备空闲，取得 batch52 共享锁后执行。
+
+2026-10-04 10:12 修订以 samples/second（batch/median_s）选 batch，要求有效显存测量并加入评估交接条件。单元例子 batch32@0.010s 与 batch128@0.020s 选 128。
+
+实测选择 batch64，显存峰值约 2.8 GiB；原目标为 6.7–7.1 GiB。batch2048 使用 7.61 GiB、仅剩 0.015 GiB，低于 0.7 GiB 余量，单步约慢 22 倍。结果记录于 reports/.../batch58/throughput_analysis.json。
+
+---
+
+## English
+
+Version `v6.39.0-throughput-checkpoint.rc1` changes effective optimizer batch to study resource configuration and resume. It uses all 531860 corrected-cohort TRAIN rows, targeting Log2RPM_HEK293, with the batch57 architecture, fp32, learning rate, loss, seed, and epoch ordering. Changing batch also changes optimizer steps per epoch.
+
+### Implementation and executions
+
+b58_gate manages a separate three-slot ledger; _exec_gate_vendored pins the reviewed gate; b58_core implements v2 checkpoints, two-generation retention, stop signals, and OOM restore; b58_probe measures forward/backward throughput at batch32..2048; b58_run waits for GPU and drives profile/train/resume; selfcheck_b58 tests units; smoke_b58 tests artificial stop/resume; dryrun_b58 checks a small real-data slice; freeze_code_ready pins hashes; finalize_b58 records results; b58_manifest manages artifacts.
+
+All three executions consumed slots: b58-profile (gradient throughput), b58-Nabs-throughput-variant (controlled stop inside epoch0), and b58-resume-continuation (new-process restore completing two epochs). The batch52 batch32 comparison is retained separately.
+
+### Resume semantics
+
+`batch58.checkpoint.v2` stores weights, AdamW, Python/NumPy/CPU/CUDA RNG, normalizer, loglength/GC state, epoch, next_pos, order seed, pair pointer, history, best, optimizer steps, config/data hashes, and device. next_pos points after the processed batch; the older b57 pos has different semantics, so loading validates the schema.
+
+Resume rebuilds ordering and checks next/last batch IDs and a coverage-prefix hash. Write SHA/sidecar before atomically updating latest.json, retaining two valid generations. SIGINT/SIGTERM/stopfile exit at fully saved optimizer boundaries. CUDA OOM restores pre-step state/RNG, reduces microbatch, and records retries.
+
+### GPU conditions and results
+
+Wait for the original trainer PID/creation identity to end, Nabs_ready, Njoint_ready, batch52/GPU_EVALUATION_DONE, and an available compute device, then acquire the batch52 shared lock.
+
+The 2026-10-04 10:12 repair selects by samples/second (batch/median_s), requires valid memory measurements, and adds evaluation-handoff checks. The unit example selects batch128@0.020s over batch32@0.010s.
+
+Measured selection was batch64 at approximately 2.8 GiB peak, compared with the requested 6.7–7.1 GiB. Batch2048 used 7.61 GiB with 0.015 GiB free, below the 0.7 GiB margin, and was about 22 times slower per step. Results are in reports/.../batch58/throughput_analysis.json.

@@ -1,39 +1,41 @@
-promoter_atlas v6.17.0-hektransfer.rc1 (batch22) — frozen-representation HEK293 transfer / domain evaluation
-============================================================================================================
-Version: v6.17.0-hektransfer.rc1   Lineage: next free after v6.16.1-sequence.rc1 (batch21).
-Primary task: SMALL frozen-representation transfer / domain evaluation, NOT a new end-to-end model.
-  Target: published HEK293 (NOT HEK293T) bulk MPRA hek_norm = log2(hek exp/input) from the measured 133 bp
-  core-promoter insert. K562 measured values are paired-cell DIAGNOSTIC references only, never model input.
-Dataset: GSE188639 (Zhao et al. 2023 Nat Genet) 676 core-promoter members; 673 joined BY EXACT prom_id to
-  published hg19 133 bp sequences (Haberle et al. 2019 Nature Suppl. Table 6). 3 synthetic SCP1 mutant
-  members (SCP1_mTATA / SCP1_mDPE / SCP1_mboth) have no published sequence -> EXCLUDED, never fabricated.
-  Normalization verified to machine precision (max|diff| 8.88e-16 vs log2(exp/input)); negatives preserved;
-  no extra log, no negative dropping.
-Split: label-free grouping (Hamming<=16 fwd/RC; same-locus window overlap) -> 673 rows / 669 groups;
-  5 deterministic balanced group folds seed 20261025, cross-fold grouping violations 0.
-  Source exposure: 4 rows have an exact 133-mer match to a GSE118242 K562 pretraining oligo (stratified).
-Frozen source: batch21 RecipeA ckpt_A_seed20261023 (modelSHA bc35e5585fa7...); pooled pre-head representation
-  h = cat[mean_L, max_L] (128-d), extracted on cuda:0 with parameter/input assertions, batch 32, NO padding,
-  NO truncation, NO reference DNA, NO HEK labels (n_hek_labels_used=0). Frozen weights never updated.
-Readouts (predeclared; NO inner search, NO seed shopping):
-  R0 = outer-train mean (bookkeeping, not a fit).
-  R1 = whole-measured-insert composition (mono4+di16+tri64+GC+log1p len = 86-d) -> Ridge(alpha=100).
-  R2 = same R1 features + the frozen 128-d representation (214-d) -> Ridge(alpha=100).
-Fit budget: 5 outer folds x 2 ridge recipes = 10 ridge fits (actual 10); neural end-to-end full fits = 0.
-Results (group-heldout OOF, n=673, published log2 units):
-  R0: Spearman=-0.0891 MAE=0.6527 R2=-0.0023 top-decile precision=0.1029 enrichment=1.02
-  R1: Spearman=0.4566 MAE=0.5717 R2=0.1915 top-decile precision=0.2941 enrichment=2.91
-  R2: Spearman=0.4617 MAE=0.5946 R2=0.1939 top-decile precision=0.3088 enrichment=3.06
-Decision (predeclared, frozen, not lowered after results): Spearman gain>=0.03 AND MAE reduction>=10% AND
-  top-decile precision not lower AND positive rho difference in >=4/5 folds; a bootstrap CI crossing zero => uncertain.
-  delta_rho(R2-R1)=+0.0051   MAE reduction=-4.0%   top-decile not lower=True   positive folds=3/5   CI_lo>0=False
-VERDICT: no substantive improvement (honest negative). The frozen K562 representation adds no predeclared practical HEK293 gain over the
-  composition baseline; R1 alone already reaches Spearman=0.4566. Reported as an honest negative.
-Scope / claims: retrospective grouped CV on 676 public HEK293 records. NO prospective or external claim.
-  HEK293 performance is NOT HEK293T suitability. The 14 ACTB/GAPDH/CMV local constructs are untouched
-  external-context probes: no DNA sequence exists in project records, so NO numeric full-activity claim.
-Compute: frozen extraction + timing on NVIDIA GeForce RTX 5060 Laptop GPU (cuda:0, batch 32), 0.019 ms/sequence; GPU use far below the 30 min cap;
-  classical ridge fits are small CPU linear-algebra jobs, not GPU training.
-Artifacts: reports/breakthrough_20261002/batch22/{results,freeze,manifests,selfcheck,next_batch_proposal}.json,
-  figures/, data/breakthrough_20261002/batch22/, raw-input CLI runs/breakthrough_20261002/code/batch22/b22_cli.py.
-Ownership: only new batch22 dirs written; all prior sources/code/reports/models read-only and verified unmodified.
+# v6.17.0-hektransfer.rc1 模型卡 · Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+batch22 使用冻结 K562 表示评估 HEK293 核心启动子迁移。GSE188639（Zhao 等 2023）676 成员中，673 条按 prom_id 精确连接 Haberle 等 2019 补表6的 hg19 133 bp 序列；SCP1_mTATA/mDPE/mboth 三条因公开序列缺失而排除。
+
+目标 hek_norm=`log2(hek exp/input)`，与公开归一化最大差8.88e-16，保留负值。K562 实测仅作配对细胞诊断。Hamming≤16 正反链及同位点窗口重叠分组为673行/669组，5折 seed20261025，跨折分组违规0；4行与 K562 预训练 oligo 有精确133-mer匹配，分层记录。
+
+冻结源 batch21 RecipeA ckpt_A_seed20261023，SHA 摘要 bc35e5585fa7...；取 mean/max 拼接128维，cuda:0、batch32，按完整原生插入片段提取。R0为外层TRAIN均值；R1为mono4+di16+tri64+GC+log1p长度共86维 Ridge(alpha100)；R2为R1+128维表示共214维。5折×2配方完成10次 ridge 拟合。
+
+| 配方 | OOF rho | MAE | R² | top10 | 富集 |
+|---|---:|---:|---:|---:|---:|
+| R0 | -0.0891 | 0.6527 | -0.0023 | 0.1029 | 1.02 |
+| R1 | 0.4566 | 0.5717 | 0.1915 | 0.2941 | 2.91 |
+| R2 | 0.4617 | 0.5946 | 0.1939 | 0.3088 | 3.06 |
+
+预设rho增≥0.03、MAE降≥10%、top10持平或增、至少4/5折rho改善，CI跨零则结果不确定。实际增0.0051、MAE降−4.0%、3/5折改善，CI下界≤0，未达到实用增益。RTX5060 Laptop 提取约0.019ms/序列，GPU预算30分钟。
+
+本卡是673条公开HEK293回顾性分组CV记录。原批次对14个本地构建体序列缺失的判断已由 batch23 更正；完整序列可用性和实验映射证据分别见下一版卡。产物在 reports/data/code 的 batch22 目录，原始输入入口为 b22_cli.py。
+
+---
+
+## English
+
+batch22 evaluates frozen K562 representations for HEK293 core-promoter transfer. Of 676 GSE188639 members (Zhao et al. 2023), 673 join by exact prom_id to hg19 133 bp sequences from Haberle et al. 2019 Supplementary Table 6. SCP1_mTATA/mDPE/mboth were excluded because public sequences were absent.
+
+The target hek_norm is `log2(hek exp/input)`, matching published normalization within 8.88e-16; negative values are retained. Measured K562 values support paired-cell diagnostics. Forward/RC Hamming≤16 and same-locus overlap give 673 rows/669 groups, five folds with seed20261025, and zero cross-fold grouping violations. Four rows exactly match a K562 pretraining 133-mer and are stratified.
+
+The frozen source is batch21 RecipeA ckpt_A_seed20261023, SHA excerpt bc35e5585fa7..., using 128-dimensional concatenated mean/max representations on cuda:0, batch32, over complete native inserts. R0 is the outer-TRAIN mean; R1 is 86-dimensional mono4+di16+tri64+GC+log1p length Ridge(alpha100); R2 adds the 128-dimensional representation for 214 features. Five folds and two recipes completed ten ridge fits.
+
+| Recipe | OOF rho | MAE | R² | Top10 | Enrichment |
+|---|---:|---:|---:|---:|---:|
+| R0 | -0.0891 | 0.6527 | -0.0023 | 0.1029 | 1.02 |
+| R1 | 0.4566 | 0.5717 | 0.1915 | 0.2941 | 2.91 |
+| R2 | 0.4617 | 0.5946 | 0.1939 | 0.3088 | 3.06 |
+
+Criteria required rho gain≥0.03, MAE reduction≥10%, stable/improved top10, and positive rho gain in at least four of five folds; a CI crossing zero was uncertain. Observed gain was 0.0051, MAE reduction −4.0%, three positive folds, and CI lower≤0, falling short of practical gain. RTX5060 Laptop extraction took about 0.019ms/sequence within a 30-minute GPU budget.
+
+This card records retrospective grouped CV over 673 public HEK293 sequences. batch23 corrected this batch's earlier assessment that local construct sequences were absent; see the next card for sequence availability and assay mapping. Artifacts are in batch22 reports/data/code directories; raw-input CLI is b22_cli.py.

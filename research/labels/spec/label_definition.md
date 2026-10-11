@@ -1,69 +1,55 @@
-# Label Definition
+# 标签定义：早期设计规范 · Label definitions: early design specification
 
-## Project Goal
+[中文](#中文) · [English](#english)
 
-- explain real promoter expression rules
-- support experimentally testable continuous promoter library design
-- avoid semantic collapse between expression and stability
-- keep modeling outputs interpretable and auditable
+## 中文
 
-## Core Principle
+本规范记录早期标签设计原则；公式与实际训练输入的对应关系见当前数据说明和构建脚本。
 
-- do not use one composite score as the only label
-- separate expression strength, cross-tissue stability, and expression breadth
-- keep HKG preference as a downstream selection aid, not as the main training target
+### 目标与输出
 
-## Primary Outputs
+项目研究启动子表达规律，支持可实验检验的连续启动子文库设计。分别保留表达强度、跨组织稳定性和表达广度，便于解释和复核。
 
-### Score_E
-- meaning: expression strength
-- target type: continuous
-- biological intent: how strongly the promoter drives expression
-- expected source: GTEx-derived gene-level expression aggregation
-- should not include cross-tissue uniformity inside its formula
+| 输出 | 含义与来源 | 用途 |
+|---|---|---|
+| `Score_E` | 连续表达强度，来源于 GTEx 基因级表达聚合 | 表达强度主轴 |
+| `Score_S` | 连续跨组织稳定性，衡量可检出组织间的离散程度 | 稳定性主轴，覆盖高表达与中等表达启动子 |
+| `Score_B` | 可检出组织比例或其连续得分 | 候选准入门控与分层 |
+| `Score_HKG` | 由 E/S/B 产生的管家基因偏好排序 | 下游候选排序与实验优先级 |
 
-### Score_S
-- meaning: pure cross-tissue stability
-- target type: continuous
-- biological intent: how invariant expression is across tissues after separating from raw expression magnitude
-- must not reuse the old formulation that effectively gated or regressed stability on expression strength
-- must remain meaningful for both high-expression and moderate-expression promoters
+主要设计空间为 **E × S**，B 用于门控和分层，HKG 用于下游筛选。S 保留独立的稳定性含义，E 保留强度含义，各轴分别报告。
 
-### Score_B
-- meaning: expression breadth
-- target type: continuous or bounded fraction
-- biological intent: in how many tissues the promoter-associated gene is detectably expressed
-- recommended role: entry gate or stratification variable, not the main experimental axis
+### 建模与输入
 
-### Score_HKG
-- meaning: housekeeping-like preference score
-- target type: continuous ranking aid
-- biological intent: summarize suitability for HKG-like design without pretending to be the same as stability
-- recommended role: candidate ranking and wet-lab prioritization
-- must be downstream of E / S / B, not a replacement for them
+建立仅用启动子序列预测 E/S/B 的多输出基线，先评估 up200，再在相同 QC 条件下成对比较 up2000。每条记录附带不确定性和 QC 标记。
 
-## Experimental Design Space
+首个基线取 `labels/build/promoter_analysis_set.tsv` 中 `core_model_pass = 1` 的记录；扩展上下文取 `extended_context_pass = 1`，QC 失败记录保留在审核集合。
 
-- primary design axes: E × S
-- B is not a main experimental axis
-- HKG preference is not a model main output axis
+项目验收同时关注生物学解释和实验设计表现，AUC、R²、Spearman 用于描述相应评估任务。
 
-## Modeling Recommendation
+---
 
-- build promoter-only baseline with multi-output prediction for E / S / B
-- evaluate up200 as the first clean baseline
-- compare up2000 only under the same QC gate
-- keep uncertainty and QC tags attached to every promoter record
+## English
 
-## Sequence Input Recommendation
+This specification records the early label-design principles. Current data documentation and build scripts describe how formulas map to actual training inputs.
 
-- core training baseline should start from labels/build/promoter_analysis_set.tsv where core_model_pass = 1
-- extended context analysis can use extended_context_pass = 1 as a paired condition
-- qc_fail records should not enter the first baseline model
+### Goals and outputs
 
-## Prohibited Old Logic
+The project studies promoter expression rules and supports experimentally testable continuous promoter libraries. Keep expression strength, cross-tissue stability, and breadth as separate, interpretable outputs.
 
-- do not reuse old Score_S if it mixes expression gate with stability
-- do not explicitly fit S as a deterministic function of E
-- do not collapse E / S / B into a single benchmark-style score
-- do not use AUC / R2 / Spearman as the project objective
+| Output | Meaning and source | Role |
+|---|---|---|
+| `Score_E` | Continuous expression strength from GTEx gene-level aggregation | Primary strength axis |
+| `Score_S` | Continuous cross-tissue stability, measured by dispersion among detectable tissues | Primary stability axis, covering high and moderate expression |
+| `Score_B` | Detectable-tissue fraction or its continuous score | Entry gate and stratification |
+| `Score_HKG` | Housekeeping preference derived from E/S/B | Downstream ranking and experimental priority |
+
+The primary design space is **E × S**. B provides gating and stratification; HKG supports downstream selection. S retains its stability meaning, E retains its strength meaning, and each axis is reported separately.
+
+### Modeling and inputs
+
+Build a promoter-sequence multi-output E/S/B baseline, evaluate up200 first, and compare up2000 under the same QC policy. Attach uncertainty and QC tags to each record.
+
+The first baseline uses rows with `core_model_pass = 1` in `labels/build/promoter_analysis_set.tsv`. Extended-context analysis uses `extended_context_pass = 1`; QC failures remain in the review set.
+
+Project acceptance considers biological interpretation and experimental design performance. AUC, R², and Spearman describe the corresponding evaluation tasks.

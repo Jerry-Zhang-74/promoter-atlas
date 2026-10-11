@@ -1,85 +1,75 @@
-# 启动子活性预测模型 使用指南（{VERSION} · 扁平布局终版）
+# HEK293 片段预测使用指南 · HEK293 fragment prediction guide
 
-本模型包用于对 **HEK293 启动子片段活性**进行预测。目标量为作者公开的
-`Log2RPM_HEK293`（log2 RPKM/CPM 形式的活性值）。**注意：目标不是 `Log2Norm_HEK293`。**
+[中文](#中文) · [English](#english)
 
-> 科学范围：训练序列来自参考基因组代理（GRCh37/hg19 代理），不是供体克隆自身序列；
-> 细胞背景为 HEK293，**未在本地 293FT 细胞上验证**，不做 293FT 迁移性能声明；
-> 模型仅用作者 fold0 数据从零训练。支持长度 **100–600 bp**，**>600 bp 不支持**（不做滑窗）。
+## 中文
 
-模型包为**扁平布局**：`predict.py` 位于解压根目录，和其同级的 `pinned_core/` 一起使用。
+### 用途和依赖
 
----
+预测 HEK293 启动子片段的 `Log2RPM_HEK293`。模型使用作者 fold0、参考基因组代理序列从随机初始化训练；293FT 迁移待评估。经验训练长度为 100–600 bp。
 
-## 1. 安装依赖
-
-需要 Python 3.12、PyTorch 2.11、NumPy 2.5。真实神经推理需要可用的 CUDA 显卡（无 CPU 回退）。
-在 PowerShell 中（把 `<解压目录>` 换成你的实际解压目录）：
+需要 Python 3.12、PyTorch 2.11、NumPy 2.5 和 CUDA GPU。将 `<bundle-directory>`、输入和输出路径替换为实际位置，路径支持中文和空格。预测入口为 `predict.py`，按自身位置寻找模型代码。
 
 ```powershell
-# 用任意 Python 3.12 解释器（此处以 PATH 中的 python 为例，也可换成自建环境的完整路径）
-python -X utf8 -c "import torch, numpy; print(torch.__version__, numpy.__version__)"
-
-# 安装本包依赖（示例）：
-python -m pip install -r "<解压目录>\requirements.txt"
-```
-
-## 2. 运行预测
-
-设 `$BUNDLE` 为解压根目录，内含 `MODEL_MANIFEST.json`、`predict.py`、`pinned_core\`、`model\` 等：
-
-```powershell
-$env:PYTHONDONTWRITEBYTECODE='1'; $env:PYTHONUTF8='1'; $env:PYTHONIOENCODING='utf-8'
-$BUNDLE = "<解压目录>"                                  # 路径可含空格与中文
-$INPUT  = "D:\我的数据\候选启动子 序列.fa"
-$OUT    = "D:\我的数据\预测结果.tsv"
+$env:PYTHONDONTWRITEBYTECODE='1'
+$env:PYTHONUTF8='1'
+$env:PYTHONIOENCODING='utf-8'
+$BUNDLE = '<bundle-directory>'
+$INPUT = 'D:\data\promoters.fa'
+$OUT = 'D:\data\predictions.tsv'
+python -m pip install -r "$BUNDLE\requirements.txt"
 python -X utf8 "$BUNDLE\predict.py" --bundle "$BUNDLE" --fasta "$INPUT" --out "$OUT"
 ```
 
-`predict.py` 依据自身位置寻找同目录的 `pinned_core/`，**不依赖当前工作目录**，可从任意目录运行。
-`python` 可替换为任何 Python 3.12 解释器的完整路径。
+### 输入与输出
 
-## 3. 输入格式（严格校验）
+输入是 FASTA，每条记录有唯一 `>id`，碱基为 A/C/G/T/N，大小写均可。空文件、空序列、全 N、重复 ID、非法碱基或长度超过 600 bp 会触发输入错误（退出码 2）。长度问题应通过准备符合实验设计的有效片段解决。
 
-FASTA 文本，每条记录：
+UTF-8 TSV 输出字段为 `seq_id`、`length`、`activity_pred_Log2RPM`、`model_id`、`version`。同时生成 `<out>.meta.json`，记录输入/输出 SHA-256、设备、版本和 checkpoint 哈希。
 
+### 评估文件
+
+`results/` 保存评估与复核记录，模型卡说明统计口径。`split` 标记数据划分，`scope` 描述评估范围，Nabs/Njoint 是对比模型块；单模型直接使用 `activity.*`。
+
+`activity.rho` 是 Spearman；`group_mae` 是组等权 MAE；`rmse` 为原单位 RMSE；`top10_precision` 为前 10% 命中率；`pair.*` 为配对 group_mean_mae / macro_sign_accuracy；`fixed_baselines` 为 zero_delta / always_positive / always_negative 对照；`bootstrap` 为分组区间；`verdict` 记录 TARGET_MET / LIMITED 等预设结论。
+
+### 常见问题
+
+CUDA 不可用时换到有 CUDA 的环境；ID 重复时给每条记录唯一名称；碱基错误时检查 A/C/G/T/N 字符；checkpoint SHA-256 不符时重新获取对应模型包。
+
+---
+
+## English
+
+### Purpose and dependencies
+
+Predict HEK293 promoter-fragment `Log2RPM_HEK293`. Training used author fold0, reference-genome proxy sequences, and random initialization. Transfer to 293FT awaits evaluation. The empirical training domain is 100–600 bp.
+
+Use Python 3.12, PyTorch 2.11, NumPy 2.5, and a CUDA GPU. Replace `<bundle-directory>`, input, and output with actual paths; spaces and non-ASCII characters are supported. The predictor at `predict.py` resolves its model code relative to its own location.
+
+```powershell
+$env:PYTHONDONTWRITEBYTECODE='1'
+$env:PYTHONUTF8='1'
+$env:PYTHONIOENCODING='utf-8'
+$BUNDLE = '<bundle-directory>'
+$INPUT = 'D:\data\promoters.fa'
+$OUT = 'D:\data\predictions.tsv'
+python -m pip install -r "$BUNDLE\requirements.txt"
+python -X utf8 "$BUNDLE\predict.py" --bundle "$BUNDLE" --fasta "$INPUT" --out "$OUT"
 ```
->candidate_1
-ACGT...ACGT
->candidate_2
-ACGT...ACGT
-```
 
-会被**拒绝**的输入（不会静默截断）：
-- 空文件、无记录；
-- 空序列（null）、或全为 `N` 的歧义序列；
-- 重复的序列 ID；
-- 非法碱基字符（只允许 A/C/G/T/N，大小写均可）；
-- 任一记录长度 **> 600 bp**（模型不支持 >600，不做滑窗）。
+### Input and output
 
-## 4. 输出说明
+Input is FASTA with a unique `>id` per record and case-insensitive A/C/G/T/N bases. Empty files, empty/all-N sequences, duplicate IDs, invalid bases, and sequences above 600 bp raise input errors (exit code 2). Resolve length issues by preparing valid fragments appropriate to the experimental design.
 
-`$OUT`（TSV，UTF-8）：
+UTF-8 TSV output fields are `seq_id`, `length`, `activity_pred_Log2RPM`, `model_id`, and `version`. `<out>.meta.json` records input/output SHA-256, device, version, and checkpoint hash.
 
-```
-seq_id    length    activity_pred_Log2RPM    model_id    version
-candidate_1  480    3.214567    <model_id>  <version>
-```
+### Evaluation files
 
-同时生成 `$OUT.meta.json`，含输入/输出的 SHA256、设备、模型版本与 checkpoint 哈希。
+`results/` contains evaluation and review records; the model card explains the statistical scope. `split` identifies the partition, `scope` describes the evaluation, and Nabs/Njoint identify comparison blocks. Single-model results use `activity.*` directly.
 
-## 5. 结果字段说明（来自冻结的真实评估 JSON）
+`activity.rho` is Spearman; `group_mae` is group-equal MAE; `rmse` uses original units; `top10_precision` measures top-10% precision; `pair.*` includes group_mean_mae / macro_sign_accuracy; `fixed_baselines` contains zero_delta / always_positive / always_negative; `bootstrap` contains grouped intervals; and `verdict` records prespecified outcomes such as TARGET_MET / LIMITED.
 
-本包 `results\` 直接包含真实评测与独立复核文件（数值逐字复制，未编造）：
-`{ARM}_TEST_parent_metrics.json`（真实留出 TEST 指标）、`batch54_independent_review.json`、
-`batch59_release_evidence.json`。区间/对比口径见 `MODEL_CARD_zh.md` 与这些 JSON 原文。
+### Troubleshooting
 
-## 6. 故障排查
-
-| 现象 | 原因与处理 |
-| --- | --- |
-| `CUDA unavailable ... no CPU fallback` | 真实模型推理需要显卡；请在带 CUDA 的机器上运行 |
-| `record ... length > 600` | 请先自行截取 ≤600 bp 片段 |
-| `duplicate sequence id` | 保证每条 FASTA 记录 ID 唯一 |
-| `INPUT ERROR: ... invalid base characters` | 移除 A/C/G/T/N 之外字符 |
-| `checkpoint SHA256 mismatch` | 模型包被改动，请重新获取 |
+Use a CUDA environment when CUDA is unavailable, assign unique IDs, check A/C/G/T/N characters, and obtain the corresponding model bundle again if checkpoint SHA-256 verification fails.

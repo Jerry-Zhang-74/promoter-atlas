@@ -1,27 +1,37 @@
-promoter_atlas v6.16.1-sequence.rc1 (batch21) — sequence (K562 MPRA 164 bp) loss comparison
-============================================================
-Version: v6.16.1-sequence.rc1   Lineage: next free after v6.16.0-sequence.rc1.
-Task: predict measured K562 GSE118242 per-sequence oligo-MPRA activity (log10) from 164 bp DNA.
-Dataset decision: K562 GSE118242 (local, in-domain) (availability-based, NOT score-based).
-  Primary public lead GSE188639 verified but REJECTED for training: REJECTED_FOR_TRAINING —
-  676 core-promoter members (< 1000 gate); cell HEK293 (not HEK293T). Retained as a future source.
-  HEK293T gap recorded explicitly; NO K562 score is presented as HEK293T reliability.
-Split: strict near-homology connected components (Hamming<=16 fwd+RC, exact dup incl.);
-  4710 components -> train/val/test rows {'0': 9443, '1': 1180, '2': 1180},
-  groups {'0': 2600, '1': 1090, '2': 1020}; cross-split Hamming<=16 pairs = 0 (audited).
-Fits: exactly 4 (2 arms x 2 seeds), single GPU (NVIDIA GeForce RTX 5060 Laptop GPU), batch 32,
-  AdamW lr 0.0003 wd 0.0001, max 20 epochs, val early stop patience 5 on Spearman.
-  Aggregate fit time 87.0s (~1.45 GPU-min) << 3 GPU-h cap; no truncation.
-Arms (SAME backbone/preprocessing/seed/optimizer; ONLY the loss differs):
-  A = MSE of train-standardized activity.
-  B = MSE + 0.1*mean softplus(-sign(z_i-z_j)*(p_i-p_j)) over within-minibatch pairs |z_i-z_j|>=0.5 (train rows only).
-Results (test, group-level n=1180, 1020 groups):
-['  Recipe A test: Spearman=0.6442 MAE=0.2157 R2=0.4338 top-decile-precision=0.6186 enrichment=6.19', '  Recipe B test: Spearman=0.6493 MAE=0.2169 R2=0.4297 top-decile-precision=0.6102 enrichment=6.10']
-  Composition ridge baseline (GC+3mer, train-only): Spearman=0.3685 MAE=0.2912 R2=0.1118 top-decile-precision=0.2458
-Decision (predeclared: mean seed Spearman gain>=0.02 AND >=5% MAE reduction AND top-decile precision not worse AND both seeds positive):
-  gain=0.0051, MAE reduction=-0.56%, top-decile not worse=False, both seeds positive=False -> IMPROVEMENT MET = False
-  Validation-only arm choice = Recipe B (no test-driven tuning).
-VERDICT: the explicit ranking objective did NOT yield a predeclared practical improvement on this in-domain
-  K562 task. Reported as an honest negative. Both neural recipes clearly exceed the composition baseline.
-Scope: K562 164 bp MPRA only. NOT HEK293T, NOT a length-aware solution, NOT gene E/S/B.
-  Changed-split values are NOT compared against the batch02 grouped-OOF 0.79577.
+# v6.16.1-sequence.rc1 模型卡 · Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+batch21 比较 164 bp K562 GSE118242 测量活性（log10）的损失函数。因本地数据可用而采用该数据。候选 GSE188639 只有 676 个 HEK293 核心启动子，低于 1000 条准入门槛，留作后续来源。
+
+正反链 Hamming≤16 和精确重复构成 4710 连通分量；TRAIN/VAL/TEST 行数 9443/1180/1180，组数 2600/1090/1020，跨划分 Hamming≤16 配对为 0。
+
+两臂×两 seed 共 4 次拟合，RTX5060 Laptop 单 GPU、batch32、AdamW lr0.0003/wd0.0001，最多 20 epochs，验证 Spearman patience5。总拟合 87.0s（约 1.45 GPU 分钟），预算 3 GPU 小时。两臂共享骨架、预处理、seed 和优化器；A 用 TRAIN 标准化活性的 MSE，B 加 `0.1*mean softplus(-sign(z_i-z_j)*(p_i-p_j))`，配对来自 minibatch 内 |z_i−z_j|≥0.5 的训练行。
+
+| 配方 | TEST Spearman | MAE | R² | top10 精度 | 富集 |
+|---|---:|---:|---:|---:|---:|
+| A | 0.6442 | 0.2157 | 0.4338 | 0.6186 | 6.19 |
+| B | 0.6493 | 0.2169 | 0.4297 | 0.6102 | 6.10 |
+| GC+3mer ridge | 0.3685 | 0.2912 | 0.1118 | 0.2458 | — |
+
+TEST 为 1180 行、1020 组。预设要求 rho 增≥0.02、MAE 降≥5%、top10 持平或上升、两个 seed 均改善。实际 rho 增0.0051、MAE 降−0.56%，top10 和双 seed 条件未达成，IMPROVEMENT_MET=False。验证选择 B，结论为该排名损失未达到预设实用增益。结果适用于此 K562 164 bp 任务，新划分与 batch02 OOF0.79577 分别报告。
+
+---
+
+## English
+
+batch21 compares losses for measured log10 K562 GSE118242 activity from 164 bp DNA. The dataset was selected for local availability. GSE188639 had 676 HEK293 core promoters, below the 1000-row entry threshold, and was retained as a future source.
+
+Forward/reverse-complement Hamming≤16 and exact duplicates form 4710 components. TRAIN/VAL/TEST rows are 9443/1180/1180, groups 2600/1090/1020, and cross-split Hamming≤16 pairs zero.
+
+Four fits cover two arms and two seeds on one RTX5060 Laptop GPU, batch32, AdamW lr0.0003/wd0.0001, up to 20 epochs, validation-Spearman patience5. Total fit time was 87.0s (about 1.45 GPU minutes), within a three-GPU-hour budget. Backbone, preprocessing, seed, and optimizer are matched. A uses MSE on TRAIN-standardized activity; B adds `0.1*mean softplus(-sign(z_i-z_j)*(p_i-p_j))` over training minibatch pairs with |z_i−z_j|≥0.5.
+
+| Recipe | TEST Spearman | MAE | R² | Top10 precision | Enrichment |
+|---|---:|---:|---:|---:|---:|
+| A | 0.6442 | 0.2157 | 0.4338 | 0.6186 | 6.19 |
+| B | 0.6493 | 0.2169 | 0.4297 | 0.6102 | 6.10 |
+| GC+3mer ridge | 0.3685 | 0.2912 | 0.1118 | 0.2458 | — |
+
+TEST has 1180 rows and 1020 groups. Prespecified criteria require rho gain≥0.02, MAE reduction≥5%, stable/improved top10, and improvement in both seeds. Observed rho gain is 0.0051 and MAE reduction −0.56%; top10 and both-seed conditions failed, so IMPROVEMENT_MET=False. Validation selected B. The ranking loss fell short of the practical-gain rule. These results concern this K562 164 bp task and are reported separately from batch02 OOF0.79577 under its different split.

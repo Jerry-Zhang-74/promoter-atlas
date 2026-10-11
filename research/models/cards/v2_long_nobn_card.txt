@@ -1,3 +1,44 @@
+# v2_long_nobn_card · 模型卡 / Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+本卡记录对应历史模型的配置与评估。技术标识沿用原字段名，便于与脚本及结果表对应。
+
+| 字段 | 值 |
+|---|---|
+| 名称 (`name`) | v2_long_nobn |
+| 序列长度 (`seq_len`) | 2000 |
+| 特征配置 (`features`) | none |
+| 特征维数 (`feat_dim`) | 0 |
+| 设备 (`device`) | cuda |
+| 参数数 (`params`) | 312579 |
+
+### 测试指标
+`gene` 为基因级汇总，`sp` 为其他物种评估，`dist` 为蒸馏目标，`omics` 为组学目标，`tf` 为 TF 标签，`mpra` 为片段任务；`r2`、`spearman`、`rmse`、`n` 和 `ci_lo/ci_hi` 分别为 R²、秩相关、均方根误差、记录数及区间端点。NaN/null 保留为未定义值。
+```json
+{
+  "Score_E_r2": 0.3072134019528765,
+  "Score_E_spearman": 0.552412604290745,
+  "Score_E_n": 44387,
+  "Score_S_r2": 0.04117527045283187,
+  "Score_S_spearman": 0.26539539283252267,
+  "Score_S_n": 29467,
+  "Score_B_r2": 0.2796837548646489,
+  "Score_B_spearman": 0.5470167960693888,
+  "Score_B_n": 44387,
+  "combined_spearman": 0.45060762822502815
+}
+```
+
+---
+
+## English
+
+Historical model configuration and evaluation. Original field identifiers and numeric records follow.
+
+```text
 name	v2_long_nobn
 seq_len	2000
 features	none
@@ -5,3 +46,4 @@ feat_dim	0
 device	cuda
 params	312579
 test_metrics	{"Score_E_r2": 0.3072134019528765, "Score_E_spearman": 0.552412604290745, "Score_E_n": 44387, "Score_S_r2": 0.04117527045283187, "Score_S_spearman": 0.26539539283252267, "Score_S_n": 29467, "Score_B_r2": 0.2796837548646489, "Score_B_spearman": 0.5470167960693888, "Score_B_n": 44387, "combined_spearman": 0.45060762822502815}
+```

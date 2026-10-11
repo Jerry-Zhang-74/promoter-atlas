@@ -1,8 +1,6 @@
-# batch55 first-model predictor runtime.
-# Verified against the environment that produced the model:
-#   python 3.12.6, torch 2.11.0, numpy 2.5.3
-# Real neural inference requires a CUDA-capable device (no CPU fallback).
-# CPU installs may use the matching CPU wheel of the same torch version for
-# SOFTWAREONLY fixtures/tests only.
+# batch55 预测运行依赖；原验证环境为 Python 3.12.6、torch 2.11.0、numpy 2.5.3。
+# 正式神经推理使用 CUDA；人工软件测试夹具使用同版本 CPU wheel。
+# batch55 predictor runtime, verified with Python 3.12.6, torch 2.11.0, numpy 2.5.3.
+# Trained-model inference uses CUDA; artificial software fixtures use the matching CPU wheel.
 numpy==2.5.3
 torch==2.11.0

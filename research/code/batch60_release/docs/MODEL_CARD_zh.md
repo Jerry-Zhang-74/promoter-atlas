@@ -1,25 +1,49 @@
-# 模型卡 MODEL_CARD（中文 · {VERSION} · 臂 {ARM}）
+# 模型卡 {VERSION} · Model card {VERSION}
 
-## 模型
-- 版本：`{VERSION}`；结构：一热 ACGT 输入 + 残差 CNN（3 blocks, dilation 1/2/4）+ 掩码 mean/max/loglen/GC 汇合（130→64→1）。
-- 目标量：`Log2RPM_HEK293`（作者公开列；**不是** `Log2Norm_HEK293`）。
-- 训练：作者 fold0 全量 TRAIN，从零随机初始化；共完成 **6 个 epoch**，**选中的 checkpoint 为 0-based epoch 4（即第 5 个 epoch 之后）**。
-- 权重 SHA256：`{SHA}`（本终版与 batch59 reviewed 逐字节一致）。
-- 已知缺陷（如实保留，未改 checkpoint 掩盖）：`global_step=531860` 是历史样本数（sample count），**不是**真实优化器步数。
-- checkpoint 为完整训练 checkpoint，其中含 optimizer/scheduler/sampler/RNG 状态条目；本包**不主张**已验证的“精确续训”，也不提供续训流程（预测仅依赖模型参数+config+normalizer，均已 SHA256 固定）。
+[中文](#中文) · [English](#english)
 
-## 真实留出 TEST 指标（公开 HEK293；retrospective 冻结分组；非前瞻、非本地 293FT）
+## 中文
+
+### 模型与训练
+
+版本 `{VERSION}`，臂 `{ARM}`，权重 SHA-256 `{SHA}`。结构为 ACGT 一热编码、3 个残差 CNN 块（dilation 1/2/4）、掩码 mean/max 与 loglen/GC 汇合、130→64→1 输出。目标为作者发布的 `Log2RPM_HEK293`。
+
+使用作者 fold0 全量 TRAIN，从随机初始化训练 6 个 epoch，选中 0-based epoch 4（完成第 5 个 epoch 后）。历史 checkpoint 的 `global_step=531860` 记录样本数；优化器步数需按训练日志核对。checkpoint 同时保存 optimizer/scheduler/sampler/RNG 条目，该包提供的工作流程为推理，预测依赖权重、config 和 normalizer。
+
+### HEK293 回顾性 TEST 评估
+
 | 模型 | activity rho ↑ | groupMAE ↓ | top10 精度 ↑ | pair groupMAE ↓ | pair macroSign ↑ |
-|---|---|---|---|---|---|
-| R0（组成 ridge 基线） | 0.5026 | 0.8628 | 0.3955 | 0.8732 | 0.5287 |
-| **Nabs（绝对活性）** | 0.5749 | 0.7796 | 0.5389 | 0.8398 | 0.5619 |
-| **Njoint（配对差值多任务）** | 0.5799 | 0.7806 | 0.5522 | 0.8388 | 0.5588 |
+|---|---:|---:|---:|---:|---:|
+| R0 | 0.5026 | 0.8628 | 0.3955 | 0.8732 | 0.5287 |
+| Nabs | 0.5749 | 0.7796 | 0.5389 | 0.8398 | 0.5619 |
+| Njoint | 0.5799 | 0.7806 | 0.5522 | 0.8388 | 0.5588 |
 
-- 上表数值直接复制自独立评测器实际输出（`results/*_TEST_parent_metrics.json` 与本包 `results/`），无编造。
-- **配对对比 FAIL（如实保留）**：Njoint 相对 Nabs 的 pair groupMAE 仅改善约 0.12%，**远低于**预注册的 10% 门槛；配对自助法 95% CI 含 0。
-- 条件性分组自助法 CI 建立在声明分组之上，**不能当作独立家族/独立生物重复的置信区间**。
+R0 是组成 ridge 基线，Nabs 预测绝对活性，Njoint 加入配对差值任务。指标来自独立评估 JSON。Njoint 相对 Nabs 的 pair groupMAE 改善约 0.12%，预设门槛为 10%，配对自助法 95% CI 包含 0，配对比较结论为 FAIL。区间以声明的分组为重采样单位，反映该分组下的不确定性。
 
-## 明确不声明（no over-claim）
-- 不声明 293FT 迁移性能（本地 293FT 未验证；D28 实验 FAIL 保留）。
-- 不声明前瞻性/盲测性能（公开数据此前可能已被接触，均为回顾性评估）。
-- 不声明 >600 bp 支持（>600 明确 UNSUPPORTED，2000 bp 被拒）。
+### 应用范围
+
+训练序列为 GRCh37/hg19 参考基因组代理，测定细胞背景为 HEK293。支持的训练长度范围为 100–600 bp，输入超过 600 bp 时返回错误。公开数据采用冻结分组的回顾性评估。293FT 迁移仍待评估，历史 D28 实验记录为 FAIL。
+
+---
+
+## English
+
+### Model and training
+
+Version `{VERSION}`, arm `{ARM}`, weight SHA-256 `{SHA}`. The architecture uses ACGT one-hot input, three residual CNN blocks (dilations 1/2/4), masked mean/max pooling with loglength/GC, and a 130→64→1 output. The target is the author-published `Log2RPM_HEK293`.
+
+Training used all author-fold0 TRAIN rows, random initialization, and six epochs. The selected checkpoint is zero-based epoch 4, after the fifth epoch. Its historical `global_step=531860` records sample count; optimizer steps should be checked against the training log. The checkpoint also contains optimizer/scheduler/sampler/RNG entries. The provided workflow is inference, using weights, config, and normalizer.
+
+### Retrospective HEK293 TEST evaluation
+
+| Model | activity rho ↑ | groupMAE ↓ | top10 precision ↑ | pair groupMAE ↓ | pair macroSign ↑ |
+|---|---:|---:|---:|---:|---:|
+| R0 | 0.5026 | 0.8628 | 0.3955 | 0.8732 | 0.5287 |
+| Nabs | 0.5749 | 0.7796 | 0.5389 | 0.8398 | 0.5619 |
+| Njoint | 0.5799 | 0.7806 | 0.5522 | 0.8388 | 0.5588 |
+
+R0 is the composition ridge baseline, Nabs predicts absolute activity, and Njoint adds pair-difference supervision. Metrics come from independent evaluation JSON. Njoint improved pair groupMAE by about 0.12% over Nabs, against a prespecified 10% threshold; the paired-bootstrap 95% CI includes zero and the pair comparison verdict is FAIL. Intervals use the declared groups as resampling units and describe uncertainty under that grouping.
+
+### Application domain
+
+Training sequences are GRCh37/hg19 reference-genome proxies and measurements come from HEK293. The empirical training domain is 100–600 bp; inputs above 600 bp return an error. Public-data evaluation is retrospective with frozen groups. Transfer to 293FT awaits evaluation; the historical D28 experiment records FAIL.

@@ -1,91 +1,59 @@
-batch57 OWNER FIX HANDOFF -- v6.38.1-model-core-critical-repair.rc2
-====================================================================
-Location (NEW, original batch53 bytes preserved untouched):
-  runs/breakthrough_20261002/code/batch57_model_core_rc2
-Drop-in replacement for: runs/breakthrough_20261002/code/batch53_model_core
-  (same module names/APIs; SAME config_sha256 = 12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157,
-   so on-disk checkpoints made by the live run remain strictly loadable -> ABI verified read-only).
-CODE_READY.json: atomic marker (hash of every shipped file). selfcheck: reports/.../batch57/code_selfcheck.json.
-No actual training / solve / gradient / GPU / network was performed by this repair worker.
+# batch57 核心修复与交接 · batch57 core repairs and handoff
 
-WHY: canonical batch53 independent review (09:28) returned compliance FAIL (D1..D12). This
-workstream repairs the MODEL CORE only; it is not a training run and confers no science PASS.
+[中文](#中文) · [English](#english)
 
---------------------------------------------------------------------------------------------------
-0) DO NOT RESTART THE LIVE FIT
---------------------------------------------------------------------------------------------------
-The data owner (control_62) is mid-run: corrected R0 done, Nabs completed, Njoint reserved/running.
-Real ledger snapshot at write time (read dynamically, D6): 4/4 consumed (batch52-R0, R0, Nabs,
-Njoint), 0 remaining, NO reserve. OWNER-driven and still advancing; the count above is a snapshot.
-  * NO restart is required for any defect below; none change the frozen model weights /
-    architecture / numerical contract while a valid fresh fit is running.
-  * D2 (resume) is NOT on the live path (the live run never passes --resume-*), so D2 does NOT
-    invalidate the ongoing fresh fit. Resume is marked UNSUPPORTED (fail-closed) until repaired.
-  * GPU exclusivity is currently enforced OPERATIONALLY by the parent: only the trainer gets the
-    GPU; every other agent runs ZERO GPU until an explicit exclusive grant. The repaired D1 lock is
-    a correct backstop, not a replacement for that operational rule.
+## 中文
 
---------------------------------------------------------------------------------------------------
-1) FIXES REQUIRING A NEW PROCESS (take effect on the next launch / next fit)
---------------------------------------------------------------------------------------------------
-All are inert in the currently-running process; they activate when the owner launches a NEW process
-that imports batch57_model_core_rc2. NONE require killing the live Nabs fit.
+### 修订与兼容性
 
-D1 gpu_lock.py       true (pid, OS-creation) identity: FOUR distinct FILETIME buffers; a lock held by
-                     a LIVE process is never reclaimed; release only own identity. New process only.
-D2 train_neural/     resume FAIL-CLOSED (ResumeUnsupported); any --resume-* aborts BEFORE reserving;
-   exec_gate         every restarted execution consumes a new slot (real restore not implemented in
-                     the time budget -- protocol fallback applied). New invocations only.
-D5 pipeline_coord    assert_parent_specs REQUIRES --expected-acceptance-sha and asserts the
-                     PARENT_DATA_ACCEPTANCE.txt sha256 (fail-closed); owner freezes it at launch.
-D7 train_neural/     Njoint asserts init bytes == recorded Nabs init_sha before first gradient.
-   coord             New-process only; harmless to the running Nabs.
-D9 train_neural      checkpoints record TRUE optimizer steps (opt_steps); sample count kept
-                     separately. Additive fields; old checkpoints still load.
-D10 train_neural     deterministic per-epoch pair shuffle + repeat counts (Njoint). Future Njoint.
-D11 checkpoint       selected checkpoints get a .sha256.json sidecar. Future saves.
-D6 exec_gate/coord   actual_status() reads the REAL ledger (no fictitious reserve); RUN_POLICY read
-                     DYNAMICALLY for 12:00 first-training / 13:00 / 20:00 deadlines. New invocation.
+`v6.38.1-model-core-critical-repair.rc2` 对 batch53 审查 D1–D12 进行修复，模块/API 和 config SHA `12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157` 保持兼容，可读取在训 checkpoint。交接时原台账已用 4/4（batch52-R0、R0、Nabs、Njoint），运行状态按实际台账读取。
 
---------------------------------------------------------------------------------------------------
-2) FIXES THAT ARE INDEPENDENT / EVAL-ONLY (safe any time, own CPU, NO GPU)
---------------------------------------------------------------------------------------------------
-D3 eval_replay.final_compare  best fixed-direction baseline now uses max() (was min()).
-D8 eval_replay.evaluate_split top10_precision uses frozen coord/ID stable tie-breakers.
-D6 exec_gate.actual_status    correct remaining-slot accounting for reports.
-D12 data_adapter             ragged-row reject; NPZ byte-id decode + declared-length slice;
-                             ambiguous-base consistent exclusion (default reject; allow_ambiguous=True
-                             uses VALID-base length consistently).
-These run on CPU with the independent evaluator's OWN metrics; no GPU, no fit. The first-model TEST
-result stays quarantined and is not read by the Njoint trainer.
+- D1：四个独立 FILETIME 缓冲区读取 PID/OS 创建时间，存活进程持锁，释放时验证身份。
+- D2：续训恢复尚待实现，`--resume-*` 在预约前抛出 ResumeUnsupported；重启执行占用新槽位。
+- D3：固定方向基线选择从 min 改为 max。
+- D4：SOURCE_SHA256 使用真实 64 位哈希 `1bbe5db7...d96`，SOURCE_SHA1 单列。
+- D5：要求并核对 `--expected-acceptance-sha`。
+- D6：actual_status 动态读取台账与 RUN_POLICY 的 12:00/13:00/20:00 时间要求。
+- D7：Njoint 首梯度前核对 Nabs init_sha。
+- D8：top10 使用冻结坐标/ID 解平局。
+- D9：记录真实 opt_steps，样本数另列。
+- D10：逐 epoch 确定性配对排列及重复次数。
+- D11：选中 checkpoint 附 `.sha256.json`。
+- D12：拒绝列数不齐，解码 NPZ byte ID 并按声明长度切片；歧义碱基默认拒绝，allow_ambiguous=True 时按有效碱基长度处理。
 
---------------------------------------------------------------------------------------------------
-3) INTEGRATION (data owner) -- minimal, no rewrite of frozen weights
---------------------------------------------------------------------------------------------------
-Point the helper import at the repaired directory, e.g. in run_all_v2.py:
-    HELPER = ".../runs/breakthrough_20261002/code/batch57_model_core_rc2"
-    from train_neural import Trainer            # unchanged API
-    from exec_gate import actual_status         # honest budget reporting
-Full coordinator (new invocation only) -- add the pinned acceptance hash:
-    .../pipeline_coordinator.py --cohort-dir <dir> --out-root <out> --ledger <b52 ledger> \
-        --expected-acceptance-sha <frozen sha256 of PARENT_DATA_ACCEPTANCE.txt> \
-        --accepted-data-sha <64-hex source sha> --i-understand-this-is-a-real-fit
-Eval/replay uses the same CLI (eval_replay.py replay|metrics|compare). The data owner decides
-integration; frozen model weights are NOT rewritten.
+### 应用方式与检查
 
---------------------------------------------------------------------------------------------------
-4) OLD batch53 'toy-solve' CONCERN -- FOR THE PREFLIGHT AUDITOR (recorded, NOT repeated)
---------------------------------------------------------------------------------------------------
-batch53 tests/test_nofit.py (NOT shipped here) contains r0_ridge_one_solve_and_delta, which calls
-R0Model.fit -> np.linalg.solve, and exec_gate_budget_max4_and_resume asserts a NON-consuming resume.
-Both are obsolete. The batch57 suite (NEW file tests/test_nofit_rc2.py) performs ZERO np.linalg.solve
-and asserts resume is FAIL-CLOSED. This worker did NOT reproduce those solves and does NOT
-retroactively claim zero-solve for batch53; the batch53 selfcheck's "zero-solve" wording is an
-over-claim for the auditor to record (no new tiny fits were run to test it).
+锁、训练、台账及 checkpoint 修复在导入新代码的下一进程生效；D3/D8/D12 的 CPU 评估可单独使用。交接时在训任务走 fresh-fit 路径，按原执行继续完成。模型权重与当前进程独立保留，TEST 结果由评估流程管理。
 
---------------------------------------------------------------------------------------------------
-5) REMAINING / NOT DONE (honest)
---------------------------------------------------------------------------------------------------
-* D2: real checkpoint-restore resume NOT implemented; resume is fail-closed (permitted fallback).
-* Cosmetic/report polish skipped to protect the 13:00 first-weights priority.
-* CODE ONLY. Verdict belongs to a fresh reviewer; core PASS != training performance.
+将 HELPER 指向 batch57_model_core_rc2；协调器新增 `--expected-acceptance-sha <sha>`，其他入口保持 data_adapter、train_neural、r0_baseline、eval_replay、pipeline_coordinator、checkpoint、epoch_cap、gpu_lock、exec_gate。
+
+`python selfcheck_rc2.py` 输出 reports/.../batch57/code_selfcheck.json：test_nofit_rc2 为 21/21，test_pipeline_rc2 为 6/6，含 checkpoint ABI 读取和人工前向。batch53 的 r0_ridge_one_solve_and_delta 测试实际调用过 np.linalg.solve；本修复测试使用纯软件检查。CODE_READY.json 记录文件哈希，续训恢复是后续工作。
+
+---
+
+## English
+
+### Repairs and compatibility
+
+`v6.38.1-model-core-critical-repair.rc2` addresses batch53 review findings D1–D12. Module/API and config SHA `12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157` remain compatible with live checkpoints. The ledger snapshot at handoff was 4/4 consumed (batch52-R0, R0, Nabs, Njoint); read actual ledger state for current status.
+
+- D1: four distinct FILETIME buffers establish PID/OS-creation identity; live holders retain the lock and release checks ownership.
+- D2: restore remains pending; `--resume-*` raises ResumeUnsupported before reservation, and restarted executions consume a new slot.
+- D3: fixed-direction baseline selection changes min to max.
+- D4: SOURCE_SHA256 uses the actual 64-hex hash `1bbe5db7...d96`, with SOURCE_SHA1 separate.
+- D5: require and verify `--expected-acceptance-sha`.
+- D6: actual_status reads the live ledger and RUN_POLICY 12:00/13:00/20:00 deadlines.
+- D7: Njoint verifies Nabs init_sha before its first gradient.
+- D8: top10 uses frozen coordinate/ID tie-breaking.
+- D9: record actual opt_steps separately from sample count.
+- D10: deterministic per-epoch pair ordering and repeat counts.
+- D11: selected checkpoints receive `.sha256.json` sidecars.
+- D12: reject ragged rows, decode NPZ byte IDs, slice declared lengths, and handle ambiguous bases consistently; default rejection, or valid-base length with allow_ambiguous=True.
+
+### Integration and checks
+
+Lock, training, ledger, and checkpoint repairs activate in the next process importing the new code. D3/D8/D12 CPU evaluation changes can be used independently. The active run at handoff followed the fresh-fit path and continued its existing execution. Weights and the current process were preserved; TEST results stayed under evaluator control.
+
+Point HELPER to batch57_model_core_rc2 and add `--expected-acceptance-sha <sha>` to the coordinator. Other entry points remain data_adapter, train_neural, r0_baseline, eval_replay, pipeline_coordinator, checkpoint, epoch_cap, gpu_lock, and exec_gate.
+
+`python selfcheck_rc2.py` writes reports/.../batch57/code_selfcheck.json: test_nofit_rc2 21/21 and test_pipeline_rc2 6/6, including checkpoint ABI loading and artificial forward. The batch53 r0_ridge_one_solve_and_delta test called np.linalg.solve; this repaired suite uses software-only checks. CODE_READY.json records file hashes, and checkpoint restoration remains follow-up work.

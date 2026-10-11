@@ -1,33 +1,29 @@
-PROMOTER ATLAS VERSION CARD
-name: v6.15.1-release.rc2
-status: EXPERIMENTAL CANDIDATE (not stable promotion; no gain claimed)
-written_at_local: 2026-10-03T11:56:46.496535+08:00
-batch: batch18 (final release corrections)
+# v6.15.1-release.rc2 模型卡 · Model card
 
-RELATION
-  supersedes: v6.15.1-release.rc1 (packaging/provenance repair batch17)
-  weights origin: v6.15.0-multitask.rc1 (batch16 arm A, reference seed 20261016) BYTE-IDENTICAL
-  change: packaging + truthful provenance + one input-validation fix (F17-3 empty batch)
-  no retraining, no seed change, no architecture change, no test-based selection
+[中文](#中文) · [English](#english)
 
-ARCHITECTURE / SEED
-  independent arm A: three single-task 1D-CNNs (E,S,B); reference seed 20261016
-  rejected: B (shared backbone), C (shared + 7 epigenetic aux heads) - failed frozen validation rule
+## 中文
 
-DEPLOYED METRICS (test, raw units, recomputed from saved batch16 arrays)
-  E: spearman=0.7428 r2=0.5618 mae=0.1513 n=5851
-  S: spearman=0.4342 r2=0.1699 mae=0.2066 n=1880
-  B: spearman=0.7262 r2=0.6030 mae=0.1786 n=5851
-  matched HGB baseline: E 0.7335 / S 0.4334 / B 0.7191 (S is a statistical tie)
+实验候选 `v6.15.1-release.rc2` 整理打包和来源，沿用 batch16 独立臂 A 的原权重，seed=20261016。三个单任务 CNN 分别预测 E/S/B；seed20261017 用于重复实验。共享臂 B、共享加 7 个辅助头的 C 均低于冻结验证规则，平均增益分别 -0.00608/-0.00491，规则为平均增益≥0.02且单轴下降≤0.02。
 
-PACKAGE
-  zip: models/breakthrough_20261002/batch18/promoter_atlas_v6.15.1-release.rc2.zip
-  zip_sha256: 0d448a496d07692e314b642ebea77d5e024b11bec6a86e0130c78c2bca5defbe
-  report: reports/breakthrough_20261002/batch18/release_report_v6_15_1_rc2.html
+原单位回顾性 TEST：E rho=0.7428、R²=0.5618、MAE=0.1513、n=5851；S 0.4342/0.1699/0.2066/n1880；B 0.7262/0.6030/0.1786/n5851。验证 rho 为 0.7429/0.4635/0.7163。HGB TEST 为 0.7335/0.4334/0.7191，S 统计上相当。
 
-KNOWN LIMITS
-  - trainer/init/data-order confound unresolved (blocks causal independent-vs-shared claim)
-  - auxiliary missingness (0.0 vs NaN) unresolved
-  - corrected component-union split is not comparable with earlier random splits; test is retrospective
-  - S has smaller n (val 1837 / test 1880) and ties the HGB baseline
-  - no HEK293T/fragment-activity validity; human gene-level only
+包路径 `models/breakthrough_20261002/batch18/promoter_atlas_v6.15.1-release.rc2.zip`，SHA-256 `0d448a496d07692e314b642ebea77d5e024b11bec6a86e0130c78c2bca5defbe`。包内含固定权重、TRAIN 变换 scalers.npz、推理、schema、示例、清单和消融结果；入口 `python -X utf8 code/run_example.py`。
+
+训练器的初始化 RNG 和数据顺序影响共享/独立对比；辅助目标以 0 编码未测定情况，缺失语义待解决；调控家族覆盖 14 构建体；component-union 划分与早期随机划分分别报告；输入需要实际 4-promoter bag 和 1069 维原始特征。
+
+该卡写于 2026-10-03T11:56:46.496535+08:00。rc2 修复 F17-3 空 batch 类型化校验。S 的验证/测试样本量为 1837/1880。
+
+---
+
+## English
+
+Experimental candidate `v6.15.1-release.rc2` repairs packaging/provenance while retaining batch16 independent-arm A weights, seed=20261016. Three single-task CNNs predict E/S/B; seed20261017 supports replication. Shared arm B and shared-plus-seven-auxiliary-head arm C fell below the frozen validation rule, with mean gains -0.00608/-0.00491 against mean gain≥0.02 and each axis drop≤0.02.
+
+Original-unit retrospective TEST: E rho=0.7428, R²=0.5618, MAE=0.1513, n=5851; S 0.4342/0.1699/0.2066/n1880; B 0.7262/0.6030/0.1786/n5851. Validation rho is 0.7429/0.4635/0.7163. HGB TEST is 0.7335/0.4334/0.7191, with S statistically tied.
+
+Package: `models/breakthrough_20261002/batch18/promoter_atlas_v6.15.1-release.rc2.zip`, SHA-256 `0d448a496d07692e314b642ebea77d5e024b11bec6a86e0130c78c2bca5defbe`. Contents include fixed weights, TRAIN transforms in scalers.npz, inference, schema, examples, manifest, and ablations. Entry point: `python -X utf8 code/run_example.py`.
+
+Trainer initialization RNG and data order confound shared/independent contrasts. Auxiliary zeros include uncovered assays with unresolved missingness. Regulatory families cover 14 constructs. Report component-union and earlier random splits separately. Inputs require actual four-promoter bags and 1069 raw features.
+
+Written 2026-10-03T11:56:46.496535+08:00. rc2 fixes F17-3 typed empty-batch validation. S validation/test counts are 1837/1880.

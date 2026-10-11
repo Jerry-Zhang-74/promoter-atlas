@@ -1,6 +1,47 @@
+# v2_conv_both_card · 模型卡 / Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+本卡记录对应历史模型的配置与评估。技术标识沿用原字段名，便于与脚本及结果表对应。
+
+| 字段 | 值 |
+|---|---|
+| 名称 (`name`) | v2_conv_both |
+| 特征配置 (`features`) | both |
+| 特征维数 (`feat_dim`) | 80 |
+| 设备 (`device`) | cuda |
+| 参数数 (`params`) | 218179 |
+
+### 测试指标
+`gene` 为基因级汇总，`sp` 为其他物种评估，`dist` 为蒸馏目标，`omics` 为组学目标，`tf` 为 TF 标签，`mpra` 为片段任务；`r2`、`spearman`、`rmse`、`n` 和 `ci_lo/ci_hi` 分别为 R²、秩相关、均方根误差、记录数及区间端点。NaN/null 保留为未定义值。
+```json
+{
+  "Score_E_r2": 0.2529087227581108,
+  "Score_E_spearman": 0.4866417853989203,
+  "Score_E_n": 44387,
+  "Score_S_r2": 0.09060225936803423,
+  "Score_S_spearman": 0.3179043424904528,
+  "Score_S_n": 29467,
+  "Score_B_r2": 0.2353831796977689,
+  "Score_B_spearman": 0.4925252943695852,
+  "Score_B_n": 44387,
+  "combined_spearman": 0.4290545576236229
+}
+```
+
+---
+
+## English
+
+Historical model configuration and evaluation. Original field identifiers and numeric records follow.
+
+```text
 name	v2_conv_both
 features	both
 feat_dim	80
 device	cuda
 params	218179
 test_metrics	{"Score_E_r2": 0.2529087227581108, "Score_E_spearman": 0.4866417853989203, "Score_E_n": 44387, "Score_S_r2": 0.09060225936803423, "Score_S_spearman": 0.3179043424904528, "Score_S_n": 29467, "Score_B_r2": 0.2353831796977689, "Score_B_spearman": 0.4925252943695852, "Score_B_n": 44387, "combined_spearman": 0.4290545576236229}
+```

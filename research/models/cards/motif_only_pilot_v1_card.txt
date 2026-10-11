@@ -1,3 +1,35 @@
+# motif_only_pilot_v1_card · 模型卡 / Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+本卡记录对应历史模型的配置与评估。技术标识沿用原字段名，便于与脚本及结果表对应。
+
+| 字段 | 值 |
+|---|---|
+| 模型名称 (`model_name`) | motif_only_pilot_v1 |
+| 研究阶段 (`phase`) | Phase 6c 诊断 |
+| 输入表示 (`input`) | motif_agg_only |
+| Motif 资源 (`motif_asset`) | features/motif/promoter_motif_agg_v1_exact_unique.tsv |
+| 预测目标 (`targets`) | Score_E,Score_S,Score_B |
+| S 缺失值策略 (`score_s_missing_policy`) | 掩码损失（masked_loss） |
+| 划分键 (`split_key`) | record_id |
+| 训练记录数 (`train_n`) | 20000 |
+| 验证记录数 (`val_n`) | 4000 |
+| 测试记录数 (`test_n`) | 4000 |
+| Motif 特征数 (`motif_feature_count`) | 192 |
+| 权重路径 (`checkpoint`) | models/checkpoints/motif_only_pilot_v1.pt |
+| 评估表 (`eval_table`) | models/eval/motif_only_pilot_v1_metrics.tsv |
+| 日志 (`log_file`) | models/logs/train_motif_only_pilot_v1.log |
+
+---
+
+## English
+
+Historical model configuration and evaluation. Original field identifiers and numeric records follow.
+
+```text
 model_name	motif_only_pilot_v1
 phase	Phase 6c diagnostic
 input	motif_agg_only
@@ -12,3 +44,4 @@ motif_feature_count	192
 checkpoint	models/checkpoints/motif_only_pilot_v1.pt
 eval_table	models/eval/motif_only_pilot_v1_metrics.tsv
 log_file	models/logs/train_motif_only_pilot_v1.log
+```

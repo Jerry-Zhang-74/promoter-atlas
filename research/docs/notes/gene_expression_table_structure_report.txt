@@ -1,1 +1,21 @@
-# Gene Expression Table Structure Report\n\n- input: labels/build/gene_expression_table.tsv\n- row_count: 3187782\n- header_count: 5\n- distinct_genes: 58988\n- inferred_table_mode: long_mean_tpm\n\n## Header\n\ngene_id, tissue, mean_tpm, median_tpm, sample_count\n\n## Rows per gene distribution\n\n- rows_per_gene=54: genes=58943\n- rows_per_gene=108: genes=45\n\n## Likely numeric columns\n\n- mean_tpm\n- median_tpm\n- sample_count\n\n## Column scan\n\n- gene_id: numeric=0, non_numeric=200, examples=['ENSG00000223972', 'ENSG00000223972', 'ENSG00000223972']\n- tissue: numeric=0, non_numeric=200, examples=['Adipose - Subcutaneous', 'Adipose - Visceral (Omentum)', 'Adrenal Gland']\n- mean_tpm: numeric=200, non_numeric=0, examples=[]\n- median_tpm: numeric=200, non_numeric=0, examples=[]\n- sample_count: numeric=200, non_numeric=0, examples=[]\n\n## Interpretation\n\n- this looks like a long-format table keyed by gene_id and mean_tpm
+# 表达表结构报告 · Expression table structure report
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+输入 `labels/build/gene_expression_table.tsv`，3,187,782行、5列、58,988个基因，格式为 long_mean_tpm。
+
+表头：gene_id、tissue、mean_tpm、median_tpm、sample_count。58,943基因各54行，45基因各108行。
+
+抽查200条时，gene_id和tissue均为非数值；mean_tpm、median_tpm、sample_count均为数值。gene_id示例ENSG00000223972；组织示例为皮下脂肪、内脏脂肪（网膜）和肾上腺。该表按基因和组织组织平均TPM长表。
+
+---
+
+## English
+
+Input `labels/build/gene_expression_table.tsv`:3,187,782 rows, five columns,58,988 genes, inferred format long_mean_tpm.
+
+Headers:gene_id, tissue, mean_tpm, median_tpm, sample_count.58,943 genes have54 rows each;45 genes have108.
+
+In a200-row scan, gene_id and tissue are nonnumeric; mean_tpm, median_tpm, and sample_count are numeric. Example gene ID:ENSG00000223972; tissues:Adipose - Subcutaneous, Adipose - Visceral (Omentum), Adrenal Gland. The table organizes mean TPM in gene-by-tissue long format.

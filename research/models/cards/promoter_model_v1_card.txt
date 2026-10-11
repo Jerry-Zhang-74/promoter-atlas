@@ -1,3 +1,33 @@
+# promoter_model_v1_card · 模型卡 / Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+本卡记录对应历史模型的配置与评估。技术标识沿用原字段名，便于与脚本及结果表对应。
+
+| 字段 | 值 |
+|---|---|
+| 模型名称 (`model_name`) | promoter_model_v1 |
+| 研究阶段 (`phase`) | Phase 6 启动子基线 |
+| 输入表示 (`input`) | sequence_only_core_memmap |
+| 预测目标 (`targets`) | Score_E,Score_S,Score_B |
+| S 缺失值策略 (`score_s_missing_policy`) | 掩码损失（masked_loss） |
+| 划分键 (`split_key`) | record_id |
+| 序列资源 (`sequence_asset`) | promoters/memmap/promoter_up200_uint8.memmap |
+| 序列索引 (`sequence_index`) | promoters/memmap/promoter_up200_index.tsv |
+| 数据集 (`dataset`) | labels/build/promoter_model_input_core.tsv + labels/releases/promoter_split_core.tsv |
+| 权重路径 (`checkpoint`) | models/checkpoints/promoter_model_v1.pt |
+| 评估表 (`eval_table`) | models/eval/promoter_model_v1_metrics.tsv |
+| 日志 (`log_file`) | models/logs/train_promoter_model_v1.log |
+
+---
+
+## English
+
+Historical model configuration and evaluation. Original field identifiers and numeric records follow.
+
+```text
 model_name	promoter_model_v1
 phase	Phase 6 baseline promoter model
 input	sequence_only_core_memmap
@@ -10,3 +40,4 @@ dataset	labels/build/promoter_model_input_core.tsv + labels/releases/promoter_sp
 checkpoint	models/checkpoints/promoter_model_v1.pt
 eval_table	models/eval/promoter_model_v1_metrics.tsv
 log_file	models/logs/train_promoter_model_v1.log
+```

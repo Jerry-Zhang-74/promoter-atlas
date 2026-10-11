@@ -1,47 +1,33 @@
-# Phase 6 model decision v1
+# Phase 6 模型决策 v1 · Phase 6 model decision v1
 
-## Purpose
+[中文](#中文) · [English](#english)
 
-Freeze the current model decision after the Phase 6 pilot series.
+## 中文
 
-## Current official baseline
+### 历史对照
 
-- model: promoter_model_v1
-- route: sequence_baseline
-- checkpoint: models/checkpoints/promoter_model_v1.pt
-- Score_E_r2: 0.2367
-- Score_S_r2: 0.0642
-- Score_B_r2: 0.2268
-- predEScorr: NA
+| 模型 | E R² | S R² | B R² | 预测 E–S 相关 |
+|---|---:|---:|---:|---:|
+| v1（models/checkpoints/promoter_model_v1.pt） | 0.2367 | 0.0642 | 0.2268 | NA |
+| v4_arch_only | 0.2297 | 0.0791 | 0.2114 | 0.3494 |
+| v4_arch2_reduced | 0.2257 | 0.0577 | 0.2062 | 0.3751 |
 
-## Current best architecture-route pilot
+Motif 与配对特征路线低于预设目标，结构特征提供了独立 S 信号，下一步探索序列/结构融合。
 
-- model: promoter_model_v4_arch_only_pilot
-- checkpoint: models/checkpoints/promoter_model_v4_arch_only_pilot.pt
-- Score_E_r2: 0.2297
-- Score_S_r2: 0.0791
-- Score_B_r2: 0.2114
-- predEScorr: 0.3494
+这一阶段按主要结构族分版本，族内保留路线名称，v4 对应结构特征路线。公开版本映射表记录旧名称与 Release 的对应关系。
 
-## Architecture reduction reference
+---
 
-- model: promoter_model_v4_arch2_reduced_pilot
-- checkpoint: models/checkpoints/promoter_model_v4_arch2_reduced_pilot.pt
-- Score_E_r2: 0.2257
-- Score_S_r2: 0.0577
-- Score_B_r2: 0.2062
-- predEScorr: 0.3751
+## English
 
-## Current scientific judgment
+### Recorded comparison
 
-- single motif aggregation route did not improve the main objective
-- pair-lite grammar route did not improve the main objective
-- promoter architecture features carry real independent signal for Score_S
-- current best Score_S among pilot models comes from the architecture route
-- future upgrades should prioritize stronger sequence/structure modeling rather than adding weak motif summaries
+| Model | E R² | S R² | B R² | Predicted E–S correlation |
+|---|---:|---:|---:|---:|
+| v1 (`models/checkpoints/promoter_model_v1.pt`) | 0.2367 | 0.0642 | 0.2268 | NA |
+| v4_arch_only | 0.2297 | 0.0791 | 0.2114 | 0.3494 |
+| v4_arch2_reduced | 0.2257 | 0.0577 | 0.2062 | 0.3751 |
 
-## Versioning rule
+Motif and pair-feature routes fell short of the objective. Architecture features provided an independent S signal, motivating stronger sequence/structure fusion.
 
-- major version increases only when the model architecture family changes
-- route-internal iterations remain under the same major version
-- architecture route remains under v4
+The version convention used at this stage grouped major architecture families together and retained internal route names within a family; v4 referred to the architecture route. The public version mapping documents how these historical names map to published releases.

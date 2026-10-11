@@ -1,51 +1,29 @@
-# Promoter Atlas v6.15.1-release.rc1 - version card (CANDIDATE / EXPERIMENTAL)
+# v6.15.1-release.rc1 模型卡 · Model card
 
-version        : v6.15.1-release.rc1
-source         : v6.15.0-multitask.rc1 (batch16 weights, byte-identical checkpoints)
-change_kind    : packaging / provenance repair ONLY - no retraining, no re-selection,
-                 no architecture change, no test-based choice. Version bump is packaging.
-status         : EXPERIMENTAL CANDIDATE - not a fully controlled causal result and not a
-                 scientific breakthrough. Independent review of this package is still required.
-architecture   : independent arm A = three single-task 1D-CNNs (no shared backbone)
-deployed_seed  : 20261016 (the only weights shipped in the package)
-second_seed    : 20261017 (replication / ensemble estimand only; NOT shipped)
-rejected_arms  : B (shared backbone + E/S/B heads), C (shared backbone + 7 epigenetic aux heads)
-                 both FAILED the frozen validation rule (mean per-target val rho gain >= 0.02
-                 AND no target drop > 0.02). B mean gain -0.00608, C mean gain -0.00491.
+[中文](#中文) · [English](#english)
 
-Shipped metrics (recomputed from saved predictions, raw units, retrospective test):
-  E test : Spearman 0.7428  R2 0.5618  MAE 0.1513  n 5851
-  S test : Spearman 0.4342  R2 0.1699  MAE 0.2066  n 1880
-  B test : Spearman 0.7262  R2 0.6030  MAE 0.1786  n 5851
-  (E/S/B val: 0.7429 / 0.4635 / 0.7163)
+## 中文
 
-Package        : models/breakthrough_20261002/batch17/promoter_atlas_v6.15.1-release.rc1.zip
-package_sha256 : b2d5fd33ce273b289ca75f6a335cb52613b090a5bc1f16be5ec9f46ea4f315d9
-contents       : fixed A_s20261016 E/S/B weights, train-fitted transforms (scalers.npz),
-                 self-contained inference code, schema, README + model card, runnable example,
-                 SHA manifest, negative ablation results. No training assets required.
-first_use      : unzip -> cd release_v6.15.1-release.rc1 -> python -X utf8 code/run_example.py
-report         : reports/breakthrough_20261002/batch17/release_report_v6_15_1_rc1.html
-numeric_source : reports/breakthrough_20261002/batch17/corrected_release_metrics.tsv
+实验候选 `v6.15.1-release.rc1` 整理打包和来源，沿用 batch16 独立臂 A 的原权重，seed=20261016。三个单任务 CNN 分别预测 E/S/B；seed20261017 用于重复实验。共享臂 B、共享加 7 个辅助头的 C 均低于冻结验证规则，平均增益分别 -0.00608/-0.00491，规则为平均增益≥0.02且单轴下降≤0.02。
 
-KNOWN LIMITATIONS (must be read before use)
-1. Trainer/init/data-order confound: the A reference fit and A seed-2 E/S used the original
-   trainer (global RNG shuffle); arms B/C and A seed-2 B used the recovery trainer
-   (deterministic per-epoch sampler seed). Same algorithm/optimizer/loss/epochs, different
-   initialization RNG stream and data order. This confounds every shared-vs-independent
-   contrast and blocks a strictly controlled causal task-sharing conclusion.
-2. Auxiliary missingness unresolved: epigenetic aux targets encode uncovered assays as 0.0
-   with no NaN flag; zeros are treated as unresolved absence-vs-missing. No benefit/detriment
-   of auxiliary supervision is claimed.
-3. Family generalization: discovered regulation families cover only 14 constructs.
-4. Split non-comparability: the corrected component-union split is NOT comparable with earlier
-   random-split results; old scores must not be compared directly.
-5. Inputs required: without the true 4-promoter bag + 1069-dim feature vector the model cannot
-   be meaningfully applied.
+原单位回顾性 TEST：E rho=0.7428、R²=0.5618、MAE=0.1513、n=5851；S 0.4342/0.1699/0.2066/n1880；B 0.7262/0.6030/0.1786/n5851。验证 rho 为 0.7429/0.4635/0.7163。HGB TEST 为 0.7335/0.4334/0.7191，S 统计上相当。
 
-PROVENANCE CORRECTION (recorded, original artifact untouched)
-  batch16 independent_review.json self-reports shell_pid 1870; the ACTUAL reviewer process is
-  the control_23-supervised reviewer pid 17072, started 2026-10-03T10:46:15+08:00, returncode 0,
-  model deepseek-v4-pro. See reports/breakthrough_20261002/batch17/reviewer_provenance_correction.json
+包路径 `models/breakthrough_20261002/batch17/promoter_atlas_v6.15.1-release.rc1.zip`，SHA-256 `b2d5fd33ce273b289ca75f6a335cb52613b090a5bc1f16be5ec9f46ea4f315d9`。包内含固定权重、TRAIN 变换 scalers.npz、推理、schema、示例、清单和消融结果；入口 `python -X utf8 code/run_example.py`。
 
-DO NOT treat this card as an independent review result.
+训练器的初始化 RNG 和数据顺序影响共享/独立对比；辅助目标以 0 编码未测定情况，缺失语义待解决；调控家族覆盖 14 构建体；component-union 划分与早期随机划分分别报告；输入需要实际 4-promoter bag 和 1069 维原始特征。
+
+复核来源更正：batch16 independent_review.json 自报 shell_pid=1870；实际为 control_23 管理的 reviewer PID17072，2026-10-03T10:46:15+08:00 启动，returncode=0，模型 deepseek-v4-pro。详见 batch17/reviewer_provenance_correction.json。
+
+---
+
+## English
+
+Experimental candidate `v6.15.1-release.rc1` repairs packaging/provenance while retaining batch16 independent-arm A weights, seed=20261016. Three single-task CNNs predict E/S/B; seed20261017 supports replication. Shared arm B and shared-plus-seven-auxiliary-head arm C fell below the frozen validation rule, with mean gains -0.00608/-0.00491 against mean gain≥0.02 and each axis drop≤0.02.
+
+Original-unit retrospective TEST: E rho=0.7428, R²=0.5618, MAE=0.1513, n=5851; S 0.4342/0.1699/0.2066/n1880; B 0.7262/0.6030/0.1786/n5851. Validation rho is 0.7429/0.4635/0.7163. HGB TEST is 0.7335/0.4334/0.7191, with S statistically tied.
+
+Package: `models/breakthrough_20261002/batch17/promoter_atlas_v6.15.1-release.rc1.zip`, SHA-256 `b2d5fd33ce273b289ca75f6a335cb52613b090a5bc1f16be5ec9f46ea4f315d9`. Contents include fixed weights, TRAIN transforms in scalers.npz, inference, schema, examples, manifest, and ablations. Entry point: `python -X utf8 code/run_example.py`.
+
+Trainer initialization RNG and data order confound shared/independent contrasts. Auxiliary zeros include uncovered assays with unresolved missingness. Regulatory families cover 14 constructs. Report component-union and earlier random splits separately. Inputs require actual four-promoter bags and 1069 raw features.
+
+Reviewer-provenance correction: batch16 independent_review.json reported shell_pid=1870; the actual reviewer was PID17072 supervised by control_23, started 2026-10-03T10:46:15+08:00, returncode=0, model deepseek-v4-pro. See batch17/reviewer_provenance_correction.json.

@@ -1,32 +1,75 @@
-# 启动子活性预测模型 使用指南（中文速查 · v6.38.0 终版）
+# HEK293 片段预测使用指南 · HEK293 fragment prediction guide
 
-本包预测 **HEK293 启动子片段活性**，目标量为作者公开的 `Log2RPM_HEK293`。
-科学范围：序列来自参考基因组代理（GRCh37/hg19 代理），**不是**供体克隆自身序列；
-细胞背景 HEK293，**未在本地 293FT 验证**；仅用作者 fold0 从零训练。支持长度 **100–600 bp**；
-**>600 bp 不支持**（不做滑窗、不截取）。
+[中文](#中文) · [English](#english)
 
-## 一、依赖
-Python 3.12 + PyTorch 2.11 + NumPy 2.5。**真实模型推理必须使用 CUDA 显卡（无 CPU 回退）**。
+## 中文
 
-## 二、一条命令跑通（PowerShell，可在任意工作目录运行）
-把下面整段复制进 PowerShell（假设模型包解压在 `D:\模型\v6.38.0-nabs-reviewed`，
-输入 FASTA 在 `D:\我的数据\候选启动子 序列.fa`）：
+### 用途和依赖
+
+预测 HEK293 启动子片段的 `Log2RPM_HEK293`。模型使用作者 fold0、参考基因组代理序列从随机初始化训练；293FT 迁移待评估。经验训练长度为 100–600 bp。
+
+需要 Python 3.12、PyTorch 2.11、NumPy 2.5 和 CUDA GPU。将 `<bundle-directory>`、输入和输出路径替换为实际位置，路径支持中文和空格。预测入口为 `predict.py`，按自身位置寻找模型代码。
 
 ```powershell
-$env:PYTHONDONTWRITEBYTECODE='1'; $env:PYTHONUTF8='1'; $env:PYTHONIOENCODING='utf-8'
-$BUNDLE='D:\模型\v6.38.0-nabs-reviewed'; $INPUT='D:\我的数据\候选启动子 序列.fa'; $OUT='D:\我的数据\预测结果.tsv'
-& "E:\promoter_atlas\.venv\Scripts\python.exe" -X utf8 "$BUNDLE\predict.py" --bundle "$BUNDLE" --fasta "$INPUT" --out "$OUT"
+$env:PYTHONDONTWRITEBYTECODE='1'
+$env:PYTHONUTF8='1'
+$env:PYTHONIOENCODING='utf-8'
+$BUNDLE = '<bundle-directory>'
+$INPUT = 'D:\data\promoters.fa'
+$OUT = 'D:\data\predictions.tsv'
+python -m pip install -r "$BUNDLE\requirements.txt"
+python -X utf8 "$BUNDLE\predict.py" --bundle "$BUNDLE" --fasta "$INPUT" --out "$OUT"
 ```
 
-`predict.py` 依据自身位置寻找同目录的 `pinned_core/`，**不依赖当前工作目录**，路径可含空格与中文。
+### 输入与输出
 
-## 三、输入格式
-FASTA，每条记录 `>id` 换行后接 ACGT（可含 N，大小写均可）。以下输入会被**明确拒绝**（退出码 2，不静默修复）：
-空文件 / 无记录、空序列、重复 id、非法碱基、**任一记录 > 600 bp**。
+输入是 FASTA，每条记录有唯一 `>id`，碱基为 A/C/G/T/N，大小写均可。空文件、空序列、全 N、重复 ID、非法碱基或长度超过 600 bp 会触发输入错误（退出码 2）。长度问题应通过准备符合实验设计的有效片段解决。
 
-## 四、输出
-TSV（UTF-8）：`seq_id  length  activity_pred_Log2RPM  model_id  version`，并生成 `$OUT.meta.json`
-（含输入/输出 SHA256、设备、checkpoint 哈希）。
+UTF-8 TSV 输出字段为 `seq_id`、`length`、`activity_pred_Log2RPM`、`model_id`、`version`。同时生成 `<out>.meta.json`，记录输入/输出 SHA-256、设备、版本和 checkpoint 哈希。
 
-## 五、真实性能（公开 HEK293 TEST，直接复制自评测文件，未编造）
-见同目录 `MODEL_CARD_zh.md` 与 `results/`。**不做 293FT 迁移声明。**
+### 评估文件
+
+`results/` 保存评估与复核记录，模型卡说明统计口径。`split` 标记数据划分，`scope` 描述评估范围，Nabs/Njoint 是对比模型块；单模型直接使用 `activity.*`。
+
+`activity.rho` 是 Spearman；`group_mae` 是组等权 MAE；`rmse` 为原单位 RMSE；`top10_precision` 为前 10% 命中率；`pair.*` 为配对 group_mean_mae / macro_sign_accuracy；`fixed_baselines` 为 zero_delta / always_positive / always_negative 对照；`bootstrap` 为分组区间；`verdict` 记录 TARGET_MET / LIMITED 等预设结论。
+
+### 常见问题
+
+CUDA 不可用时换到有 CUDA 的环境；ID 重复时给每条记录唯一名称；碱基错误时检查 A/C/G/T/N 字符；checkpoint SHA-256 不符时重新获取对应模型包。
+
+---
+
+## English
+
+### Purpose and dependencies
+
+Predict HEK293 promoter-fragment `Log2RPM_HEK293`. Training used author fold0, reference-genome proxy sequences, and random initialization. Transfer to 293FT awaits evaluation. The empirical training domain is 100–600 bp.
+
+Use Python 3.12, PyTorch 2.11, NumPy 2.5, and a CUDA GPU. Replace `<bundle-directory>`, input, and output with actual paths; spaces and non-ASCII characters are supported. The predictor at `predict.py` resolves its model code relative to its own location.
+
+```powershell
+$env:PYTHONDONTWRITEBYTECODE='1'
+$env:PYTHONUTF8='1'
+$env:PYTHONIOENCODING='utf-8'
+$BUNDLE = '<bundle-directory>'
+$INPUT = 'D:\data\promoters.fa'
+$OUT = 'D:\data\predictions.tsv'
+python -m pip install -r "$BUNDLE\requirements.txt"
+python -X utf8 "$BUNDLE\predict.py" --bundle "$BUNDLE" --fasta "$INPUT" --out "$OUT"
+```
+
+### Input and output
+
+Input is FASTA with a unique `>id` per record and case-insensitive A/C/G/T/N bases. Empty files, empty/all-N sequences, duplicate IDs, invalid bases, and sequences above 600 bp raise input errors (exit code 2). Resolve length issues by preparing valid fragments appropriate to the experimental design.
+
+UTF-8 TSV output fields are `seq_id`, `length`, `activity_pred_Log2RPM`, `model_id`, and `version`. `<out>.meta.json` records input/output SHA-256, device, version, and checkpoint hash.
+
+### Evaluation files
+
+`results/` contains evaluation and review records; the model card explains the statistical scope. `split` identifies the partition, `scope` describes the evaluation, and Nabs/Njoint identify comparison blocks. Single-model results use `activity.*` directly.
+
+`activity.rho` is Spearman; `group_mae` is group-equal MAE; `rmse` uses original units; `top10_precision` measures top-10% precision; `pair.*` includes group_mean_mae / macro_sign_accuracy; `fixed_baselines` contains zero_delta / always_positive / always_negative; `bootstrap` contains grouped intervals; and `verdict` records prespecified outcomes such as TARGET_MET / LIMITED.
+
+### Troubleshooting
+
+Use a CUDA environment when CUDA is unavailable, assign unique IDs, check A/C/G/T/N characters, and obtain the corresponding model bundle again if checkpoint SHA-256 verification fails.

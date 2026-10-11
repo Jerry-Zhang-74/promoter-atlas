@@ -1,95 +1,71 @@
-MODEL CARD - promoter_atlas v6.19.0-strvariant.rc1  (batch26)
-================================================================
-Written: 2026-10-03T18:09:30+08:00
-Status: EXPERIMENTAL CANDIDATE, NOT PROMOTED. Production pointer unchanged
-        (promoter_atlas_v6.3 main / v6.4 cellline pilot).
-Lineage: produced by batch26 worker (DeepSeek Flash) under PROTOCOL
-        runs/breakthrough_20261002/batch26/PROTOCOL.txt. Awaits fresh independent review.
+# v6.19.0-strvariant.rc1 模型卡 · Model card
 
-1. TASK / DOMAIN (read carefully)
-   Task-native predictor of HEK293T hSTR1 reporter activity for a variable
-   STR+flank insert measured in a FIXED minimal-promoter (minP)-GFP reporter
-   context (pGL4.23 backbone, transient plasmid, GSE306816). This is NOT
-   autonomous promoter activity, NOT the v6.3 E/S/B gene task, and NOT
-   validation of the 14 ACTB/GAPDH/CMV wet constructs (never used as input).
-   Endpoint = mean over 3 biological replicates and eligible barcodes of
-   log2(cDNA/gDNA) - i.e. a per-construct relative reporter expression.
+[中文](#中文) · [English](#english)
 
-2. INPUT / OUTPUT
-   Input : one-hot ACGT of the FULL native variable insert (vreg), 108-168 nt,
-           NO padding, NO cropping, no IDs/motif/length/barcode features.
-   Output: scalar in log2(cDNA/gDNA) units of this study. NOT a calibrated
-           GFP measurement and NOT transferable to other cell lines/backbones.
+## 中文
 
-3. ARCHITECTURE / TRAINING
-   Architecture: batch02 trackB_grouped_cv LegNetInspired(num_targets=1, ch=64)
-                 with global mean/max pooling and a scalar head; READ-ONLY import;
-                 initialised FROM SCRATCH (no K562 or other pretrained weights).
-                 trainable params 110145, state-dict entries 111306.
-   Optimizer   : AdamW lr 0.001, weight_decay 0.0001, constant LR (no cosine),
-                 gradient-clip norm 1, batch<=32 grouped by equal length.
-   Objective   : MSE on train-standardised target, per-row weight =
-                 inverse(number of variants in its locus), mean weight 1 in train.
-   Stopping    : max 25 epochs, early stop after 5 epochs without validation
-                 group-balanced MAE improvement; checkpoint chosen by validation
-                 group-balanced MAE.
-   Seeds       : true 20261026 (A1) and 20261027 (A2); shuffled-label control
-                 A3 seed 20261026 with permutation seed 20261028.
-   Device      : single NVIDIA RTX 5060 Laptop GPU, cuda:0 (see cuda_evidence.json).
+batch26，2026-10-03T18:09:30+08:00，实验候选。任务为GSE306816 HEK293T hSTR1的STR+侧翼可变插入片段，在pGL4.23固定minP-GFP瞬转背景下预测3个生物重复及有效barcode平均log2(cDNA/gDNA)。
 
-4. DATA / SPLIT
-   Data: data/breakthrough_20261002/batch25/str_variant_variants.tsv
-         sha256 72a5298f0015dea50255ee169a5eee0f918a5ef6b9bc4775dec518384cae4c0e
-         frozen by batch25 with ZERO model applied (57,674 variants / 19,742 loci).
-   Reconstructed rows: data/breakthrough_20261002/batch26/str_variant_rows.tsv
-         sha256 99fc12ad80c60b1b90f7e70fa7f4baa2690a4ab43033d91ffd947b6b8078b432 (every vreg byte-verified against the author design).
-   Split: label-free groups (locus + exact/RC duplicates + overlapping hg38
-         flank intervals, transitive merge) -> 18,909 groups; group id =
-         min(sequence SHA)+sorted locus ids; hash('batch26_seed20261026|groupid')
-         -> <0.70 train / <0.85 val / else test. All alleles/barcodes of a group
-         stay in one split. train 13,228 / val 2,841 / test 2,840 groups.
-   Limitation: locus-holdout with residual near-homology uncertainty (bounded
-         candidate screen, not an exhaustive all-family isolation proof).
+### 模型与训练
 
-5. HELD-OUT TEST (internal retrospective, opened only after the 4 fits + selection)
-   rows 8800 / groups 2840 (test).
-   metric                      C ridge      A1 true     A2 true     A3 shuffled   train-mean
-   pooled Spearman              0.4188      0.4719     0.4443      UNDEFINED     UNDEFINED
-   group-balanced MAE           0.3986      0.3559     0.3632      0.4479       0.4466
-   R^2 (vs truth variance)      0.2688      0.4367     0.3972      -0.0002       -0.0001
-   top-decile precision         0.4727      0.5807     0.5659      0.0977
-   Selected primary: A1_cnn_true_seed20261026 (by validation group-MAE, tie -> lower seed).
-   Paired group bootstrap (2000) deltaSpearman A1-C: [0.03431045101329968, 0.07239601556776062] (lower > 0).
-   Within-locus variant effect (A1): deltaSpearman 0.1532, group 95% CI [0.1288879949348889, 0.17802597290726707],
-   sign agreement 0.5474 on 5513 mutant-ref pairs / 2665 loci / 2546 groups.
+完整108–168nt插入序列的ACGT一热输入，按等长分组，直接预测该研究的log2端点。复用batch02 LegNetInspired(num_targets=1,ch=64)，mean/max汇合与标量头，从随机初始化训练；可训练参数110145，state-dict条目元素111306。
 
-6. PREDECLARED CRITERIA OUTCOME
-   {
-      "rho_increase_ge_0.05": true,
-      "group_balanced_mae_reduction_ge_5pct": true,
-      "top_decile_precision_not_lower": true,
-      "other_true_seed_rho_gt_C": true,
-      "paired_ci95_delta_rho_lower_gt_0": true,
-      "shuffle_rho_at_least_0.05_below_selected": null,
-      "variant_delta_spearman_gt_0.10": true,
-      "variant_delta_ci95_lower_gt_0": true,
-      "variant_sign_agreement_gt_0.55": false
-}
-   all_met = False   variant_direction_support_met = False
-   Note: the shuffled control collapsed to a constant prediction, so its
-   Spearman is UNDEFINED and the 0.05 margin criterion is reported as
-   NOT EVALUABLE (no zero substitution). See test_metrics.json.
+AdamW lr0.001、wd0.0001、固定学习率、clip1、batch≤32；TRAIN标准化目标MSE，按每位点变体数倒数加权且TRAIN均值为1。最多25epochs，验证组平衡MAE patience5并选最佳checkpoint。真标签seed20261026/20261027，打乱对照seed20261026、置换seed20261028，单RTX5060 Laptop cuda:0。
 
-7. FIT BUDGET / COMPLIANCE
-   DECLARED max 4 estimator fits; OBSERVED 5 executions (A0 ridge solve crashed
-   at save and was re-run = 2 executions + 3 neural fits). COMPLIANCE = FAIL.
-   No further fits performed or authorized. See fit_accounting_disclosure.json.
+### 数据与结果
 
-8. USE / LIMITATIONS
-   * Internal retrospective locus-holdout only; NOT external or prospective
-     validation; no transfer claim.
-   * Usable for a FUTURE engineering/transfer hypothesis on STR+flank fragments
-     in this fixed minP-GFP context. Not for arbitrary promoters, long
-     truncations, autonomous-promoter activity, or other cell lines.
-   * Minimal raw-FASTA entrypoint: b26_infer_fasta.py (domain 108-168 nt, ACGT).
-================================================================
+batch25冻结57,674变体/19,742位点；batch26逐字核对作者设计。按位点、精确/反链重复和hg38侧翼重叠传递合并18,909组，组ID由最小序列SHA及排序位点ID组成，`batch26_seed20261026|groupid`哈希按<0.70/<0.85/其余划分，TRAIN/VAL/TEST组13228/2841/2840。残余近同源覆盖仍待扩大检查。
+
+TEST有8800行/2840组，验证组MAE选A1，平局取低seed。
+
+| 模型 | rho | 组平衡 MAE | R² | top10 精度 |
+|---|---:|---:|---:|---:|
+| C ridge | 0.4188 | 0.3986 | 0.2688 | 0.4727 |
+| A1 | 0.4719 | 0.3559 | 0.4367 | 0.5807 |
+| A2 | 0.4443 | 0.3632 | 0.3972 | 0.5659 |
+| A3 shuffled | UNDEFINED | 0.4479 | -0.0002 | 0.0977 |
+| TRAIN mean | UNDEFINED | 0.4466 | -0.0001 | — |
+
+2000次配对组bootstrap，A1−C的rho差区间[0.03431045101329968,0.07239601556776062]。A1位点内变体delta-rho=0.1532，95%CI[0.1288879949348889,0.17802597290726707]，方向一致0.5474，5513变体-参考配对/2665位点/2546组。
+
+预设rho增≥0.05、组MAE降≥5%、top10持平或增、另一真seed超过C、rho差CI>0、变体delta-rho>0.10及其CI>0均通过；方向门槛>0.55未通过。打乱模型输出常数，其rho及0.05间隔准则为未定义。all_met=False、variant_direction_support_met=False。
+
+预算4次拟合，实际5次：ridge保存失败后重跑共2次，神经3次，执行预算结论FAIL。研究范围为该固定报告背景下内部回顾性位点留出；后续可研究STR+侧翼迁移。入口b26_infer_fasta.py支持108–168nt ACGT。原始冻结表与重建表SHA如下。
+
+- `72a5298f0015dea50255ee169a5eee0f918a5ef6b9bc4775dec518384cae4c0e`
+- `99fc12ad80c60b1b90f7e70fa7f4baa2690a4ab43033d91ffd947b6b8078b432`
+
+---
+
+## English
+
+batch26, dated2026-10-03T18:09:30+08:00, is an experimental candidate. It predicts GSE306816 HEK293T hSTR1 STR-plus-flank variable-insert activity in the fixed pGL4.23 minP-GFP transient context, targeting mean log2(cDNA/gDNA) across three biological replicates and eligible barcodes.
+
+### Model and training
+
+Use complete108–168nt ACGT one-hot inserts grouped by equal length, predicting this study's log2 endpoint. Reuse batch02 LegNetInspired(num_targets=1,ch=64), mean/max pooling, and a scalar head, trained from random initialization;110145 trainable parameters and111306 state-dict elements.
+
+AdamW lr0.001, wd0.0001, constant learning rate, clip1, batch≤32. MSE uses TRAIN-standardized targets and inverse-variants-per-locus weights normalized to TRAIN mean1. Train up to25epochs with validation group-balanced MAE patience5 and checkpoint selection. True-label seeds20261026/20261027; shuffled control seed20261026 with permutation seed20261028; one RTX5060 Laptop cuda:0.
+
+### Data and results
+
+batch25 froze57,674 variants/19,742 loci; batch26 verified every insert against the author design. Locus, exact/RC duplicates, and overlapping hg38 flanks were transitively merged into18,909 groups. IDs use minimum sequence SHA plus sorted locus IDs; hashing `batch26_seed20261026|groupid` assigns <0.70/<0.85/remaining to TRAIN/VAL/TEST, with13228/2841/2840 groups. Broader residual-near-homology assessment remains follow-up work.
+
+TEST contains8800 rows/2840 groups. Validation group MAE selected A1, with lower-seed tie-breaking.
+
+| Model | rho | Group-balanced MAE | R² | Top10 precision |
+|---|---:|---:|---:|---:|
+| C ridge | 0.4188 | 0.3986 | 0.2688 | 0.4727 |
+| A1 | 0.4719 | 0.3559 | 0.4367 | 0.5807 |
+| A2 | 0.4443 | 0.3632 | 0.3972 | 0.5659 |
+| A3 shuffled | UNDEFINED | 0.4479 | -0.0002 | 0.0977 |
+| TRAIN mean | UNDEFINED | 0.4466 | -0.0001 | — |
+
+With2000 paired group-bootstrap samples, A1−C rho-difference CI is[0.03431045101329968,0.07239601556776062]. A1 within-locus delta-rho=0.1532,95%CI[0.1288879949348889,0.17802597290726707], sign agreement0.5474 over5513 mutant/reference pairs,2665 loci,2546 groups.
+
+Criteria passed for rho gain≥0.05, group-MAE reduction≥5%, stable/improved top10, other true seed>C, positive rho-difference CI, variant delta-rho>0.10, and its positive CI. The sign threshold>0.55 failed. Shuffled predictions were constant, leaving rho and its0.05-margin criterion undefined. all_met=False and variant_direction_support_met=False.
+
+The budget was four fits; five occurred: two ridge executions after a save failure, plus three neural fits. Budget compliance is FAIL. Scope is internal retrospective locus holdout in this fixed reporter context, supporting future STR-plus-flank transfer hypotheses. b26_infer_fasta.py accepts108–168nt ACGT. Frozen and reconstructed table hashes follow.
+
+- `72a5298f0015dea50255ee169a5eee0f918a5ef6b9bc4775dec518384cae4c0e`
+- `99fc12ad80c60b1b90f7e70fa7f4baa2690a4ab43033d91ffd947b6b8078b432`

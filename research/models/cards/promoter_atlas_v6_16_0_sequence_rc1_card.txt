@@ -1,75 +1,45 @@
-MODEL CARD - Promoter Atlas v6.16.0-sequence.rc1 (batch20)
-STATUS: EXPERIMENTAL usability release. NO new scientific fits were performed in batch20.
-Written 2026-10-03 (Asia/Shanghai).
+# v6.16.0-sequence.rc1 模型卡 · Model card
 
-WHAT THIS IS
-  A raw-input usability layer over TWO EXISTING, UNCHANGED models plus a gene-database
-  query mode. It is a SINGLE ENTRY POINT that dispatches DIFFERENT models; it is NOT a
-  shared neural network and must never be described as one.
+[中文](#中文) · [English](#english)
 
-  1) GENE MODEL (E/S/B)  - the v6.15.1-release.rc2 independent-arm CNN
-     (reference seed 20261016, cells: 3 separate SingleTaskModel). Weights byte-identical
-     to the rc2 package. Input: 4 x 400 bp promoter slots (uint8 0..4) + one 1069-dim
-     RAW feature vector. Output units:
-       E = Score_E, rank-scaled [0,1] expression strength
-       S = S_raw = -MAD(log2(1+detectable TPM)) (negative; less negative = more stable; NOT temporal)
-       B = B_raw = detectable_tissue_count / tissue_count, [0,1]
-     Model SHA256: E 9f33f8e6..cab79, S 2e5fff25..4d214, B c45af034..33aeb.
+## 中文
 
-  2) K562 MPRA MODEL - LegNet-inspired ensemble, 5 family-grouped folds x 3 seeds = 15
-     weights, input EXACTLY 164 bp. Output: K562 MPRA activity (Mean_log10, GSE118242).
-     Ensemble = mean of 15; ensemble_sd = spread. Weights listed with per-file SHA256 in
-     reports/breakthrough_20261002/batch20/artifact_manifest.json.
+batch20 于 2026-10-03 增加原始输入与基因数据库查询入口，调用两类已有模型。
 
-DATA / SPLITS
-  Gene: data/breakthrough_20261002/batch16/labels.npz  gene_split
-        (corrected-component split; test n=5851, val n=5609).
-  MPRA: features/mpra/mpra_supervised.tsv  split column - RANDOM, NOT family-grouped.
-        The honest generalization reference is the batch02 grouped-by-family OOF.
+### 模型与复现
 
-OBSERVED vs PREDICTED (kept strictly separate everywhere)
-  Observed gene labels come from the catalog label table / frozen batch16 targets.
-  Observed construct values are HEK293T ROSA26-4 D28 experiment measurements.
-  Predictions are MODEL outputs. They are different quantities and are never merged.
+基因模型为 v6.15.1-release.rc2 的三个独立 SingleTaskModel，seed20261016，输入 4×400 bp 编码序列与 1069 维原始特征。E 为 Score_E，S 为可检出组织负 MAD，B 为可检出组织比例。权重 SHA 摘要 E `9f33f8e6..cab79`、S `2e5fff25..4d214`、B `c45af034..33aeb`。
 
-REPRODUCTION (worked, verified)
-  Gene replay vs shipped rc2 test metrics (this tree's independent inference path):
-    E 0.74279 (rc2 0.7427954), S 0.43418 (rc2 0.4341868), B 0.72618 (rc2 0.7261787)
-    -> deltas <= 7e-06. Feature recomputation from raw promoter bags is EXACT (max abs 0.0).
-  MPRA fold-aware replay vs saved OOF: max abs 8.0e-08 over 40 sampled oligos.
+K562 模型为 LegNet 风格 5 家族 fold×3 seed 的 15 权重均值集成，输入 164 bp，输出 GSE118242 Mean_log10 活性；ensemble_sd 描述模型间离散。完整 SHA 在 batch20/artifact_manifest.json。
 
-PRELIMINARY METRICS (NOT a gain claim)
-  MPRA random-split test Spearman 0.94129 / MAE 0.0768 - LEAKAGE-INFLATED (81.4% of test
-  rows share a family_id with train). Do NOT quote as generalization.
-  Honest within-source reference remains batch02 grouped OOF Spearman 0.79577 / MAE 0.16872.
+基因 corrected-component 划分 TEST n5851、val n5609。独立回放 E/S/B 0.74279/0.43418/0.72618，rc2 参考 0.7427954/0.4341868/0.7261787，差≤7e-6；原始 promoter bag 特征重算最大差 0。MPRA 对 40 条 oligo 的 fold-aware OOF 回放最大差 8e-8。
 
-LATENCY (single RTX-class GPU, CUDA available; batch 32, CPU threads 4)
-  MPRA: 0.55 ms/sequence (GPU); 164 bp input.
-  Gene: 1.33 ms/gene at batch 64; ~2.4-2.9 ms for a single gene including call overhead.
-  Nothing here needs the GPU; CPU is sufficient for small inputs.
+### 指标与使用范围
 
-SUPPORTED / UNSUPPORTED (declared scope)
-  SUPPORTED: 164 bp K562 MPRA oligos (native length only; >164 requires the explicit
-    --exploratory-window flag and is labelled EXPLORATORY). Human gene-level E/S/B for any
-    catalog gene by ID or symbol, and for a raw promoter-bag FASTA whose 1069 features are
-    reproduced by the shipped formula.
-  UNSUPPORTED / NOT CLAIMED: arbitrary or truncated promoter-fragment activity; HEK293T or
-    synthetic-construct activity; multi-species; temporal interpretation of S; whole-fragment
-    activity from any window. No numeric prediction is ever fabricated (no fake zeros;
-    unsupported lengths are refused, not scored).
+MPRA 表的随机划分 TEST rho0.94129、MAE0.0768，81.4% TEST 行的 family_id 在 TRAIN 出现；家族分组 OOF 参考为 rho0.79577、MAE0.16872。该 LegNet OOF 对 CNN0.78285 的提升低于预设稳健门槛。
 
-KNOWN NEGATIVES PRESERVED (do not re-litigate without new data)
-  * batch02 grouped OOF legnet 0.79577 vs CNN 0.78285: prespecified robustness margin NOT met.
-  * batch03 14-construct family generalization FAILED.
-  * CMVcore has no enhancer; CMV constructs have no human gene context.
-  * The 14-construct set has ZERO independent biological replicates (technical same-tube only).
-  * batch16/18 shared and shared+aux arms FAILED validation, under a documented
-    trainer/init/data-order confound.
+batch32 的 MPRA GPU 延迟约 0.55ms/序列；基因 batch64 为 1.33ms/基因，单基因约 2.4–2.9ms；小输入可用 CPU。基因目录可按 ID/symbol 查询；目录外 bag 采用前 min(4,n) 槽近似，标记 exact_supported=0。>164 bp 的 MPRA 窗口需显式 `--exploratory-window`，同一截短家族该窗口 span=0，排序能力需要长度匹配模型。
 
-LIMITS OF THIS RELEASE
-  * The gene model consumes a precomputed 1069-feature vector. batch20 can now compute that
-    vector from raw promoter-bag sequence with EXACT parity for catalog genes; for
-    out-of-catalog bags the 4-slot selection is a DECLARED approximation (first min(4,n) slots)
-    and is flagged exact_supported=0.
-  * The exploratory 164 bp window is CONSTANT within truncation families (span 0.0), so it
-    cannot rank truncations. See domain_error_analysis.json.
+观察基因标签、HEK293T ROSA26-4 D28 构建体测量和模型预测各自保留来源。14 构建体家族泛化记录 FAIL，重复为同管技术复测；CMVcore 为核心片段，CMV 缺少人类基因上下文。batch16/18 共享臂验证规则未通过，伴随训练器/RNG/顺序差异。
+
+---
+
+## English
+
+batch20, dated 2026-10-03, adds raw-input and gene-catalog entry points dispatching two existing model types.
+
+### Models and replay
+
+The gene model uses the three independent SingleTaskModels from v6.15.1-release.rc2, seed20261016, with 4×400 bp encoded sequences and 1069 raw features. E is Score_E, S is detectable-tissue negative MAD, and B is detectable-tissue fraction. SHA excerpts: E `9f33f8e6..cab79`, S `2e5fff25..4d214`, B `c45af034..33aeb`.
+
+The K562 model averages 15 LegNet-inspired weights from five family folds and three seeds. Input is 164 bp; output is GSE118242 Mean_log10 activity. ensemble_sd describes model spread. Full hashes are in batch20/artifact_manifest.json.
+
+The gene corrected-component split has TEST n5851 and val n5609. Independent replay E/S/B is 0.74279/0.43418/0.72618 versus rc2 0.7427954/0.4341868/0.7261787, differing by ≤7e-6. Raw-bag feature recomputation has maximum difference 0. Fold-aware MPRA OOF replay over 40 oligos differs by at most 8e-8.
+
+### Metrics and usage domain
+
+Random-split MPRA TEST gives rho0.94129 and MAE0.0768; 81.4% of TEST rows share family_id with TRAIN. The grouped OOF reference is rho0.79577 and MAE0.16872. Its gain over CNN0.78285 falls below the prespecified robustness margin.
+
+MPRA batch32 GPU latency is about 0.55ms/sequence; gene batch64 is 1.33ms/gene and single-gene calls about 2.4–2.9ms. CPU supports small inputs. Query catalog genes by ID/symbol. Out-of-catalog bags use a first-min(4,n)-slot approximation flagged exact_supported=0. MPRA windows above 164 bp require `--exploratory-window`; the window has span=0 within truncation families, motivating a length-matched ranking model.
+
+Observed gene labels, HEK293T ROSA26-4 D28 measurements, and predictions retain separate provenance. The 14-construct family-generalization record is FAIL, with same-tube technical repeats. CMVcore is the core fragment; CMV lacks human gene context. batch16/18 shared arms fell below validation criteria amid trainer/RNG/order differences.

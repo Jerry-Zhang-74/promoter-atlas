@@ -1,16 +1,19 @@
-# Pinned to the versions the delivered results were produced with.
-# Windows 11, Python 3.12.6, NVIDIA RTX 5060 Laptop (driver 582.05).
+# 以下固定为生成交付结果的版本。
+# Pinned versions used to produce the delivered results.
+# 原平台：Windows 11、Python 3.12.6、RTX 5060 Laptop，驱动 582.05。
+# Original platform: Windows 11, Python 3.12.6, RTX 5060 Laptop, driver 582.05.
 torch==2.11.0+cu128
 numpy==2.5.3
 pandas==3.0.5
 scipy==1.18.1
-# torch 2.11.0+cu128 brings these; listed for a reproducible resolve.
+# 下列依赖随 torch 2.11.0+cu128 安装，固定版本便于复现。
+# Dependencies installed with torch 2.11.0+cu128, pinned for reproduction.
 filelock==3.32.3
 fsspec==2026.7.0
 jinja2==3.1.6
 networkx==3.6.1
 sympy==1.14.0
 typing_extensions==4.16.0
-# Optional, only for the auxiliary tooling:
+# 可选辅助工具依赖 / Optional auxiliary-tool dependencies:
 # tqdm==4.70.0
 # pyyaml==6.0.3

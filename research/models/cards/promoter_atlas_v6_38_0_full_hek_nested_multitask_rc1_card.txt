@@ -1,19 +1,45 @@
-model_card: promoter_atlas batch52 v6.38.0-full-hek-nested-multitask.rc1
-created: 2026-10-04T10:35:30.040979+08:00
-task: HEK293 MPRA promoter-fragment activity regression, target = Log2RPM_HEK293 (author units)
-data: GSE301246 v2_MH4 fold0 HEK293; 761655 endpoints
-reference: Ensembl GRCh37 (author hg19 contract) sha256 0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865; PROXY for donor HG02601
-arms: R0 (composition ridge 342 feat, alpha 100); Nabs (random-init CNN, absolute loss); Njoint (same CNN + 0.5 nested-difference loss)
-architecture: one-hot ACGT -> zero-pad 600 + valid mask; Conv1d(4,64,k9,same)+GELU; 3 residual blocks Conv1d(64,64,k5,same) dilations 1/2/4 + GELU + dropout 0.1; masked mean AND masked max + standardized loglength + GC; linear 130->64 GELU dropout 0.1 -> scalar
-optimizer: AdamW lr 0.001 wd 0.0001, grad clip 1.0, seed 20261004, batch 32 (pair microbatch 16), <=6 epochs, DEV-selected best
-selection metric: DEV group-mean pair MAE (earliest epoch on ties)
-shipped checkpoints:
-  Nabs_selected.ckpt  best_epoch=4  dev_pair_mae=0.848702
-  Njoint_selected.ckpt  best_epoch=4  dev_pair_mae=0.845781
-held-out TEST (single frozen evaluation):
-  R0 rho=0.5026 groupMAE=0.8628 top10=0.3955 pairGroupMAE=0.873207815334897 macroSign=0.5287432781224489
-  Nabs rho=0.5749 groupMAE=0.7796 top10=0.5389 pairGroupMAE=0.8397652726197352 macroSign=0.5618561784977024
-  Njoint rho=0.5799 groupMAE=0.7806 top10=0.5522 pairGroupMAE=0.8387580542574246 macroSign=0.5588384274760984
-verdict: LIMITED
-usage: python code/batch52_data_v2/predict_v2.py --checkpoint Nabs_selected.ckpt --seq ACGT... [--seq-file f.txt | --example]
-limits: reference-proxy not donor clone; HEK293 not local 293FT; observational nested pairs; NOT promoted (production pointer unchanged)
+# v6.38.0-full-hek-nested-multitask.rc1 模型卡 · Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+batch52，创建于2026-10-04T10:35:30.040979+08:00。任务为GSE301246 v2_MH4 fold0 HEK293片段Log2RPM_HEK293回归，761655端点，使用Ensembl GRCh37参考序列作为HG02601代理。
+
+R0：342维组成ridge，alpha100。Nabs：随机初始化CNN、绝对活性损失。Njoint：同CNN加0.5×嵌套配对差值损失。
+
+结构：ACGT一热补零至600和有效mask；Conv1d(4,64,k9,same)+GELU；3残差块Conv1d(64,64,k5,same)，dilation1/2/4、GELU、dropout0.1；masked mean/max加标准化loglength/GC；130→64 GELU/dropout0.1→scalar。
+
+AdamW lr0.001/wd0.0001、clip1、seed20261004、batch32（pair microbatch16）、最多6epochs。按DEV组平均pair MAE选择，平局取最早。Nabs_selected.ckpt与Njoint_selected.ckpt均best_epoch=4，DEV pairMAE为0.848702/0.845781。
+
+| 模型 | TEST rho | groupMAE | top10 | pairGroupMAE | macroSign |
+|---|---:|---:|---:|---:|---:|
+| R0 | 0.5026 | 0.8628 | 0.3955 | 0.873207815334897 | 0.5287432781224489 |
+| Nabs | 0.5749 | 0.7796 | 0.5389 | 0.8397652726197352 | 0.5618561784977024 |
+| Njoint | 0.5799 | 0.7806 | 0.5522 | 0.8387580542574246 | 0.5588384274760984 |
+
+结论LIMITED，嵌套配对来自观察数据。评估情境为公开HEK293，293FT迁移待评估。入口：`python code/batch52_data_v2/predict_v2.py --checkpoint Nabs_selected.ckpt --seq ACGT... [--seq-file f.txt | --example]`。参考SHA如下。
+
+- `0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865`
+
+---
+
+## English
+
+batch52, created2026-10-04T10:35:30.040979+08:00, predicts Log2RPM_HEK293 from GSE301246 v2_MH4 fold0 HEK293 fragments,761655 endpoints, with Ensembl GRCh37 reference sequences as proxies for HG02601.
+
+R0:342-feature composition ridge, alpha100. Nabs:random-initialized CNN with absolute-activity loss. Njoint:the same CNN plus0.5 times nested pair-difference loss.
+
+Architecture:ACGT one-hot padded to600 with valid mask; Conv1d(4,64,k9,same)+GELU; three residual Conv1d(64,64,k5,same) blocks with dilations1/2/4, GELU, dropout0.1; masked mean/max plus standardized loglength/GC;130→64 GELU/dropout0.1→scalar.
+
+AdamW lr0.001/wd0.0001, clip1, seed20261004, batch32 (pair microbatch16), up to six epochs. Select by DEV group-mean pair MAE, earliest on ties. Nabs_selected.ckpt and Njoint_selected.ckpt both have best_epoch=4, with DEV pairMAE0.848702/0.845781.
+
+| Model | TEST rho | groupMAE | top10 | pairGroupMAE | macroSign |
+|---|---:|---:|---:|---:|---:|
+| R0 | 0.5026 | 0.8628 | 0.3955 | 0.873207815334897 | 0.5287432781224489 |
+| Nabs | 0.5749 | 0.7796 | 0.5389 | 0.8397652726197352 | 0.5618561784977024 |
+| Njoint | 0.5799 | 0.7806 | 0.5522 | 0.8387580542574246 | 0.5588384274760984 |
+
+Verdict LIMITED; nested pairs are observational. Evaluation concerns public HEK293, with 293FT transfer awaiting assessment. Entry point:`python code/batch52_data_v2/predict_v2.py --checkpoint Nabs_selected.ckpt --seq ACGT... [--seq-file f.txt | --example]`. Reference SHA follows.
+
+- `0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865`

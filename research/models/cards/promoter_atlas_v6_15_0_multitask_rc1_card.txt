@@ -1,33 +1,25 @@
-========================================================================
-MODEL CARD  v6.15.0-multitask.rc1  (batch16 controlled comparison)
-========================================================================
-Scope: human gene-level natural-expression E/S/B (not HEK293T/fragment/multispecies).
-Selection: validation-only rule (never test).
+# v6.15.0-multitask.rc1 模型卡 · Model card
 
-Candidate architecture: independent
-Reason: no shared neural win; strongest supported independent (A) composite release
-Primary rule summary: {"mean_gain": -0.006075287767231541, "no_drop_gt_0.02": true, "rule_pass": false, "rule": "mean per-target val rho gain >= 0.02 AND no target drop > 0.02"}
+[中文](#中文) · [English](#english)
 
-Targets:
-  E = Score_E rank-scaled [0,1] expression strength
-  S = S_raw = -MAD(log2(1+detectable TPM)) (S_defined mask, 18769 eligible)
-  B = B_raw = detectable/tissue_count (cross-tissue breadth)
+## 中文
 
-Input representation (identical across A/B/C):
-  - diverse 4-slot gene-bag sequence CNN (one-hot ACGT, N->zero)
-  - frozen 1069-feature composition/position branch
+batch16 比较人类基因级自然表达 E/S/B。最终选择独立臂 A，三个独立模型使用 4-slot gene-bag ACGT 一热 CNN（N 为零）和冻结 1069 维组成/位置特征。
 
-Deployment bundle: E:\promoter_atlas\models\breakthrough_20261002\batch16\deployment_bundle.json
-  E: E:\promoter_atlas\models\breakthrough_20261002\batch16\A_s20261016\model_E.pt
-  S: E:\promoter_atlas\models\breakthrough_20261002\batch16\A_s20261016\model_S.pt
-  B: E:\promoter_atlas\models\breakthrough_20261002\batch16\A_s20261016\model_B.pt
+E 为 [0,1] 的 Score_E，S 为可检出组织的 `-MAD(log2(1+TPM))`，S_defined 有效 18769；B 为可检出组织比例。按验证集选择，规则为平均逐轴 rho 增益≥0.02且各轴下降≤0.02；记录 mean_gain=-0.006075287767231541、no_drop_gt_0.02=true、rule_pass=false，最终采用独立组合。
 
-Matched HGB baselines (same corrected split, from scratch):
-  E45: val rho=0.7302 test rho=0.7335
-  S1069: val rho=0.4362 test rho=0.4334
-  B45: val rho=0.7097 test rho=0.7191
+部署清单 `models/breakthrough_20261002/batch16/deployment_bundle.json`，E/S/B 权重在 `A_s20261016/model_E.pt`、model_S.pt、model_B.pt。
 
-Honest limitations: retrospective heldout (old test reused); detected-edge-aware
-grouping is not full homology proof; no causal inflation claim; neural win over
-HGB alone does not beat the established nonlinear baseline.
-========================================================================
+匹配 HGB 验证/测试 rho：E45 0.7302/0.7335，S1069 0.4362/0.4334，B45 0.7097/0.7191。评估为旧测试集重复使用后的回顾性结果，分组覆盖已发现的关系边，同源家族覆盖仍需补充。
+
+---
+
+## English
+
+batch16 compared human gene-level natural-expression E/S/B models and selected independent arm A. Three independent models use four-slot gene-bag ACGT one-hot CNN inputs (N→zero) plus a frozen 1069-dimensional composition/position branch.
+
+E is Score_E in [0,1], S is detectable-tissue `-MAD(log2(1+TPM))` with 18769 S_defined genes, and B is detectable-tissue fraction. Validation selection requires mean per-axis rho gain≥0.02 and each axis drop≤0.02. Recorded mean_gain=-0.006075287767231541, no_drop_gt_0.02=true, rule_pass=false; the independent composite was retained.
+
+Deployment manifest: `models/breakthrough_20261002/batch16/deployment_bundle.json`; E/S/B weights are in `A_s20261016/model_E.pt`, model_S.pt, and model_B.pt.
+
+Matched HGB validation/test rho: E45 0.7302/0.7335, S1069 0.4362/0.4334, B45 0.7097/0.7191. Evaluation is retrospective with reused TEST exposure. Grouping covers discovered relationship edges, with broader homology coverage remaining to be assessed.

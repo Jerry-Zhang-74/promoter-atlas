@@ -1,48 +1,43 @@
-# Promoter Sequence QC Notes
+# 启动子序列 QC · Promoter sequence QC
 
-## Purpose
+[中文](#中文) · [English](#english)
 
-- build sequence-level QC before motif scan and model input
-- separate promoter definition issues from downstream modeling issues
-- support wet-lab friendly candidate gating
+## 中文
 
-## Recommended QC Gates
+QC 标记阈值为 N 比例>0.10、base-4熵<1.20、同聚物长度≥12、二核苷酸重复比例≥0.30。
 
-- high_N: n_frac > 0.10
-- low_entropy: entropy_base4 < 1.20
-- homopolymer: max_homopolymer_len >= 12
-- dinuc_repeat: dinuc_repeat_frac >= 0.30
-- recommended_pass = no QC failure above
+| 指标 | up200 | up2000 |
+|---|---:|---:|
+| 记录数 | 507365 | 507365 |
+| 建议通过 | 492108 | 315445 |
+| 通过率 | 0.969929 | 0.621732 |
+| 高N | 13 | 147 |
+| 低熵 | 107 | 4 |
+| 同聚物 | 14212 | 191770 |
+| 二核苷酸重复 | 1115 | 281 |
+| 平均GC | 0.575897 | 0.486149 |
+| 平均N比例 | 0.000015 | 0.000143 |
+| 平均熵 | 1.898611 | 1.972940 |
 
-## Window Summary
+两个窗口采用相同 QC 条件比较；候选先通过序列 QC，再进行生物学评估。
 
-### up200
-- record_count: `507365`
-- pass_recommended_count: `492108`
-- pass_recommended_frac: `0.969929`
-- flag_high_n_count: `13`
-- flag_low_entropy_count: `107`
-- flag_homopolymer_count: `14212`
-- flag_dinuc_repeat_count: `1115`
-- mean_gc_frac: `0.575897`
-- mean_n_frac: `1.5e-05`
-- mean_entropy_base4: `1.898611`
+---
 
-### up2000
-- record_count: `507365`
-- pass_recommended_count: `315445`
-- pass_recommended_frac: `0.621732`
-- flag_high_n_count: `147`
-- flag_low_entropy_count: `4`
-- flag_homopolymer_count: `191770`
-- flag_dinuc_repeat_count: `281`
-- mean_gc_frac: `0.486149`
-- mean_n_frac: `0.000143`
-- mean_entropy_base4: `1.97294`
+## English
 
-## Interpretation
+QC flags use N fraction >0.10, base-4 entropy <1.20, homopolymer length ≥12, and dinucleotide-repeat fraction ≥0.30.
 
-- up200 is the cleaner core-promoter view and should usually be the first modeling baseline
-- up2000 may contain additional regulatory context but also more reference-boundary and low-complexity burden
-- recommended_pass should be treated as an entry gate, not as the final biological truth
-- later E/S/B modeling should compare the two promoter definitions under the same QC gate
+| Statistic | up200 | up2000 |
+|---|---:|---:|
+| Records | 507365 | 507365 |
+| Recommended pass | 492108 | 315445 |
+| Pass fraction | 0.969929 | 0.621732 |
+| High N | 13 | 147 |
+| Low entropy | 107 | 4 |
+| Homopolymer | 14212 | 191770 |
+| Dinucleotide repeat | 1115 | 281 |
+| Mean GC | 0.575897 | 0.486149 |
+| Mean N fraction | 0.000015 | 0.000143 |
+| Mean entropy | 1.898611 | 1.972940 |
+
+Compare the two windows under the same QC policy. Apply sequence QC before candidate nomination, followed by biological assessment.

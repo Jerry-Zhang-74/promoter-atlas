@@ -1,61 +1,67 @@
-# Promoter Atlas v6.15.1-release.rc1 (EXPERIMENTAL CANDIDATE)
+# PromoterAtlas v6.15.1-release.rc1
 
-**Status: experimental candidate, independent-arm composite. NOT a validated shared network,
-NOT a HEK293T / fragment-activity model.** The version increment is packaging/provenance repair
-only - the weights are the unchanged batch16 (v6.15.0-multitask.rc1) fits.
+[中文](#中文) · [English](#english)
 
-## What this is
-A human **gene-level natural-expression** predictor for three targets, each from a gene bag of
-4 promoter sequences + one frozen 1069-dim composition/position feature vector:
+## 中文
 
-| head | target | definition |
-|---|---|---|
-| E | `Score_E` | rank-scaled expression strength, [0,1] |
-| S | `S_raw` | `-MAD(log2(1+detectable TPM))` over detectable tissues (S_defined only) |
-| B | `B_raw` | `detectable_tissue_count / tissue_count`, [0,1] |
+该实验候选预测人类基因级自然表达，使用三个独立 CNN 和 batch16 权重。模型与评估见 [模型卡](MODEL_CARD.md)。
 
-The shipped architecture is **independent** (3 separate single-task CNNs, reference seed 20261016).
-The shared-backbone arms B (E/S/B heads) and C (+epigenetic auxiliary supervision) were tested and
-**rejected by the frozen validation rule** (mean per-target val rho gain -0.0061 and -0.0049, both
-< +0.02). See `negative_ablation_results.json`.
+E 为 [0,1] 的 `Score_E`，S 为可检出组织的 `S_raw=-MAD(log2(1+TPM))`，B 为 `detectable_tissue_count/tissue_count`。主 seed 为 20261016；共享臂 B/C 验证增益 -0.0061/-0.0049，选择门槛 +0.02。
 
-## Quick start (no training assets needed)
-```
+### 运行
+
+```bash
 python code/run_example.py
 python code/promoter_atlas_predict.py --input code/example_input.npz --out preds.json
 ```
 
-## Python API
 ```python
 import numpy as np, sys
 sys.path.insert(0, "code")
 from promoter_atlas_predict import PromoterAtlasGenePredictor, PromoterAtlasInputError
 p = PromoterAtlasGenePredictor()
 z = np.load("code/example_input.npz", allow_pickle=True)
-res = p.predict_batch(z["seqs"], z["features"])     # dict E/S/B -> np.ndarray
-one = p.predict_gene(z["seqs"][0], z["features"][0])  # structured dict + scope flags
+res = p.predict_batch(z["seqs"], z["features"])
+one = p.predict_gene(z["seqs"][0], z["features"][0])
 ```
 
-## Input contract (strict)
-* `seqs`: shape `(N,4,400)` (or `(4,400)`), integer `uint8`, alphabet `{A,C,G,T,N} -> {0,1,2,3,4}`.
-* `features`: shape `(N,1069)` (or `(1069,)`), finite floats, **RAW** (unstandardized) values in the
-  fixed training order. Do **not** standardize manually - the shipped transforms do it.
-* Violations raise `PromoterAtlasInputError` (shape / dtype / alphabet / non-finite).
+### 输入输出
 
-## Output contract
-`predict_gene` returns raw-unit E/S/B values plus `is_model_prediction: true` and
-`is_catalog_observed: false`. Catalog **observed** labels are a separate artifact - see `labels/README.md`.
+`seqs` 为 uint8 `(N,4,400)` 或 `(4,400)`，A/C/G/T/N 编码为 0/1/2/3/4。`features` 为有限浮点 `(N,1069)` 或 `(1069,)`，按训练顺序提供原始值，包内 transforms 完成标准化。格式错误抛出 `PromoterAtlasInputError`。
 
-## Not supported
-Arbitrary promoter-fragment activity; HEK293T/synthetic-construct activity; multi-species; any
-temporal-stability reading of S. Raw S is a **negative cross-tissue MAD**, not temporal stability.
+`predict_gene` 返回原单位 E/S/B，以及 `is_model_prediction: true`、`is_catalog_observed: false`。观察标签的来源见 [标签说明](labels/README.md)。
 
-## Contents
+`models/` 存 E/S/B 权重，`transforms/scalers.npz` 存 TRAIN 拟合的特征和目标尺度，`code/` 存推理与示例。顶层包括 README、MODEL_CARD、requirements、environment、schema、VERSION_MANIFEST 及 negative_ablation_results。
+
+---
+
+## English
+
+This experimental candidate predicts human gene-level natural expression with three independent CNNs and batch16 weights. See the [model card](MODEL_CARD.md) for model and evaluation details.
+
+E is `Score_E` in [0,1], S is detectable-tissue `S_raw=-MAD(log2(1+TPM))`, and B is `detectable_tissue_count/tissue_count`. The reference seed is 20261016; shared-arm B/C validation gains were -0.0061/-0.0049 against a +0.02 selection threshold.
+
+### Run
+
+```bash
+python code/run_example.py
+python code/promoter_atlas_predict.py --input code/example_input.npz --out preds.json
 ```
-README.md  MODEL_CARD.md  requirements.txt  environment.json  schema.json
-VERSION_MANIFEST.json  negative_ablation_results.json
-models/       model_E.pt model_S.pt model_B.pt   (independent arm, reference seed 20261016)
-transforms/   scalers.npz                        (train-fitted: X mean/std + per-target mean/std)
-code/         promoter_atlas_predict.py run_example.py example_input.npz example_expected_output.json
-labels/       README.md                          (observed-label reference pointer)
+
+```python
+import numpy as np, sys
+sys.path.insert(0, "code")
+from promoter_atlas_predict import PromoterAtlasGenePredictor, PromoterAtlasInputError
+p = PromoterAtlasGenePredictor()
+z = np.load("code/example_input.npz", allow_pickle=True)
+res = p.predict_batch(z["seqs"], z["features"])
+one = p.predict_gene(z["seqs"][0], z["features"][0])
 ```
+
+### Input and output
+
+`seqs` is uint8 `(N,4,400)` or `(4,400)`, with A/C/G/T/N encoded as 0/1/2/3/4. `features` is finite float `(N,1069)` or `(1069,)` in training order, using raw values; bundled transforms handle standardization. Invalid inputs raise `PromoterAtlasInputError`.
+
+`predict_gene` returns original-unit E/S/B with `is_model_prediction: true` and `is_catalog_observed: false`. See [label documentation](labels/README.md) for observed-label sources.
+
+`models/` stores E/S/B weights, `transforms/scalers.npz` stores TRAIN-fitted feature and target scaling, and `code/` contains prediction and examples. Top-level files include README, MODEL_CARD, requirements, environment, schema, VERSION_MANIFEST, and negative_ablation_results.

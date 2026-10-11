@@ -1,3 +1,38 @@
+# promoter_model_v4_arch2_reduced_pilot_card · 模型卡 / Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+本卡记录对应历史模型的配置与评估。技术标识沿用原字段名，便于与脚本及结果表对应。
+
+| 字段 | 值 |
+|---|---|
+| 模型名称 (`model_name`) | promoter_model_v4_arch2_reduced_pilot |
+| 研究阶段 (`phase`) | Phase 6 结构特征缩减 |
+| 输入表示 (`input`) | architecture_v2_reduced_only |
+| 结构特征资源 (`arch_asset`) | features/sequence/promoter_architecture_features_v4_arch2_reduced.tsv |
+| 预测目标 (`targets`) | Score_E,Score_S,Score_B |
+| S 缺失值策略 (`score_s_missing_policy`) | 掩码损失（masked_loss） |
+| 划分键 (`split_key`) | record_id |
+| 训练记录数 (`train_n`) | 20000 |
+| 验证记录数 (`val_n`) | 4000 |
+| 测试记录数 (`test_n`) | 4000 |
+| 结构特征数 (`arch_feature_count`) | 16 |
+| 按验证平均 MSE 选择的最佳周期 (`best_epoch_by_val_mean_mse`) | 56 |
+| 最佳验证平均 MSE (`best_val_mean_mse`) | 0.029352 |
+| 权重路径 (`checkpoint`) | models/checkpoints/promoter_model_v4_arch2_reduced_pilot.pt |
+| 评估表 (`eval_table`) | models/eval/promoter_model_v4_arch2_reduced_pilot_metrics.tsv |
+| 最佳结果汇总表 (`best_summary_table`) | models/eval/promoter_model_v4_arch2_reduced_pilot_best_summary.tsv |
+| 日志 (`log_file`) | models/logs/train_promoter_model_v4_arch2_reduced_pilot.log |
+
+---
+
+## English
+
+Historical model configuration and evaluation. Original field identifiers and numeric records follow.
+
+```text
 model_name	promoter_model_v4_arch2_reduced_pilot
 phase	Phase 6 architecture route reduction
 input	architecture_v2_reduced_only
@@ -15,3 +50,4 @@ checkpoint	models/checkpoints/promoter_model_v4_arch2_reduced_pilot.pt
 eval_table	models/eval/promoter_model_v4_arch2_reduced_pilot_metrics.tsv
 best_summary_table	models/eval/promoter_model_v4_arch2_reduced_pilot_best_summary.tsv
 log_file	models/logs/train_promoter_model_v4_arch2_reduced_pilot.log
+```

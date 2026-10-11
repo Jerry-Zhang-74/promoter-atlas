@@ -1,38 +1,25 @@
-# License, provenance and redistribution notes
+# 许可与来源 · License and provenance
 
-## What is included
-- New project model architecture, training configuration and predictor code written for this
-  project (batch52/batch53/batch55). These are project-authored artifacts.
-- A model trained from scratch on author-published, publicly redistributable HEK293
-  MPRA-style measurements (the GSE301246 PARM training library, fold 0). Only the *trained
-  parameters* of the new model are packaged - never the upstream source data or reference.
-- The pinned model-core modules (`spec.py`, `model_core.py`, `normalizer.py`, `checkpoint.py`,
-  `io_utils.py`) are frozen copies of the project's own batch53 code with recorded SHA256.
+[中文](#中文) · [English](#english)
 
-## What is deliberately NOT included
-- No official PARM / external pretrained weights and no source-data redistribution.
-- No reference genome, no raw measurement tables, no large caches.
-- No API keys, email keys, credentials or private tokens of any kind.
-- No old failed wrong-target (Log2Norm) R0 artifacts.
-- Optimizer/RNG resume state is **not** in the model package; if resume material is ever
-  needed it belongs in a separate folder and is not part of the prediction bundle.
+## 中文
 
-## Third-party components
-- PyTorch (BSD-3-Clause) and NumPy (BSD-3-Clause) are runtime dependencies, not redistributed.
-- No third-party model weights are bundled.
+该包包含项目编写的模型结构、训练配置和预测代码，来源为 batch52/batch53/batch55。模型以作者发布的 GSE301246 PARM 训练库 fold0 的 HEK293 测量从随机初始化训练，目标列为 `Log2RPM_HEK293`。
 
-## Scientific scope and limits (no over-claiming)
-- Target: author-documented **Log2RPM_HEK293**. This is *not* `Log2Norm_HEK293`.
-- The encoded sequences are a **reference-genome proxy** for the donor library, not the donor
-  clone's own sequence.
-- Cell identity is HEK293 (the measurement source). It is **not validated on local 293FT**
-  cells; no local 293FT transfer claim is made.
-- The model was trained on author fold 0 only; this is not the entire multi-fold study.
-- Fresh random initialization was used; no external pretrained exposure is claimed beyond what
-  the project protocol records.
+固定核心包含 `spec.py`、`model_core.py`、`normalizer.py`、`checkpoint.py` 和 `io_utils.py`，各文件 SHA-256 记录在清单中。第三方运行时 PyTorch 和 NumPy 按各自 BSD-3-Clause 许可安装。
 
-## Honest quality statement
-Any performance numbers shipped with a model are copied verbatim from the frozen, actual
-held-out results JSON produced by the independent evaluator. If that file is absent, the
-bundle says so; no invented weights or metrics are ever emitted.
+发布资产围绕项目模型参数、配置、归一化器、代码与评估组织。上游测量表和参考基因组按各自来源获取。编码序列为参考基因组代理，HEK293 是测量来源，293FT 迁移待评估。性能数据来自冻结的独立评估 JSON。
 
+batch55 的早期打包设计将续训状态安排在独立目录。后续 batch60 文档记录了实际发布 checkpoint 中的完整状态条目。
+
+---
+
+## English
+
+The bundle contains project-authored architecture, training configuration, and prediction code from batch52/batch53/batch55. The model was trained from random initialization on HEK293 measurements from author-published GSE301246 PARM training-library fold0, targeting `Log2RPM_HEK293`.
+
+Pinned core modules are `spec.py`, `model_core.py`, `normalizer.py`, `checkpoint.py`, and `io_utils.py`, with per-file SHA-256 in the manifest. Install PyTorch and NumPy under their respective BSD-3-Clause licenses.
+
+Release assets center on project parameters, configuration, normalizer, code, and evaluation. Obtain upstream measurement tables and reference genomes from their respective sources. Encoded sequences are reference-genome proxies; HEK293 is the measurement source and 293FT transfer awaits evaluation. Performance values come from frozen independent-evaluation JSON.
+
+The early batch55 packaging design placed resume state in a separate directory. Subsequent batch60 documentation records the complete state entries in the checkpoint actually released.

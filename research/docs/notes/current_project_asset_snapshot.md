@@ -1,24 +1,17 @@
-# Current Project Asset Snapshot
+# 早期资产快照 · Early asset snapshot
 
-## Completed
+[中文](#中文) · [English](#english)
 
-- promoter BED generated for up200 and up2000
-- transcript-level promoter FASTA generated
-- promoter sequence QC metadata generated
-- promoter analysis set generated
-- label semantics and schema files generated
+## 中文
 
-## Ready For Next Stage
+这份记录对应项目早期准备阶段。已完成 up200/up2000 启动子 BED、转录本 FASTA、序列 QC、分析集和标签 schema。
 
-- promoter-only sequence feature build
-- GTEx expression landing and scanning
-- E / S / B label calculation
+当时下一步是获取 GTEx 并构建表达标签。后续数据准备与训练记录见当前项目文档。
 
-## Current Blocker
+---
 
-- GTEx-derived expression inputs are still missing from project workspace
+## English
 
-## Immediate Next Action
+This snapshot covers early project preparation: up200/up2000 promoter BED files, transcript FASTA, sequence QC, analysis sets, and the label schema were complete.
 
-- scan data/raw/ and legacy_data/ for expression-related files once they are copied in
-- do not start model training before expression input audit is complete
+The next step at that stage was GTEx acquisition and expression-label construction. Current project documentation records the subsequent data preparation and training.

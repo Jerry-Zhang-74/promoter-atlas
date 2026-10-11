@@ -1,51 +1,45 @@
-promoter_atlas v6.17.1-sequence-evidence.rc1 (batch23) — bounded local sequence/endpoint evidence + public-data readiness
-========================================================================================================================
-Version: v6.17.1-sequence-evidence.rc1   Lineage: next after v6.17.0-hektransfer.rc1 (batch22). Parent decision 2026-10-03 15:42 Asia/Shanghai.
-Kind: BOUNDED EVIDENCE/DATA TASK preceding the next target-domain model comparison. ZERO neural training, ZERO new classical estimator fits.
-Stage 1 — LOCAL SEQUENCE/ENDPOINT RECONCILIATION (complete):
-  Corrects a material batch22 error. batch22 claimed the local constructs have "no DNA sequence in project records".
-  IN FACT reports/cellline_v2_20261001/construct_sequences.tsv + .fasta + construct_sequence_provenance.json existed since
-  2026-10-01 (before batch21 AND batch22 started) with full sequences, sha256, feature ranges/directionality, source hashes.
-  batch21 construct_audit.* and batch04 diagnostic already carried the correct SHAs for all 14 — batch22 contradicted its own predecessor.
-  Two SEPARATE axes retained, never collapsed:
-    sequence availability: 14/14 (sha256 + fasta verified; batch21/batch04 SHAs match 14/14)
-    assay-mapping certainty: 0/14 barcode-verified (mapping_evidence = filename_and_feature_length only)
-  Real lengths: ACTB/GAPDH family {100,200,300,400,500,2000} bp; CMVfull=584; CMVcore=204 (historical 200 retained as historical only).
-  Preserved qualifications: A5 differs from A20 suffix by 1 base at position 165; stored features unstranded.
-  Excluded unless direct evidence: 81 bp untransfected literature construct; unresolved A6.
-  correction.json preserves batch22's original claim as historical, gives the corrected fact, proves source files predate batch22
-  start (mtime+hash) and records how batch22 concluded wrongly (hardcoded CONSTRUCT_LENGTHS correct for only 4/14; inspected batch20
-  demo examples instead of cellline v2 sources). No fabricated sequence or mapping. Old artifacts kept read-only.
-Stage 2 — UNTUNED LOCAL DIAGNOSTIC (complete; NOT a reliability claim):
-  Applied the FIVE SAVED batch22 fold readouts (R1 86-d composition ridge; R2 214-d + frozen 128-d) to each ACTUAL native insert
-  under the EXACT saved batch22 preprocessing (no truncation/padding/restoration/repeated bags/fitting). Frozen encoder on cuda:0
-  (RTX 5060 Laptop GPU, cc [12,0]), batch 32, strict load_state_dict, sha bc35e5585fa7..., 111306 params, eval/no-grad.
-  Support flags per construct: training_length 133 vs actual 100..2000 (0/14 length-supported); cell/assay/endpoint mismatch
-  (HEK293 bulk log2 RNA/input vs HEK293T transient plasmid GFP D28 log10 relGFP); 0/14 barcode-verified; 2000 bp far above domain.
-  Max 20-mer containment vs training = 0 for ALL 14 (graded: k15<=3.5%, k12<=18%, k8 68-99%) -> external-context probe, not overlap artifact.
-  Every output = exploratory_model_score with unsupported_activity_prediction=true (batch22 hek_norm log2 scale); NEVER physical/validated activity.
-  Descriptive (n=14, retrospective/OOD, no calibration, no target-driven selection): R1 pooled rho +0.1253 (fold range -0.064..+0.341);
-  R2 pooled rho -0.0945 (fold range -0.380..+0.319); pairwise sign agreement R1 49/91=0.538, R2 44/91=0.484; within-family ACTB R2 rho 0.257 (n=6),
-  GAPDH -0.086 (n=6); CMV only 2 constructs -> not computed. Fold spread reported but is NOT a confidence interval.
-  Historical comparison included (v6.4 cellline construct-LOO/family-LOO) with explicit different-scope note.
-Stage 3 — PUBLIC DATA ACQUISITION + TRAINING READINESS (complete):
-  Tested the "larger target-domain supervision" hypothesis. Criterion >=1000 usable sequence-activity rows AND >=500 independent groups.
-  RESULT cohort_obtainable_within_bound = FALSE. Verified negative inventory with 4 leads:
-    GSE245191 (HEK293T+K562) processed table is architecture-only: 613762 rows, only 5 distinct control promoters (minP,noP,UBCp,EEF1A1p,Pgk1p);
-      file INCOMPLETE (5.7MB of ~33MB, sha bbadebf5...). GSE217680 (HEK293T/HepG2/K562) 6732 rows / 5 CREs (label is HEK293 not HEK293T).
-      GSE306816 HEK293T transient = STR variant-effect, EXCLUDED. GSE78709 SuRE = K562 only, EXCLUDED.
-  Processed downloads 8.32 MB (cap 750 MB); no bulk raw FASTQ/genome. Reused retrospective reference GSE188639: 673 rows / 669 groups, HEK293.
-  Readiness: data_ready.json + next_batch_proposal.json. Proposal keeps 673 rows/669 groups and the earlier from-scratch gate unchanged;
-  mechanism DIFFERENT from repeated K562 ranking loss: Recipe A matched composition baseline vs Recipe B cell-conditioned twin-head /
-  paired-cell multi-task on genuinely paired K562+HEK293 measurements, evaluated on held-out HEK293 groups only.
-  Budget: <=2 recipes x 2 seeds, <=4 full fits, <=3 GPU hours; fixed group split (fold_assignment.tsv, 5 folds, seed 20261025);
-  all transforms train-only; predeclared metrics + decision rule; per-fold checkpoints. PARENT MUST APPROVE the exact frozen protocol; batch23 has no fit permission.
-Claims/limits: does NOT claim two negative comparisons prove data volume is the binding constraint; does NOT claim cell transfer must fail;
-  the batch22 cross-cell rho ~0.816 is a diagnostic, not prediction performance; sequence availability does NOT establish assay mapping or supported length;
-  no deleted genomic sequence restored; last164 never used as a verified TSS window; original v6.3 TSS +/-200 / upstream-2000 not implied to be replaced by MPRA164.
-Compute: cuda:0 GPU inference only (encode-only, 14 inserts, batch 32), CPU <=4 threads; total GPU << 15 min cap; fits = 0.
-Artifacts: reports/breakthrough_20261002/batch23/{status,construct_reconciliation.{tsv,json},correction,local_diagnostic,public_source_inventory,
-  data_ready,next_batch_proposal,figures_manifest,manifest,selfcheck}.json + report.md, data/breakthrough_20261002/batch23/,
-  figures/batch23/, runs/breakthrough_20261002/code/batch23/.
-Ownership: only new batch23 dirs written; all prior sources/code/reports/models read-only and verified unmodified; worker writes selfcheck.json ONLY,
-  never labels its own result independently reviewed and never creates canonical independent_review.json.
+# v6.17.1-sequence-evidence.rc1 记录卡 · Evidence card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+batch23，决策时间2026-10-03 15:42 Asia/Shanghai，整理本地序列、端点和公共数据。
+
+### 本地序列核对
+
+2026-10-01 已存在的 reports/cellline_v2_20261001/construct_sequences.tsv、.fasta、construct_sequence_provenance.json 提供14/14序列，与batch21/batch04 SHA全部一致。实验映射按文件名和特征长度支持，barcode核验为0/14。ACTB/GAPDH长度为100/200/300/400/500/2000 bp，CMVfull584、CMVcore204（早期记录200）。A5与A20后缀在位置165差1碱基，特征链方向待整理；81bp文献构建体和A6等待直接来源。batch22 错误来自仅4/14正确的硬编码长度及检查示例而非cellline_v2来源，correction.json保留更正依据。
+
+### 冻结模型诊断
+
+对完整真实插入片段应用batch22五折R1(86维)/R2(214维)；冻结encoder SHA bc35e5585fa7...，111306参数，RTX5060 Laptop cuda:0、计算能力[12,0]、batch32、eval/no-grad。训练长度133而本地100–2000，0/14处于训练长度；HEK293 bulk log2 RNA/input与HEK293T瞬转GFP D28 log10相对值的测定情境不同。
+
+14条与训练序列的20-mer包含率均0，k15≤3.5%、k12≤18%、k8为68–99%。输出标记 exploratory_model_score、unsupported_activity_prediction=true。描述性 pooled rho：R1+0.1253（折范围−0.064..+0.341），R2−0.0945（−0.380..+0.319）；方向一致R1 49/91=0.538、R2 44/91=0.484。R2家族rho ACTB0.257(n6)、GAPDH−0.086(n6)，CMV只有2条。折间范围表示模型离散。另列v6.4构建体/家族LOO历史比较。
+
+### 公共数据准备
+
+准入门槛为≥1000有效序列-活性行且≥500独立组，本次有界获取结果为false。GSE245191当时仅下载5.7MB/~33MB，613762行仅5种控制启动子（minP/noP/UBCp/EEF1A1p/Pgk1p）；GSE217680为6732行/5个CRE且标签HEK293；GSE306816为HEK293T STR变体任务；GSE78709为K562。下载共8.32MB，预算750MB。
+
+保留GSE188639 673行/669组，建议下一步比较组成基线与配对K562+HEK293双头模型：5组折seed20261025、最多2配方×2seed/4完整拟合/3GPU小时、TRAIN内变换并冻结指标规则。该批执行的是14插入片段的冻结表示提取和CPU≤4线程的数据整理，拟合次数0。产物位于batch23的reports/data/code及figures目录。
+
+---
+
+## English
+
+batch23, decided 2026-10-03 15:42 Asia/Shanghai, reconciles local sequences/endpoints and public-data readiness.
+
+### Local sequences
+
+The files reports/cellline_v2_20261001/construct_sequences.tsv, .fasta, and construct_sequence_provenance.json had existed since 2026-10-01 and provide 14/14 sequences, all matching batch21/batch04 hashes. Assay mapping rests on filenames/feature lengths, with 0/14 barcode-verified mappings. ACTB/GAPDH lengths are 100/200/300/400/500/2000 bp, CMVfull584 and CMVcore204 (earlier record200). A5 differs from the A20 suffix by one base at position165; stored feature strand remains unresolved. The 81 bp literature construct and A6 await direct provenance. batch22's error arose from hardcoded lengths correct for 4/14 and inspecting examples instead of cellline_v2 sources; correction.json records the evidence.
+
+### Frozen-model diagnostics
+
+Apply the five saved batch22 R1(86-d)/R2(214-d) readouts to complete native inserts. Frozen encoder SHA excerpt bc35e5585fa7..., 111306 parameters, RTX5060 Laptop cuda:0, capability[12,0], batch32, eval/no-grad. Training length was133 versus local100–2000, giving 0/14 length-supported cases. HEK293 bulk log2 RNA/input and HEK293T transient GFP D28 log10 relative fluorescence have different assay contexts.
+
+All14 have zero 20-mer containment against training; k15≤3.5%, k12≤18%, k8=68–99%. Outputs are flagged exploratory_model_score and unsupported_activity_prediction=true. Descriptive pooled rho: R1+0.1253 (fold range−0.064..+0.341), R2−0.0945 (−0.380..+0.319); sign agreement R1 49/91=0.538, R2 44/91=0.484. R2 within-family rho is ACTB0.257(n6), GAPDH−0.086(n6); CMV has two constructs. Fold ranges describe model spread. v6.4 construct/family-LOO comparisons are listed separately.
+
+### Public-data readiness
+
+The gate required ≥1000 usable sequence/activity rows and ≥500 groups; bounded acquisition returned false. At that stage GSE245191 was a 5.7MB/~33MB partial download, with613762 rows and five control promoters (minP/noP/UBCp/EEF1A1p/Pgk1p). GSE217680 had6732 rows/five CREs labeled HEK293; GSE306816 was a HEK293T STR-variant task; GSE78709 was K562. Downloads totaled8.32MB against750MB.
+
+Retain GSE188639's673 rows/669 groups and propose composition versus paired K562+HEK293 twin-head comparison: five group folds seed20261025, at most two recipes/two seeds/four fits/three GPU hours, TRAIN-only transforms, and frozen metrics. This batch extracted frozen representations for14 inserts and used ≤4 CPU threads for evidence preparation, with zero fits. Artifacts are under batch23 reports/data/code and figures.

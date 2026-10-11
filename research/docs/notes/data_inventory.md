@@ -1,78 +1,43 @@
-# Data Inventory
+# 早期数据清单 · Early data inventory
 
-## Root Check
+[中文](#中文) · [English](#english)
 
-- project_root: `promoter_atlas`
-- legacy_data_exists: `yes`
+## 中文
 
-## Top-level Entries in legacy_data
+### 早期清单
 
-- [file] `legacy_data/GRCh38.primary_assembly.genome.fa`
-- [file] `legacy_data/GRCh38.primary_assembly.genome.fa.fai`
-- [file] `legacy_data/GRCh38.primary_assembly.genome.fa:Zone.Identifier`
-- [file] `legacy_data/MD5SUMS`
-- [file] `legacy_data/gencode.v49.annotation.gtf`
+项目根目录为 promoter_atlas，legacy_data 已存在，包含 GRCh38 FASTA/FAI、Zone.Identifier、MD5SUMS 和 GENCODE v49 GTF。
 
-## Summary by Category
+| 类型 | 文件数 | 记录大小 |
+|---|---:|---|
+| 表达矩阵 | 0 | — |
+| 启动子 BED | 0 | — |
+| FASTA | 1 | 2.9 GB |
+| 特征 | 0 | — |
+| 数组 | 0 | — |
+| 其他 | 4 | 3.1 GB |
 
-### expression
+FAI 为6.3KB，Zone.Identifier为25字节，MD5SUMS为3KB，GTF为3.1GB。
 
-- file_count: `0`
-- total_size: `0.0 B`
-- examples: none
+表达表需检查矩阵维度、单位和基因×组织/样本方向；启动子需检查链、长度、TSS；特征需检查行对应关系。目标定义由有效规范和构建脚本确定，复用旧 S/HKG 前先核对口径。
 
-### promoter_bed
+---
 
-- file_count: `0`
-- total_size: `0.0 B`
-- examples: none
+## English
 
-### promoter_fasta
+### Inventory at the time of this record
 
-- file_count: `1`
-- total_size: `2.9 GB`
-- examples:
-  - `legacy_data/GRCh38.primary_assembly.genome.fa` (2.9 GB)
+`legacy_data` contained GRCh38 FASTA and FAI, a Zone.Identifier file, MD5SUMS, and a GENCODE v49 GTF.
 
-### feature
+| Category | Files | Recorded size |
+|---|---:|---|
+| Expression tables | 0 | — |
+| Promoter BED | 0 | — |
+| FASTA | 1 | 2.9 GB |
+| Features | 0 | — |
+| Arrays | 0 | — |
+| Other files | 4 | 3.1 GB |
 
-- file_count: `0`
-- total_size: `0.0 B`
-- examples: none
+The FAI was 6.3 KB, Zone.Identifier 25 bytes, MD5SUMS 3 KB, and GTF 3.1 GB.
 
-### array_like
-
-- file_count: `0`
-- total_size: `0.0 B`
-- examples: none
-
-### other
-
-- file_count: `4`
-- total_size: `3.1 GB`
-- examples:
-  - `legacy_data/GRCh38.primary_assembly.genome.fa.fai` (6.3 KB)
-  - `legacy_data/GRCh38.primary_assembly.genome.fa:Zone.Identifier` (25.0 B)
-  - `legacy_data/MD5SUMS` (3.0 KB)
-  - `legacy_data/gencode.v49.annotation.gtf` (3.1 GB)
-
-## Candidate Notes
-
-### Expression
-- expected_use: Score_E / Score_S / Score_B
-- need_manual_check: matrix shape, unit, gene x tissue or gene x sample
-
-### Promoters
-- expected_use: promoter coordinate system and sequence extraction baseline
-- need_manual_check: strand-aware, promoter length, TSS definition
-
-### Features
-- expected_use: motif / sequence / metadata features
-- need_manual_check: row alignment with promoter index
-
-## Next Action
-
-- open likely expression files
-- open likely promoter BED / FASTA
-- confirm whether old labels are mixed into feature assets
-- do not reuse old Score_S or old composite HKG labels directly
+For expression tables, inspect matrix shape, units, and gene-by-tissue/sample orientation. For promoter sequences, verify strand, length, and TSS alignment. For features, verify row alignment. Build target definitions from the active specification and scripts, and resolve the historical S/HKG definitions before reuse.

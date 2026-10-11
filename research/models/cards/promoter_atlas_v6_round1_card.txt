@@ -1,6 +1,84 @@
+# promoter_atlas_v6_round1_card · 模型卡 / Model card
+
+[中文](#中文) · [English](#english)
+
+## 中文
+
+本卡记录对应历史模型的配置与评估。技术标识沿用原字段名，便于与脚本及结果表对应。
+
+| 字段 | 值 |
+|---|---|
+| 名称 (`name`) | promoter_atlas_v6_round1 |
+| 结构 (`arch`) | promoter_atlas_v6_multiomics |
+| 参数数 (`params`) | 4754932 |
+| TF 标签数 (`n_tf`) | 400 |
+| 组学目标数 (`n_omics`) | 8 |
+
+### 测试指标
+`gene` 为基因级汇总，`sp` 为其他物种评估，`dist` 为蒸馏目标，`omics` 为组学目标，`tf` 为 TF 标签，`mpra` 为片段任务；`r2`、`spearman`、`rmse`、`n` 和 `ci_lo/ci_hi` 分别为 R²、秩相关、均方根误差、记录数及区间端点。NaN/null 保留为未定义值。
+```json
+{
+  "Score_E_r2": 0.27043834026732283,
+  "Score_E_spearman": 0.5315976650191195,
+  "Score_E_n": 45533,
+  "Score_S_r2": 0.13509275572584512,
+  "Score_S_spearman": 0.3984554488953835,
+  "Score_S_n": 30325,
+  "Score_B_r2": 0.2399299169371838,
+  "Score_B_spearman": 0.5211756034968812,
+  "Score_B_n": 45533,
+  "omics0_r": 0.6676657788343746,
+  "omics1_r": 0.7561898663606509,
+  "omics2_r": 0.09671606180689817,
+  "omics3_r": 0.08670595136342193,
+  "omics4_r": 0.10829224535744209,
+  "omics5_r": 0.1225694993444918,
+  "omics6_r": 0.2725464985184659,
+  "omics7_r": 0.6939278856578577,
+  "species_acc": 1.0,
+  "tf_avg_auc": 0.8542946732297504,
+  "Score_E_gene_r2": 0.1203759965123895,
+  "Score_E_gene_spearman": 0.6011380476091164,
+  "Score_E_gene_n": 5603,
+  "Score_E_gene_sp_ci_lo": 0.5835036440149711,
+  "Score_E_gene_sp_ci_hi": 0.6169980276316602,
+  "Score_S_gene_r2": 0.1010786960805311,
+  "Score_S_gene_spearman": 0.4156892618838567,
+  "Score_S_gene_n": 1855,
+  "Score_S_gene_sp_ci_lo": 0.3781371667278806,
+  "Score_S_gene_sp_ci_hi": 0.45020528602400806,
+  "Score_B_gene_r2": 0.12604554143940672,
+  "Score_B_gene_spearman": 0.5947298637714766,
+  "Score_B_gene_n": 5603,
+  "Score_B_gene_sp_ci_lo": 0.5802031648094348,
+  "Score_B_gene_sp_ci_hi": 0.6121503703275044,
+  "sp_Score_E_r2": NaN,
+  "sp_Score_E_spearman": NaN,
+  "sp_Score_E_n": 0,
+  "sp_Score_S_r2": NaN,
+  "sp_Score_S_spearman": NaN,
+  "sp_Score_S_n": 0,
+  "sp_Score_B_r2": NaN,
+  "sp_Score_B_spearman": NaN,
+  "sp_Score_B_n": 0,
+  "sp_orthoE_r2": 0.2160549163356691,
+  "sp_orthoE_spearman": 0.3559052497068192,
+  "sp_orthoE_n": 4509,
+  "sp_species_acc": 1.0
+}
+```
+
+---
+
+## English
+
+Historical model configuration and evaluation. Original field identifiers and numeric records follow.
+
+```text
 name	promoter_atlas_v6_round1
 arch	promoter_atlas_v6_multiomics
 params	4754932
 n_tf	400
 n_omics	8
 test_metrics	{"Score_E_r2": 0.27043834026732283, "Score_E_spearman": 0.5315976650191195, "Score_E_n": 45533, "Score_S_r2": 0.13509275572584512, "Score_S_spearman": 0.3984554488953835, "Score_S_n": 30325, "Score_B_r2": 0.2399299169371838, "Score_B_spearman": 0.5211756034968812, "Score_B_n": 45533, "omics0_r": 0.6676657788343746, "omics1_r": 0.7561898663606509, "omics2_r": 0.09671606180689817, "omics3_r": 0.08670595136342193, "omics4_r": 0.10829224535744209, "omics5_r": 0.1225694993444918, "omics6_r": 0.2725464985184659, "omics7_r": 0.6939278856578577, "species_acc": 1.0, "tf_avg_auc": 0.8542946732297504, "Score_E_gene_r2": 0.1203759965123895, "Score_E_gene_spearman": 0.6011380476091164, "Score_E_gene_n": 5603, "Score_E_gene_sp_ci_lo": 0.5835036440149711, "Score_E_gene_sp_ci_hi": 0.6169980276316602, "Score_S_gene_r2": 0.1010786960805311, "Score_S_gene_spearman": 0.4156892618838567, "Score_S_gene_n": 1855, "Score_S_gene_sp_ci_lo": 0.3781371667278806, "Score_S_gene_sp_ci_hi": 0.45020528602400806, "Score_B_gene_r2": 0.12604554143940672, "Score_B_gene_spearman": 0.5947298637714766, "Score_B_gene_n": 5603, "Score_B_gene_sp_ci_lo": 0.5802031648094348, "Score_B_gene_sp_ci_hi": 0.6121503703275044, "sp_Score_E_r2": NaN, "sp_Score_E_spearman": NaN, "sp_Score_E_n": 0, "sp_Score_S_r2": NaN, "sp_Score_S_spearman": NaN, "sp_Score_S_n": 0, "sp_Score_B_r2": NaN, "sp_Score_B_spearman": NaN, "sp_Score_B_n": 0, "sp_orthoE_r2": 0.2160549163356691, "sp_orthoE_spearman": 0.3559052497068192, "sp_orthoE_n": 4509, "sp_species_acc": 1.0}
+```

@@ -1,40 +1,33 @@
-MODEL/REVISION CARD (append-only; does not replace any earlier card)
-version:      v6.19.1-promoter-readiness.rc1
-batch:        batch27 (parent decision 2026-10-03 ~18:21 Asia/Shanghai; control_34)
-type:         DATA / EVIDENCE REVISION - NO newly trained model, NO model weights, NO estimator fit, NO inference
-card written: 2026-10-03T18:57:44+08:00 by the batch27 worker
+# v6.19.1-promoter-readiness.rc1 记录卡 · Readiness card
 
-WHAT THIS VERSION IS
-  A zero-fit cleanup + robustness revision of batch26 evidence plus the first objective-aligned
-  preparation of a NATIVE long-fragment autonomous-promoter dataset (SuRE / GSE78709, K562).
+[中文](#中文) · [English](#english)
 
-CHANGED EVIDENCE (all new linked artifacts; batch26 files untouched)
-  reports/breakthrough_20261002/batch27/batch26_manifest_addendum.json   provenance corrections (linked to original SHA)
-  reports/breakthrough_20261002/batch27/homology_sensitivity.json        contamination-aware sensitivity, ZERO fits
-  reports/breakthrough_20261002/batch27/variant_bin_diagnostic.json      descriptive delta binning
-  reports/breakthrough_20261002/batch27/exec_gate_tests.json             execution gate, 9/9 mock tests, zero fits
-  reports/breakthrough_20261002/batch27/autonomous_fragment_data_ready.json  data-ready manifest
-  reports/breakthrough_20261002/batch27/next_batch_proposal.json         proposed batch28 (NOT launched)
-  figures: homology_sensitivity.png, variant_bin_diagnostic.png, long_fragment_cohort.png
+## 中文
 
-NEW DATA SOURCE (read-only, NOT a training freeze)
-  GSE78709 SuRE K562 autonomous promoter activity (PMC5498152), hg19/GRCh37
-  GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz
-    bytes 1,187,342,132 ; sha256 8868fa641c2c89bef0c8aa18b6b553030cc7199ea4be4f12c2cd1f3ecd458b85
-  153,562,178 measured insert rows | tier-1 eligible 8,033,394 | tier-2 (both bioreps detected) 253,629
-  186,969 independent genomic-overlap components | sequence retrieval 2500/2500 exact (Ensembl GRCh37)
+batch27，决策2026-10-03约18:21、写入18:57:44+08:00，完成batch26证据稳健性修订与SuRE长片段数据准备。
 
-KEY RESULTS
-  batch26 ranking gain persists after removing the 2 known contaminated test groups
-    (delta-rho A1-A0 +0.0524 [0.0341, 0.0721], group bootstrap 1000)
-  data-ready gate for NEW from-scratch long-fragment training: MET (>=1000 inserts AND >=500 groups)
-  batch26 fit-budget compliance remains FAIL (5 executions vs declared 4) - recorded, not repaired
+新增batch26_manifest_addendum.json记录来源更正，homology_sensitivity.json检查污染敏感性，variant_bin_diagnostic.json作描述性分箱，exec_gate_tests.json记录9/9模拟测试，autonomous_fragment_data_ready.json记录数据就绪，next_batch_proposal.json提出后续方案。图包括homology_sensitivity、variant_bin_diagnostic、long_fragment_cohort。
 
-NOT DONE / NOT CLAIMED
-  no training, no fine-tuning, no new inference, no promotion, no email
-  no claim that any old K562 model is independently tested on these source-exposed inserts
-  HEK293 rho 0.5264 / local-14 rho 0.4286 remain separate retrospective/OOD evidence only
+GSE78709 SuRE K562（PMC5498152）使用hg19/GRCh37；文件GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz为1,187,342,132字节。153,562,178测量插入行，tier1有效8,033,394，两个生物重复均检出的tier2为253,629；186,969基因组重叠分量，Ensembl GRCh37序列提取2500/2500一致。
 
-PRODUCTION POINTERS: unchanged (v6.3 main / v6.4 cellline pilot).
-NEXT: parent reads independent_review.json and dispatches; batch28 requires parent approval of the tier-2
-      eligibility rule and of the proposed protocol before any launch.
+去掉两个已知污染TEST组后，batch26 A1−A0 rho差+0.0524，1000次组bootstrap区间[0.0341,0.0721]。新长片段训练的≥1000插入/≥500组准入已满足；batch26预算仍为实际5次/预设4次，结论FAIL。
+
+本批处理已保存证据，拟合与新推理次数均0。HEK293 rho0.5264和本地14构建体rho0.4286各按自己的回顾性/域外任务记录。下一步审核tier2条件和batch28协议。主用指针在该阶段为v6.3与v6.4 cellline pilot。源文件SHA如下。
+
+- `8868fa641c2c89bef0c8aa18b6b553030cc7199ea4be4f12c2cd1f3ecd458b85`
+
+---
+
+## English
+
+batch27, decided around2026-10-03 18:21 and written18:57:44+08:00, updates batch26 robustness evidence and prepares SuRE long-fragment data.
+
+New records include batch26_manifest_addendum.json for provenance, homology_sensitivity.json for contamination sensitivity, variant_bin_diagnostic.json for descriptive bins, exec_gate_tests.json with9/9 mock tests, autonomous_fragment_data_ready.json, and next_batch_proposal.json. Figures cover homology_sensitivity, variant_bin_diagnostic, and long_fragment_cohort.
+
+GSE78709 SuRE K562 (PMC5498152) uses hg19/GRCh37. GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz contains1,187,342,132 bytes. There are153,562,178 measured insert rows,8,033,394 tier1 eligible rows,253,629 tier2 rows detected in both biological replicates, and186,969 genomic-overlap components. Ensembl GRCh37 retrieval matched2500/2500 sequences.
+
+After excluding two known contaminated TEST groups, batch26 A1−A0 rho gain is+0.0524, with1000-group-bootstrap CI[0.0341,0.0721]. New long-fragment data meet the≥1000-insert/≥500-group gate. batch26 budget remains five actual versus four planned executions, verdict FAIL.
+
+This batch analyzes saved evidence, with zero fits and zero new inference. HEK293 rho0.5264 and local14-construct rho0.4286 retain their respective retrospective/OOD scopes. Next, review tier2 eligibility and the batch28 protocol. Production pointers at this stage were v6.3 and the v6.4 cellline pilot. Source-file SHA follows.
+
+- `8868fa641c2c89bef0c8aa18b6b553030cc7199ea4be4f12c2cd1f3ecd458b85`

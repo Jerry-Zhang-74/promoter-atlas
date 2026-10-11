@@ -1,18 +1,39 @@
-# 训练记录
+# 训练记录 · Training log summary
 
-AdamW，学习率 1e-4、权重衰减 1e-4、梯度裁剪 1.0。E/S/B 掩蔽 MSE 权重 1.0，片段活性 MSE 权重 0.2。bfloat16 前向、float32 参数和优化器；每条数据流批量 32。
+[中文](#中文) · [English](#english)
 
-每轮 E/S/B 347,241 条、片段 531,860 条，16,868 步。两次断电后恢复模型、优化器、随机状态与游标。2026-10-04 13:15:17 完成两轮，global_step=33736。两次早期吞吐测试及训练执行记录分别保存。
+## 中文
 
-第一轮检查点 SHA-256：
-eac54b5bf5884d02cd07b2f5da67dc5e0a181be9ad69cc32be3e951622f067e6
+使用 AdamW，学习率 1e-4、权重衰减 1e-4、梯度裁剪 1.0。E/S/B 掩蔽 MSE 权重为 1.0，片段活性 MSE 权重为 0.2。
+前向使用 bfloat16，参数与优化器使用 float32；每条流批量为 32。
 
-第二轮检查点 SHA-256：
-61e685a8eae9d51b3fa878b7481c21178dc90b60f1d34440e59d2f43bf3633e7
+每轮遍历 347,241 条 E/S/B 和 531,860 条片段，共 16,868 步。
+训练经历两次断电，随后恢复模型、优化器、随机状态和游标。
+两轮于 2026-10-04 13:15:17（UTC+08:00）完成，global_step=33736。
+早期两次吞吐测试与正式训练记录分别保存。
 
-DEV 规则选择第一轮，两个轮次的 TEST 结果均保留。整理后的提交代码与原始源码映射见 ORIGINAL_SOURCES.md。
+| 检查点 | SHA-256 |
+|---|---|
+| epoch 1 | `eac54b5bf5884d02cd07b2f5da67dc5e0a181be9ad69cc32be3e951622f067e6` |
+| epoch 2 | `61e685a8eae9d51b3fa878b7481c21178dc90b60f1d34440e59d2f43bf3633e7` |
 
+DEV 规则选中 epoch 1，两轮 TEST 结果均保留。原始源码对应关系见[源码指南](ORIGINAL_SOURCES.md)，指标见[性能记录](PERFORMANCE_zh.md)。
 
 ---
-公开目录整理说明：原项目路径位于 `research/` 内；当前入口为 `src/promoter_atlas/`，配置为 `configs/joint.json`。
-下载与复现步骤以 [REPRODUCIBILITY.md](REPRODUCIBILITY.md) 为准；旧路径引用用于追溯原始记录。
+
+## English
+
+Training uses AdamW with learning rate 1e-4, weight decay 1e-4 and gradient clipping at 1.0. Masked E/S/B MSE has weight 1.0, and fragment-activity MSE has weight 0.2.
+Forward passes use bfloat16; parameters and optimizer state use float32. Each stream has batch size 32.
+
+Each epoch traverses 347,241 E/S/B records and 531,860 fragments in 16,868 steps.
+Two power interruptions were followed by restoration of the model, optimizer, random states and sampler cursor.
+Both epochs completed at 2026-10-04 13:15:17 (UTC+08:00), with global_step=33736.
+The two early throughput tests are recorded separately from the training run.
+
+| Checkpoint | SHA-256 |
+|---|---|
+| Epoch 1 | `eac54b5bf5884d02cd07b2f5da67dc5e0a181be9ad69cc32be3e951622f067e6` |
+| Epoch 2 | `61e685a8eae9d51b3fa878b7481c21178dc90b60f1d34440e59d2f43bf3633e7` |
+
+The DEV rule selects epoch 1, and TEST results for both epochs are retained. See the [source guide](ORIGINAL_SOURCES.md#english) for code mappings and the [performance report](PERFORMANCE_zh.md#english) for metrics.

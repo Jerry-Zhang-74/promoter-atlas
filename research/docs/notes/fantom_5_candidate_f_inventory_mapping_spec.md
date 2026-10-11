@@ -1,383 +1,133 @@
-# FANTOM5 Candidate F Inventory and Mapping Specification Draft
+# FANTOM5 资源与映射草案 v0.1 · FANTOM5 inventory and mapping draft v0.1
 
-## 1. Purpose
+[中文](#中文) · [English](#english)
 
-This document defines how FANTOM5 should be inventoried and connected to Candidate F without altering the frozen Candidate E branch.
+## 中文
 
-The purpose is not to force an immediate durability label build.
-The purpose is to create a controlled intake path for promoter-native temporal proxy data.
+### 资源定位
 
----
+本草案定义 Candidate F 的 FANTOM5 接入流程。FANTOM5 是由多种生物状态和部分时间实验组成的 CAGE 启动子/TSS 活性资源，作为时间持久性的情境性代理；Candidate E 保持独立。
 
-## 2. Position of FANTOM5 in promoter_atlas
+优先整理 robust peaks、启动子 counts/TPM/max TPM/total TPM，以及原代细胞、组织、细胞系、分级样本和时间序列轨道。permissive peaks 用于探索。时间标签审核采用有明确时间顺序的子集，记录样本、情境、时间点、测定类型、物种、参考组装和重复信息。
 
-FANTOM5 is treated as a high-priority Candidate F source because it is promoter-centered and CAGE-based.
-This makes it more aligned with promoter-sequence-driven modeling than bulk RNA-seq gene abundance resources.
+### 清单与映射对象
 
-However, FANTOM5 is not a universal long-term durability gold label resource.
-It is a heterogeneous collection of promoter/TSS activity measurements across biological states, including selected time-course experiments.
+先清点资源，再解析 peak 和样本，之后建立映射与情境活动表。字段约定如下，分别描述资源、情境、CAGE peak、现有启动子、两者映射及逐时间点活动：
 
-Therefore, in promoter_atlas:
+```text
+resource: resource_id, source_group, file_name, file_role, species, genome_build,
+          assay_type, signal_unit, sample_category, contains_timecourse,
+          contains_peak_coordinates, contains_expression_values, download_status,
+          parse_status, notes
+context: context_id, context_name, sample_category, biological_process_type, species,
+         genome_build, timepoint_count, timepoint_labels, time_order_defined,
+         replicate_info_available, signal_unit, promoter_level_ready,
+         candidate_for_durability, exclusion_reason, notes
+peak: fantom_peak_id, chrom, start, end, strand, peak_class,
+      associated_gene_symbol, associated_gene_id, source_build
+promoter: promoter_id
+mapping: fantom_peak_id, promoter_id, overlap_bp,
+         peak_center_to_promoter_anchor_distance, strand_match, mapping_class,
+         mapping_confidence, mapping_rule_version
+activity: context_id, timepoint_label, time_rank, fantom_peak_id, promoter_id,
+          activity_value, signal_unit, replicate_aggregation_rule, activity_qc_flag
+```
 
-- FANTOM5 is a **temporal proxy source**
-- FANTOM5 is a **promoter/TSS activity source**
-- FANTOM5 is **not** a direct replacement for GTEx
-- FANTOM5 is **not** a single unified global time-axis matrix
+### 映射规则
 
----
+依次优先链一致的直接区间重叠、peak 中心落在启动子锚定窗口，以及在前两者不可用且歧义低时的最近兼容启动子。记录源组装、目标组装、liftover/坐标协调方法及协调后的 peak ID 稳定性。
 
-## 3. What data content from FANTOM5 matters here
+多启动子同等支持、链冲突、密集双向区域归属待定和组装未对齐的记录保留为待解决。置信度为 `high`（唯一且链/锚点一致重叠）、`medium`（唯一且距离适当的最近匹配）、`low`（弱支持或歧义）和 `reject`（不适合标签构建）。持久性构建使用 high 与经过审核的部分 medium。
 
-Candidate F should prioritize the following FANTOM5 content classes:
+### 情境准入和计算准备
 
-1. **Promoter / TSS peak definitions**
-   - robust CAGE peaks
-   - permissive peaks only for exploration, not default label build
+情境需生物学一致、时间顺序明确、有可解释晚期、测量单位可比、启动子映射合格且重复处理完整。分化、发育、持续响应或恢复时间序列是候选。急性单次响应、时间含义不清的稀疏两点数据和 TSS 归属不稳定的记录进入单独审核。
 
-2. **Promoter-level activity summaries**
-   - counts
-   - TPM
-   - max TPM
-   - total TPM
+计算 D_c_raw 前明确 context_id、time_rank、启动子活动、单位、缺失值和重复聚合；计算 R_c 前固定 early/late、间隔时间点的 QC 用途、低早期值处理和 epsilon。
 
-3. **Individual sample activity tracks**
-   - primary cells
-   - tissues
-   - cell lines
-   - fractionation
-   - time course
+### 分阶段输出与 QC
 
-4. **Time-course sample subsets**
-   - only contexts with explicit temporal ordering should enter Candidate F durability review
+```text
+data/external/fantom5/fantom5_resource_inventory.tsv
+data/external/fantom5/fantom5_context_inventory.tsv
+docs/notes/fantom5_candidate_f_mapping_notes.md
+data/interim/fantom5/fantom5_peak_table.tsv
+data/interim/fantom5/fantom5_sample_table.tsv
+data/interim/fantom5/fantom5_timecourse_sample_table.tsv
+labels/build/fantom_peak_to_promoter_mapping.tsv
+labels/qc/fantom_peak_to_promoter_mapping_summary.tsv
+labels/build/fantom_context_activity_long.tsv
+labels/qc/fantom_context_activity_missingness.tsv
+labels/build/context_level_durability_table.tsv
+labels/build/promoter_durability_table.tsv
+```
 
-5. **Metadata required for context grouping**
-   - sample identifiers
-   - biological context labels
-   - timepoint labels
-   - assay subtype
-   - species
-   - genome build
-   - replicate annotations if available
+QC 汇总逐文件解析成功率、样本类别情境数、有序时间情境数、组装/peak 类别分布、映射比例、置信度、歧义数量及排除原因。
 
----
-
-## 4. Inventory-first principle
-
-No Candidate F durability label should be computed directly from raw FANTOM5 file discovery.
-
-The intake must go through an explicit inventory stage.
-
-### 4.1 Required inventory outputs
-
-Expected inventory-stage outputs:
-
-- `data/external/fantom5/fantom5_resource_inventory.tsv`
-- `data/external/fantom5/fantom5_context_inventory.tsv`
-- `docs/notes/fantom5_candidate_f_mapping_notes.md`
-
-### 4.2 Resource inventory fields
-
-The resource inventory should include at least:
-
-- `resource_id`
-- `source_group`
-- `file_name`
-- `file_role`
-- `species`
-- `genome_build`
-- `assay_type`
-- `signal_unit`
-- `sample_category`
-- `contains_timecourse`
-- `contains_peak_coordinates`
-- `contains_expression_values`
-- `download_status`
-- `parse_status`
-- `notes`
-
-### 4.3 Context inventory fields
-
-The context inventory should include at least:
-
-- `context_id`
-- `context_name`
-- `sample_category`
-- `biological_process_type`
-- `species`
-- `genome_build`
-- `timepoint_count`
-- `timepoint_labels`
-- `time_order_defined`
-- `replicate_info_available`
-- `signal_unit`
-- `promoter_level_ready`
-- `candidate_for_durability`
-- `exclusion_reason`
-- `notes`
+实验筛选关注持续活动、可解释的时间模式及其与序列编辑的联系。下一步细化情境审核表、TSS 协调、早晚配对和资源获取顺序。
 
 ---
 
-## 5. Primary mapping objects
+## English
 
-Candidate F should distinguish four different mapping objects.
+### Resource role
 
-### 5.1 FANTOM peak object
+This draft defines FANTOM5 intake for Candidate F. FANTOM5 combines CAGE promoter/TSS activity across biological states and selected time courses, providing context-specific temporal proxies alongside the independent Candidate E branch.
 
-A FANTOM peak object is a CAGE-defined promoter/TSS peak used as the unit of FANTOM promoter-level activity.
+Prioritize robust peaks; promoter counts, TPM, max TPM, and total TPM; and tracks from primary cells, tissues, cell lines, fractionation, and time courses. Use permissive peaks for exploration. Review explicitly ordered temporal subsets and record sample, context, timepoint, assay, species, assembly, and replicate metadata.
 
-Suggested fields:
+### Inventory and mapping objects
 
-- `fantom_peak_id`
-- `chrom`
-- `start`
-- `end`
-- `strand`
-- `peak_class`
-- `associated_gene_symbol`
-- `associated_gene_id`
-- `source_build`
+Inventory resources first, parse peaks and samples next, then construct mappings and context-activity tables. Fields below describe resources, contexts, CAGE peaks, existing promoters, their mappings, and activity at each timepoint:
 
-### 5.2 promoter_atlas promoter object
+```text
+resource: resource_id, source_group, file_name, file_role, species, genome_build,
+          assay_type, signal_unit, sample_category, contains_timecourse,
+          contains_peak_coordinates, contains_expression_values, download_status,
+          parse_status, notes
+context: context_id, context_name, sample_category, biological_process_type, species,
+         genome_build, timepoint_count, timepoint_labels, time_order_defined,
+         replicate_info_available, signal_unit, promoter_level_ready,
+         candidate_for_durability, exclusion_reason, notes
+peak: fantom_peak_id, chrom, start, end, strand, peak_class,
+      associated_gene_symbol, associated_gene_id, source_build
+promoter: promoter_id
+mapping: fantom_peak_id, promoter_id, overlap_bp,
+         peak_center_to_promoter_anchor_distance, strand_match, mapping_class,
+         mapping_confidence, mapping_rule_version
+activity: context_id, timepoint_label, time_rank, fantom_peak_id, promoter_id,
+          activity_value, signal_unit, replicate_aggregation_rule, activity_qc_flag
+```
 
-A promoter_atlas promoter object is the stable promoter unit already used in Candidate E tables.
+### Mapping rules
 
-Suggested core key:
+Prefer strand-consistent direct interval overlap, then a peak center within the promoter anchor window, then a nearest compatible promoter when the first two options are unavailable and ambiguity is low. Record source and target assemblies, liftover/coordinate harmonization, and peak-ID stability after harmonization.
 
-- `promoter_id`
+Equal support for multiple promoters, strand conflicts, unresolved dense bidirectional regions, and unaligned assemblies remain unresolved. Confidence classes are `high` (unique overlap with strand/anchor consistency), `medium` (unique nearest compatible mapping at an acceptable distance), `low` (weak or ambiguous support), and `reject` (unsuitable for label building). Durability builds use high and reviewed medium mappings.
 
-### 5.3 peak-to-promoter mapping object
+### Context eligibility and computation preparation
 
-A peak-to-promoter mapping object connects FANTOM CAGE peaks to promoter_atlas promoter intervals.
+Contexts require biological coherence, ordered timepoints, an interpretable late phase, comparable units, qualified promoter mappings, and documented replicates. Differentiation, development, sustained response, and recovery are candidates. Acute single-pulse responses, sparse two-point data with unclear temporal meaning, and unstable TSS assignments receive separate review.
 
-Suggested fields:
+Before computing D_c_raw, define context_id, time_rank, promoter activity, units, missingness, and replicate aggregation. Before R_c, freeze early/late selection, the QC role of intermediate timepoints, low-early-value handling, and epsilon.
 
-- `fantom_peak_id`
-- `promoter_id`
-- `overlap_bp`
-- `peak_center_to_promoter_anchor_distance`
-- `strand_match`
-- `mapping_class`
-- `mapping_confidence`
-- `mapping_rule_version`
+### Staged outputs and QC
 
-### 5.4 context activity object
+```text
+data/external/fantom5/fantom5_resource_inventory.tsv
+data/external/fantom5/fantom5_context_inventory.tsv
+docs/notes/fantom5_candidate_f_mapping_notes.md
+data/interim/fantom5/fantom5_peak_table.tsv
+data/interim/fantom5/fantom5_sample_table.tsv
+data/interim/fantom5/fantom5_timecourse_sample_table.tsv
+labels/build/fantom_peak_to_promoter_mapping.tsv
+labels/qc/fantom_peak_to_promoter_mapping_summary.tsv
+labels/build/fantom_context_activity_long.tsv
+labels/qc/fantom_context_activity_missingness.tsv
+labels/build/context_level_durability_table.tsv
+labels/build/promoter_durability_table.tsv
+```
 
-A context activity object stores promoter activity for a mapped promoter in one context at one timepoint.
+QC summarizes parse success by file, contexts by sample category, ordered temporal contexts, assembly/peak-class counts, mapped fraction, confidence distribution, ambiguity counts, and exclusion reasons.
 
-Suggested fields:
-
-- `context_id`
-- `timepoint_label`
-- `time_rank`
-- `fantom_peak_id`
-- `promoter_id`
-- `activity_value`
-- `signal_unit`
-- `replicate_aggregation_rule`
-- `activity_qc_flag`
-
----
-
-## 6. Mapping policy
-
-### 6.1 Mapping goals
-
-The mapping policy should maximize interpretability and minimize false promoter assignment.
-
-The goal is not maximal recall.
-The goal is trustworthy promoter-level temporal evidence.
-
-### 6.2 Default mapping preference
-
-Default priority:
-
-1. strand-consistent direct interval overlap
-2. peak center within promoter anchor window
-3. nearest compatible promoter only when overlap-based mapping is unavailable and ambiguity is low
-
-### 6.3 Ambiguity handling
-
-A FANTOM peak must not be blindly assigned when:
-
-- it overlaps multiple promoter_atlas promoters with similar support
-- strand assignment is inconsistent
-- the peak lies in a dense bidirectional region without clean promoter attribution
-- genome build reconciliation is unresolved
-
-Such cases should remain ambiguous and be excluded from Candidate F label building unless a later rule resolves them explicitly.
-
-### 6.4 Mapping confidence levels
-
-Suggested confidence levels:
-
-- `high`: unique strand-consistent overlap with strong anchor consistency
-- `medium`: unique nearest-compatible mapping with acceptable distance
-- `low`: ambiguous or weak-support mapping
-- `reject`: mapping unsuitable for Candidate F label generation
-
-Only `high` and selected `medium` mappings should enter durability builds.
-
----
-
-## 7. Build compatibility and genome coordination
-
-FANTOM5 resources may exist in different genome builds or reprocessed assemblies.
-
-Before durability computation, inventory must explicitly record:
-
-- source genome build
-- promoter_atlas build target
-- whether liftover or coordinate harmonization is required
-- whether peak identifiers remain stable after harmonization
-
-Candidate F must not mix coordinate systems implicitly.
-
----
-
-## 8. Context admissibility for D_c_raw
-
-Not every FANTOM5 sample set should be treated as a durability context.
-
-A context is admissible for `D_c_raw` only when:
-
-1. It has a biologically coherent label.
-2. It contains explicitly ordered timepoints.
-3. It captures more than an immediate one-off perturbation snapshot.
-4. The promoter activity signal is comparable across the timepoints.
-5. The mapped promoters in that context pass mapping confidence filters.
-6. Replicate handling is documented.
-7. The late phase is biologically interpretable.
-
-Examples of likely admissible contexts:
-
-- differentiation time course
-- developmental progression
-- activation followed by sustained response or recovery
-
-Examples requiring caution or likely exclusion:
-
-- acute single-pulse response without interpretable late phase
-- sparse two-point designs with unclear timing meaning
-- contexts where promoter assignment is unstable across nearby TSS clusters
-
----
-
-## 9. Rules for D_c_raw and R_c computation preparation
-
-This stage is still inventory and mapping design, not score production.
-
-But the resource design must anticipate later computation.
-
-### 9.1 Required prerequisites for D_c_raw
-
-Before `D_c_raw` is computed, the pipeline must know:
-
-- valid `context_id`
-- ordered `time_rank`
-- promoter-level mapped activity values
-- within-context comparable unit
-- missingness policy
-- replicate aggregation policy
-
-### 9.2 Required prerequisites for R_c
-
-Before `R_c` is computed, the pipeline must define:
-
-- which timepoint is `early`
-- which timepoint is `late`
-- whether intermediate points are ignored or used for QC
-- how to handle very low early values
-- which epsilon is used
-
----
-
-## 10. Recommended staged outputs
-
-The Candidate F FANTOM5 intake should be staged as follows.
-
-### Stage A: inventory
-
-- `data/external/fantom5/fantom5_resource_inventory.tsv`
-- `data/external/fantom5/fantom5_context_inventory.tsv`
-
-### Stage B: peak and sample parsing
-
-- `data/interim/fantom5/fantom5_peak_table.tsv`
-- `data/interim/fantom5/fantom5_sample_table.tsv`
-- `data/interim/fantom5/fantom5_timecourse_sample_table.tsv`
-
-### Stage C: mapping
-
-- `labels/build/fantom_peak_to_promoter_mapping.tsv`
-- `labels/qc/fantom_peak_to_promoter_mapping_summary.tsv`
-
-### Stage D: context-ready activity tables
-
-- `labels/build/fantom_context_activity_long.tsv`
-- `labels/qc/fantom_context_activity_missingness.tsv`
-
-### Stage E: future durability tables
-
-- `labels/build/context_level_durability_table.tsv`
-- `labels/build/promoter_durability_table.tsv`
-
----
-
-## 11. QC requirements
-
-The inventory and mapping stage must produce QC outputs before any label build is allowed.
-
-Minimum QC summaries:
-
-1. resource parse success by file
-2. context counts by sample category
-3. count of contexts with valid temporal ordering
-4. count of peaks by genome build and peak class
-5. fraction of peaks mapped to promoter_atlas promoters
-6. mapping confidence distribution
-7. ambiguous mapping count
-8. contexts excluded from Candidate F durability and reasons
-
----
-
-## 12. Wet-lab relevance filter
-
-Candidate F should only advance FANTOM-derived durability evidence that can improve downstream experimental nomination.
-
-That means the intake should prioritize contexts and mappings that help answer:
-
-- does this promoter sustain activity rather than spike and collapse?
-- is the temporal pattern interpretable enough to guide candidate selection?
-- can the inferred durability constraint later be linked back to promoter sequence edits?
-
-If a FANTOM-derived signal does not improve these questions, it should not be promoted into the main Candidate F label layer.
-
----
-
-## 13. Non-negotiable implementation rules
-
-1. Do not overwrite Candidate E tables.
-2. Do not collapse all FANTOM samples into one pseudo-global time axis.
-3. Do not treat every FANTOM context as durability-eligible.
-4. Do not default ambiguous peak-to-promoter mapping into low-confidence labels.
-5. Do not use permissive peaks as default label anchors.
-6. Do not claim long-term durability when only short-term response evidence exists.
-
----
-
-## 14. Immediate next step after this document
-
-The next concrete design document should define:
-
-- context admissibility checklist for Candidate F
-- promoter/TSS reconciliation policy in more detail
-- early/late pairing rules for retention
-- preferred file acquisition order from FANTOM5 resources
-
----
-
-## 15. Draft Status
-
-Status: draft v0.1
-Scope: FANTOM5 intake, inventory, and mapping design for Candidate F
-Dependency: compatible with frozen Candidate E branch
+Experimental nomination focuses on sustained activity, interpretable temporal patterns, and links to sequence edits. Next, refine the context checklist, TSS reconciliation, early/late pairing, and acquisition order.

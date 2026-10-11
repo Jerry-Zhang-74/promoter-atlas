@@ -1,38 +1,29 @@
-# batch54_review -- independent first-model acceptance evaluator
+# batch54 独立评估 · batch54 independent evaluation
 
-batch54 (v6.38.0-first-model-independent-acceptance.rc1) is the INDEPENDENT evaluator,
-running in parallel with control62 (batch52 data/training) and control61 (batch53 model code).
-Scope: writes ONLY under `runs/breakthrough_20261002/code/batch54_review` and
-`reports/breakthrough_20261002/batch54`. No architecture/model-code edits. Zero fits, solves,
-backward passes, optimizer steps, downloads. CPU share = 1 core, RAM <= 2 GB.
+[中文](#中文) · [English](#english)
 
-## What it does
-- `indep_metrics.py` -- OWN implementations of: pooled Spearman, group-equal MAE, same-unit
-  RMSE, top-k precision with fixed stable-ID tie-break, pair delta group MAE, macro strict
-  sign accuracy (true-zero separate; predicted ties incorrect), and a paired group bootstrap
-  that RETAINS SAMPLING MULTIPLICITY (>=30 groups). No producer evaluator is imported for
-  metric values.
-- `indep_cohort.py` -- OWN read-only cohort TSV parser (targets/group/split/pairs).
-- `test_fixtures.py` -- artificial no-fit fixture tests (duplicate bootstrap groups, constant
-  prediction, NA, true-zero/ties, fixed-ID top-k, brute-force agreement). Writes
-  `fixture_evidence.json`.
-- `model_checks.py` -- CPU read-only artifact checks: ready marker, selected checkpoint SHA
-  sidecar, frozen config SHA, cohort datahash, exact target column, normalizer, per-epoch
-  full-TRAIN coverage, DEV checkpoint-selection reproduction, shared init bytes, exec_gate
-  ledger accounting, runnable load check (synthetic forward only).
-- `run_acceptance.py` -- CLI: `fixtures | r0 | metrics | checks | accept`.
-- `assemble_acceptance.py` -- writes `reports/.../batch54/acceptance.json` + `report.md`.
-- `wait_for_modelA.py` -- bounded local (zero-LLM) poller for `Nabs_ready.json`, <=30 s poll
-  until 12:20 Asia/Shanghai; writes `modelA_wait_event.json`.
+## 中文
 
-## Explicit non-goals / limits
-- Does NOT import the training evaluator as sole metric proof.
-- Does NOT do a CPU neural fallback; independent GPU replay of saved weights is deferred to a
-  granted exclusive short slot (<=60 s), acquiring the GPU lock with PID+creation identity.
-- TEST targets are physically present in `endpoints.tsv`; TEST separation is procedural.
-- Reference-encoded sequence is a proxy for donor HG02601 (HEK293 identity preserved);
-  no actual donor/clone or local 293FT claim.
+版本 `v6.38.0-first-model-independent-acceptance.rc1`，使用 1 CPU 核、≤2 GB RAM，代码和报告分别写入 batch54_review 与 reports/.../batch54。
 
-## Evidence files (this dir)
-`fixture_evidence.json`, `provenance_evidence.json`, `modelA_wait.log`,
-`modelA_wait_event.json` (on completion), `code_selfcheck.json` (optional), `README.md`.
+`indep_metrics.py` 独立计算 pooled Spearman、组等权 MAE、原单位 RMSE、按稳定 ID 解平局的 top-k、配对组 MAE、macro 严格符号准确率（真零分列，预测平局计错）及保留抽样重复次数的分组 bootstrap（至少 30 组）。`indep_cohort.py` 读取 cohort TSV。
+
+`test_fixtures.py` 检查重复 bootstrap 组、常数预测、NA、真零/平局、固定 ID 和穷举一致性。`model_checks.py` 核对 ready、checkpoint SHA、config SHA、datahash、目标、normalizer、全量 TRAIN 覆盖、DEV 选择、初始字节、执行台账和合成前向。
+
+`run_acceptance.py` 提供 fixtures/r0/metrics/checks/accept；`assemble_acceptance.py` 输出 acceptance.json 和 report.md；`wait_for_modelA.py` 每至多 30 秒检查 Nabs_ready，历史等待截止 12:20 Asia/Shanghai。
+
+GPU 权重回放在独占短槽位（≤60 秒）取得 PID+创建时间锁后执行。TEST 标签物理上位于 endpoints.tsv，隔离通过流程管理。序列为 HG02601 的参考代理，测定来源为 HEK293，293FT 迁移待评估。记录包括 fixture_evidence、provenance_evidence、modelA_wait.log、modelA_wait_event 和可选 code_selfcheck。
+
+---
+
+## English
+
+Version `v6.38.0-first-model-independent-acceptance.rc1` uses one CPU core and ≤2 GB RAM, writing code and reports under batch54_review and reports/.../batch54.
+
+`indep_metrics.py` independently calculates pooled Spearman, group-equal MAE, original-unit RMSE, stable-ID-tied top-k, pair group MAE, macro strict sign accuracy (true zeros separate, predicted ties incorrect), and grouped bootstrap retaining sampling multiplicity (at least 30 groups). `indep_cohort.py` reads cohort TSVs.
+
+`test_fixtures.py` covers repeated bootstrap groups, constant predictions, NA, true zeros/ties, fixed IDs, and brute-force agreement. `model_checks.py` checks ready markers, checkpoint/config SHAs, datahash, target, normalizer, full TRAIN coverage, DEV selection, initial bytes, execution ledger, and synthetic forward.
+
+`run_acceptance.py` exposes fixtures/r0/metrics/checks/accept; `assemble_acceptance.py` writes acceptance.json and report.md; `wait_for_modelA.py` checks Nabs_ready at intervals up to 30 seconds, with the historical deadline 12:20 Asia/Shanghai.
+
+GPU replay uses an exclusive short slot (≤60 seconds) and PID-plus-creation-time lock. TEST labels are physically present in endpoints.tsv and separated procedurally. Sequences are reference proxies for HG02601; measurements are HEK293, and 293FT transfer awaits evaluation. Records include fixture_evidence, provenance_evidence, modelA_wait.log, modelA_wait_event, and optional code_selfcheck.
