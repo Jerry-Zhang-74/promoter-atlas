@@ -1,0 +1,40 @@
+{
+  "batch": "batch05",
+  "phase": "worker",
+  "state": "complete",
+  "protocol": "runs/breakthrough_20261002/batch05/PROTOCOL.txt",
+  "written_at": "2026-10-03T02:41:41.552959+08:00",
+  "pid": 43164,
+  "creation_observed_at": "2026-10-03T02:41:41.552959+08:00",
+  "command": "batch05 worker (write_status_v5.py) — see runs/batch05 for executed command set",
+  "worker_deadline": "2026-10-03T05:30:00+08:00",
+  "review_deadline": "2026-10-03T07:00:00+08:00",
+  "n_final_runs_complete": 2,
+  "n_final_runs_total": 2,
+  "final_checkpoint_sha256": {
+    "repeat_bag_s20261011": "5d3694af75f7203c32faa1adb5afccf50421fbfa9c88fe5ad941dc68e64be209",
+    "diverse_bag_s20261011": "54e3da27c71f2541aba388c09d5f960f7d150b3799dc1ce68936c4a9c0e7407f"
+  },
+  "last_progress": {
+    "repeat_bag_s20261011": "DONE",
+    "diverse_bag_s20261011": "DONE"
+  },
+  "scientific_candidate_version": "v6.6.0-scratchgene.rc7 (diverse_bag, primary)",
+  "summary_zh": "冻结序列-组件划分(精确/RC+检出近邻阻断, 非无同源)下, B1=0.5904 / B2=0.7155 (测试Spearman), B2-B1=0.1252 (组件bootstrap CI[0.1114, 0.1398]), 最优注释基线=0.7143; 证据阈值(>=.03且下界>0)=True; 单种子, 回顾性, 非因果。",
+  "key_results": {
+    "test_spearman_B1": 0.5903686819319465,
+    "test_spearman_B2": 0.7155368014213216,
+    "test_r2_B1": 0.35385096561049234,
+    "test_r2_B2": 0.5147385738578725,
+    "test_mae_B1": 0.18859597867401381,
+    "test_mae_B2": 0.16196971643169336,
+    "b2_minus_b1_test_spearman": 0.12516811948937512,
+    "component_bootstrap_ci_low": 0.11136864466328406,
+    "component_bootstrap_ci_high": 0.13978929787033642,
+    "best_annotation_baseline_test_spearman": 0.7142635425256373,
+    "evidence_threshold_met": true
+  },
+  "next_action": "等待独立评审与父进程验收; 本批次不自行启动下一科学批次",
+  "unfinished_criteria": []
+}
+DONE

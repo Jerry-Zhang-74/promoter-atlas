@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-10-03T16:12:27.570114+00:00",
+  "arms": {
+    "SAT_HEK293FT": {
+      "n_variants": 8000,
+      "n_significant_adjp_le_0.05": 3036,
+      "n_distinct_positions": 2000,
+      "n_2kb_region_clusters": 1,
+      "n_chroms": 1,
+      "cell": "HEK293FT",
+      "label": "bcalm logFC (variant vs reference control)"
+    },
+    "SAT_NEURON": {
+      "n_variants": 8000,
+      "n_significant_adjp_le_0.05": 669,
+      "n_distinct_positions": 2000,
+      "n_2kb_region_clusters": 1,
+      "n_chroms": 1,
+      "cell": "KOLF2.1J_hNGN2_neuron",
+      "label": "bcalm logFC (variant vs reference control)"
+    },
+    "KV_SNV_HEK293FT": {
+      "n_variants": 8513,
+      "n_significant_adjp_le_0.05": 2539,
+      "n_distinct_positions": 8513,
+      "n_2kb_region_clusters": 48,
+      "n_chroms": 1,
+      "cell": "HEK293FT",
+      "label": "bcalm logFC (variant vs reference control)"
+    },
+    "KV_INDEL_HEK293FT": {
+      "n_variants": 603,
+      "n_significant_adjp_le_0.05": 154,
+      "n_distinct_positions": 603,
+      "n_2kb_region_clusters": 59,
+      "n_chroms": 1,
+      "cell": "HEK293FT",
+      "label": "bcalm logFC (variant vs reference control)"
+    },
+    "KV_SNV_NEURON": {
+      "n_variants": 8508,
+      "n_significant_adjp_le_0.05": 144,
+      "n_distinct_positions": 8508,
+      "n_2kb_region_clusters": 48,
+      "n_chroms": 1,
+      "cell": "KOLF2.1J_hNGN2_neuron",
+      "label": "bcalm logFC (variant vs reference control)"
+    },
+    "KV_INDEL_NEURON": {
+      "n_variants": 603,
+      "n_significant_adjp_le_0.05": 17,
+      "n_distinct_positions": 603,
+      "n_2kb_region_clusters": 59,
+      "n_chroms": 1,
+      "cell": "KOLF2.1J_hNGN2_neuron",
+      "label": "bcalm logFC (variant vs reference control)"
+    }
+  },
+  "readiness": [
+    {
+      "arm": "SAT_HEK293FT",
+      "cell": "HEK293FT",
+      "n_variants": 8000,
+      "n_significant_adjp_le_0.05": 3036,
+      "n_distinct_positions": 2000,
+      "n_2kb_region_clusters": 1,
+      "split_possible": "NO single 2kb locus",
+      "verdict": "READY_WITHIN_LOCUS",
+      "domain": "regulatory VARIANT effect (CRE reporter), NOT autonomous promoter activity",
+      "labels_recovered": true,
+      "sequences_recovered": true
+    },
+    {
+      "arm": "SAT_NEURON",
+      "cell": "KOLF2.1J_hNGN2_neuron",
+      "n_variants": 8000,
+      "n_significant_adjp_le_0.05": 669,
+      "n_distinct_positions": 2000,
+      "n_2kb_region_clusters": 1,
+      "split_possible": "NO single 2kb locus",
+      "verdict": "READY_WITHIN_LOCUS",
+      "domain": "regulatory VARIANT effect (CRE reporter), NOT autonomous promoter activity",
+      "labels_recovered": true,
+      "sequences_recovered": true
+    },
+    {
+      "arm": "KV_SNV_HEK293FT",
+      "cell": "HEK293FT",
+      "n_variants": 8513,
+      "n_significant_adjp_le_0.05": 2539,
+      "n_distinct_positions": 8513,
+      "n_2kb_region_clusters": 48,
+      "split_possible": "proposed parent-region group split",
+      "verdict": "READY_MULTIREGION",
+      "domain": "regulatory VARIANT effect (CRE reporter), NOT autonomous promoter activity",
+      "labels_recovered": true,
+      "sequences_recovered": true
+    },
+    {
+      "arm": "KV_INDEL_HEK293FT",
+      "cell": "HEK293FT",
+      "n_variants": 603,
+      "n_significant_adjp_le_0.05": 154,
+      "n_distinct_positions": 603,
+      "n_2kb_region_clusters": 59,
+      "split_possible": "proposed parent-region group split",
+      "verdict": "READY_MULTIREGION",
+      "domain": "regulatory VARIANT effect (CRE reporter), NOT autonomous promoter activity",
+      "labels_recovered": true,
+      "sequences_recovered": true
+    },
+    {
+      "arm": "KV_SNV_NEURON",
+      "cell": "KOLF2.1J_hNGN2_neuron",
+      "n_variants": 8508,
+      "n_significant_adjp_le_0.05": 144,
+      "n_distinct_positions": 8508,
+      "n_2kb_region_clusters": 48,
+      "split_possible": "proposed parent-region group split",
+      "verdict": "READY_MULTIREGION",
+      "domain": "regulatory VARIANT effect (CRE reporter), NOT autonomous promoter activity",
+      "labels_recovered": true,
+      "sequences_recovered": true
+    },
+    {
+      "arm": "KV_INDEL_NEURON",
+      "cell": "KOLF2.1J_hNGN2_neuron",
+      "n_variants": 603,
+      "n_significant_adjp_le_0.05": 17,
+      "n_distinct_positions": 603,
+      "n_2kb_region_clusters": 59,
+      "split_possible": "proposed parent-region group split",
+      "verdict": "READY_MULTIREGION",
+      "domain": "regulatory VARIANT effect (CRE reporter), NOT autonomous promoter activity",
+      "labels_recovered": true,
+      "sequences_recovered": true
+    }
+  ]
+}

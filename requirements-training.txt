@@ -1,0 +1,8 @@
+-r requirements.txt
+zstandard>=0.22,<1
+scikit-learn>=1.4,<2
+pyfaidx>=0.8,<1
+tqdm>=4.66,<5
+pyyaml>=6,<7
+matplotlib>=3.8,<4
+seaborn>=0.13,<1

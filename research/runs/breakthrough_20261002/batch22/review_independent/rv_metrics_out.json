@@ -1,0 +1,218 @@
+{
+  "n": 673,
+  "pooled_recomputed": {
+    "R0": {
+      "n": 673,
+      "spearman": -0.08910149238432555,
+      "mae": 0.6527093347701819,
+      "mse": 0.776451421910108,
+      "r2": -0.0022796722155495885,
+      "top_decile": {
+        "k": 68,
+        "n": 673,
+        "intersection": 7,
+        "precision": 0.10294117647058823,
+        "enrichment": 1.0188148788927336
+      }
+    },
+    "R1": {
+      "n": 673,
+      "spearman": 0.45662225443702376,
+      "mae": 0.5716699766625224,
+      "mse": 0.6263035268006374,
+      "r2": 0.19153822655777208,
+      "top_decile": {
+        "k": 68,
+        "n": 673,
+        "intersection": 20,
+        "precision": 0.29411764705882354,
+        "enrichment": 2.910899653979239
+      }
+    },
+    "R2": {
+      "n": 673,
+      "spearman": 0.4616863225596763,
+      "mae": 0.5946368776313361,
+      "mse": 0.6244495907813034,
+      "r2": 0.19393137355104506,
+      "top_decile": {
+        "k": 68,
+        "n": 673,
+        "intersection": 21,
+        "precision": 0.3088235294117647,
+        "enrichment": 3.0564446366782008
+      }
+    }
+  },
+  "pooled_matches_results_json": {
+    "R0": {
+      "spearman": true,
+      "mae": true,
+      "r2": true,
+      "top_precision": true,
+      "top_intersection": true
+    },
+    "R1": {
+      "spearman": true,
+      "mae": true,
+      "r2": true,
+      "top_precision": true,
+      "top_intersection": true
+    },
+    "R2": {
+      "spearman": true,
+      "mae": true,
+      "r2": true,
+      "top_precision": true,
+      "top_intersection": true
+    }
+  },
+  "per_fold_recomputed": {
+    "0": {
+      "R0": {
+        "spearman": NaN,
+        "mae": 0.6202303430663605
+      },
+      "R1": {
+        "spearman": 0.39009364940005853,
+        "mae": 0.585173590365545
+      },
+      "R2": {
+        "spearman": 0.40665788703541117,
+        "mae": 0.5989510987579875
+      }
+    },
+    "1": {
+      "R0": {
+        "spearman": NaN,
+        "mae": 0.6657908857513801
+      },
+      "R1": {
+        "spearman": 0.5167788508438201,
+        "mae": 0.5548702243350786
+      },
+      "R2": {
+        "spearman": 0.5515218027509511,
+        "mae": 0.5555407409934845
+      }
+    },
+    "2": {
+      "R0": {
+        "spearman": NaN,
+        "mae": 0.5893341895396879
+      },
+      "R1": {
+        "spearman": 0.4208321139401034,
+        "mae": 0.531456242523299
+      },
+      "R2": {
+        "spearman": 0.3743098234318603,
+        "mae": 0.5806331544114172
+      }
+    },
+    "3": {
+      "R0": {
+        "spearman": NaN,
+        "mae": 0.6259546985028267
+      },
+      "R1": {
+        "spearman": 0.44709036272272723,
+        "mae": 0.5463663837614955
+      },
+      "R2": {
+        "spearman": 0.4960884799062332,
+        "mae": 0.5469214206931103
+      }
+    },
+    "4": {
+      "R0": {
+        "spearman": NaN,
+        "mae": 0.7628542628559762
+      },
+      "R1": {
+        "spearman": 0.4557937131385678,
+        "mae": 0.6408081428702066
+      },
+      "R2": {
+        "spearman": 0.4000773076971035,
+        "mae": 0.6915020452315103
+      }
+    }
+  },
+  "per_fold_matches": true,
+  "strata_recomputed": {
+    "source_unseen": {
+      "R0": {
+        "n": 669,
+        "spearman": -0.08840168755381017,
+        "mae": 0.6550359550578269
+      },
+      "R1": {
+        "n": 669,
+        "spearman": 0.45759788902216986,
+        "mae": 0.5727846941140833
+      },
+      "R2": {
+        "n": 669,
+        "spearman": 0.46096149846081214,
+        "mae": 0.5970257315697416
+      }
+    },
+    "source_seen": {
+      "R0": {
+        "n": 4,
+        "spearman": -0.31622776601683794,
+        "mae": 0.2635820916615689
+      },
+      "R1": {
+        "n": 4,
+        "spearman": 0.8,
+        "mae": 0.38523348288894976
+      },
+      "R2": {
+        "n": 4,
+        "spearman": 0.6,
+        "mae": 0.19510105643302422
+      }
+    }
+  },
+  "strata_matches": {
+    "source_unseen_N": true,
+    "source_seen_N": true,
+    "source_unseen_R1_rho": true,
+    "source_seen_R1_rho": true
+  },
+  "R2_minus_R1_bootstrap_independent_seed777": {
+    "delta_spearman": 0.005240911096814767,
+    "lo": -0.04385049957363944,
+    "hi": 0.054395465505500756,
+    "mae_reduction": -0.023418111004337515,
+    "mae_lo": -0.04759831427132013,
+    "mae_hi": 0.0011213290388308432,
+    "n_boot": 2000,
+    "n_groups": 669
+  },
+  "R2_minus_R1_worker_ci": {
+    "point": 0.004764073700224006,
+    "lo": -0.04270142672222871,
+    "hi": 0.053026915907986485,
+    "n_boot": 2000,
+    "n_groups": 669
+  },
+  "ci_crosses_zero_independent": true,
+  "ridge_solvecheck_all_ok": true,
+  "ridge_alphas_all_100": true,
+  "ridge_dims": [
+    86,
+    214
+  ],
+  "ridge_worst_residual": 1.1368683772161603e-13,
+  "ridge_max_pred_dev": 0.0,
+  "ridge_max_mean_dev": 0.0,
+  "ridge_max_scale_dev": 0.0,
+  "frozen_npz_keys": [
+    "H",
+    "prom_id"
+  ],
+  "target_leak_check_note": "R1 = sequence composition (86-d); R2 = R1 + frozen sequence-encoder repr (128-d). Frozen npz holds only ['H', 'prom_id']. k562_norm is diagnostic-only (oof diag); hek_norm used only as target."
+}

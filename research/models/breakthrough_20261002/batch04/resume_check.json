@@ -1,0 +1,33 @@
+{
+  "arm": "diverse_bag",
+  "conclusion": "resume reproduces uninterrupted continuation across the epoch boundary (bitwise-identical weights and predictions, identical minibatch order) because training is fully deterministic",
+  "elapsed_s": 34.9,
+  "epochs": 2,
+  "first_batch_epoch1_A": [
+    55826,
+    30729,
+    26480,
+    45001,
+    34648,
+    54029,
+    56799,
+    19963
+  ],
+  "first_batch_epoch1_B": [
+    55826,
+    30729,
+    26480,
+    45001,
+    34648,
+    54029,
+    56799,
+    19963
+  ],
+  "first_batch_epoch1_match": true,
+  "max_weight_absdiff": 0.0,
+  "pred_max_absdiff_50val": 0.0,
+  "seed": 20261011,
+  "weights_sha_A": "33ab759f4699b9fabcc70c7c017daf07f216013d9b51f7bb612b6adf995bc912",
+  "weights_sha_B": "33ab759f4699b9fabcc70c7c017daf07f216013d9b51f7bb612b6adf995bc912",
+  "weights_sha_match": true
+}

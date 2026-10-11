@@ -1,0 +1,15 @@
+{
+  "arm": "diverse_bag",
+  "conclusion": "resume reproduces uninterrupted continuation across the epoch boundary (bitwise-identical weights and predictions, identical minibatch order) because training is fully deterministic",
+  "elapsed_s": 32.5,
+  "epochs": 2,
+  "first_batch_epoch1_match": true,
+  "max_weight_absdiff": 0.0,
+  "n_steps_per_epoch": 1446,
+  "pred_max_absdiff_50val": 0.0,
+  "seed": 20261011,
+  "target": "OOF ridge residual",
+  "weights_sha_A": "564486f54cd0e0d1d389f31ad55108026e0c8ccb628670d6b346fdc6c6abcb93",
+  "weights_sha_B": "564486f54cd0e0d1d389f31ad55108026e0c8ccb628670d6b346fdc6c6abcb93",
+  "weights_sha_match": true
+}

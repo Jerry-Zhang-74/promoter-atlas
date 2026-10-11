@@ -1,0 +1,33 @@
+========================================================================
+MODEL CARD  v6.15.0-multitask.rc1  (batch16 controlled comparison)
+========================================================================
+Scope: human gene-level natural-expression E/S/B (not HEK293T/fragment/multispecies).
+Selection: validation-only rule (never test).
+
+Candidate architecture: independent
+Reason: no shared neural win; strongest supported independent (A) composite release
+Primary rule summary: {"mean_gain": -0.006075287767231541, "no_drop_gt_0.02": true, "rule_pass": false, "rule": "mean per-target val rho gain >= 0.02 AND no target drop > 0.02"}
+
+Targets:
+  E = Score_E rank-scaled [0,1] expression strength
+  S = S_raw = -MAD(log2(1+detectable TPM)) (S_defined mask, 18769 eligible)
+  B = B_raw = detectable/tissue_count (cross-tissue breadth)
+
+Input representation (identical across A/B/C):
+  - diverse 4-slot gene-bag sequence CNN (one-hot ACGT, N->zero)
+  - frozen 1069-feature composition/position branch
+
+Deployment bundle: E:\promoter_atlas\models\breakthrough_20261002\batch16\deployment_bundle.json
+  E: E:\promoter_atlas\models\breakthrough_20261002\batch16\A_s20261016\model_E.pt
+  S: E:\promoter_atlas\models\breakthrough_20261002\batch16\A_s20261016\model_S.pt
+  B: E:\promoter_atlas\models\breakthrough_20261002\batch16\A_s20261016\model_B.pt
+
+Matched HGB baselines (same corrected split, from scratch):
+  E45: val rho=0.7302 test rho=0.7335
+  S1069: val rho=0.4362 test rho=0.4334
+  B45: val rho=0.7097 test rho=0.7191
+
+Honest limitations: retrospective heldout (old test reused); detected-edge-aware
+grouping is not full homology proof; no causal inflation claim; neural win over
+HGB alone does not beat the established nonlinear baseline.
+========================================================================

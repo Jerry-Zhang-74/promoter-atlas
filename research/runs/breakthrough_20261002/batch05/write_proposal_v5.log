@@ -1,0 +1,34 @@
+{
+  "batch": "batch06",
+  "draft_path": "E:\\promoter_atlas\\runs\\breakthrough_20261002\\batch05\\BATCH06_DRAFT.txt",
+  "chosen_question": {
+    "id": "annotation_matched_residual_target",
+    "question": "在简单组成+计数 ridge 预测残差上训练序列 CNN，能否学到超出序列组成/启动子数的信号？",
+    "why": "batch05 显示简单组成+计数 ridge 仍与 B2 并列/占优，说明当前 Score_E 排序大部分被组成与计数解释；残差目标直接分离非组成信号，是本批次最主要的混淆。",
+    "bound": "复用冻结划分; ridge 残差目标(训练内定义); <=2 候选 x 1 种子 x 12 epoch; batch<=32; CPU ridge 拟合 <=15min; 总 GPU <=60min; 不做架构/超参搜索"
+  },
+  "observed_diagnosis_batch05": [
+    "冻结划分下 B2 测试Spearman=0.7155, B1=0.5904, B2-B1=0.1252 (组件bootstrap CI[0.1114, 0.1398])",
+    "最优训练内选注释基线测试Spearman=0.7143; B2 与其差=0.0013 (负值=基线占优)",
+    "单种子; 回顾性(复用已知数据集/靶标); 划分非因果/非前瞻; 近邻检索有界非穷尽。"
+  ],
+  "compute_estimate": "single GPU, <=2 candidates x 1 seed x 12 epochs, batch<=32, CPU<=4, CPU ridge <=15min, total GPU <=60min",
+  "note": "evidence-driven single question; NOT a mechanical grid search; parent approves after independent review of batch05 and actually launches batch06"
+}
+批次 06 协议草案（BATCH06 DRAFT，待父进程批准，非自行授权）
+机制不同的下一问题（基于 batch05 观察到的诊断，非机械网格搜索）
+
+观察诊断:
+  - 冻结划分下 B2 测试Spearman=0.7155, B1=0.5904, B2-B1=0.1252 (组件bootstrap CI[0.1114, 0.1398])
+  - 最优训练内选注释基线测试Spearman=0.7143; B2 与其差=0.0013 (负值=基线占优)
+  - 单种子; 回顾性(复用已知数据集/靶标); 划分非因果/非前瞻; 近邻检索有界非穷尽。
+
+首选问题: annotation_matched_residual_target
+  在简单组成+计数 ridge 预测残差上训练序列 CNN，能否学到超出序列组成/启动子数的信号？
+  理由: batch05 显示简单组成+计数 ridge 仍与 B2 并列/占优，说明当前 Score_E 排序大部分被组成与计数解释；残差目标直接分离非组成信号，是本批次最主要的混淆。
+  边界: 复用冻结划分; ridge 残差目标(训练内定义); <=2 候选 x 1 种子 x 12 epoch; batch<=32; CPU ridge 拟合 <=15min; 总 GPU <=60min; 不做架构/超参搜索
+
+不做的: 机械 LR/epoch/架构网格搜索; 原始测试驱动选择; 新增 MPRA 小样本打分; 自行启动批次。
+父进程在独立评审后批准并实际启动 batch06。
+
+DONE

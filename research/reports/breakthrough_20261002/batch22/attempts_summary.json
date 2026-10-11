@@ -1,0 +1,13 @@
+{
+  "n_ledger_entries": 10,
+  "by_recipe": {
+    "R1": 5,
+    "R2": 5
+  },
+  "max_ridge_fits_budget": 10,
+  "neural_full_fits": 0,
+  "r0_means_bookkeeping": 5,
+  "pids": [
+    49496
+  ]
+}

@@ -1,0 +1,75 @@
+[seq] batch 1/50 ok=True 6s
+[seq] batch 2/50 ok=True 11s
+[seq] batch 3/50 ok=True 18s
+[seq] batch 4/50 ok=True 24s
+[seq] batch 5/50 ok=True 27s
+[seq] batch 6/50 ok=True 29s
+[seq] batch 7/50 ok=True 35s
+[seq] batch 8/50 ok=True 39s
+[seq] batch 9/50 ok=True 45s
+[seq] batch 10/50 ok=True 51s
+[seq] batch 11/50 ok=True 57s
+[seq] batch 12/50 ok=True 63s
+[seq] batch 13/50 ok=True 69s
+[seq] batch 14/50 ok=True 76s
+[seq] batch 15/50 ok=True 82s
+[seq] batch 16/50 ok=True 89s
+[seq] batch 17/50 ok=True 96s
+[seq] batch 18/50 ok=True 102s
+[seq] batch 19/50 ok=True 108s
+[seq] batch 20/50 ok=True 116s
+[seq] batch 21/50 ok=True 125s
+[seq] batch 22/50 ok=True 132s
+[seq] batch 23/50 ok=True 136s
+[seq] batch 24/50 ok=True 143s
+[seq] batch 25/50 ok=True 149s
+[seq] batch 26/50 ok=True 155s
+[seq] batch 27/50 ok=True 162s
+[seq] batch 28/50 ok=True 168s
+[seq] batch 29/50 ok=True 175s
+[seq] batch 30/50 ok=True 182s
+[seq] batch 31/50 ok=True 188s
+[seq] batch 32/50 ok=True 194s
+[seq] batch 33/50 ok=True 201s
+[seq] batch 34/50 ok=True 207s
+[seq] batch 35/50 ok=True 210s
+[seq] batch 36/50 ok=True 217s
+[seq] batch 37/50 ok=True 224s
+[seq] batch 38/50 ok=True 227s
+[seq] batch 39/50 ok=True 233s
+[seq] batch 40/50 ok=True 239s
+[seq] batch 41/50 ok=True 247s
+[seq] batch 42/50 ok=True 253s
+[seq] batch 43/50 ok=True 256s
+[seq] batch 44/50 ok=True 261s
+[seq] batch 45/50 ok=True 269s
+[seq] batch 46/50 ok=True 273s
+[seq] batch 47/50 ok=True 289s
+[seq] batch 48/50 ok=True 297s
+[seq] batch 49/50 ok=True 303s
+[seq] batch 50/50 ok=True 310s
+{
+  "reference": "Ensembl GRCh37 REST /sequence/region/human (hg19/GRCh37), forward strand",
+  "coordinate_convention_verified": "UCSC hg19 0-based half-open [start,end) == Ensembl GRCh37 1-based inclusive start+1..end",
+  "sampling_rule": "deterministic label-free stride over the hash-ordered frozen selection: sel[::10][:2500]",
+  "id_mapping": "positional (Ensembl POST returns regions in request order; batch length asserted equal); note Ensembl normalises chromosome ids by stripping the 'chr' prefix",
+  "n_requested": 2500,
+  "n_retrieved": 2500,
+  "n_missing": 0,
+  "n_id_matched": 2500,
+  "n_length_matches_interval": 2500,
+  "n_length_mismatch": 0,
+  "length_mismatch_examples": [],
+  "sequence_retrieval_fraction": 1.0,
+  "length_match_fraction_of_retrieved": 1.0,
+  "n_retrieved_containing_N": 0,
+  "n_exact_duplicate_sequence_pairs_in_sample": 0,
+  "n_reverse_complement_pairs_in_sample": 0,
+  "n_http_batches": 50,
+  "n_failed_batches": 0,
+  "failures": [],
+  "response_sha256_concat": "7682555208a26031306647e6d654c2b2eb2813ebcc6f42d657b9cc20e8b7e6fe",
+  "fasta": "data/breakthrough_20261002/batch27/sure_seq_sample.fa",
+  "fasta_sha256": "331e8c0b42b0cf6442d3235ef12df49855971d3c22986be3739dfd06f5a43b94",
+  "elapsed_s": 310.2
+}

@@ -1,0 +1,95 @@
+MODEL CARD - promoter_atlas v6.19.0-strvariant.rc1  (batch26)
+================================================================
+Written: 2026-10-03T18:09:30+08:00
+Status: EXPERIMENTAL CANDIDATE, NOT PROMOTED. Production pointer unchanged
+        (promoter_atlas_v6.3 main / v6.4 cellline pilot).
+Lineage: produced by batch26 worker (DeepSeek Flash) under PROTOCOL
+        runs/breakthrough_20261002/batch26/PROTOCOL.txt. Awaits fresh independent review.
+
+1. TASK / DOMAIN (read carefully)
+   Task-native predictor of HEK293T hSTR1 reporter activity for a variable
+   STR+flank insert measured in a FIXED minimal-promoter (minP)-GFP reporter
+   context (pGL4.23 backbone, transient plasmid, GSE306816). This is NOT
+   autonomous promoter activity, NOT the v6.3 E/S/B gene task, and NOT
+   validation of the 14 ACTB/GAPDH/CMV wet constructs (never used as input).
+   Endpoint = mean over 3 biological replicates and eligible barcodes of
+   log2(cDNA/gDNA) - i.e. a per-construct relative reporter expression.
+
+2. INPUT / OUTPUT
+   Input : one-hot ACGT of the FULL native variable insert (vreg), 108-168 nt,
+           NO padding, NO cropping, no IDs/motif/length/barcode features.
+   Output: scalar in log2(cDNA/gDNA) units of this study. NOT a calibrated
+           GFP measurement and NOT transferable to other cell lines/backbones.
+
+3. ARCHITECTURE / TRAINING
+   Architecture: batch02 trackB_grouped_cv LegNetInspired(num_targets=1, ch=64)
+                 with global mean/max pooling and a scalar head; READ-ONLY import;
+                 initialised FROM SCRATCH (no K562 or other pretrained weights).
+                 trainable params 110145, state-dict entries 111306.
+   Optimizer   : AdamW lr 0.001, weight_decay 0.0001, constant LR (no cosine),
+                 gradient-clip norm 1, batch<=32 grouped by equal length.
+   Objective   : MSE on train-standardised target, per-row weight =
+                 inverse(number of variants in its locus), mean weight 1 in train.
+   Stopping    : max 25 epochs, early stop after 5 epochs without validation
+                 group-balanced MAE improvement; checkpoint chosen by validation
+                 group-balanced MAE.
+   Seeds       : true 20261026 (A1) and 20261027 (A2); shuffled-label control
+                 A3 seed 20261026 with permutation seed 20261028.
+   Device      : single NVIDIA RTX 5060 Laptop GPU, cuda:0 (see cuda_evidence.json).
+
+4. DATA / SPLIT
+   Data: data/breakthrough_20261002/batch25/str_variant_variants.tsv
+         sha256 72a5298f0015dea50255ee169a5eee0f918a5ef6b9bc4775dec518384cae4c0e
+         frozen by batch25 with ZERO model applied (57,674 variants / 19,742 loci).
+   Reconstructed rows: data/breakthrough_20261002/batch26/str_variant_rows.tsv
+         sha256 99fc12ad80c60b1b90f7e70fa7f4baa2690a4ab43033d91ffd947b6b8078b432 (every vreg byte-verified against the author design).
+   Split: label-free groups (locus + exact/RC duplicates + overlapping hg38
+         flank intervals, transitive merge) -> 18,909 groups; group id =
+         min(sequence SHA)+sorted locus ids; hash('batch26_seed20261026|groupid')
+         -> <0.70 train / <0.85 val / else test. All alleles/barcodes of a group
+         stay in one split. train 13,228 / val 2,841 / test 2,840 groups.
+   Limitation: locus-holdout with residual near-homology uncertainty (bounded
+         candidate screen, not an exhaustive all-family isolation proof).
+
+5. HELD-OUT TEST (internal retrospective, opened only after the 4 fits + selection)
+   rows 8800 / groups 2840 (test).
+   metric                      C ridge      A1 true     A2 true     A3 shuffled   train-mean
+   pooled Spearman              0.4188      0.4719     0.4443      UNDEFINED     UNDEFINED
+   group-balanced MAE           0.3986      0.3559     0.3632      0.4479       0.4466
+   R^2 (vs truth variance)      0.2688      0.4367     0.3972      -0.0002       -0.0001
+   top-decile precision         0.4727      0.5807     0.5659      0.0977
+   Selected primary: A1_cnn_true_seed20261026 (by validation group-MAE, tie -> lower seed).
+   Paired group bootstrap (2000) deltaSpearman A1-C: [0.03431045101329968, 0.07239601556776062] (lower > 0).
+   Within-locus variant effect (A1): deltaSpearman 0.1532, group 95% CI [0.1288879949348889, 0.17802597290726707],
+   sign agreement 0.5474 on 5513 mutant-ref pairs / 2665 loci / 2546 groups.
+
+6. PREDECLARED CRITERIA OUTCOME
+   {
+      "rho_increase_ge_0.05": true,
+      "group_balanced_mae_reduction_ge_5pct": true,
+      "top_decile_precision_not_lower": true,
+      "other_true_seed_rho_gt_C": true,
+      "paired_ci95_delta_rho_lower_gt_0": true,
+      "shuffle_rho_at_least_0.05_below_selected": null,
+      "variant_delta_spearman_gt_0.10": true,
+      "variant_delta_ci95_lower_gt_0": true,
+      "variant_sign_agreement_gt_0.55": false
+}
+   all_met = False   variant_direction_support_met = False
+   Note: the shuffled control collapsed to a constant prediction, so its
+   Spearman is UNDEFINED and the 0.05 margin criterion is reported as
+   NOT EVALUABLE (no zero substitution). See test_metrics.json.
+
+7. FIT BUDGET / COMPLIANCE
+   DECLARED max 4 estimator fits; OBSERVED 5 executions (A0 ridge solve crashed
+   at save and was re-run = 2 executions + 3 neural fits). COMPLIANCE = FAIL.
+   No further fits performed or authorized. See fit_accounting_disclosure.json.
+
+8. USE / LIMITATIONS
+   * Internal retrospective locus-holdout only; NOT external or prospective
+     validation; no transfer claim.
+   * Usable for a FUTURE engineering/transfer hypothesis on STR+flank fragments
+     in this fixed minP-GFP context. Not for arbitrary promoters, long
+     truncations, autonomous-promoter activity, or other cell lines.
+   * Minimal raw-FASTA entrypoint: b26_infer_fasta.py (domain 108-168 nt, ACGT).
+================================================================

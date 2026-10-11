@@ -1,0 +1,61 @@
+{
+  "banner": "SOFTWAREONLY FIXTURE - artificial no-fit weights (fresh deterministic init).\nThis is NOT a trained model and carries NO performance information.\nIt exists only to test packaging/predictor plumbing (batch55).\n",
+  "checkpoint": {
+    "epoch": 0,
+    "gate_attempt_id": null,
+    "global_step": 0,
+    "path": "model\\FIXTURE_selected.ckpt",
+    "sha256": "bc1a898699cfd3d6ccccafa56c3dbf245e752d25664b91d9742cdc8df5ef1333",
+    "untrained": true
+  },
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "created_at": null,
+  "datahash": "FIXTURE-0766eefdce1cf962cb9c342ed62bc840df16ce7d2338660c938417e35d73d281",
+  "format": "batch55.model_bundle.v1",
+  "kind": "SOFTWAREONLY_FIXTURE",
+  "model_id": "SOFTWAREONLY_FIXTURE",
+  "normalizer": {
+    "mean": 0.0,
+    "std": 1.0
+  },
+  "notes": [
+    "SOFTWAREONLY artificial fixture; no training occurred."
+  ],
+  "reference": {
+    "assembly": "hg19",
+    "local_293ft_validated": false,
+    "proxy_not_donor_clone": true
+  },
+  "source_sha1": "667d17055dd642ca445fa4956d12240d5e221166",
+  "source_sha256": "1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96",
+  "staged_at_epoch_status": {
+    "dev": null,
+    "dev_pair_mae": null,
+    "epoch": 0,
+    "epoch_cap": null,
+    "fresh_init_sha256": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+    "global_step": 0,
+    "looks_trained": false,
+    "param_sha256": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+    "train_loss": null
+  },
+  "staging": {
+    "blockers": [
+      {
+        "action": "run the independent evaluator (batch54/eval_replay) on TEST, then re-stage with --results",
+        "code": "heldout_results_unavailable",
+        "detail": "held-out results not yet available"
+      },
+      {
+        "action": "report honest epoch status; do not claim a final-quality model",
+        "code": "epoch_status_incomplete",
+        "detail": "checkpoint epoch=0 (honest: may be a partial/early stop)"
+      }
+    ],
+    "bundle_dir": "E:\\promoter_atlas\\reports\\breakthrough_20261002\\batch55\\fixture_staging_demo\\bundle",
+    "status": "STAGER_PARTIAL"
+  },
+  "target_column": "Log2RPM_HEK293",
+  "units": "artificial; NOT author Log2RPM_HEK293 predictions of a trained model",
+  "version": "v6.38.0-SOFTWAREONLY-fixture"
+}

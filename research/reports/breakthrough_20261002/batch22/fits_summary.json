@@ -1,0 +1,15 @@
+{
+  "generated_at_local": "2026-10-03T15:27:50+0800",
+  "elapsed_s": 0.11,
+  "n": 673,
+  "n_folds": 5,
+  "alpha": 100.0,
+  "r1_dim": 86,
+  "r2_dim": 214,
+  "n_ridge_fits_this_run": 10,
+  "n_ridge_fits_cached": 0,
+  "max_ridge_fits_budget": 10,
+  "config_sha": "31dd5f68d4f082f17d00484e81ea082b076e16e9a23ca4069de138160f229de6",
+  "input_sha": "e6ea09134202bf6008a326ffe38cf3fd3acc003ae899845861f42d8c2e88b548",
+  "zero_neural_fits": true
+}

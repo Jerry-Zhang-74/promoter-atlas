@@ -1,0 +1,60 @@
+{
+  "external_cohort": "GSE306816 hSTR1 vreg sequences",
+  "vs_training": "673 batch22 GSE188639 133 bp core promoters",
+  "exact_or_rc_matches": 0,
+  "shared_20mers": 18409,
+  "vregs_sharing_a_20mer": 7882,
+  "near_overlap_ge_0.9_coverage": 0,
+  "criteria": {
+    "exact_or_rc": "exact or reverse-complement equality",
+    "hamming_le_16": "equal-length pairs only",
+    "near_overlap": ">=0.90 coverage of shorter fragment by matching blocks (difflib) on candidate pairs sharing a 20-mer",
+    "candidate_rule": "pair considered only if it shares >=1 exact 20-mer"
+  },
+  "interpretation": "No exact/RC match and no >=0.90-coverage near-overlap; shared 20-mers are partial (max coverage ~0.68) and consistent with short repetitive STR/homopolymer motifs rather than promoter homology.",
+  "raw": {
+    "training_sequences": 673,
+    "external_vreg_sequences": 57674,
+    "criteria": {
+      "exact_or_rc": "exact or reverse-complement equality",
+      "hamming_le_16": "equal-length pairs only",
+      "near_overlap": ">=0.90 coverage of shorter fragment by matching blocks (difflib) on candidate pairs sharing a 20-mer",
+      "candidate_rule": "pair considered only if it shares >=1 exact 20-mer"
+    },
+    "shared_20mers": 18409,
+    "vregs_with_shared_20mer": 7882,
+    "exact_matches": 0,
+    "reverse_complement_matches": 0,
+    "candidate_pairs_checked": 4000,
+    "near_overlap_pairs_ge_0.9": 0,
+    "equal_length_hamming_le_16": 0,
+    "examples_of_partial_overlap": [
+      {
+        "prom_id": "chr12_122459823_122459956_+",
+        "vreg_index": 201,
+        "coverage_of_shorter": 0.677
+      },
+      {
+        "prom_id": "chr12_122459823_122459956_+",
+        "vreg_index": 265,
+        "coverage_of_shorter": 0.609
+      },
+      {
+        "prom_id": "chr12_122459823_122459956_+",
+        "vreg_index": 512,
+        "coverage_of_shorter": 0.617
+      },
+      {
+        "prom_id": "chr18_53255356_53255489_-",
+        "vreg_index": 521,
+        "coverage_of_shorter": 0.632
+      },
+      {
+        "prom_id": "chr4_41614852_41614985_+",
+        "vreg_index": 832,
+        "coverage_of_shorter": 0.662
+      }
+    ],
+    "independence_statement": "Exact and 20-mer checks are bounded; near-overlap uses a documented 0.90-coverage block criterion on candidate pairs only. STR variable regions are hg38 STR+flank genomic fragments assayed upstream of a minP-GFP reporter, structurally distinct from the 133bp hg19 autonomous core promoters."
+  }
+}

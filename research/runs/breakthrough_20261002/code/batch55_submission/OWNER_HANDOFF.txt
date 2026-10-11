@@ -1,0 +1,77 @@
+batch55 OWNER HANDOFF -- v6.38.0-first-model-submission-integration.rc1
+Location: runs/breakthrough_20261002/code/batch55_submission   (submission integration only)
+
+STATUS: STAGER_READY_ONLY (staging/predictor CODE ready + fixture-tested).
+        The MODEL artifact is NOT staged yet: the real first model (Nabs) is not present.
+        Code readiness (this handoff) is SEPARATE from model-artifact readiness.
+
+WHAT WAS BUILT (executable, not a contract-only stub)
+  predict.py            standalone, cwd-independent predictor; strict FASTA validation;
+                        device policy: real model => CUDA required (no CPU fallback),
+                        SOFTWAREONLY fixture => CPU allowed and loudly labelled.
+  stage_submission.py   stager with HARD refusals + whitelist packaging + SHA256SUMS +
+                        secret scan; emits STAGED_COMPLETE or STAGER_PARTIAL/REFUSED,
+                        never a false completed claim.
+  make_fixture_model.py builds an artificial SOFTWAREONLY no-fit fixture (tests only).
+  pinned_core/          frozen copy of batch53 model core with PINNED_CORE_SHA256.json.
+  tests/test_batch55.py self-check (strict input, secret exclusion, artifact SHA,
+                        path independence incl. Chinese/space paths, stager refusals).
+
+HARD-REFUSAL GATES in stage_submission.py (each -> status=REFUSED, nonzero exit)
+  missing_weights        checkpoint absent/empty or no MODEL_MANIFEST.json
+  checkpoint_sha_mismatch
+  label_target_mismatch  manifest/checkpoint target != Log2RPM_HEK293
+  source_sha_mismatch    source != 1bbe5db7...d550d96 (accepted b52 source)
+  untrained_checkpoint   loaded param bytes == fresh-init bytes, or epoch/step/train_loss empty
+  placeholder_results    results contain PLACEHOLDER/TODO/... or no numeric activity.rho
+  fixture_as_real        SOFTWAREONLY fixture presented as a real model (or written under releases/)
+  secret_detected        key/credential/token-like file name or content in the staged tree
+Absent (optional) held-out results -> STAGER_PARTIAL with an actionable blocker, not a refusal.
+
+PINNED CORE SHAs (must match PINNED_CORE_SHA256.json)
+  spec.py       1a09583bc38c76c43e5ecb0dc85d7ea9a496a1504845ff1431c35aa103bcac69
+  model_core.py 5300a048cf076b28ba9db0b7a76eb28b01b073329b296f681237ed42b9a74a16
+  normalizer.py 34c3f6be9e717bfe66c85a17c486d0b39b5d154a912de574a85da66212c7821d
+  checkpoint.py 735ec50cf8affb3dcecb92fe961a91acc07c7ec35f9caa83c1d41ca3f1f7a7a7
+  io_utils.py   2688325d8fa7b412295701ab7a3cbdefe7a4b83f0d038d58ea9d83c68d43c99b
+
+EXACT INVOCATIONS (from repo root E:/promoter_atlas)
+  # 0) code self-check (CPU, no fit/GPU/network)
+  .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch55_submission/tests/test_batch55.py
+
+  # 1) build a SOFTWAREONLY fixture bundle (tests only)
+  .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch55_submission/make_fixture_model.py --out <fixture_dir>
+
+  # 2) WHEN THE REAL MODEL IS READY, stage into the release area:
+  .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch55_submission/stage_submission.py \
+      --bundle <real_bundle_dir> \
+      --cohort-dir data/breakthrough_20261002/batch52/corrected/cohort_v2 \
+      --results <heldout_results.json> \
+      --version v6.38.0-first-model \
+      --out releases/batch52_first_model/v6.38.0-first-model
+  #    (omit --results -> STAGER_PARTIAL; add it once the evaluator has produced real TEST metrics)
+
+  # 3) predict with the staged bundle
+  .venv/Scripts/python.exe -X utf8 <staged>/code/predict.py --bundle <staged> --fasta <in.fa> --out <preds.tsv>
+
+REAL-MODEL INPUT CONTRACT the b52/b54 side must provide (no fabrication)
+  real_bundle_dir/MODEL_MANIFEST.json  with:
+    kind="TRAINED"; target_column="Log2RPM_HEK293";
+    source_sha256="1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96";
+    config_sha256="12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157";
+    checkpoint={"path":"model/<arm>_selected.ckpt","sha256":"<sha>", "epoch":<n>}
+    normalizer={"mean":..,"std":..}
+  REAL checkpoint = a genuine trained <arm>_selected.ckpt from batch53 pipeline
+    (e.g. data/breakthrough_20261002/batch52/corrected/models/Nabs/Nabs_selected.ckpt).
+  heldout_results.json = eval_replay metrics output for TEST
+    (fields: scope, split, n_rows, activity{rho,group_mae,rmse,top10_precision}, pair{...}, baselines{...}).
+
+DEVICE / VERIFICATION BOUNDARY (batch55 PROTOCOL)
+  This worker ran ZERO fit/solve/backward/GPU/network. Only CPU no-grad SOFTWAREONLY fixture
+  forwards were used for tests. Actual real-weight loading/forward verification is delegated
+  to the GPU slot (owner / batch54). Metadata/shape/file/SHA checks are validated on CPU.
+
+WHAT batch55 DID NOT DO (by scope)
+  no fit/solve/gradient, no GPU, no downloads, no edits to batch52/b53/b54/b56 files,
+  no final upload/email, no GUI, no invented weights/metrics.
+

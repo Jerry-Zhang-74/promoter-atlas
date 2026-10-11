@@ -1,0 +1,42 @@
+{
+  "candidate_version": "v6.15.1-release.rc1",
+  "input": {
+    "seqs": {
+      "shape": "(N,4,400) or (4,400)",
+      "dtype": "uint8",
+      "alphabet": "A,C,G,T,N -> 0,1,2,3,4 (N -> encoded 4, one-hot all-zero)",
+      "order": "4 fixed diverse promoter slots per gene, each 400 bp"
+    },
+    "features": {
+      "shape": "(N,1069) or (1069,)",
+      "dtype": "float (finite)",
+      "scaling": "RAW (unstandardized); the shipped transforms apply (x-mean)/std",
+      "order": "44 region composition + 1 log1p_count + 1024 kmer-bin features (fixed)"
+    },
+    "batch_rule": "len(seqs) must equal len(features)"
+  },
+  "output": {
+    "predictions.E": "Score_E rank-scaled expression strength [0,1]",
+    "predictions.S": "S_raw = -MAD(log2(1+detectable TPM)); defined for B_raw>=0.30 AND detectable>=3",
+    "predictions.B": "B_raw = detectable_tissue_count / tissue_count [0,1]",
+    "is_model_prediction": true,
+    "is_catalog_observed": false
+  },
+  "errors": {
+    "class": "PromoterAtlasInputError (ValueError)",
+    "raised_for": [
+      "wrong seqs shape",
+      "wrong seqs dtype",
+      "seqs value outside 0..4",
+      "wrong features length",
+      "non-finite features",
+      "seqs/features length mismatch"
+    ]
+  },
+  "unsupported": [
+    "arbitrary promoter-fragment activity",
+    "HEK293T/synthetic-construct activity",
+    "multi-species",
+    "temporal-stability reading of S"
+  ]
+}

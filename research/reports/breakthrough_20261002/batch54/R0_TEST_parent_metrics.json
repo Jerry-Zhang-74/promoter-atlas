@@ -1,0 +1,29 @@
+{
+  "arm": "R0_predictions.json",
+  "split": "TEST",
+  "preds": "data/breakthrough_20261002/batch52/corrected/models/R0/R0_predictions.json",
+  "activity": {
+    "rho": 0.502633110157112,
+    "group_mae": 0.8628451870461556,
+    "rmse": 1.1570318603103205,
+    "top10_precision_fixed_ids": 0.39552748378286107,
+    "n_rows": 117155,
+    "group_counts": {
+      "n_groups_used": 794,
+      "n_groups_dropped_nonfinite": 0
+    }
+  },
+  "pair": {
+    "group_mean_mae": 0.8732078144919401,
+    "macro_sign_accuracy": 0.5287432781224489,
+    "rho_pooled": 0.10263522386273968,
+    "n_pairs": 15527,
+    "n_groups": 639,
+    "n_true_zero_pairs": 720,
+    "true_zero_rate": 0.04637083789527919,
+    "n_pred_ties": 0,
+    "pred_tie_rate": 0.0,
+    "n_sign_eligible_groups": 638
+  },
+  "evaluator": "batch54_indep_metrics"
+}

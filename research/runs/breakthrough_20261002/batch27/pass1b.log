@@ -1,0 +1,5 @@
+[pass] N=50000013 elig=2579862 116s
+[pass] N=100000039 elig=5181548 232s
+[pass] N=150008504 elig=7880713 347s
+[pass1b] N=153562178 elig=8033394 heap=25000 354.9s
+[pass1b] selected saved 25000

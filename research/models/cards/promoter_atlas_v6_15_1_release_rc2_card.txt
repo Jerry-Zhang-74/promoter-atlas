@@ -1,0 +1,33 @@
+PROMOTER ATLAS VERSION CARD
+name: v6.15.1-release.rc2
+status: EXPERIMENTAL CANDIDATE (not stable promotion; no gain claimed)
+written_at_local: 2026-10-03T11:56:46.496535+08:00
+batch: batch18 (final release corrections)
+
+RELATION
+  supersedes: v6.15.1-release.rc1 (packaging/provenance repair batch17)
+  weights origin: v6.15.0-multitask.rc1 (batch16 arm A, reference seed 20261016) BYTE-IDENTICAL
+  change: packaging + truthful provenance + one input-validation fix (F17-3 empty batch)
+  no retraining, no seed change, no architecture change, no test-based selection
+
+ARCHITECTURE / SEED
+  independent arm A: three single-task 1D-CNNs (E,S,B); reference seed 20261016
+  rejected: B (shared backbone), C (shared + 7 epigenetic aux heads) - failed frozen validation rule
+
+DEPLOYED METRICS (test, raw units, recomputed from saved batch16 arrays)
+  E: spearman=0.7428 r2=0.5618 mae=0.1513 n=5851
+  S: spearman=0.4342 r2=0.1699 mae=0.2066 n=1880
+  B: spearman=0.7262 r2=0.6030 mae=0.1786 n=5851
+  matched HGB baseline: E 0.7335 / S 0.4334 / B 0.7191 (S is a statistical tie)
+
+PACKAGE
+  zip: models/breakthrough_20261002/batch18/promoter_atlas_v6.15.1-release.rc2.zip
+  zip_sha256: 0d448a496d07692e314b642ebea77d5e024b11bec6a86e0130c78c2bca5defbe
+  report: reports/breakthrough_20261002/batch18/release_report_v6_15_1_rc2.html
+
+KNOWN LIMITS
+  - trainer/init/data-order confound unresolved (blocks causal independent-vs-shared claim)
+  - auxiliary missingness (0.0 vs NaN) unresolved
+  - corrected component-union split is not comparable with earlier random splits; test is retrospective
+  - S has smaller n (val 1837 / test 1880) and ties the HGB baseline
+  - no HEK293T/fragment-activity validity; human gene-level only

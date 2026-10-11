@@ -1,0 +1,21 @@
+{
+ "batch": "batch30",
+ "kind": "bounded_alignment_homology_audit",
+ "algorithm": "Smith-Waterman local alignment (match+1, mismatch/gap-1) of the shorter sequence into the longer; both orientations; coverage=aligned_B_residues/len(B); identity=matches/columns (indels counted)",
+ "n_surviving": 9013,
+ "n_b29_reported_edges_used": 497,
+ "n_reenumerated_crossblock_edges": 3492,
+ "n_sameblock_extra_not_enumerated_disclosure": 7150,
+ "n_candidates_total": 3989,
+ "n_cross_block_candidates": 3492,
+ "n_alignments_performed": 3989,
+ "n_candidates_unexamined": 0,
+ "capped": false,
+ "max_pairs_cap": 4000,
+ "time_cap_s": 780,
+ "n_confirmed_90_90": 130,
+ "n_confirmed_cross_block": 0,
+ "elapsed_s": 228.6,
+ "written_at": "2026-10-03T20:37:41+08:00",
+ "code_sha256": "c5ddbc025760246f8c21de9290c0fd28da6bfe432fb27b5c63ed642c76826b7d"
+}

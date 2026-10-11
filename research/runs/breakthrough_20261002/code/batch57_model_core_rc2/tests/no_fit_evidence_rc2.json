@@ -1,0 +1,36 @@
+{
+  "kind": "artificial_cpu_no_fit_software_test_batch57",
+  "guarantees": [
+    "no training",
+    "no backward",
+    "no optimizer.step",
+    "no np.linalg.solve",
+    "no gpu",
+    "no network"
+  ],
+  "results": {
+    "init_bytes_identical_both_arms": "PASS",
+    "onehot_and_mask": "PASS",
+    "masked_max_ignores_padding": "PASS",
+    "weighted_smooth_l1_scale_invariant": "PASS",
+    "pair_difference_zero_intercept": "PASS",
+    "normalizer_roundtrip": "PASS",
+    "D1_proc_creation_is_stable": "PASS",
+    "D1_live_holder_is_not_reclaimed_twoprocess": "PASS",
+    "D2_resume_unsupported_always_consumes": "PASS",
+    "D6_actual_status_real_ledger": "PASS",
+    "D3_best_baseline_is_max": "PASS",
+    "D8_top10_stable_ties": "PASS",
+    "D7_shared_init_assertion": "PASS",
+    "D10_pair_order_deterministic_and_shuffled": "PASS",
+    "D9_trainer_records_opt_steps": "PASS",
+    "D11_selected_checkpoint_sidecar": "PASS",
+    "D12_rejects_ragged_row": "PASS",
+    "D12_rejects_ambiguous_by_default": "PASS",
+    "D12_npz_byte_ids_decode": "PASS",
+    "pipeline_parent_sha_required_and_asserted": "PASS",
+    "pipeline_read_run_policy": "PASS"
+  },
+  "passed": 21,
+  "failed": []
+}

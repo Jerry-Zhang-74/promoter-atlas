@@ -1,0 +1,69 @@
+{
+  "batch": "batch30",
+  "split_rule": "chromosome blocks train chr1-16 / val chr17-19 / test chr20-22,X,Y",
+  "n_b29_surviving": 9013,
+  "n_confirmed_alignment_edges": 130,
+  "n_new_multiblock_components": 0,
+  "n_new_removals": 0,
+  "new_removals": [],
+  "n_kept": 9013,
+  "hash_equivalent_to_b29_split": true,
+  "counts": {
+    "train": {
+      "inserts": 7690,
+      "groups": 7572,
+      "chroms": [
+        "chr1",
+        "chr10",
+        "chr11",
+        "chr12",
+        "chr13",
+        "chr14",
+        "chr15",
+        "chr16",
+        "chr2",
+        "chr3",
+        "chr4",
+        "chr5",
+        "chr6",
+        "chr7",
+        "chr8",
+        "chr9"
+      ]
+    },
+    "val": {
+      "inserts": 566,
+      "groups": 565,
+      "chroms": [
+        "chr17",
+        "chr18",
+        "chr19"
+      ]
+    },
+    "test": {
+      "inserts": 757,
+      "groups": 750,
+      "chroms": [
+        "chr20",
+        "chr21",
+        "chr22",
+        "chrX",
+        "chrY"
+      ]
+    }
+  },
+  "gates": {
+    "train_inserts>=1000": true,
+    "train_groups>=500": true,
+    "val_groups>=100": true,
+    "test_groups>=100": true,
+    "val_chroms>=2": true,
+    "test_chroms>=2": true
+  },
+  "gate_all": true,
+  "audit_capped_or_unexamined": false,
+  "split_tsv_sha256": "cdcbfc41d3ad4e5b89771afe56d3bc820c570b9484e4574029159478b673ab90",
+  "rows_tsv_sha256": "038bb2422bee55371a970d737a296cad56f84034b8bec3c5f716e26465743537",
+  "encoded_npz_sha256": "a004a893281b2b369a5255082ee5ef1dc297b27615a6e22a5caaff75d79640a2",
+  "written_at": "2026-10-03T20:38:52+08:00"
+}

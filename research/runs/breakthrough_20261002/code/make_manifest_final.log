@@ -1,0 +1,55 @@
+{
+  "batch": "breakthrough_20261002_batch01",
+  "code": {
+    "analyze_trackA.py": "732bf7eaf8cfb9eedb7206ed57745dbcc0387c4fd05da8f40400f5438a71adf9",
+    "build_trackB_split.py": "d74b760f273ca215ac539ac449cf61f9070d79aa51f6ef19a1235e89f8f6ddf3",
+    "encoding_audit.py": "c2247dd71dd1b48ddc9460c5e940de203ebc0d447c0d94836c4016205a4d7361",
+    "extract_trackA_embeddings.py": "32644aa3ec9305a15f05b90a3f9c0105718d09b6c44b6f162f3750ecb306430d",
+    "make_manifest.py": "012c948c304ef93d69970b20eade3e6154467f25ace6b8c19839ceb1590556b3",
+    "make_report_figs.py": "420ac37b8044dae2629ead2d27f5fb486b065208b2e74510524e0c168e242003",
+    "trackA_test.py": "cfc4a8e253abe9ab2b2144929cc234f2cc64d8a444be0df3e663f1250588fbcd",
+    "trackB_components.py": "9c147f15d4fa4b6156ac160cc9201f3c40ffbc928dc88b23d37faa88d9f12e17",
+    "trackB_predictions.py": "2b8f4fa3c498face70a4646f09b48e0b9f5df40f89e8f3c9f1e256d27af2a460",
+    "train_trackB.py": "1008ff3da1bf4fb23cba30dd00de20e11fde98d40183e6f2f3e986073f5c7ecb",
+    "write_report.py": "98223883f52016f93909d45c33f9bff8f189fdcd31fa0129ece8e8afb16c940d",
+    "write_review_and_proposal.py": "3e6fbfb6c8af89f07d3c21f8564551eeb45431f653616407310d9e1ce89bb616"
+  },
+  "code_protocol": "4c89341caaddff740c523855523cf0f2d088826403b3eb6e84a82b12a94bf475",
+  "models": {
+    "trackB_legnet_seed20261005.pt": "08885d35c038affeb528b2e244ed5a5c29d52c2198d3a8fa3d664fa236b2f17a",
+    "trackB_legnet_seed20261006.pt": "68f034590d4360a37edb9bce60cd6f068c03f66e7c033dbf790cf0e3b1982f69",
+    "trackB_legnet_seed20261007.pt": "24a91aeb38cdbf377fa10eadccdfcaf2d325145c88580fe1570a96b93ebdaa81",
+    "trackB_smallcnn_seed20261005.pt": "a247d69e792b37f638149372a51e84811d211db814b4d55a1a873b1d76d839e7",
+    "trackB_smallcnn_seed20261006.pt": "a006eb058d039af204857e953f794969d4b7ade2349dc6712cc51d1ece828d43",
+    "trackB_smallcnn_seed20261007.pt": "9ab2a722584b2d1048c33428cead2e52c1b982f350967741d9acc99c9a3c473f"
+  },
+  "data_key": {
+    "trackA_rows.tsv": "53c41fa8b9620cf334d9daea0ce5d5dd1a58fed6022cec4cae058b773cb70dac",
+    "trackA_embeddings.f32": "6ab652bd8db2736dfa073a91f3cecd60be7aebd2dd9dfd999bc5d8963f75c8e0",
+    "trackA_seqfeats.f32": "ff312e68ea012681de6bed91bf64ed6ff1631cd905fa60e1ccf143db1331b13d",
+    "trackB_grouped.tsv": "8a1e64a9356ae604223bea017ae838b4e602bca6105bf0fe5be7fde733c3a721",
+    "trackB_split_manifest.json": "ec4679f94712c852bdb4e5f3d2bce3cea077ed51d24339a1c0c77064a9668a55",
+    "trackB_components.json": "3a8cb2b5c6a8af6a2f0dd9ce00823b710256d5acc26cc76f8fd03dd48cfbf050"
+  },
+  "reports_key": {
+    "protocol.json": "4c89341caaddff740c523855523cf0f2d088826403b3eb6e84a82b12a94bf475",
+    "report.html": "ac263f539e2c927c20efc3495bed6cfca65b4ddf21557bf39c21c961234bde92",
+    "self_review.json": "aa9e8b69c8d245dd208c09c7fcfba3365a58b579078c346455f78b9a57e64f42",
+    "next_batch_proposal.json": "c5c22265b8bd13ea4f75277eda5dd7fb49b131a1852e8b96a899af21fe6d5ee7",
+    "status.json": "5576f7e18139b2c2c17de6c80d2608a97538b9ecb88d9d74a2249e27b5a2707d",
+    "trackA_selection_manifest.json": "f34b2518c2359a12a28c34cb716f5bf38f772dd84926fce6f82593aa7c572bf5",
+    "trackA_test_results.json": "1d3bbb58aa91e31af316175cd5c3f8024617732daaf969694760efe2ca36539c",
+    "trackA_val_predictions.tsv": "b1396102fbad3d7a3ad768c9e0faac6b901f65f0702e1d654fdd26518cb084ab",
+    "trackA_test_predictions.tsv": "c44a24cd8b11ab332112a267c9c5f637022a8a05ddfc84cc02080b15ab56f641",
+    "trackB_results.json": "ff70a00e55b7268a5f5e57043a637a889d04c6af4d90216196962f2ff48a5f73",
+    "trackB_sequence_predictions.tsv": "bfeeeb636a3809fe13006e164e645ab81f106d3d9cfe87e1e215911abaaa3c9d",
+    "trackB_reproduction.json": "60d73b7dce00c0b383e1ba18c610a9344d341aeb646de1fba0ced8f7e767d633",
+    "encoding_audit.json": "89616d571215cbf6838124c2eee4456d90c0385578545862e55d1a1819925e89"
+  },
+  "figures": {
+    "fig_trackA_scatter.png": "2b93e5c01ef6305a4b0c8050a69b91b7c1d239108b9037c933edfb34620fcc5f",
+    "fig_trackA_val_spearman.png": "158cb6379590ff82a420777ccdde005be6086a77af56a0643c5a410cb0d61bfc",
+    "fig_trackB_scatter.png": "8c7db7fd7ca63ae16a609d5bdedef4d7c567f5e9806be114750f24c4de191f28",
+    "fig_trackB_test_metrics.png": "4629b7f284f5c82d51d52a0cbf0f79f9f0bfd11a3a0ad1ca2886cd4485e036ab"
+  }
+}

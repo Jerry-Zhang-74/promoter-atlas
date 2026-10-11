@@ -1,0 +1,22 @@
+{
+  "attempt_id": "A0_ridgeC",
+  "n_features": 342,
+  "component_fits": 1,
+  "mu_y": 0.03724001701153999,
+  "sd_y": 0.6564699857006031,
+  "mu_x_sha": "d79d0d6332e0b5a0f6e92b0276c14971bcdbdbc2649b0a30a25e4fde9fc4eadc",
+  "sd_x_sha": "661ee9203888e1ac62e29bf91b80571bcc7cb3cf79add5cd03db59d126f65234",
+  "alpha": 100,
+  "n_train": 40208,
+  "n_val": 8666,
+  "zero_variance_features": 0,
+  "val_spearman": 0.40217861503122176,
+  "val_mae": 0.3930029644007385,
+  "val_group_balanced_mae": 0.3965275695511346,
+  "val_groups": 2962,
+  "train_mean_val_spearman": NaN,
+  "train_mean_val_mae": 0.438903771965654,
+  "weights_file": "ridge_weights.npy",
+  "weights_sha": "20b2b05cab911cf7932e402036bb2d556c321b67340973fefa6b75a6615c3021",
+  "finished_at": "2026-10-03T17:51:41+08:00"
+}

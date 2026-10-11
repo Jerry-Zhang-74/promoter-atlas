@@ -1,0 +1,62 @@
+{
+  "generated_at_local": "2026-10-03T13:50:30+0800",
+  "device": "cuda",
+  "python": "3.12.6",
+  "candidate_version": "v6.16.0-sequence.rc1",
+  "model_sha": {
+    "E": "9f33f8e65b6f0c26209980b55d347b54c49e72fabc94ee4b84ebd987643cab79",
+    "S": "2e5fff2539645ada2e5e21a2ecdd3ab5d216f258da423548e8d5da873da4d214",
+    "B": "c45af0344717ac1f253853b38adeb6cbbdfea74e97f801f3ed7bba1ad3833aeb"
+  },
+  "source_sha": {
+    "trackB_grouped_cv.py": "7de6cca87b2868911f9e3148fba0f3a0192d5dc386fc376f30cf5b802196b731",
+    "trackB_train_components.tsv": "3b0d12c3e26fd085794ea4d0f786160db393d876e30dfc5842d97c67320557a4",
+    "mpra_supervised.tsv": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a"
+  },
+  "mpra_test": {
+    "n": 1181,
+    "spearman": 0.94129,
+    "mae": 0.0768,
+    "latency_s": 0.7,
+    "latency_per_seq_ms": 0.596,
+    "family_leakage_fraction_of_test_rows": 0.8137,
+    "honest_grouped_cv_reference": {
+      "source": "batch02 grouped-by-family OOF (legnet)",
+      "spearman": 0.79577,
+      "mae": 0.16872
+    },
+    "note": "RANDOM split, NOT grouped by family: 81.4% of test rows share a family_id with train, so this value is LEAKAGE-INFLATED and must NOT be quoted as generalization. The honest estimate is the batch02 grouped-by-family OOF Spearman 0.79577."
+  },
+  "gene_test": {
+    "n_test_genes": 5851,
+    "latency_s": 7.39,
+    "latency_per_gene_ms": 1.263,
+    "per_task": {
+      "E": {
+        "n": 5851,
+        "spearman": 0.74279,
+        "mae": 0.15129,
+        "unit": "Score_E"
+      },
+      "S": {
+        "n": 1880,
+        "spearman": 0.43418,
+        "mae": 0.20659,
+        "unit": "S_raw"
+      },
+      "B": {
+        "n": 5851,
+        "spearman": 0.72618,
+        "mae": 0.17858,
+        "unit": "B_raw"
+      }
+    },
+    "expected_from_rc2": {
+      "E": 0.7427954,
+      "S": 0.4341868,
+      "B": 0.7261787
+    },
+    "labels_source": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch16\\labels.npz"
+  },
+  "latency_gene_single_ms": 2.76
+}

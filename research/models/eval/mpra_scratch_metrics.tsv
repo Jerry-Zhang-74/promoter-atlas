@@ -1,0 +1,2 @@
+name	mode	test_mse	test_r2	test_spearman	test_n	family_mean_rho	family_n
+mpra_scratch	scratch	0.07118600606918335	0.48227503326191534	0.7076794852950911	1181	0.125	4

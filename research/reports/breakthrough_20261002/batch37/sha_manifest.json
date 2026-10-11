@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-10-04T00:32:20+0800",
+  "batch": "batch37",
+  "version": "v6.26.0-frozen-variant-diagnostic.rc1",
+  "note": "SHAs of batch37 code + outputs; sha_manifest.json excludes itself",
+  "files": {
+    "code/batch37/build_manifest.py": "9e198f40657dc5c412589259abf917d85c1273f3c64edb9347084e2ff56f13c6",
+    "code/batch37/figures.py": "c1fbdd5c4bb50e083f597c6e7cbd4742345d1d65db014cf533cda233ea78dc8a",
+    "code/batch37/finalize.py": "d93742cb6e9d2ea4e43355c35b5e0d976fd7c098db1c76d6b0a8f547cdce4d75",
+    "code/batch37/infer.py": "599be0daaa99796d4176645ab8069ffc3f4565dd4e7039e95ae116bb195ebf40",
+    "code/batch37/metrics.py": "bacf69fd7038d63d3f710f88b8b3dbbc0c7434baaa1d0ecc06f5872dd349e416",
+    "data/breakthrough_20261002/batch37/inference_account.json": "d7d93bcb8f2e299fe8ab138a3aeb64bda645a19722d3cb56a5b3ec82aec161d7",
+    "data/breakthrough_20261002/batch37/pair_sequence_ids.tsv": "9e9d4fd66f3bcfc0f8b7fa8984598978a5734f7abac45e9c9eea4006c5ea7f00",
+    "data/breakthrough_20261002/batch37/paired_inputs.tsv": "e39eb3955641c110eca45527f4e83bf51da330842b1cc7d739e17dcf15736e61",
+    "data/breakthrough_20261002/batch37/paired_predictions.tsv": "ea064eb80650033b6c9b6f9a1bcbdfd5ce2c48b998b4e9c70a68f41c82253cad",
+    "data/breakthrough_20261002/batch37/unique_scores.tsv": "d7f5ff6e4fc1202b415feb60431227b9479e21a913a6030c166e9ba7e19e4f12",
+    "data/breakthrough_20261002/batch37/unique_sequences.fasta": "a24fdf1a7f8c61d30e43ae6e6f76d8c497325884368ed54895c7fbbfaa31b564",
+    "figures/batch37/fig1_paired_effect_scatter.png": "7d6b04ae4f71c8ccdb40701962a05c454448a26e060f8691bf2d07f377f79b9d",
+    "figures/batch37/fig2_kv_region_signerrors.png": "9e7355a000cb1a371d388b6ff9a7c8a35963b9ff32213a8278c9a2efe92a66b4",
+    "figures/batch37/fig3_scope_evidence_card.png": "a7cae0f505b86837c2f899b896d6ce07b1f1fe9935a245d6afff9c015db7fe09",
+    "reports/breakthrough_20261002/batch37/diagnostic_manifest.json": "62b8a49973a7f8d76bd79d8d357e0950591ecdff74a65402a03df3011a85f9d3",
+    "reports/breakthrough_20261002/batch37/metrics.json": "67ff34ada9cf3c936b4f88ef54c1f9df8d27db93e6abe89cffee75fbed0182cd",
+    "reports/breakthrough_20261002/batch37/table_kv_groups.tsv": "97d4469e57f5fb81f231d057a0abebd2820c2d1d213e1428c7a4a84c0458ead1"
+  }
+}

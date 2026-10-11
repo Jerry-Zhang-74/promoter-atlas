@@ -1,0 +1,27 @@
+{
+  "batch": "batch46",
+  "version": "v6.33.0-within-generation-selection.rc1",
+  "excludes": [
+    "independent_review.json",
+    "manifest_verification.json",
+    "sha_manifest.json",
+    "status.json",
+    "verification.json",
+    "worker_selfcheck.json"
+  ],
+  "n_files": 21,
+  "rounds": [
+    {
+      "round": 1,
+      "ok": true,
+      "bad": []
+    },
+    {
+      "round": 2,
+      "ok": true,
+      "bad": []
+    }
+  ],
+  "read_only": true,
+  "self_and_mutable_excluded": true
+}

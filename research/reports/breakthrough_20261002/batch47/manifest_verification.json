@@ -1,0 +1,27 @@
+{
+  "batch": "batch47",
+  "version": "v6.34.0-scoped-input-routing.rc1",
+  "excludes": [
+    "independent_review.json",
+    "manifest_verification.json",
+    "sha_manifest.json",
+    "status.json",
+    "verification.json",
+    "worker_selfcheck.json"
+  ],
+  "n_files": 29,
+  "rounds": [
+    {
+      "round": 1,
+      "ok": true,
+      "bad": []
+    },
+    {
+      "round": 2,
+      "ok": true,
+      "bad": []
+    }
+  ],
+  "read_only": true,
+  "self_and_mutable_excluded": true
+}

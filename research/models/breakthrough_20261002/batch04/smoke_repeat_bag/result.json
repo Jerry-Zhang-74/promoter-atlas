@@ -1,0 +1,31 @@
+{
+  "arm": "repeat_bag",
+  "bag_policy": {
+    "diverse_bag": "anchor p0=(epoch+g)%n; slots=(p0+k)%n for k=0..3 (cycle when n<4)",
+    "inference": "matched 4-slot policy, fixed epoch=0 rotation; descriptive all-promoter also reported",
+    "n_lt4_note": "genes with n<4 promoters cycle so repeated promoters carry extra sampling weight in mean",
+    "n_slots": 4,
+    "repeat_bag": "anchor p0=(epoch+g)%n repeated in all 4 slots"
+  },
+  "elapsed_s": 0.8,
+  "epochs_run": 1,
+  "global_step": 5,
+  "history": [
+    {
+      "epoch": 0,
+      "mae": 0.44330120590158334,
+      "mse": 0.2765199179290978,
+      "n": 5606,
+      "r2": -2.2613291092189045,
+      "spearman": 0.47470002183296306,
+      "train_loss": 0.07345394492149353
+    }
+  ],
+  "initial_state_sha256": "11c371f76e61b4596cc38ad0298fe7805bba9927d3cacbfe4d27541692a1f693",
+  "lr": 0.001,
+  "n_params": 64257,
+  "n_test_genes": 5603,
+  "n_train_genes": 46618,
+  "n_val_genes": 5606,
+  "seed": 20261011
+}

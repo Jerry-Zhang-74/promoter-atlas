@@ -1,0 +1,23 @@
+{
+ "batch": "batch50",
+ "correction": "correction_01",
+ "version": "v6.36.0-morning-route-evidence.rc1",
+ "generated_at": "2026-10-04T06:23:42.191597+08:00",
+ "manifest_sha256": "f668cd33d19927ad1bcb3231021eb04b7a9ad90491c5ce0807a69326294f3227",
+ "verification_1": {
+  "read_only": true,
+  "n_checked": 16,
+  "ok": 16,
+  "mismatches": [],
+  "all_match": true
+ },
+ "verification_2": {
+  "read_only": true,
+  "n_checked": 16,
+  "ok": 16,
+  "mismatches": [],
+  "all_match": true
+ },
+ "two_independent_readonly_checks_consistent": true,
+ "note": "both read-only; excludes manifest/status/review/verification/mail"
+}

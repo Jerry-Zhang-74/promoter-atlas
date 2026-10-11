@@ -1,0 +1,75 @@
+MODEL CARD - Promoter Atlas v6.16.0-sequence.rc1 (batch20)
+STATUS: EXPERIMENTAL usability release. NO new scientific fits were performed in batch20.
+Written 2026-10-03 (Asia/Shanghai).
+
+WHAT THIS IS
+  A raw-input usability layer over TWO EXISTING, UNCHANGED models plus a gene-database
+  query mode. It is a SINGLE ENTRY POINT that dispatches DIFFERENT models; it is NOT a
+  shared neural network and must never be described as one.
+
+  1) GENE MODEL (E/S/B)  - the v6.15.1-release.rc2 independent-arm CNN
+     (reference seed 20261016, cells: 3 separate SingleTaskModel). Weights byte-identical
+     to the rc2 package. Input: 4 x 400 bp promoter slots (uint8 0..4) + one 1069-dim
+     RAW feature vector. Output units:
+       E = Score_E, rank-scaled [0,1] expression strength
+       S = S_raw = -MAD(log2(1+detectable TPM)) (negative; less negative = more stable; NOT temporal)
+       B = B_raw = detectable_tissue_count / tissue_count, [0,1]
+     Model SHA256: E 9f33f8e6..cab79, S 2e5fff25..4d214, B c45af034..33aeb.
+
+  2) K562 MPRA MODEL - LegNet-inspired ensemble, 5 family-grouped folds x 3 seeds = 15
+     weights, input EXACTLY 164 bp. Output: K562 MPRA activity (Mean_log10, GSE118242).
+     Ensemble = mean of 15; ensemble_sd = spread. Weights listed with per-file SHA256 in
+     reports/breakthrough_20261002/batch20/artifact_manifest.json.
+
+DATA / SPLITS
+  Gene: data/breakthrough_20261002/batch16/labels.npz  gene_split
+        (corrected-component split; test n=5851, val n=5609).
+  MPRA: features/mpra/mpra_supervised.tsv  split column - RANDOM, NOT family-grouped.
+        The honest generalization reference is the batch02 grouped-by-family OOF.
+
+OBSERVED vs PREDICTED (kept strictly separate everywhere)
+  Observed gene labels come from the catalog label table / frozen batch16 targets.
+  Observed construct values are HEK293T ROSA26-4 D28 experiment measurements.
+  Predictions are MODEL outputs. They are different quantities and are never merged.
+
+REPRODUCTION (worked, verified)
+  Gene replay vs shipped rc2 test metrics (this tree's independent inference path):
+    E 0.74279 (rc2 0.7427954), S 0.43418 (rc2 0.4341868), B 0.72618 (rc2 0.7261787)
+    -> deltas <= 7e-06. Feature recomputation from raw promoter bags is EXACT (max abs 0.0).
+  MPRA fold-aware replay vs saved OOF: max abs 8.0e-08 over 40 sampled oligos.
+
+PRELIMINARY METRICS (NOT a gain claim)
+  MPRA random-split test Spearman 0.94129 / MAE 0.0768 - LEAKAGE-INFLATED (81.4% of test
+  rows share a family_id with train). Do NOT quote as generalization.
+  Honest within-source reference remains batch02 grouped OOF Spearman 0.79577 / MAE 0.16872.
+
+LATENCY (single RTX-class GPU, CUDA available; batch 32, CPU threads 4)
+  MPRA: 0.55 ms/sequence (GPU); 164 bp input.
+  Gene: 1.33 ms/gene at batch 64; ~2.4-2.9 ms for a single gene including call overhead.
+  Nothing here needs the GPU; CPU is sufficient for small inputs.
+
+SUPPORTED / UNSUPPORTED (declared scope)
+  SUPPORTED: 164 bp K562 MPRA oligos (native length only; >164 requires the explicit
+    --exploratory-window flag and is labelled EXPLORATORY). Human gene-level E/S/B for any
+    catalog gene by ID or symbol, and for a raw promoter-bag FASTA whose 1069 features are
+    reproduced by the shipped formula.
+  UNSUPPORTED / NOT CLAIMED: arbitrary or truncated promoter-fragment activity; HEK293T or
+    synthetic-construct activity; multi-species; temporal interpretation of S; whole-fragment
+    activity from any window. No numeric prediction is ever fabricated (no fake zeros;
+    unsupported lengths are refused, not scored).
+
+KNOWN NEGATIVES PRESERVED (do not re-litigate without new data)
+  * batch02 grouped OOF legnet 0.79577 vs CNN 0.78285: prespecified robustness margin NOT met.
+  * batch03 14-construct family generalization FAILED.
+  * CMVcore has no enhancer; CMV constructs have no human gene context.
+  * The 14-construct set has ZERO independent biological replicates (technical same-tube only).
+  * batch16/18 shared and shared+aux arms FAILED validation, under a documented
+    trainer/init/data-order confound.
+
+LIMITS OF THIS RELEASE
+  * The gene model consumes a precomputed 1069-feature vector. batch20 can now compute that
+    vector from raw promoter-bag sequence with EXACT parity for catalog genes; for
+    out-of-catalog bags the 4-slot selection is a DECLARED approximation (first min(4,n) slots)
+    and is flagged exact_supported=0.
+  * The exploratory 164 bp window is CONSTANT within truncation families (span 0.0), so it
+    cannot rank truncations. See domain_error_analysis.json.

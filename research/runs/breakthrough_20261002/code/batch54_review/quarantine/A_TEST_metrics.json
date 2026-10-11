@@ -1,0 +1,47 @@
+{
+  "arm": "R0",
+  "split": "TEST",
+  "preds": "runs/breakthrough_20261002/code/batch54_review/quarantine/A_TEST.tsv",
+  "activity": {
+    "rho": 0.5749256792355435,
+    "group_mae": 0.7796378397638536,
+    "rmse": 1.0371137738884422,
+    "top10_precision_fixed_ids": 0.5389211334926596,
+    "n_rows": 117155,
+    "group_counts": {
+      "n_groups_used": 794,
+      "n_groups_dropped_nonfinite": 0
+    }
+  },
+  "pair": {
+    "group_mean_mae": 0.8397652722054465,
+    "macro_sign_accuracy": 0.5618561784977024,
+    "rho_pooled": 0.21060910499912386,
+    "n_pairs": 15527,
+    "n_groups": 639,
+    "n_true_zero_pairs": 720,
+    "true_zero_rate": 0.04637083789527919,
+    "n_pred_ties": 0,
+    "pred_tie_rate": 0.0,
+    "n_sign_eligible_groups": 638
+  },
+  "evaluator": "batch54_indep_metrics",
+  "fixed_baselines": {
+    "zero_delta": {
+      "group_mean_mae": 0.8624616232355086,
+      "macro_sign_accuracy": 0.0
+    },
+    "always_positive": {
+      "group_mean_mae": 1.2585590253717356,
+      "macro_sign_accuracy": 0.4909464315568232
+    },
+    "always_negative": {
+      "group_mean_mae": 1.2166740272270558,
+      "macro_sign_accuracy": 0.5090535684431767
+    },
+    "length_only_shorter_lower": {
+      "group_mean_mae": 1.2166740272270558,
+      "macro_sign_accuracy": 0.5090535684431767
+    }
+  }
+}

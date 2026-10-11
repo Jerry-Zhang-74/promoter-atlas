@@ -1,0 +1,297 @@
+{
+  "design_records": 35100,
+  "boundary": {
+    "n_ref_249": 2344,
+    "n_constant_cols": 30,
+    "left15_const": true,
+    "right15_const": true,
+    "left_flank": "AGGACCGGATCAACT",
+    "right_flank": "CATTGCGTGAACCGA",
+    "variable_span_15_234": true,
+    "n_delete_headers": 2496,
+    "delete_len_dist": {
+      "248": 544,
+      "246": 336,
+      "244": 266,
+      "242": 211,
+      "240": 212,
+      "238": 205,
+      "249": 722
+    }
+  },
+  "cohort_rows": {
+    "SAT": 8000,
+    "KV": 8513
+  },
+  "SAT_audit": {
+    "n": 8000,
+    "missing_alt_header": 0,
+    "missing_ref_header": 0,
+    "alt_len_dist": {
+      "249": 6000,
+      "244": 2000
+    },
+    "deletions": 2000,
+    "na_label": 3,
+    "degenerate_alt_eq_ref": 0
+  },
+  "KV_audit": {
+    "n": 8513,
+    "missing_alt_header": 0,
+    "missing_ref_header": 0,
+    "alt_len_dist": {
+      "249": 8513
+    },
+    "deletions": 0,
+    "na_label": 17,
+    "degenerate_alt_eq_ref": 1833
+  },
+  "paired_inputs_rows": 16513,
+  "spotcheck_20": {
+    "n": 20,
+    "alt_all_match": true,
+    "ref_all_match": true,
+    "label_all_match": true,
+    "records": [
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45893536_altseq1_T_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "1.0502243395594201E-3",
+        "paired_logFC": "0.00105022433955942",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45893786_altseq1_G_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "-2.2134230444679999E-2",
+        "paired_logFC": "-0.02213423044468",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45894036_altseq1_C_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "-5.4226783040602897E-2",
+        "paired_logFC": "-0.0542267830406029",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45894286_altseq1_A_to_T",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "-4.1188170720519298E-3",
+        "paired_logFC": "-0.00411881707205193",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45894536_altseq1_T_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "-4.99745474460776E-2",
+        "paired_logFC": "-0.0499745474460776",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45894786_altseq1_G_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "0.11248393948845301",
+        "paired_logFC": "0.112483939488453",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45895036_altseq1_T_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "-2.63325186453011E-2",
+        "paired_logFC": "-0.0263325186453011",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45895286_altseq1_C_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 124,
+        "del_geom_ok": null,
+        "src_logFC": "2.19122851917357E-2",
+        "paired_logFC": "0.0219122851917357",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45893536_deletion",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": null,
+        "del_geom_ok": true,
+        "src_logFC": "-4.0336516712495801E-2",
+        "paired_logFC": "-0.0403365167124958",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45894036_deletion",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": null,
+        "del_geom_ok": true,
+        "src_logFC": "8.34585754240472E-3",
+        "paired_logFC": "0.00834585754240472",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45894536_deletion",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": null,
+        "del_geom_ok": true,
+        "src_logFC": "-0.119920527039572",
+        "paired_logFC": "-0.119920527039572",
+        "lab_match": true
+      },
+      {
+        "arm": "SAT",
+        "oid": "maptprom_chr17_45895036_deletion",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": null,
+        "del_geom_ok": true,
+        "src_logFC": "-2.5721411862891602E-2",
+        "paired_logFC": "-0.0257214118628916",
+        "lab_match": true
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_44904682_altseq_C_to_G",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 125,
+        "del_geom_ok": null,
+        "src_logFC": "3.2516256752874201E-2",
+        "paired_logFC": "0.0325162567528742",
+        "lab_match": true
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_45778228_altseq_T_to_C",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 125,
+        "del_geom_ok": null,
+        "src_logFC": "5.1330829623660902E-2",
+        "paired_logFC": "0.0513308296236609",
+        "lab_match": true
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_45837225_altseq_A_to_G",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": "none",
+        "del_geom_ok": null,
+        "src_logFC": "-2.78454180620386E-2",
+        "paired_logFC": "-0.0278454180620386",
+        "lab_match": true
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_45870972_altseq_C_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 125,
+        "del_geom_ok": null,
+        "src_logFC": "NA",
+        "paired_logFC": "",
+        "lab_match": null
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_45918682_altseq_G_to_C",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 125,
+        "del_geom_ok": null,
+        "src_logFC": "1.3529631638359799E-2",
+        "paired_logFC": "0.0135296316383598",
+        "lab_match": true
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_45957370_altseq_G_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 125,
+        "del_geom_ok": null,
+        "src_logFC": "-1.5612203794294399E-2",
+        "paired_logFC": "-0.0156122037942944",
+        "lab_match": true
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_46004877_altseq_G_to_A",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 125,
+        "del_geom_ok": null,
+        "src_logFC": "-3.2833401325666901E-2",
+        "paired_logFC": "-0.0328334013256669",
+        "lab_match": true
+      },
+      {
+        "arm": "KV",
+        "oid": "SNV_chr17_46053939_altseq_T_to_C",
+        "alt_match": true,
+        "ref_match": true,
+        "mismatch_offset": 125,
+        "del_geom_ok": null,
+        "src_logFC": "-2.9203098185930199E-2",
+        "paired_logFC": "-0.0292030981859302",
+        "lab_match": true
+      }
+    ]
+  },
+  "paired_na": {
+    "SAT": 0,
+    "KV": 0
+  },
+  "paired_status": {
+    "SAT:VALID_SNV": 6000,
+    "SAT:VALID_DEL": 2000,
+    "KV:VALID_SNV": 6680,
+    "KV:DEGENERATE_ALT_EQ_REF": 1833
+  },
+  "sha": {
+    "design": "4f7243b83f4b9df08e64c1b0f3f2d7bedc9ca8fc270a424331e270dc9862f9e9",
+    "paired_inputs": "e39eb3955641c110eca45527f4e83bf51da330842b1cc7d739e17dcf15736e61",
+    "unique_sequences": "a24fdf1a7f8c61d30e43ae6e6f76d8c497325884368ed54895c7fbbfaa31b564",
+    "pair_sequence_ids": "9e9d4fd66f3bcfc0f8b7fa8984598978a5734f7abac45e9c9eea4006c5ea7f00",
+    "unique_scores": "d7f5ff6e4fc1202b415feb60431227b9479e21a913a6030c166e9ba7e19e4f12",
+    "cohort_SAT": "b307e9be8cb588acac6708fee99741ca931e3c03faa686e31afe0b7655f15666",
+    "cohort_KV": "86a6985a7cbcf0aff4f80a02f8b6a24d2b9210b9dcdbaa073d77e68d54857f11"
+  }
+}

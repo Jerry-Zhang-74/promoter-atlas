@@ -1,0 +1,72 @@
+{
+  "batch": "batch57",
+  "version": "v6.38.1-model-core-critical-repair.rc2",
+  "status": "CODE_READY",
+  "supersedes": "runs/breakthrough_20261002/code/batch53_model_core (v6.38.0-model-pipeline-code.rc1)",
+  "preserves_original": true,
+  "note": "Atomic marker written ONLY after all code final + artificial no-fit verification. Drop-in replacement for batch53_model_core (same module names/APIs, same config_sha256=12488fae... so live checkpoints remain ABI-readable).",
+  "target_column": "Log2RPM_HEK293",
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "source_sha256": "1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96",
+  "no_fit_guarantee": {
+    "training": 0,
+    "solve": 0,
+    "np_linalg_solve": 0,
+    "backward": 0,
+    "optimizer_step": 0,
+    "gpu": 0,
+    "network": 0,
+    "download": 0
+  },
+  "tests": {
+    "no_fit_rc2": "21/21 PASS",
+    "pipeline_abi_rc2": "6/6 PASS",
+    "all_passed": true
+  },
+  "gate_vendored_sha256": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571",
+  "gate_budget": 4,
+  "gate_reserve": 0,
+  "resume_supported": false,
+  "repairs": {
+    "D1": "gpu_lock distinct FILETIME buffers -> stable OS creation time; live holder never reclaimed; release only own identity",
+    "D2": "resume fail-closed (ResumeUnsupported); every execution consumes a slot; checkpoints remain readable",
+    "D3": "final_compare best fixed-direction baseline uses max() not min()",
+    "D4": "SOURCE_SHA256 real 64-hex 1bbe5db7...d96; SOURCE_SHA1 separate (no mislabel)",
+    "D5": "assert_parent_specs REQUIRES + asserts acceptance-file sha256 (fail-closed); frozen at launch",
+    "D6": "actual_status() reads the REAL ledger; no fictitious reserve; RUN_POLICY read dynamically",
+    "D7": "Njoint asserts shared init bytes vs recorded Nabs init_sha before first gradient",
+    "D8": "top10_precision uses frozen coord/ID stable tie-breakers",
+    "D9": "checkpoints record TRUE optimizer steps (opt_steps), sample count kept separately",
+    "D10": "deterministic per-epoch pair shuffle (pair_order) + repeat counts recorded",
+    "D11": "selected checkpoint written with a .sha256.json sidecar (select_checkpoint)",
+    "D12": "adapter: ragged-row reject, NPZ byte-id decode + declared-length slice, ambiguous-base consistent exclusion/reject"
+  },
+  "abi": {
+    "config_sha256_matches_batch53": true,
+    "live_checkpoint_load_test": "PASS (read-only, artificial no-grad forward)"
+  },
+  "handoff": "OWNER_FIX_HANDOFF.txt",
+  "readme": "README.md",
+  "generated_at": "2026-10-04T09:44:15+0800",
+  "files_sha256": {
+    "_exec_gate_vendored.py": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571",
+    "checkpoint.py": "860cd222bb2caefc627a5cb3d3130d0e9d835076d21da46266e27d75325212df",
+    "data_adapter.py": "abc045a8c1cadc35171c4b22ee82030fcefec3bfd35c9a3c1c1ec49cd09ec0c1",
+    "epoch_cap.py": "9db8f4f9043710caa6ca814322675f74e9993451661c6a2227c86aae14a2ffe0",
+    "eval_replay.py": "b3195c7e0ee7d219c7c3c5a9317013fabc62ab52ff70a1c64414256b3216e43f",
+    "exec_gate.py": "56c5ad3f45e2e15667140031aa7d4797c6afc08b3abeef54d4fba4a1e0edbf83",
+    "gpu_lock.py": "462b01a04444da4b8f54b9c17cd0a6d27473bc78e4bd9d47cf28233f77a98edc",
+    "io_utils.py": "2688325d8fa7b412295701ab7a3cbdefe7a4b83f0d038d58ea9d83c68d43c99b",
+    "losses.py": "d32d92cad5a60d3510e06de6cf2c4352aeb79270b9b1ea847e355f5b46e608c4",
+    "metrics.py": "36ee55064d4e52beb395107bf2226829a5886ca7dec6c4b859139a4e0415130b",
+    "model_core.py": "5300a048cf076b28ba9db0b7a76eb28b01b073329b296f681237ed42b9a74a16",
+    "normalizer.py": "34c3f6be9e717bfe66c85a17c486d0b39b5d154a912de574a85da66212c7821d",
+    "pipeline_coordinator.py": "5cf23035e78e67e81b170f2b355c56d676cbc447787bf6962e9f49c14dd2b4cc",
+    "r0_baseline.py": "cee66584433a68e174e16fc6afb22d1c8156f050688b1a7880f7707b50453641",
+    "selfcheck_rc2.py": "a57a198ff1d5e020f7b6211e28efc73085d646041eee88cae52ac7336184fa48",
+    "spec.py": "1a09583bc38c76c43e5ecb0dc85d7ea9a496a1504845ff1431c35aa103bcac69",
+    "train_neural.py": "3a5b2a0b193738d25b72571632d41f2739eabe21bfafda39460a69c2422339f9",
+    "tests/test_nofit_rc2.py": "a832cd7eebd10656b1c1e9dbaddbb43a12a73e8d102d57b7ef7270de61f83235",
+    "tests/test_pipeline_rc2.py": "447d0815ffabf13360f755bf1a18f5384ee124519a05e2783259c59867b51d06"
+  }
+}

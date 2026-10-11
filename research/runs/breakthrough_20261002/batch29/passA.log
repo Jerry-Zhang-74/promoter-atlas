@@ -1,0 +1,74 @@
+[passA] N=30000000 elig=7322680 sel=10000 53s
+{
+  "batch": "batch29",
+  "pass": "A",
+  "source_file": "GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz",
+  "source_sha256": "8868fa641c2c89bef0c8aa18b6b553030cc7199ea4be4f12c2cd1f3ecd458b85",
+  "header": "chr | start | end | strand | iPCR, SuRE23 | SuRE K562 cDNA, Biorep1, PCRrep1 | SuRE K562 cDNA, Biorep1, PCRrep2 | SuRE K562 cDNA, Biorep1, PCRrep3 | SuRE K562 cDNA, Biorep1, PCRrep4 | SuRE K562 cDNA, Biorep2, PCRrep1 | SuRE K562 cDNA, Biorep2, PCRrep2 | plasmid library, PCR rep1 | plasmid library, PCR rep2",
+  "denominator_definition": "D_i = 1 + P_i (one fixed pseudocount per unique measured interval); P_i = plasmid PCRrep1+PCRrep2; iPCR EXCLUDED",
+  "eligibility_rule": {
+    "canonical_chrom": "chr1-22,X,Y",
+    "length_bp": [
+      200,
+      2000
+    ],
+    "P_i_min": 1,
+    "equiv_D_min": 2,
+    "valid": [
+      "start<end",
+      "strand in {+,-}",
+      "counts finite nonnegative"
+    ],
+    "rna_thresholded": false,
+    "zero_rna_rows_retained": true
+  },
+  "n_rows": 153562178,
+  "n_parse_fail": 0,
+  "n_negative_count": 0,
+  "n_bad_coord_or_strand": 0,
+  "n_noncanonical_chrom": 553226,
+  "n_length_out_of_range": 8724178,
+  "n_below_depth_P_lt_1": 107002220,
+  "n_eligible": 37282554,
+  "n_dup_selected_keys_skipped": 0,
+  "nP_bins_eligible": {
+    "1": 29435485,
+    "2-3": 7555995,
+    "4-8": 289969,
+    ">=9": 1105
+  },
+  "library_totals_fulltable": {
+    "N_D_1plusP": 203742844,
+    "N_R1": 37770653,
+    "N_R2": 74081034,
+    "N_iPCR": 424419578,
+    "N_plasmid_P": 50180666
+  },
+  "library_offset_note": "N_D=sum_i(1+P_i), N_R1=sum RNA four biorep1 PCR reps, N_R2=sum RNA two biorep2 PCR reps over the FULL valid deposited table (not selection-only); technical PCR reps summed within biological replicate",
+  "selection_rule": "lowest sha256('chrom:start-end:strand') among eligible unique intervals; label-free",
+  "n_selected": 10000,
+  "selected_QC": {
+    "nP_bins": {
+      "1": 7860,
+      "2-3": 2065,
+      "4-8": 74,
+      ">=9": 1
+    },
+    "r1_pos": 526,
+    "r2_pos": 2014,
+    "both_pos": 214,
+    "both_zero": 7674,
+    "frac_r1_pos": 0.0526,
+    "frac_r2_pos": 0.2014,
+    "frac_both_pos": 0.0214,
+    "frac_both_zero": 0.7674
+  },
+  "eligible_QC": {
+    "n": 37282554,
+    "r1_pos": 1840398,
+    "r2_pos": 7371411,
+    "both_pos": 764359,
+    "frac_both_pos": 0.020502
+  },
+  "elapsed_s": 272.3
+}

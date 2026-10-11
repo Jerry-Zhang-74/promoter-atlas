@@ -1,0 +1,9 @@
+{
+  "generated_at_local": "2026-10-03T15:45:28+0800",
+  "outputs": {
+    "data\\breakthrough_20261002\\batch23\\local_constructs.tsv": "7b479b187eceda5dcc581e81f51def4795018eeb37927aacec319c158dce300e",
+    "reports\\breakthrough_20261002\\batch23\\construct_reconciliation.tsv": "e3c497ef7eafc7223c9d5e569ebc060dec3ed1882604b3593c1e531b1befd09c",
+    "reports/breakthrough_20261002/batch23/construct_reconciliation.json": "926169c9f6750c7f96a94e54ab95062d4d1169b9707d418dd51d01691e118558",
+    "reports/breakthrough_20261002/batch23/correction.json": "7911354efc13564ee18788586620d4b23450d6d17a6e6e1a50ad9b919c025521"
+  }
+}

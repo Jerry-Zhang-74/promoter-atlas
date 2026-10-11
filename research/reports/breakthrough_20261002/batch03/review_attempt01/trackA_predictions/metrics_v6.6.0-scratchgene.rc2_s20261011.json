@@ -1,0 +1,63 @@
+{
+  "candidate": "v6.6.0-scratchgene.rc2",
+  "checkpoint_sha256": "7a1e7c107a4341c96815dc42a2990bfea63e8d56067e420f54c4a202e7567eba",
+  "lr": 0.001,
+  "mode": "bag",
+  "n_params": 64257,
+  "predictions_file": "E:\\promoter_atlas\\reports\\breakthrough_20261002\\batch03\\trackA_predictions\\pred_v6.6.0-scratchgene.rc2_s20261011.tsv",
+  "seed": 20261011,
+  "test": {
+    "bootstrap_spearman_full": {
+      "ci_high": 0.7617661426053765,
+      "ci_low": 0.7359012938238662,
+      "mean": 0.7489190930368863
+    },
+    "bootstrap_spearman_unexposed": {
+      "ci_high": 0.4799233433962806,
+      "ci_low": 0.423771061411288,
+      "mean": 0.45254243071873534
+    },
+    "full": {
+      "mae": 0.17780940494005035,
+      "mse": 0.04718482928241621,
+      "n": 5603,
+      "r2": 0.44327578355147057,
+      "spearman": 0.7491200071850792
+    },
+    "n_unexposed": 3362,
+    "unexposed": {
+      "mae": 0.1986403002915162,
+      "mse": 0.057270232271798845,
+      "n": 3362,
+      "r2": -0.1547233982895213,
+      "spearman": 0.45269315403089444
+    }
+  },
+  "val": {
+    "bootstrap_spearman_full": {
+      "ci_high": 0.7481552582622533,
+      "ci_low": 0.7212218640857989,
+      "mean": 0.7348292817018877
+    },
+    "bootstrap_spearman_unexposed": {
+      "ci_high": 0.4657450255085948,
+      "ci_low": 0.4066641659105285,
+      "mean": 0.4363167672914654
+    },
+    "full": {
+      "mae": 0.17838696088947642,
+      "mse": 0.04740668673378558,
+      "n": 5606,
+      "r2": 0.44087641651853926,
+      "spearman": 0.7350042880896608
+    },
+    "n_unexposed": 3317,
+    "unexposed": {
+      "mae": 0.1962731361364698,
+      "mse": 0.05625878311971138,
+      "n": 3317,
+      "r2": -0.10764490172765995,
+      "spearman": 0.43638075364451306
+    }
+  }
+}

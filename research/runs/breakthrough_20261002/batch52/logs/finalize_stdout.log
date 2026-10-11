@@ -1,0 +1,114 @@
+[10:13:56] Njoint complete: 2026-10-04T10:13:40+0800
+[10:13:56] GPU busy: ['18820, [N/A]']
+[10:14:11] GPU busy: ['18820, [N/A]']
+[10:14:26] GPU busy: ['18820, [N/A]']
+[10:14:41] GPU busy: ['18820, [N/A]']
+[10:14:56] GPU busy: ['18820, [N/A]']
+[10:15:11] GPU busy: ['18820, [N/A]']
+[10:15:26] GPU busy: ['18820, [N/A]']
+[10:15:41] GPU busy: ['18820, [N/A]', '50272, [N/A]']
+[10:15:57] GPU busy: ['18820, [N/A]', '29324, [N/A]']
+[10:16:12] GPU busy: ['18820, [N/A]']
+[10:16:27] GPU busy: ['18820, [N/A]']
+[10:16:42] GPU busy: ['18820, [N/A]']
+[10:16:57] GPU busy: ['18820, [N/A]']
+[10:17:12] GPU busy: ['18820, [N/A]']
+[10:17:27] GPU busy: ['18820, [N/A]']
+[10:17:42] GPU busy: ['18820, [N/A]']
+[10:17:57] GPU busy: ['18820, [N/A]']
+[10:18:12] GPU busy: ['18820, [N/A]']
+[10:18:27] GPU busy: ['18820, [N/A]']
+[10:18:42] GPU busy: ['18820, [N/A]']
+[10:18:57] Njoint selected epoch 4 dev_pair_mae 0.8457811500032577
+[10:18:57] RUN E:\promoter_atlas\code\batch52_data_v2\release_provenance.py --selected E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Njoint\Njoint_selected.ckpt --source-epoch-ckpt E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Njoint\Njoint_epoch04.ckpt --arm Njoint --out-sidecar E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Njoint\Njoint_selected.ckpt.sha256.json --out-prov E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Njoint\Njoint_selected.release_provenance.json
+[10:18:59] OK optimizer_state_present": true,
+  "rng_present": true,
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+  "target_column": "Log2RPM_HEK293",
+  "gate_attempt_id": "2f698abb7ad4499594c06d6a85e0602f",
+  "sidecar_written": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch52\\corrected\\models\\Njoint\\Njoint_selected.ckpt.sha256.json",
+  "sidecar_sha256": "41f755692df010caa7d04ad10fad8992773a434c383e35058829eba43424e1b1",
+  "created_at": "2026-10-04T10:18:58.947541+08:00"
+}
+[10:18:59] RUN E:\promoter_atlas\code\batch52_data_v2\eval_v2.py replay --checkpoint E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Nabs\Nabs_selected.ckpt --cohort-dir E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\cohort_v2 --split DEV --out E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Nabs_DEV.tsv --ready E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Nabs_DEV.tsv.ready.json --device cuda:0
+[10:19:13] OK {
+  "phase": "replay",
+  "checkpoint": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch52\\corrected\\models\\Nabs\\Nabs_selected.ckpt",
+  "checkpoint_sha256": "17a6f622c3d684743d75263af958cb71dad6f13f99e57f6fc69d5336e74c130f",
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+  "split": "DEV",
+  "n_rows": 112640,
+  "activity_pred_sha256": "e6a08e43c8c188ebfe6258bded15043497db1eb083c4fc269e216a103dae1ac1",
+  "elapsed_s": 6.554
+}
+[10:19:13] RUN E:\promoter_atlas\code\batch52_data_v2\eval_v2.py replay --checkpoint E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Nabs\Nabs_selected.ckpt --cohort-dir E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\cohort_v2 --split TEST --out E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Nabs_TEST.tsv --ready E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Nabs_TEST.tsv.ready.json --device cuda:0
+[10:19:28] OK {
+  "phase": "replay",
+  "checkpoint": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch52\\corrected\\models\\Nabs\\Nabs_selected.ckpt",
+  "checkpoint_sha256": "17a6f622c3d684743d75263af958cb71dad6f13f99e57f6fc69d5336e74c130f",
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+  "split": "TEST",
+  "n_rows": 117155,
+  "activity_pred_sha256": "528b82201b678a2968849799478ddffe47e44a11252142e7a6f103ed6c1c87b8",
+  "elapsed_s": 6.857
+}
+[10:19:28] RUN E:\promoter_atlas\code\batch52_data_v2\eval_v2.py replay --checkpoint E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Njoint\Njoint_selected.ckpt --cohort-dir E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\cohort_v2 --split DEV --out E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Njoint_DEV.tsv --ready E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Njoint_DEV.tsv.ready.json --device cuda:0
+[10:19:42] OK {
+  "phase": "replay",
+  "checkpoint": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch52\\corrected\\models\\Njoint\\Njoint_selected.ckpt",
+  "checkpoint_sha256": "c2698adde33155e28eace574e05dd42d4eef737002e0c68084053ea9dccb0cee",
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+  "split": "DEV",
+  "n_rows": 112640,
+  "activity_pred_sha256": "aaf42ed30ee371ebf8ba770fe17697e969a7014adae4905c884519b70da54ff9",
+  "elapsed_s": 6.635
+}
+[10:19:42] RUN E:\promoter_atlas\code\batch52_data_v2\eval_v2.py replay --checkpoint E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\Njoint\Njoint_selected.ckpt --cohort-dir E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\cohort_v2 --split TEST --out E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Njoint_TEST.tsv --ready E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Njoint_TEST.tsv.ready.json --device cuda:0
+[10:19:57] OK {
+  "phase": "replay",
+  "checkpoint": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch52\\corrected\\models\\Njoint\\Njoint_selected.ckpt",
+  "checkpoint_sha256": "c2698adde33155e28eace574e05dd42d4eef737002e0c68084053ea9dccb0cee",
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+  "split": "TEST",
+  "n_rows": 117155,
+  "activity_pred_sha256": "56adbcbd8c029b7806ba0625b92215e8cdcefa46bb2f34ab8e01fc5efac5e070",
+  "elapsed_s": 6.971
+}
+[10:19:57] RUN E:\promoter_atlas\code\batch52_data_v2\eval_v2.py final --cohort-dir E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\cohort_v2 --r0-json E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\R0\R0_predictions.json --nabs-preds E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Nabs_TEST.tsv --njoint-preds E:\promoter_atlas\data\breakthrough_20261002\batch52\corrected\models\predictions\Njoint_TEST.tsv --split TEST --out E:\promoter_atlas\reports\breakthrough_20261002\batch52\final_test_metrics.json --ready E:\promoter_atlas\reports\breakthrough_20261002\batch52\final_test_metrics.ready.json
+[10:31:56] OK i": 0.004416877049014813
+    },
+    "sign_B_minus_A": {
+      "mean": -0.003043888513048228,
+      "lo": -0.012076180318533653,
+      "hi": 0.00622589119811866
+    }
+  },
+  "best_fixed_baseline_macro_sign": 0.5090535684431767,
+  "investigation_target": {
+    "met": false,
+    "checks": {
+      "pair_mae_improve_ge_10pct": false,
+      "bootstrap_lowerCI_gt_0": false,
+      "macro_dir_ge_5pp_above_best_baseline": false,
+      "activity_rho_not_worse_than_0.05": true,
+      "zero_delta_baseline_reported": true
+    },
+    "improvement_fraction": 0.0011994046374036583
+  },
+  "verdict": "LIMITED"
+}
+[10:31:56] RUN E:\promoter_atlas\code\batch52_data_v2\make_summary_v2.py
+[10:31:57] OK {
+  "figures": [
+    "E:/promoter_atlas\\reports/breakthrough_20261002/batch52\\figures\\training_curves.png",
+    "E:/promoter_atlas\\reports/breakthrough_20261002/batch52\\figures\\test_activity.png",
+    "E:/promoter_atlas\\reports/breakthrough_20261002/batch52\\figures\\test_pair.png"
+  ],
+  "final": true
+}
+[10:31:57] finalize done

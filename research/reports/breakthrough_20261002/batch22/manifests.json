@@ -1,0 +1,188 @@
+{
+  "generated_at_local": "2026-10-03T15:32:17+0800",
+  "version": "v6.17.0-hektransfer.rc1",
+  "preprocessing": {
+    "units_in": "published bulk log2(RNA/input) per cell line; negatives preserved",
+    "transform_applied": "none (no extra log, no filtering of negative values)",
+    "feature_scaling": "per-fold outer-train standardization only (constants safe)"
+  },
+  "target": {
+    "target_column": "hek_norm",
+    "cell_line": "HEK293 (NOT HEK293T)",
+    "definition_verified": "log2(hek exp/input) to machine precision",
+    "diagnostic_only": "k562_norm (never an input to sequence-only readouts)"
+  },
+  "split": {
+    "rule": "label-free connected components (Hamming<=16 fwd/RC, shared locus)",
+    "folds": 5,
+    "seed": 20261025,
+    "cross_fold_violations": 0
+  },
+  "source": {
+    "dataset": "GSE188639 (Zhao et al. 2023 Nat Genet) bulk MPRA",
+    "sequences": "Haberle et al. 2019 Nature Suppl. Table 6 (hg19)",
+    "exposure_audit": "exact 133-mer substring vs GSE118242 K562 source"
+  },
+  "sha256": {
+    "source/bulk_exp": "3b21ee7fda17f177a25e1fdc86a06362430526c4b3580fb3f881c3538c9c142c",
+    "source/haberle_table": "154b98a1570fec48c3fb4a61f1f7b84d7ee7bee9ce730218bb5ad017df0ee8ad",
+    "sequence_table.tsv": "e6ea09134202bf6008a326ffe38cf3fd3acc003ae899845861f42d8c2e88b548",
+    "frozen_repr_A_seed20261023.npz": "b1bd7101d3ed5636f35e1155caec61adb1ef4b4236df10da400c3083ffefe656",
+    "oof_predictions.npz": "7988a246a0c1cb0b1491798f48cff02f5246902cbe6696ecff7f78c8e0fb9a4d",
+    "code/b22_common.py": "3c0a7bf3abf8509ef7c76bd23b7ff2e5df09a6176a5ca9be4eac096d46497928",
+    "code/b22_source.py": "8d3439f47e147677b0cc6a0d32ee9158e0079c67bac87cacf3baed37504e5959",
+    "code/b22_groups.py": "73f54b8d341f447cf51f8488de84e5f994cf83e614642b3014a16ec0d597ffd8",
+    "code/b22_frozen.py": "bab2c03e40c4d8b277511796fed84a4e605f26ae50e319afb4d80054a3406189",
+    "code/b22_fits.py": "a4e95b957fded09768c65030790ece32b3f94a2e101a75445a65da6cc7459d0c",
+    "code/b22_metrics.py": "6492bef5b6c1bdf2ccd74f3a42c3d354c1de186048aa95bdde46feaaabd16450",
+    "code/b22_report.py": "a94f4b98c38fcf6d75648e0ce325ed4958ae31028dc3bbdc45f1b2bc2c15b326",
+    "code/b22_selfcheck.py": "57db202ceca4b0b63ea367f36f1b0b72c424a48f835b1d072d7af0fb53be8c6b",
+    "code/b22_cli.py": "e4aee7ae1a46089273ac741f95ba6916f5583c6778219422d01ff3424a9d4413",
+    "model_weights_batch21_recipeA": "bc35e5585fa73c951602628d6e98106c15d62500e703e73177ac19554132f081"
+  },
+  "code_entrypoints": [
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_cli.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_common.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_fits.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_frozen.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_groups.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_metrics.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_report.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_selfcheck.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_source.py",
+    "runs\\breakthrough_20261002\\code\\batch22\\b22_verify_source.py"
+  ],
+  "attempts_totals": {
+    "n_ledger_entries": 10,
+    "by_recipe": {
+      "R1": 5,
+      "R2": 5
+    },
+    "max_ridge_fits_budget": 10,
+    "neural_full_fits": 0,
+    "r0_means_bookkeeping": 5,
+    "pids": [
+      49496
+    ]
+  },
+  "figures_manifest": {
+    "generated_at_local": "2026-10-03T15:32:17+0800",
+    "figures": [
+      "fig1_domain_shift.png",
+      "fig2_heldout_predictions.png",
+      "fig3_applicability.png"
+    ],
+    "source_tables": [
+      "fig1_data.tsv",
+      "fig2_data.tsv",
+      "fig3_data.tsv"
+    ],
+    "fig1": {
+      "n": 673,
+      "spearman_k562_vs_hek": 0.8155525662119264,
+      "spearman_ci": {
+        "point": 0.8155525662119264,
+        "lo": 0.7838059754142376,
+        "hi": 0.8417316169282845,
+        "n_groups": 673,
+        "n_boot": 2000
+      },
+      "note": "measured domain shift only; no model output"
+    },
+    "fig2": {
+      "pooled": {
+        "R0": {
+          "spearman": -0.08910149238432555,
+          "mae": 0.6527093347701819,
+          "r2": -0.0022796722155495885
+        },
+        "R1": {
+          "spearman": 0.45662225443702376,
+          "mae": 0.5716699766625224,
+          "r2": 0.19153822655777208
+        },
+        "R2": {
+          "spearman": 0.4616863225596763,
+          "mae": 0.5946368776313361,
+          "r2": 0.19393137355104506
+        }
+      }
+    },
+    "fig3": {
+      "construct_lengths": [
+        100,
+        200,
+        300,
+        400,
+        100,
+        200,
+        300,
+        400,
+        100,
+        200,
+        300,
+        400,
+        700,
+        700
+      ],
+      "n_constructs_with_sequence_in_records": 0,
+      "numeric_activity_claim": false,
+      "reason": "project records hold no DNA sequence for the 14 constructs; different assay (HEK293T transient plasmid GFP, D28) and mostly different length than the 133 bp trained domain -> no numeric claim"
+    },
+    "latency": {
+      "generated_at_local": "2026-10-03T15:32:17+0800",
+      "device": "cuda:0",
+      "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "compute_capability": [
+        12,
+        0
+      ],
+      "torch": "2.11.0+cu128",
+      "cuda": "12.8",
+      "inference_batch": 32,
+      "gpu_minutes_this_stage": null,
+      "latency_ms_per_batch32": 1.79,
+      "latency_ms_per_sequence": 0.056,
+      "throughput_seq_per_s": 17840.3,
+      "length_contract": [
+        {
+          "length": 100,
+          "out_dim": 128,
+          "ok": true
+        },
+        {
+          "length": 133,
+          "out_dim": 128,
+          "ok": true
+        },
+        {
+          "length": 164,
+          "out_dim": 128,
+          "ok": true
+        },
+        {
+          "length": 200,
+          "out_dim": 128,
+          "ok": true
+        },
+        {
+          "length": 300,
+          "out_dim": 128,
+          "ok": true
+        },
+        {
+          "length": 400,
+          "out_dim": 128,
+          "ok": true
+        },
+        {
+          "length": 700,
+          "out_dim": 128,
+          "ok": true
+        }
+      ],
+      "model_sha256": "bc35e5585fa73c951602628d6e98106c15d62500e703e73177ac19554132f081",
+      "note": "bounded timing only; total batch22 GPU wall time far below the 30 min cap"
+    }
+  }
+}

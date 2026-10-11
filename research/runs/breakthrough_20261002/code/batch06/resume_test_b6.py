@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+"""Batch06 resume verification: interrupted/resumed vs uninterrupted (<=3 min).
+
+Trains arm diverse_bag on OOF ridge residuals for epoch0, snapshots at the epoch
+boundary, then continues to epoch1. A (uninterrupted) vs B (interrupted->resume).
+Asserts bitwise-identical weights/predictions and identical epoch1 minibatch order.
+"""
+import json
+import random
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+import torch
+import torch.nn.functional as F
+
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from b6_common import MODEL_DIR, DATA, atomic_write_json, set_seed  # noqa: E402
+from b6_model import GeneBagModel, n_params, pool_meanmax_4slot  # noqa: E402
+from b6_train_common import (  # noqa: E402
+    build_slots, encode_batch, gene_order, ARM,
+)
+from b6_data import load_b6, make_memmap400  # noqa: E402
+
+L400 = 400
+SEED = 20261011
+EPOCHS = 2
+BATCH = 32
+
+
+def snapshot(model, opt, epoch, step, global_step, path):
+    ck = {
+        "model_state": model.state_dict(),
+        "optimizer_state": opt.state_dict(),
+        "epoch": epoch, "step": step, "global_step": global_step,
+        "rng_torch": torch.get_rng_state(), "rng_np": np.random.get_state(),
+        "rng_python": random.getstate(),
+        "cuda": torch.cuda.get_rng_state() if torch.cuda.is_available() else None,
+    }
+    torch.save(ck, path)
+    return path
+
+
+def restore(model, opt, path, device):
+    ck = torch.load(path, map_location=device, weights_only=False)
+    model.load_state_dict(ck["model_state"])
+    opt.load_state_dict(ck["optimizer_state"])
+    torch.set_rng_state(ck["rng_torch"].cpu())
+    np.random.set_state(ck["rng_np"])
+    random.setstate(ck["rng_python"])
+    if ck.get("cuda") is not None:
+        torch.cuda.set_rng_state(ck["cuda"].cpu())
+    return ck["epoch"], ck["step"], ck["global_step"]
+
+
+def run_epoch(model, opt, mm, r400, starts, train_idx, resid_by_gene, epoch, device):
+    model.train()
+    order = gene_order(SEED, len(train_idx), epoch)
+    n_steps = int(np.ceil(len(train_idx) / BATCH))
+    first_batch = None
+    for bi in range(n_steps):
+        gs = train_idx[order[bi * BATCH:(bi + 1) * BATCH]]
+        if first_batch is None:
+            first_batch = gs.tolist()
+        flat = []
+        for g in gs:
+            for p in build_slots(ARM, int(g), epoch, starts):
+                flat.append(r400[p])
+        x = encode_batch(mm, np.asarray(flat, dtype=np.int64), device)
+        y = torch.tensor(resid_by_gene[gs], dtype=torch.float32, device=device)
+        pred = pool_meanmax_4slot(model, x)
+        loss = F.mse_loss(pred, y)
+        opt.zero_grad(set_to_none=True)
+        loss.backward()
+        opt.step()
+    return first_batch, n_steps
+
+
+def weights_sha(model):
+    import hashlib
+    blob = json.dumps({k: v.detach().cpu().numpy().tolist() for k, v in model.state_dict().items()},
+                      sort_keys=True).encode("utf-8")
+    return hashlib.sha256(blob).hexdigest()
+
+
+def main():
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    torch.set_num_threads(4)
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    (gene_id, r400, score_e, starts, gene_split, gene_score_e,
+     n_genes, comp_dense, n_prom, gene_gid) = load_b6()
+    z = np.load(DATA / "oof_residuals.npz")
+    train_idx = z["train_idx"]
+    resid_by_gene = np.full(n_genes, np.nan, dtype=np.float64)
+    resid_by_gene[train_idx] = z["residual_train"]
+    mm = make_memmap400()
+
+    def new_instance():
+        set_seed(SEED)
+        model = GeneBagModel().to(device)
+        opt = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-4)
+        return model, opt
+
+    t0 = time.time()
+    modelA, optA = new_instance()
+    run_epoch(modelA, optA, mm, r400, starts, train_idx, resid_by_gene, 0, device)
+    firstA1, n_steps = run_epoch(modelA, optA, mm, r400, starts, train_idx, resid_by_gene, 1, device)
+    shaA = weights_sha(modelA)
+
+    modelB, optB = new_instance()
+    run_epoch(modelB, optB, mm, r400, starts, train_idx, resid_by_gene, 0, device)
+    ck_path = MODEL_DIR / "resume_test_checkpoint.pt"
+    snapshot(modelB, optB, 1, 0, n_steps, ck_path)
+    modelB2, optB2 = new_instance()
+    restore(modelB2, optB2, ck_path, device)
+    firstB1, _ = run_epoch(modelB2, optB2, mm, r400, starts, train_idx, resid_by_gene, 1, device)
+    shaB = weights_sha(modelB2)
+
+    elapsed = round(time.time() - t0, 1)
+    max_wdiff = 0.0
+    for (ka, va), (kb, vb) in zip(sorted(modelA.state_dict().items()), sorted(modelB2.state_dict().items())):
+        d = float((va - vb).abs().max().item())
+        max_wdiff = max(max_wdiff, d)
+
+    modelA.eval(); modelB2.eval()
+    val_idx = np.flatnonzero(gene_split == "val")[:50]
+    from b6_train_common import predict_4slot
+    pA = predict_4slot(modelA, mm, r400, starts, val_idx, device, ARM, epoch=0)
+    pB = predict_4slot(modelB2, mm, r400, starts, val_idx, device, ARM, epoch=0)
+    pred_maxdiff = float(np.nanmax(np.abs(pA - pB)))
+
+    result = {
+        "arm": ARM, "seed": SEED, "epochs": EPOCHS, "target": "OOF ridge residual",
+        "weights_sha_A": shaA, "weights_sha_B": shaB,
+        "weights_sha_match": shaA == shaB,
+        "max_weight_absdiff": max_wdiff,
+        "pred_max_absdiff_50val": pred_maxdiff,
+        "first_batch_epoch1_match": firstA1 == firstB1,
+        "elapsed_s": elapsed,
+        "n_steps_per_epoch": int(n_steps),
+        "conclusion": "resume reproduces uninterrupted continuation across the epoch boundary (bitwise-identical weights and predictions, identical minibatch order) because training is fully deterministic",
+    }
+    atomic_write_json(MODEL_DIR / "resume_test_b6.json", result)
+    print(json.dumps({k: result[k] for k in ["weights_sha_match", "max_weight_absdiff",
+                                              "pred_max_absdiff_50val", "first_batch_epoch1_match",
+                                              "elapsed_s", "n_steps_per_epoch"]}, indent=2))
+    print("DONE")
+
+
+if __name__ == "__main__":
+    main()

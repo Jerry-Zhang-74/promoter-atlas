@@ -1,0 +1,6 @@
+name	v6_smoke
+arch	promoter_atlas_v6_multiomics
+params	4545628
+n_tf	0
+n_omics	0
+test_metrics	{"Score_E_r2": 0.20753135305116788, "Score_E_spearman": 0.4590559627013094, "Score_E_n": 45533, "Score_S_r2": -0.26247221498265727, "Score_S_spearman": 0.13562446241531897, "Score_S_n": 30325, "Score_B_r2": 0.17176783226710912, "Score_B_spearman": 0.44784171542637535, "Score_B_n": 45533, "species_acc": 1.0, "Score_E_gene_r2": 0.07973196879055444, "Score_E_gene_spearman": 0.6103436575534145, "Score_E_gene_n": 5603, "Score_E_gene_sp_ci_lo": 0.5903746985511791, "Score_E_gene_sp_ci_hi": 0.6267083137275387, "Score_S_gene_r2": -0.3214896774940228, "Score_S_gene_spearman": 0.20818244654668133, "Score_S_gene_n": 1855, "Score_S_gene_sp_ci_lo": 0.1679413434429145, "Score_S_gene_sp_ci_hi": 0.24727504447092263, "Score_B_gene_r2": 0.0893993509936516, "Score_B_gene_spearman": 0.6068622350406375, "Score_B_gene_n": 5603, "Score_B_gene_sp_ci_lo": 0.5917175101857283, "Score_B_gene_sp_ci_hi": 0.6237567160090791}

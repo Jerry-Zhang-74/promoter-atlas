@@ -1,0 +1,29 @@
+{
+  "batch": "batch49",
+  "version": "v6.35.0-catalog-tradeoff-selection.rc1",
+  "generated_at": "2026-10-04T05:34:00+08:00",
+  "n_files": 51,
+  "excludes": [
+    "independent_review.json",
+    "manifest_verification.json",
+    "sha_manifest.json",
+    "status.json",
+    "verification.json",
+    "worker_selfcheck.json"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "ok": true,
+      "bad": []
+    },
+    {
+      "round": 2,
+      "ok": true,
+      "bad": []
+    }
+  ],
+  "read_only": true,
+  "self_and_mutable_excluded": true,
+  "finalization_order": "immutable_writes -> manifest -> two_read_only_verifications -> mutable_status"
+}

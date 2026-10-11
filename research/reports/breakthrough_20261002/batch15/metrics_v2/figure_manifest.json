@@ -1,0 +1,56 @@
+{
+  "report_version": "metrics_v2-20261003-r1",
+  "parent_batch14": "metrics-snapshot-20261003-r1",
+  "figures": [
+    {
+      "stem": "01_s_feature_gain",
+      "png": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/01_s_feature_gain.png",
+      "svg": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/01_s_feature_gain.svg",
+      "png_sha256": "9091fcd720fe78864b9ab5cc940bd6ca5e0271028748c6ca66b29bfd6a665447",
+      "svg_sha256": "1c20ca3df89d63df5438aa97d3390f927148669d2fb1989d962f5a4ef27835fa",
+      "png_width_px": 2600,
+      "png_height_px": 1051,
+      "glyph_warnings": []
+    },
+    {
+      "stem": "02_s_cv_robustness",
+      "png": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/02_s_cv_robustness.png",
+      "svg": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/02_s_cv_robustness.svg",
+      "png_sha256": "ef3ee950bac37a203cdccf022f0ab9ca984abced20f432814b82d00f4d49a026",
+      "svg_sha256": "de76f4231bf1ff26d8bc9c38f2c1a8b3f9a3945a56bb1bfdf165ee88bbedd831",
+      "png_width_px": 2603,
+      "png_height_px": 1542,
+      "glyph_warnings": []
+    },
+    {
+      "stem": "03_s_prediction_distribution",
+      "png": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/03_s_prediction_distribution.png",
+      "svg": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/03_s_prediction_distribution.svg",
+      "png_sha256": "4b1bc35e3939d17bf740ddd3f063354da713db5993413358bdb4d38dc75606aa",
+      "svg_sha256": "f50311ff80dafd04e2e3e16bc5efc65c95c4528b5743724c4bcfca288ceb6d15",
+      "png_width_px": 2513,
+      "png_height_px": 1156,
+      "glyph_warnings": []
+    },
+    {
+      "stem": "04_e_model_comparison",
+      "png": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/04_e_model_comparison.png",
+      "svg": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/04_e_model_comparison.svg",
+      "png_sha256": "ea9a23b57f0bd97dcb3f9aaf2957900dd046f5dfc5e29271afe16c4f004567b1",
+      "svg_sha256": "68847765beb787721562a2230c9567ebda231ba5a1ee08cab762b4c684cfa354",
+      "png_width_px": 2600,
+      "png_height_px": 1051,
+      "glyph_warnings": []
+    },
+    {
+      "stem": "05_cellline_generalization",
+      "png": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/05_cellline_generalization.png",
+      "svg": "E:/promoter_atlas/reports/breakthrough_20261002/batch15/metrics_v2/05_cellline_generalization.svg",
+      "png_sha256": "45432ea6327187bd252f69597ac1a8df77ba01b32e81737572d305806b74eda6",
+      "svg_sha256": "04c9811ec2b60f9c4ccbfe4ea6a10dfb83fed9039890a4307e4d46f6c85bd634",
+      "png_width_px": 2600,
+      "png_height_px": 1051,
+      "glyph_warnings": []
+    }
+  ]
+}

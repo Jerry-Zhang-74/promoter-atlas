@@ -1,0 +1,161 @@
+{
+ "batch": "batch43",
+ "version": "v6.30.0-group-error-diagnostic.rc1",
+ "generated_at": "2026-10-04T03:12:54+0800",
+ "excludes": [
+  "manifest itself",
+  "mutable status/verify/review/mail",
+  "worker_selfcheck",
+  "remaining_work",
+  "next_batch_proposal",
+  "independent_review"
+ ],
+ "n_files": 29,
+ "files": [
+  {
+   "path": "runs/breakthrough_20261002/code/batch43/b43_common.py",
+   "sha256": "281372c585b65ad039322e58bbc6688e54c8ab872f1fd709cb8c2248e31c8a48",
+   "bytes": 5947
+  },
+  {
+   "path": "runs/breakthrough_20261002/code/batch43/b43_phaseA_spec.py",
+   "sha256": "494d657d3291968b186c7dba401093d47f8279cb9b46c318eaeea9bd248f6d00",
+   "bytes": 8575
+  },
+  {
+   "path": "runs/breakthrough_20261002/code/batch43/b43_phaseB_decomposition.py",
+   "sha256": "a5e0635a9fec49ed4998216efdf57c35b17d4edfd0356e245c3bb5b67c19b4e2",
+   "bytes": 21040
+  },
+  {
+   "path": "runs/breakthrough_20261002/code/batch43/b43_phaseC_figures.py",
+   "sha256": "f5e7e268f7b26b9a65fd5af802e7d21586da1389a648f80b173054ac14372d09",
+   "bytes": 11803
+  },
+  {
+   "path": "runs/breakthrough_20261002/code/batch43/b43_phaseD_meta.py",
+   "sha256": "1b3d01a031621edfc2ba43080fb2a8c7deef861ac604279fb7a32b53a8715309",
+   "bytes": 18580
+  },
+  {
+   "path": "data/breakthrough_20261002/batch43/group_error_table.tsv",
+   "sha256": "ad189f94ddced61ada358f6025e75e5e2add6c650a04bbb3335ca68667046ab1",
+   "bytes": 64689
+  },
+  {
+   "path": "data/breakthrough_20261002/batch43/predictions_train.tsv",
+   "sha256": "a2323eb728d01e622e047e0e6881c1fd012fae5741c26bdac7f0f307bcad5080",
+   "bytes": 1631041
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/conclusion_zh.txt",
+   "sha256": "3dd3d0a76e71ae6be6bbf3cbe3af348ba7552181794e21d61ae45f1305529c59",
+   "bytes": 1513
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/correction_note.json",
+   "sha256": "89a3da6dec579d371f8acafe6524ec5792acba280b29373eed3cdfcae39c798c",
+   "bytes": 1722
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/correction_note.md",
+   "sha256": "337f5cb50b5d2e97c44ca938f89160c35ae0b7ae63ec6b29884e1c1d9c4512a6",
+   "bytes": 1489
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/decision.json",
+   "sha256": "be153f079a89a5c48d88f6233b91753f532a5589e8bef8228e8d93f29a742163",
+   "bytes": 3537
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/diagnostic_spec.json",
+   "sha256": "a94c011158db1d79b89fb1ba80d20022831fc4eeae1b83c8434477c651fa5172",
+   "bytes": 7970
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/distribution_table.json",
+   "sha256": "50b311d0978ca40e8d276c0343bc48b3b881a215a477d3b307c44ac16fbba6ed",
+   "bytes": 6241
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/error_decomposition.json",
+   "sha256": "310cd8f2b15a7e65ff27b0b04b0496735463e808a5d44d45b9f3a03e6e259692",
+   "bytes": 117404
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/figures/fig1_heldgroup_comparison.png",
+   "sha256": "65461e5f7b79e76dc02576ed8851abd5493748c15f1691439e1df2cab113e8a3",
+   "bytes": 64742
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/figures/fig2_error_decomposition.png",
+   "sha256": "3c97b598828bf0cd944d29dd14953598a74e53fbbb6b6afb60cf47bb72b72ae8",
+   "bytes": 62035
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/figures/fig3_distribution_scope.png",
+   "sha256": "cc44ece900498af1d303eab068bd26ea59bf227b7b7774607397f8fa0e4a6654",
+   "bytes": 76021
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/phaseB_summary.json",
+   "sha256": "3c4af977c408dfb94cd741b39f7e4e7c9c6eaf40876ba862fc7e9c2e69ae1d85",
+   "bytes": 2092
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/rank_diagnostics.json",
+   "sha256": "432ed0afa469251ef76821cbadcf477756c491cc5f0cbf7a21ea0245bdb3d38a",
+   "bytes": 130825
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/README.md",
+   "sha256": "e3949966f7beb770a70828e3d28e040fc142ca930f101b6508aab4a33a2bfbc8",
+   "bytes": 3695
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch43/replay_verification.json",
+   "sha256": "396479acbe80bf718922db97f40c377ae096b81dfe6f5578eeb23b7ed34238ae",
+   "bytes": 1184
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/operator_launch.json",
+   "sha256": "c78a323ce9f4bed462a5428266a0df7cf68ac7ac8a51d518ed55569187b1b26f",
+   "bytes": 1431
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/operator_launch.py",
+   "sha256": "b46437732f5f485114cd18ed5ec1305c5b276cc9ddcf25479b11794c4281476a",
+   "bytes": 1549
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/PARENT_ACCEPTANCE.txt",
+   "sha256": "9748ae8015c324440301bca7a876e0551b469fe99c7a13f8bd41e94d705194f1",
+   "bytes": 2627
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/phaseA_freeze.json",
+   "sha256": "9e2320f2b37158e383b23aafb24094a62e43b767872202f5ef548cdf2b26afc0",
+   "bytes": 332
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/phaseB_decomposition.json",
+   "sha256": "29eef3d1ed43f0524201db616da16984a16fe1f5a4add64ce6fef8167d955d88",
+   "bytes": 501
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/phaseC_figures.json",
+   "sha256": "b0e389552c326e5c5d37fccc1f275e3f6199af60ab6775fdd3e6f6b77199daa9",
+   "bytes": 329
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/PROTOCOL.txt",
+   "sha256": "51159b7f45a44876b07a10d3f4ecb5d87bfcc7cc8b420b399fde13463f66d8c0",
+   "bytes": 6668
+  },
+  {
+   "path": "runs/breakthrough_20261002/batch43/REVIEW_PROTOCOL.txt",
+   "sha256": "b72a3a540f3bc00c09671ed79a03633ffea3eef63f01903245d9760d6044421d",
+   "bytes": 2363
+  }
+ ]
+}

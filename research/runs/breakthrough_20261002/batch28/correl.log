@@ -1,0 +1,27 @@
+N=30000000 65s
+N=60000000 129s
+N=90000000 193s
+N=120000000 256s
+N=150000000 319s
+done N=153562178 used=153562178 327s
+{
+  "n_rows_scanned": 153562178,
+  "n_sampled": 200000,
+  "spearman_ish_log1p": {
+    "ipcr_plasmid": 0.1574,
+    "ipcr_len": 0.0735,
+    "ipcr_cdna": 0.0877,
+    "plasmid_cdna": 0.0859,
+    "plasmid_len": -0.0693,
+    "cdna_len": -0.0267
+  },
+  "mean": {
+    "ipcr": 2.758785,
+    "plasmid": 0.326895,
+    "len": 1015.22689,
+    "cdna": 0.73911
+  },
+  "frac_plasmid0_given_ipcr_ge10": 0.5254,
+  "elapsed_s": 326.9,
+  "n_sample_ipcr_ge10": 6551
+}

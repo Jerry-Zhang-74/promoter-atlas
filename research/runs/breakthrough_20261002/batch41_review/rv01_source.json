@@ -1,0 +1,63 @@
+{
+ "design_sha256": "a61f3d7624bdc1cd6066cb0cfb015d482e2994885cf321da9e0bdb7e753aa82b",
+ "design_sha_ok": true,
+ "design_bytes": 429038,
+ "design_bytes_ok": true,
+ "design_mtime": "2026-10-04T01:41:20.001802+08:00",
+ "gzip_magic_ok": true,
+ "gzip_trailer_crc32": 2513986521,
+ "gzip_trailer_isize": 3111676,
+ "census": {
+  "records": 9044,
+  "coordinate": 8944,
+  "noncoord": 100,
+  "all300": true,
+  "span270": true,
+  "fwd_ok": true,
+  "rev_ok": true,
+  "dup_headers": 0,
+  "dup_seq": 0,
+  "strands": {
+   "+": 8944
+  },
+  "noncoord_sample": [
+   "scrambled1",
+   "scrambled2",
+   "scrambled3"
+  ]
+ },
+ "step90": {
+  "families": 35,
+  "pairs_checked": 8821,
+  "pairs_consistent": 8821,
+  "pairs_inconsistent": 0,
+  "examples": [],
+  "fraction": 1.0
+ },
+ "join": {
+  "total": 7622,
+  "bio": 7537,
+  "ctrl": 85,
+  "bio_matched": 7537,
+  "ctrl_matched": 85,
+  "bio_coverage": 1.0,
+  "design_only_bio": 1407,
+  "design_only_ctrl": 15
+ },
+ "input270_ok": true,
+ "input270_len_ok": true,
+ "alpha": {
+  "all_finite": true,
+  "all_pos": true,
+  "min": 0.805672690717579,
+  "max": 1.84354241131268
+ },
+ "frozen_vs_joined_mismatch": 4977,
+ "frozen_rows": 7622,
+ "batch40_saved_defect": {
+  "window_overlap_pairs": 0,
+  "window_overlap_consistent": 0,
+  "join_coverage_fraction": 1.011278,
+  "unmatched_real_rows_retained": -85
+ }
+}

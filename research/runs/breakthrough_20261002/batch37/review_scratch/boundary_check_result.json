@@ -1,0 +1,17 @@
+{
+  "SAT": {
+    "n_snv": 6000,
+    "design_offset_hist": {
+      "124": 6000
+    },
+    "header_alt_allele_eq_base_alt": 6000
+  },
+  "KV": {
+    "n_snv": 8513,
+    "design_offset_hist": {
+      "125": 6680,
+      "multi_0": 1833
+    },
+    "header_alt_allele_eq_base_alt": 6680
+  }
+}

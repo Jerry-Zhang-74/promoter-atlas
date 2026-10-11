@@ -1,0 +1,31 @@
+{
+ "batch": "batch30",
+ "kind": "mandatory_100_row_source_audit",
+ "n_selected": 100,
+ "n_plus": 50,
+ "n_minus": 50,
+ "selection_rule": "50(+) and 50(-) with smallest sha256('chrom:start-end:strand') among cached 9013; response-independent",
+ "n_source_rows_read": 153562178,
+ "n_present": 100,
+ "n_missing": 0,
+ "tolerance": 1e-09,
+ "max_abs_dP": 0.0,
+ "max_abs_dr1": 0.0,
+ "max_abs_dr2": 0.0,
+ "max_abs_dy": 0.0,
+ "all_100_present_and_exact": true,
+ "library_offsets_reused": {
+  "N_D": 203742844,
+  "N_R1": 37770653,
+  "N_R2": 74081034,
+  "passA_sha256": "4cbe3ec17e261899a4731f9a4f41a92635ece7a24a9ab92a0d38b746e2c3d083",
+  "note": "reused from batch29 independent full-table recount"
+ },
+ "source_gz": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch27\\source\\GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz",
+ "source_sha256": "8868fa641c2c89bef0c8aa18b6b553030cc7199ea4be4f12c2cd1f3ecd458b85",
+ "data_rows_tsv_sha256": "038bb2422bee55371a970d737a296cad56f84034b8bec3c5f716e26465743537",
+ "split_manifest_sha256": "cdcbfc41d3ad4e5b89771afe56d3bc820c570b9484e4574029159478b673ab90",
+ "code_sha256": "7495a1f3a948cd21e0d78a582c46ed39e7ba6a40a36bfc4f027968f0f6af0bd5",
+ "written_at": "2026-10-03T20:33:05+08:00",
+ "elapsed_s": 139.3
+}

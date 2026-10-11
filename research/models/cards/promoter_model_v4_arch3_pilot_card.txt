@@ -1,0 +1,14 @@
+model_name	promoter_model_v4_arch3_pilot
+phase	Phase 6 architecture v3 pilot
+input	architecture_v3_only
+arch_asset	features/sequence/promoter_architecture_features_v3.tsv
+targets	Score_E,Score_S,Score_B
+score_s_missing_policy	masked_loss
+split_key	record_id
+train_n	20000
+val_n	4000
+test_n	4000
+arch_feature_count	32
+checkpoint	models/checkpoints/promoter_model_v4_arch3_pilot.pt
+eval_table	models/eval/promoter_model_v4_arch3_pilot_metrics.tsv
+log_file	models/logs/train_promoter_model_v4_arch3_pilot.log

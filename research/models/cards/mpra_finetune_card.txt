@@ -1,0 +1,4 @@
+name	mpra_finetune
+mode	finetune
+supervision	GSE118242 K562 MPRA (Weingarten-Gabbay 2019)
+test_metrics	{"name": "mpra_finetune", "mode": "finetune", "test_mse": 0.07095375657081604, "test_r2": 0.48396413435718355, "test_spearman": 0.7040910207639355, "test_n": 1181, "family_mean_rho": -0.375, "family_n": 4}

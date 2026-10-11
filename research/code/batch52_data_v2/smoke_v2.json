@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "cohort": {
+      "n": 761655,
+      "target": "Log2RPM_HEK293",
+      "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d"
+    },
+    "same_init_bytes": {
+      "sha_a": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+      "sha_b": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+      "equal": true
+    },
+    "cuda_forward": {
+      "out_shape": [
+        32
+      ],
+      "finite": true
+    },
+    "padding_invariant": {
+      "max_abs_diff": 0.0,
+      "n_pad_positions": 9628
+    },
+    "checkpoint_roundtrip": {
+      "side": "e638a7daa21e356a3336adf26e60cbdd80edb94b260608cbe604fd9c2d23cc00",
+      "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+      "datahash_ok": true
+    }
+  },
+  "cuda": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 5060 Laptop GPU"
+  },
+  "ok": true,
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157"
+}

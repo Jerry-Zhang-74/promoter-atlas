@@ -1,0 +1,68 @@
+{
+  "accepted_source_sha256": "1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96",
+  "batch": "batch55",
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "control": "control_batch55",
+  "device_policy": {
+    "SOFTWAREONLY_FIXTURE": "CPU default",
+    "TRAINED": "CUDA required, no CPU fallback"
+  },
+  "entrypoints": {
+    "fixture": "make_fixture_model.py",
+    "predict": "predict.py",
+    "stage": "stage_submission.py",
+    "tests": "tests/test_batch55.py"
+  },
+  "files_sha256": {
+    "LICENSE_NOTES.md": "83415d671780cfb259e0144a91eebcbcd42417a743615dfe50cb6a1fe0ce81ba",
+    "OWNER_HANDOFF.txt": "cf2d78bb8fce5118b90c308cd4c40d34ab20c9a1cee1d92817804380df60f654",
+    "README.md": "c1342d62d11264964204e352ff8b52c0e47c444b8001b7b0969c688129c51efe",
+    "USER_GUIDE.md": "986e527d3770c66926d36817e1ee5e52f1edec7feb57c10fd21cd27d96185c03",
+    "make_fixture_model.py": "4e71ef0cd6ea9bcb5ee489d492645014a1c8a5e158a869a139fb8b04d908bc5d",
+    "pinned_core/PINNED_CORE_SHA256.json": "8993c0f36a5219889d5a3175a98ec24eb49acbcb8c0f6943aee9c50a2bd4601e",
+    "pinned_core/checkpoint.py": "735ec50cf8affb3dcecb92fe961a91acc07c7ec35f9caa83c1d41ca3f1f7a7a7",
+    "pinned_core/io_utils.py": "2688325d8fa7b412295701ab7a3cbdefe7a4b83f0d038d58ea9d83c68d43c99b",
+    "pinned_core/model_core.py": "5300a048cf076b28ba9db0b7a76eb28b01b073329b296f681237ed42b9a74a16",
+    "pinned_core/normalizer.py": "34c3f6be9e717bfe66c85a17c486d0b39b5d154a912de574a85da66212c7821d",
+    "pinned_core/spec.py": "1a09583bc38c76c43e5ecb0dc85d7ea9a496a1504845ff1431c35aa103bcac69",
+    "predict.py": "6a2a6150bc9447aeccbf6c42aa0c03968389dab092f8f945c3997c4786418e1c",
+    "requirements.txt": "10284e3c36a35595c39b4bf7bea94a59a94a368d277e9607ee309cf1b0c4d198",
+    "stage_submission.py": "f85d5f8740ae1f4a527a50cb5a5d99238e7c9e006e84797d9a0b46edd43f8872",
+    "tests/test_batch55.py": "688a4004b35dd5e568e374a55c38a0d6a66f7e3f52249f207c699da593164091"
+  },
+  "generated_at": "2026-10-04T09:37:07+0800",
+  "hard_refusals": [
+    "missing_weights",
+    "checkpoint_sha_mismatch",
+    "label_target_mismatch",
+    "source_sha_mismatch",
+    "untrained_checkpoint",
+    "placeholder_results",
+    "fixture_as_real",
+    "secret_detected"
+  ],
+  "helper_model": "deepseek-flash",
+  "meaning": "staging+prediction CODE ready and fixture-tested; NO real model artifact staged (code readiness != model readiness)",
+  "no_fit_guarantee": {
+    "backward": 0,
+    "fits": 0,
+    "gpu": 0,
+    "network": 0,
+    "solves": 0
+  },
+  "real_model_needed": {
+    "bundle_manifest": "MODEL_MANIFEST.json (kind=TRAINED)",
+    "checkpoint": "<arm>_selected.ckpt",
+    "results": "eval_replay TEST metrics JSON"
+  },
+  "real_model_not_staged": true,
+  "selfcheck": {
+    "all_passed": true,
+    "evidence": "reports/breakthrough_20261002/batch55/batch55_selfcheck.json",
+    "n_pass": 26,
+    "n_total": 26
+  },
+  "status": "STAGER_READY_ONLY",
+  "target_column": "Log2RPM_HEK293",
+  "version": "v6.38.0-first-model-submission-integration.rc1"
+}

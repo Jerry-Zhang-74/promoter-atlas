@@ -1,0 +1,29 @@
+split counts: {'train': 9442, 'test': 1181, 'val': 1180}
+components: 9918 largest: 301
+{
+  "source_sha256": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a",
+  "families_sha256": "341a657e74c881728ac37942ec7c4fbc595935f35c65e27a237a4bf3425a8323",
+  "n_sequences": 11803,
+  "seq_length": 164,
+  "ham_threshold": 8,
+  "n_components": 9918,
+  "largest_component": 301,
+  "largest_fraction": 0.0255019910192324,
+  "n_components_size_ge2": 205,
+  "n_components_size1": 9713,
+  "split_counts": {
+    "train": 9442,
+    "test": 1181,
+    "val": 1180
+  },
+  "target_fracs": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  },
+  "seed": 20261005,
+  "assignment_policy": "deterministic largest-first greedy; whole components never cross folds; ties broken toward train",
+  "old_split_note": "old random split (train 9442 / val 1180 / test 1181) preserved immutably in mpra_supervised.tsv; old mpra_scratch test Spearman 0.7077 came from that old split and is not directly comparable.",
+  "component_span_folds": 0
+}
+wrote E:\promoter_atlas\data\breakthrough_20261002\trackB_grouped.tsv

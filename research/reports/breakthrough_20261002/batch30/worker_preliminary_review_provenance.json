@@ -1,0 +1,9 @@
+{
+ "file": "reports/breakthrough_20261002/batch30/worker_preliminary_review.json",
+ "sha256": "259b64868cd2b27aaf7be9a28c2bf47bcc40e5ca7bf4b462b6470147700c7eec",
+ "bytes": 13774,
+ "origin": "written by the batch30 WORKER session via its own script runs/breakthrough_20261002/code/batch30/b30_review.py (code_manifest sha 853930a071...)",
+ "origin_assessment": "NOT a fresh independent review: produced inside the worker session by a worker-written script importing the worker's own modules; the claim 'separate process/script from the worker' is a same-session self-check.",
+ "preserved_unchanged": true,
+ "preserved_at": "2026-10-03T21:00:22+08:00"
+}

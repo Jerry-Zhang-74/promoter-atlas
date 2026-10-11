@@ -1,0 +1,63 @@
+{
+  "phase": "batch54_code_selfcheck",
+  "clock": "2026-10-04T10:18:37.665000+08:00",
+  "interpreter": "E:\\promoter_atlas\\.venv\\Scripts\\python.exe",
+  "interpreter_version": "3.12.6",
+  "primary_only": "Does NOT import the training evaluator for metric values (indep_metrics.py is own code; scipy.stats.rankdata for ranking).",
+  "no_fit_no_solve_no_optim_no_download": true,
+  "cpu_only_metrics": true,
+  "writes_scoped_to": [
+    "runs/breakthrough_20261002/code/batch54_review",
+    "reports/breakthrough_20261002/batch54"
+  ],
+  "files": {
+    "README.md": {
+      "sha256": "5554e41c2e21f5fe9479980b9001d231e9692a93d62a27ce74783f16158d8d8a",
+      "bytes": 2538
+    },
+    "assemble_acceptance.py": {
+      "sha256": "453cfcf131cf6b341c681474701598f4f2038432653eb705852da6c6a35f44c3",
+      "bytes": 22539
+    },
+    "indep_cohort.py": {
+      "sha256": "3851cd9ace72a3c93d7f0d136b85a09420df90ab0628017c6cf4694c2d5a199b",
+      "bytes": 3657
+    },
+    "indep_metrics.py": {
+      "sha256": "1d32a4ec2aa4f6aca7cbe649a134870d23cf69f77d683bae058b54bd7dc1ba8d",
+      "bytes": 7720
+    },
+    "indep_replay.py": {
+      "sha256": "c11bf32c087ddb029dd49dcdfd2b6ead2a4214df205df809fd74cf3ea4718130",
+      "bytes": 5702
+    },
+    "model_checks.py": {
+      "sha256": "2fa1e85a503f2be2a739459272cfbf8791811349b9a40d355ba81fdc16e7118f",
+      "bytes": 10378
+    },
+    "run_acceptance.py": {
+      "sha256": "93ea351189585612c321d8335564321bdf3c8762b06a7b7a0d2df73bfbc34f26",
+      "bytes": 8908
+    },
+    "test_fixtures.py": {
+      "sha256": "44384a1b7f7b85a23f37fc16a2c7ed63d04b5b7010196d2eb3ed57827891e7a5",
+      "bytes": 6493
+    },
+    "wait_for_modelA.py": {
+      "sha256": "b2af69d329f3b376fb90e7042902e22c487905eb2343410f3ef97115a28ad003",
+      "bytes": 4120
+    }
+  },
+  "artifacts": {
+    "Nabs_TEST_parent_granted.tsv": "79e2792c51574f4d5bf44dafc1f284e660b98044cfe820c7b596898194334ca2",
+    "Nabs_TEST_parent_granted.tsv.ready.json": "0b935f6e24d2f986c558912f0be348a7ffe6b49a911820c7e440a6bc2063d5af",
+    "Nabs_TEST_parent_metrics.json": "52543bc479fb8e46db112dd58457436934d0876f43e05969c92dc2b4e68d0238",
+    "Njoint_TEST_parent_granted.tsv": "b71fbb703bd7eae6b2b0abbe60c943f8d59c9820b8a8f3bde7d17b1c9ae4a488",
+    "Njoint_TEST_parent_granted.tsv.ready.json": "7842e6c0d1d01daabb6c27c65bf97b5731a723edc6518ae022c653a3cfb272c4",
+    "Njoint_TEST_parent_metrics.json": "7f7a361aef68f49a458a55d1385c7394fb284abb7994dfded9ff121459ab6193",
+    "Njoint_vs_Nabs_TEST_parent_bootstrap.json": "8889a24fa085f8ef71f63c01cbf58639d1251c077049a665e607cbf7eb3dc311",
+    "R0_TEST_parent_metrics.json": "89688a6afb519078bbcfacee8aac2585b366d303280b7a32f6b85c34e3784fd4",
+    "acceptance.json": "bb28001e5d88283ee1390628b35024585e32e11481e5c1660713f226ee50b0e5",
+    "report.md": "412f6a31a23b971e525361a6b36b617edbde7aaced8a0166a8071a3d2e14b033"
+  }
+}

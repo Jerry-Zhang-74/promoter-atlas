@@ -1,0 +1,39 @@
+promoter_atlas v6.17.0-hektransfer.rc1 (batch22) — frozen-representation HEK293 transfer / domain evaluation
+============================================================================================================
+Version: v6.17.0-hektransfer.rc1   Lineage: next free after v6.16.1-sequence.rc1 (batch21).
+Primary task: SMALL frozen-representation transfer / domain evaluation, NOT a new end-to-end model.
+  Target: published HEK293 (NOT HEK293T) bulk MPRA hek_norm = log2(hek exp/input) from the measured 133 bp
+  core-promoter insert. K562 measured values are paired-cell DIAGNOSTIC references only, never model input.
+Dataset: GSE188639 (Zhao et al. 2023 Nat Genet) 676 core-promoter members; 673 joined BY EXACT prom_id to
+  published hg19 133 bp sequences (Haberle et al. 2019 Nature Suppl. Table 6). 3 synthetic SCP1 mutant
+  members (SCP1_mTATA / SCP1_mDPE / SCP1_mboth) have no published sequence -> EXCLUDED, never fabricated.
+  Normalization verified to machine precision (max|diff| 8.88e-16 vs log2(exp/input)); negatives preserved;
+  no extra log, no negative dropping.
+Split: label-free grouping (Hamming<=16 fwd/RC; same-locus window overlap) -> 673 rows / 669 groups;
+  5 deterministic balanced group folds seed 20261025, cross-fold grouping violations 0.
+  Source exposure: 4 rows have an exact 133-mer match to a GSE118242 K562 pretraining oligo (stratified).
+Frozen source: batch21 RecipeA ckpt_A_seed20261023 (modelSHA bc35e5585fa7...); pooled pre-head representation
+  h = cat[mean_L, max_L] (128-d), extracted on cuda:0 with parameter/input assertions, batch 32, NO padding,
+  NO truncation, NO reference DNA, NO HEK labels (n_hek_labels_used=0). Frozen weights never updated.
+Readouts (predeclared; NO inner search, NO seed shopping):
+  R0 = outer-train mean (bookkeeping, not a fit).
+  R1 = whole-measured-insert composition (mono4+di16+tri64+GC+log1p len = 86-d) -> Ridge(alpha=100).
+  R2 = same R1 features + the frozen 128-d representation (214-d) -> Ridge(alpha=100).
+Fit budget: 5 outer folds x 2 ridge recipes = 10 ridge fits (actual 10); neural end-to-end full fits = 0.
+Results (group-heldout OOF, n=673, published log2 units):
+  R0: Spearman=-0.0891 MAE=0.6527 R2=-0.0023 top-decile precision=0.1029 enrichment=1.02
+  R1: Spearman=0.4566 MAE=0.5717 R2=0.1915 top-decile precision=0.2941 enrichment=2.91
+  R2: Spearman=0.4617 MAE=0.5946 R2=0.1939 top-decile precision=0.3088 enrichment=3.06
+Decision (predeclared, frozen, not lowered after results): Spearman gain>=0.03 AND MAE reduction>=10% AND
+  top-decile precision not lower AND positive rho difference in >=4/5 folds; a bootstrap CI crossing zero => uncertain.
+  delta_rho(R2-R1)=+0.0051   MAE reduction=-4.0%   top-decile not lower=True   positive folds=3/5   CI_lo>0=False
+VERDICT: no substantive improvement (honest negative). The frozen K562 representation adds no predeclared practical HEK293 gain over the
+  composition baseline; R1 alone already reaches Spearman=0.4566. Reported as an honest negative.
+Scope / claims: retrospective grouped CV on 676 public HEK293 records. NO prospective or external claim.
+  HEK293 performance is NOT HEK293T suitability. The 14 ACTB/GAPDH/CMV local constructs are untouched
+  external-context probes: no DNA sequence exists in project records, so NO numeric full-activity claim.
+Compute: frozen extraction + timing on NVIDIA GeForce RTX 5060 Laptop GPU (cuda:0, batch 32), 0.019 ms/sequence; GPU use far below the 30 min cap;
+  classical ridge fits are small CPU linear-algebra jobs, not GPU training.
+Artifacts: reports/breakthrough_20261002/batch22/{results,freeze,manifests,selfcheck,next_batch_proposal}.json,
+  figures/, data/breakthrough_20261002/batch22/, raw-input CLI runs/breakthrough_20261002/code/batch22/b22_cli.py.
+Ownership: only new batch22 dirs written; all prior sources/code/reports/models read-only and verified unmodified.

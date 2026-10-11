@@ -1,0 +1,14 @@
+[shuffle seed=20261026] ep=0 loss=1.0082 val_sp=-0.0251 val_gbMAE=0.4456
+[shuffle seed=20261026] ep=1 loss=0.9922 val_sp=nan val_gbMAE=0.4453
+[shuffle seed=20261026] ep=2 loss=0.9914 val_sp=0.0097 val_gbMAE=0.4436
+[shuffle seed=20261026] ep=3 loss=0.9893 val_sp=nan val_gbMAE=0.4437
+[shuffle seed=20261026] ep=4 loss=0.9906 val_sp=nan val_gbMAE=0.4440
+[shuffle seed=20261026] ep=5 loss=0.9882 val_sp=nan val_gbMAE=0.4439
+[shuffle seed=20261026] ep=6 loss=0.9908 val_sp=nan val_gbMAE=0.4455
+[shuffle seed=20261026] ep=7 loss=0.9911 val_sp=nan val_gbMAE=0.4434
+[shuffle seed=20261026] ep=8 loss=0.9902 val_sp=nan val_gbMAE=0.4447
+[shuffle seed=20261026] ep=9 loss=0.9906 val_sp=nan val_gbMAE=0.4444
+[shuffle seed=20261026] ep=10 loss=0.9889 val_sp=nan val_gbMAE=0.4449
+[shuffle seed=20261026] ep=11 loss=0.9959 val_sp=nan val_gbMAE=0.4436
+[shuffle seed=20261026] ep=12 loss=0.9891 val_sp=nan val_gbMAE=0.4443
+[A3_cnn_shuffle_seed20261026] best_ep=7 val_gbMAE=0.4434 epochs=13 t=100.9s

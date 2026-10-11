@@ -1,0 +1,24 @@
+{
+  "batch": "batch26",
+  "selected_primary": "A1_cnn_true_seed20261026",
+  "selected_seed": 20261026,
+  "criterion": "lowest validation group-balanced MAE (published log2 units); ties -> lower seed",
+  "ranking": [
+    {
+      "attempt_id": "A1_cnn_true_seed20261026",
+      "seed": 20261026,
+      "val_group_balanced_mae": 0.34658555423275106,
+      "val_spearman": 0.4766740583180869
+    },
+    {
+      "attempt_id": "A2_cnn_true_seed20261027",
+      "seed": 20261027,
+      "val_group_balanced_mae": 0.35391257625278943,
+      "val_spearman": 0.44714667847295053
+    }
+  ],
+  "shuffle_control": 0.4434471347091685,
+  "baseline_C": 0.3965275695511346,
+  "test_targets_opened": false,
+  "written_at": "2026-10-03T17:56:46+08:00"
+}

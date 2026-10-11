@@ -1,0 +1,9 @@
+name	v6_smoke
+arch	promoter_atlas_v6_multiomics
+params	4545628
+n_tf	0
+n_omics	0
+rows	122515
+epoch 0 step 0 loss 2.5021 esb=1.210 species=3.192 mask=2.177
+epoch 0 step 500 loss 0.4544 esb=0.036 species=0.000 mask=1.283
+epoch 0 | loss 0.4529 | val E r2=0.1858 S r2=-0.2131 B r2=0.1356 | gene sp E=0.6030 S=0.2411 B=0.5903 | comb 0.4732 | species_acc 1.0000

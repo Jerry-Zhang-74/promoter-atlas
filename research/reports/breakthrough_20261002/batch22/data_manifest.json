@@ -1,0 +1,63 @@
+{
+  "generated_at_local": "2026-10-03T15:24:52+0800",
+  "started_local": "2026-10-03T15:24:52+0800",
+  "batch": "batch22",
+  "version": "v6.17.0-hektransfer.rc1",
+  "task": "predict published HEK293 bulk promoter activity (hek_norm) from the 133 bp measured core-promoter insert",
+  "target": {
+    "column": "hek_norm",
+    "definition": "log2(hek exp / input)",
+    "units": "log2 RNA/DNA ratio (unitless)",
+    "verified_max_abs_diff_vs_definition": 8.881784197001252e-16,
+    "negative_values_kept": true,
+    "extra_log_applied": false
+  },
+  "paired_cell_diagnostic": {
+    "column": "k562_norm",
+    "definition": "log2(k562 exp / input)",
+    "verified_max_abs_diff_vs_definition": 4.440892098500626e-16,
+    "role": "paired-cell diagnostic reference ONLY; never a model input or target"
+  },
+  "cell": "HEK293 (NOT HEK293T)",
+  "assay": "transient bulk MPRA (episomal plasmid reporter), 2 replicates",
+  "vector_context": "patchMPRA backbone; oligo = GGATA-SpeI-[133bp core promoter]-HindIII-NheI-XbaI-12bp barcode-SalI-loxP",
+  "insert_boundary": "133 bp core promoter, TSS-centred (TSS = centre position 67 of 133)",
+  "n_gse188639_records": 676,
+  "n_with_published_sequence": 673,
+  "n_join_exact_oligo_id": 673,
+  "n_unresolved": 3,
+  "unresolved_ids": [
+    "SCP1_mboth",
+    "SCP1_mTATA",
+    "SCP1_mDPE"
+  ],
+  "unresolved_reason": "synthetic SCP1 mutant members without a published exact 133 bp sequence; excluded rather than fabricated",
+  "sequence_lengths": [
+    133
+  ],
+  "alphabet": "ACGT",
+  "duplicate_prom_ids": 0,
+  "source_files": {
+    "bulk_exp": {
+      "path": "data/breakthrough_20261002/batch22/source/GSE188639_mixed_cell_bulk_exp.csv.gz",
+      "sha256": "3b21ee7fda17f177a25e1fdc86a06362430526c4b3580fb3f881c3538c9c142c",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188639/suppl/GSE188639_mixed_cell_bulk_exp.csv.gz"
+    },
+    "haberle_table6_tsv": {
+      "path": "data/breakthrough_20261002/batch22/source/haberle2019_table6_human_CP_candidates.tsv",
+      "sha256": "154b98a1570fec48c3fb4a61f1f7b84d7ee7bee9ce730218bb5ad017df0ee8ad",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-019-1210-7/MediaObjects/41586_2019_1210_MOESM7_ESM.xlsx",
+      "role": "Haberle et al. 2019 Nature Supplementary Table 6 (12,000 human CP candidates; hg19 sequences)"
+    }
+  },
+  "coordinate_verification": {
+    "test": "hg19 forward == published sequence for plus rows; revcomp(hg19 forward) == published sequence for minus rows",
+    "convention": "oligo_id = chr_{chrom}_{start0}_{end}_{strand}, 0-based half-open, length = end-start0 = 133",
+    "build": "hg19"
+  },
+  "sequence_output": {
+    "path": "data/breakthrough_20261002/batch22/sequence_table.tsv",
+    "sha256": "e6ea09134202bf6008a326ffe38cf3fd3acc003ae899845861f42d8c2e88b548",
+    "n_rows": 673
+  }
+}

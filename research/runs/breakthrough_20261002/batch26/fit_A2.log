@@ -1,0 +1,11 @@
+[true seed=20261027] ep=0 loss=0.7757 val_sp=0.3954 val_gbMAE=0.4014
+[true seed=20261027] ep=1 loss=0.6760 val_sp=0.4214 val_gbMAE=0.3717
+[true seed=20261027] ep=2 loss=0.5973 val_sp=0.4330 val_gbMAE=0.3618
+[true seed=20261027] ep=3 loss=0.5312 val_sp=0.4324 val_gbMAE=0.3808
+[true seed=20261027] ep=4 loss=0.4749 val_sp=0.4471 val_gbMAE=0.3539
+[true seed=20261027] ep=5 loss=0.4321 val_sp=0.4536 val_gbMAE=0.4026
+[true seed=20261027] ep=6 loss=0.3981 val_sp=0.4573 val_gbMAE=0.3637
+[true seed=20261027] ep=7 loss=0.3803 val_sp=0.4483 val_gbMAE=0.3543
+[true seed=20261027] ep=8 loss=0.3660 val_sp=0.4523 val_gbMAE=0.3887
+[true seed=20261027] ep=9 loss=0.3398 val_sp=0.4484 val_gbMAE=0.3969
+[A2_cnn_true_seed20261027] best_ep=4 val_gbMAE=0.3539 epochs=10 t=78.3s

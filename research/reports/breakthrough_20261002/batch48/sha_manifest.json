@@ -1,0 +1,104 @@
+{
+  "batch": "batch48",
+  "version": "v6.34.1-scoped-input-routing.rc2",
+  "generated_at": "2026-10-04T05:09:30+08:00",
+  "excludes": [
+    "independent_review.json",
+    "manifest_verification.json",
+    "sha_manifest.json",
+    "status.json",
+    "verification.json",
+    "worker_selfcheck.json"
+  ],
+  "n_files": 22,
+  "files": {
+    "runs/breakthrough_20261002/code/batch48/b48_cli.py": {
+      "sha256": "3345f5adef771fa32edd393905a036367d4d1035398666babcb702eb84db5ea0",
+      "bytes": 7906
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_common.py": {
+      "sha256": "149f5e6bb0683744bcefd51194d9fd9ad72c1f6cf75d7d522df980df36b9020f",
+      "bytes": 5317
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_finalize.py": {
+      "sha256": "b52e71db989c5561f7434a53fa8d102da64f5fac4e23fed4d9c996bed536b50d",
+      "bytes": 19558
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_fragment.py": {
+      "sha256": "dc76ddb248f63d751cc5cd204297784d78ba05fc8cb08632e4b5ca9454153c5a",
+      "bytes": 11881
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_gene_observed.py": {
+      "sha256": "1c2b76650f4c19b353ce654f9e9ceacc6bf2ec5fcae245e0ab7b9e65758bbd40",
+      "bytes": 11202
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_postverify.py": {
+      "sha256": "69c5086417d2f5da822d1730cb0c8d9a58d831508217679eff99ef2561271caf",
+      "bytes": 2335
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_registry.py": {
+      "sha256": "46484c1e61b6565d01c80d0ab0c40d680599c6cd8c6d973439256395640466eb",
+      "bytes": 6718
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_tests.py": {
+      "sha256": "ac77ffee5cc2dc35c0679822f2a02067fbe0336b6b644022fc3f2f8493ce65f6",
+      "bytes": 15553
+    },
+    "runs/breakthrough_20261002/code/batch48/b48_usage.py": {
+      "sha256": "a785eb83abd11fbfa209e16bc2746e6fd7fae406e88979436d82445173c25891",
+      "bytes": 5871
+    },
+    "data/breakthrough_20261002/batch48/out/gene.b48.json": {
+      "sha256": "b849746c1159cccd2e16a21b9dc616971ea07f643ca669dfeee2d5aeb4935a50",
+      "bytes": 8139
+    },
+    "data/breakthrough_20261002/batch48/out/gene.b48.tsv": {
+      "sha256": "9271dd47801fcc0afcd5a6a9f94b2366662eb6c88097acf5da358d0037dcd52f",
+      "bytes": 1254
+    },
+    "data/breakthrough_20261002/batch48/out/miss_asset.json": {
+      "sha256": "38dcf9d9ce24c172adc7253a6f02b9ddac33e729f45d9273bd49859012555bed",
+      "bytes": 254
+    },
+    "data/breakthrough_20261002/batch48/out/miss_input.json": {
+      "sha256": "ecface149c36fffbf13f29698818a18d6fd71d3743c7b2bde1a9567cf967140c",
+      "bytes": 263
+    },
+    "data/breakthrough_20261002/batch48/out/tampered.json": {
+      "sha256": "35b74675c3e4c66f6718e11243142bba4cd711ba72d8467189240ae54eacd845",
+      "bytes": 273
+    },
+    "data/breakthrough_20261002/batch48/testdata/route_fixture.fasta": {
+      "sha256": "ff631dc1f24ca5a7a60117577f28442e210099c7d6ebe076cd401221e256bcf3",
+      "bytes": 2057
+    },
+    "data/breakthrough_20261002/batch48/testdata/tampered_manifest_copy.json": {
+      "sha256": "2654c462121966d54f0e1f97bf0b520cff430da30cbd7b00a2d509aa371bf731",
+      "bytes": 1589
+    },
+    "reports/breakthrough_20261002/batch48/code_diff_b47_to_b48.txt": {
+      "sha256": "6014cb218ff91775ee92bb0f5b49933e163b1c0604acffa3623ac61239883855",
+      "bytes": 101093
+    },
+    "reports/breakthrough_20261002/batch48/code_sha256.json": {
+      "sha256": "42c003e33998664b5238eb0ed1b7c6a6cf9a3802e731ac03d45b0e6a8f3f9833",
+      "bytes": 1543
+    },
+    "reports/breakthrough_20261002/batch48/next_batch_proposal.json": {
+      "sha256": "8be2f8f3e3b965cdaa5ab0b5bcd191b9fa13aef8d50d184547d9926eed9a4d18",
+      "bytes": 2088
+    },
+    "reports/breakthrough_20261002/batch48/remaining_work.json": {
+      "sha256": "f93545ce7c46d173dff3ccd994010d3278b7cb3de5895dbbb37a48e93114cc5f",
+      "bytes": 1526
+    },
+    "reports/breakthrough_20261002/batch48/test_evidence.json": {
+      "sha256": "6b8ab24cd48ef124a6006f6310aa8026c065d580cd2478aabfa98b6ab105e8f7",
+      "bytes": 5924
+    },
+    "reports/breakthrough_20261002/batch48/USAGE_zh.md": {
+      "sha256": "9940d1460ae55cef4616e60885926a885d326fb79b49d1a339d0870c859da3a1",
+      "bytes": 5223
+    }
+  }
+}

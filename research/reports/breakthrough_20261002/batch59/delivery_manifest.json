@@ -1,0 +1,58 @@
+{
+  "batch": "batch59",
+  "clock": "2026-10-04T10:36:59.477947+08:00",
+  "delivery_state": "READY_PENDING_INDEPENDENT_REVIEW",
+  "first_model": {
+    "dir": "releases/batch52_first_model/v6.38.0-nabs-reviewed",
+    "ready": true,
+    "weight_sha256": "17a6f622c3d684743d75263af958cb71dad6f13f99e57f6fc69d5336e74c130f",
+    "zip": "releases/batch52_first_model/v6.38.0-nabs-reviewed-flat.zip",
+    "zip_sha256": "e19bb9060d0a1f15dc7978c8dfe6f8e3079d892e30c1ab0e21adeb45067b9c1c"
+  },
+  "no_upload_or_publication": true,
+  "remaining_work": [
+    "independent fresh review (11:00): reports/breakthrough_20261002/batch59/independent_review.json (verdict integrity/compliance PASS|FAIL; scientific_gain separate)",
+    "atomic registry append of the report/release revision only (production pointer unchanged)"
+  ],
+  "scientific_scope": {
+    "epochs": {
+      "complete": 6,
+      "note": "selected checkpoint is after the 5th epoch",
+      "selected_epoch_zero_based": 4
+    },
+    "global_step_note": "531860 is historical sample count, NOT actual optimizer steps (known b53 defect; checkpoint not edited to hide it)",
+    "gt_600": "UNSUPPORTED",
+    "local_293FT": "UNVALIDATED",
+    "nabs_resume": "NOT claimed as actual-resume verification (b58 separately does real resume; b57 unsupported-only)",
+    "native_window_policy": "center-zero 600; no RC/window/crop/ESB/GFP translation",
+    "pair_comparison": "FAIL preserved: Njoint improvement ~0.12% < predeclared 10%; bootstrap CI includes 0",
+    "public_HEK293": "retrospective frozen-group split on author GSE301246 fold0 (target Log2RPM_HEK293)",
+    "reference_proxy": "GRCh37/hg19 proxy, NOT the donor clone sequence",
+    "supported_length_bp": [
+      100,
+      600
+    ]
+  },
+  "second_model": {
+    "dir": "releases/batch52_second_model/v6.38.0-njoint-reviewed",
+    "ready": true,
+    "weight_sha256": "c2698adde33155e28eace574e05dd42d4eef737002e0c68084053ea9dccb0cee",
+    "zip": "releases/batch52_second_model/v6.38.0-njoint-reviewed-flat.zip",
+    "zip_sha256": "6c200d97f5f5ced96261a750887c45156a9b4c006d93517625a45f599588db86"
+  },
+  "smoke_evidence_file": "reports/breakthrough_20261002/batch59/smoke_boundary.json",
+  "verification_2pass_readonly": {
+    "Nabs": {
+      "consistent": true,
+      "entries": 22,
+      "pass1": 22,
+      "pass2": 22
+    },
+    "Njoint": {
+      "consistent": true,
+      "entries": 22,
+      "pass1": 22,
+      "pass2": 22
+    }
+  }
+}

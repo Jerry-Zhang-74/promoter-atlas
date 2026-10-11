@@ -1,0 +1,19 @@
+model_name	promoter_model_v4_residual_s_pilot
+phase	Phase 6 architecture residual-S route
+input	architecture_v2_only
+arch_asset	features/sequence/promoter_architecture_features_v2.tsv
+targets	Score_E,Score_S,Score_B
+Score_S_target_type	residual_after_linear_E_effect
+s_resid_linear_a	-0.149955
+s_resid_linear_b	0.962136
+split_key	record_id
+train_n	20000
+val_n	4000
+test_n	4000
+arch_feature_count	18
+best_epoch_by_val_mean_mse	96
+best_val_mean_mse	0.029122
+checkpoint	models/checkpoints/promoter_model_v4_residual_s_pilot.pt
+eval_table	models/eval/promoter_model_v4_residual_s_pilot_metrics.tsv
+best_summary_table	models/eval/promoter_model_v4_residual_s_pilot_best_summary.tsv
+log_file	models/logs/train_promoter_model_v4_residual_s_pilot.log

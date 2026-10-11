@@ -1,0 +1,339 @@
+{
+  "generated_at_local": "2026-10-03T14:40:57+0800",
+  "primary_metric": "test family/near-homology-grouped Spearman and MAE",
+  "seeds": [
+    20261023,
+    20261024
+  ],
+  "arms": [
+    "A",
+    "B"
+  ],
+  "decision_rule": {
+    "mean_spearman_gain_min": 0.02,
+    "mae_reduction_min_frac": 0.05,
+    "top_decile_precision": "not worse",
+    "both_seeds_positive": true
+  },
+  "per_arm_per_seed": {
+    "A": {
+      "20261023": {
+        "test": {
+          "n": 1180,
+          "spearman": 0.65294469735267,
+          "mae": 0.2178395939994399,
+          "mse": 0.08227677318979221,
+          "r2": 0.4291995235137308,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 74,
+            "precision": 0.6271186440677966,
+            "enrichment": 6.271186440677965
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.65294469735267,
+            "lo": 0.5941508044647467,
+            "hi": 0.7023075847879517,
+            "n_groups": 1020,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.2178395939994399,
+            "lo": 0.2057930442877587,
+            "hi": 0.23061026777681445,
+            "n_groups": 1020,
+            "n_boot": 2000
+          }
+        },
+        "val": {
+          "n": 1180,
+          "spearman": 0.5965392177528107,
+          "mae": 0.2245648020333045,
+          "mse": 0.08868231697355977,
+          "r2": 0.3468106314958307,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 59,
+            "precision": 0.5,
+            "enrichment": 5.0
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.5965392177528107,
+            "lo": 0.5452970637069575,
+            "hi": 0.6451323891803492,
+            "n_groups": 1090,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.2245648020333045,
+            "lo": 0.21359645137567668,
+            "hi": 0.23649366436646008,
+            "n_groups": 1090,
+            "n_boot": 2000
+          }
+        }
+      },
+      "20261024": {
+        "test": {
+          "n": 1180,
+          "spearman": 0.6353783594111894,
+          "mae": 0.2136066879025308,
+          "mse": 0.08096170145183465,
+          "r2": 0.43832291940710466,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 72,
+            "precision": 0.6101694915254238,
+            "enrichment": 6.101694915254237
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.6353783594111894,
+            "lo": 0.5729292925748073,
+            "hi": 0.6881121839040936,
+            "n_groups": 1020,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.2136066879025308,
+            "lo": 0.20116608758127744,
+            "hi": 0.2274728450567827,
+            "n_groups": 1020,
+            "n_boot": 2000
+          }
+        },
+        "val": {
+          "n": 1180,
+          "spearman": 0.5742304818750894,
+          "mae": 0.22844842759231446,
+          "mse": 0.0878720936685721,
+          "r2": 0.35277832908192375,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 63,
+            "precision": 0.5338983050847458,
+            "enrichment": 5.338983050847458
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.5742304818750894,
+            "lo": 0.5167286435226037,
+            "hi": 0.6262604764799371,
+            "n_groups": 1090,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.22844842759231446,
+            "lo": 0.21771848259592066,
+            "hi": 0.24093947781266598,
+            "n_groups": 1090,
+            "n_boot": 2000
+          }
+        }
+      }
+    },
+    "B": {
+      "20261023": {
+        "test": {
+          "n": 1180,
+          "spearman": 0.652391093604732,
+          "mae": 0.2155316731524494,
+          "mse": 0.0827845552358014,
+          "r2": 0.42567675247427084,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 72,
+            "precision": 0.6101694915254238,
+            "enrichment": 6.101694915254237
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.652391093604732,
+            "lo": 0.5937848907753193,
+            "hi": 0.7028827243665138,
+            "n_groups": 1020,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.2155316731524494,
+            "lo": 0.20353318822420394,
+            "hi": 0.22852006217205692,
+            "n_groups": 1020,
+            "n_boot": 2000
+          }
+        },
+        "val": {
+          "n": 1180,
+          "spearman": 0.608339229099281,
+          "mae": 0.2248778858270126,
+          "mse": 0.08668812737225645,
+          "r2": 0.3614988296711361,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 61,
+            "precision": 0.5169491525423728,
+            "enrichment": 5.169491525423728
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.608339229099281,
+            "lo": 0.5541293542129125,
+            "hi": 0.6555980070606686,
+            "n_groups": 1090,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.2248778858270126,
+            "lo": 0.2140127286292858,
+            "hi": 0.2370406171786911,
+            "n_groups": 1090,
+            "n_boot": 2000
+          }
+        }
+      },
+      "20261024": {
+        "test": {
+          "n": 1180,
+          "spearman": 0.646229099502983,
+          "mae": 0.218315490954253,
+          "mse": 0.0816253043950441,
+          "r2": 0.433719130737514,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 72,
+            "precision": 0.6101694915254238,
+            "enrichment": 6.101694915254237
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.646229099502983,
+            "lo": 0.5832611082508605,
+            "hi": 0.6967004073133062,
+            "n_groups": 1020,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.218315490954253,
+            "lo": 0.2062327096404203,
+            "hi": 0.23121062045993934,
+            "n_groups": 1020,
+            "n_boot": 2000
+          }
+        },
+        "val": {
+          "n": 1180,
+          "spearman": 0.5948383792707166,
+          "mae": 0.22811957524716306,
+          "mse": 0.08797840429587579,
+          "r2": 0.3519952984408268,
+          "top_decile": {
+            "k": 118,
+            "n": 1180,
+            "intersection": 62,
+            "precision": 0.5254237288135594,
+            "enrichment": 5.254237288135593
+          },
+          "spearman_group_bootstrap": {
+            "point": 0.5948383792707166,
+            "lo": 0.5411073659228831,
+            "hi": 0.6435008503951387,
+            "n_groups": 1090,
+            "n_boot": 2000
+          },
+          "mae_group_bootstrap": {
+            "point": 0.22811957524716306,
+            "lo": 0.2175056084353452,
+            "hi": 0.24041918631598455,
+            "n_groups": 1090,
+            "n_boot": 2000
+          }
+        }
+      }
+    }
+  },
+  "arm_mean_test": {
+    "A": {
+      "spearman": 0.6441615283819297,
+      "mae": 0.21572314095098533,
+      "r2": 0.43376122146041773,
+      "top_decile_precision": 0.6186440677966102,
+      "top_decile_enrichment": 6.186440677966101
+    },
+    "B": {
+      "spearman": 0.6493100965538575,
+      "mae": 0.21692358205335122,
+      "r2": 0.4296979416058924,
+      "top_decile_precision": 0.6101694915254238,
+      "top_decile_enrichment": 6.101694915254237
+    }
+  },
+  "arm_mean_val": {
+    "A": {
+      "spearman": 0.58538484981395,
+      "mae": 0.22650661481280948,
+      "r2": 0.3497944802888772,
+      "top_decile_precision": 0.5169491525423728,
+      "top_decile_enrichment": 5.169491525423728
+    },
+    "B": {
+      "spearman": 0.6015888041849988,
+      "mae": 0.22649873053708783,
+      "r2": 0.35674706405598144,
+      "top_decile_precision": 0.521186440677966,
+      "top_decile_enrichment": 5.211864406779661
+    }
+  },
+  "comparison": {
+    "mean_spearman_gain_B_minus_A": 0.00514856817192777,
+    "mae_reduction_frac_B_vs_A": -0.005564730316246617,
+    "per_seed_spearman_diff": {
+      "20261023": -0.0005536037479380029,
+      "20261024": 0.010850740091793654
+    },
+    "top_decile_not_worse": false,
+    "both_seeds_positive": false,
+    "predeclared_improvement_met": false
+  },
+  "validation_only_arm_choice": "B",
+  "ridge_baseline": {
+    "method": "sequence_composition_ridge (GC+3mer, alpha=100 fixed, train-only)",
+    "val": {
+      "n": 1180,
+      "spearman": 0.3308655262677114,
+      "mae": 0.2873322068575081,
+      "mse": 0.12793751066964232,
+      "r2": 0.05767660730814761,
+      "top_decile": {
+        "k": 118,
+        "n": 1180,
+        "intersection": 29,
+        "precision": 0.2457627118644068,
+        "enrichment": 2.457627118644068
+      }
+    },
+    "test": {
+      "n": 1180,
+      "spearman": 0.3684811714398165,
+      "mae": 0.29124207679468844,
+      "mse": 0.12803285599181832,
+      "r2": 0.11176371687003983,
+      "top_decile": {
+        "k": 118,
+        "n": 1180,
+        "intersection": 29,
+        "precision": 0.2457627118644068,
+        "enrichment": 2.457627118644068
+      }
+    }
+  },
+  "n_test": 1180,
+  "n_val": 1180,
+  "n_test_groups": 1020,
+  "n_val_groups": 1090,
+  "note": "Task-specific decision threshold; NOT a retroactive change of the batch02 +0.05/10 percent historical threshold and NOT compared against 0.79577. K562 in-domain; not HEK293T.",
+  "source_sha256": {
+    "groups.npz": "3021f0b52427d7cb7fbcfbf71ea80fb099ffc05bff26b1e4b51f3a83a74809cb"
+  }
+}

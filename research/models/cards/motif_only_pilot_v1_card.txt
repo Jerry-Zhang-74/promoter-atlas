@@ -1,0 +1,14 @@
+model_name	motif_only_pilot_v1
+phase	Phase 6c diagnostic
+input	motif_agg_only
+motif_asset	features/motif/promoter_motif_agg_v1_exact_unique.tsv
+targets	Score_E,Score_S,Score_B
+score_s_missing_policy	masked_loss
+split_key	record_id
+train_n	20000
+val_n	4000
+test_n	4000
+motif_feature_count	192
+checkpoint	models/checkpoints/motif_only_pilot_v1.pt
+eval_table	models/eval/motif_only_pilot_v1_metrics.tsv
+log_file	models/logs/train_motif_only_pilot_v1.log

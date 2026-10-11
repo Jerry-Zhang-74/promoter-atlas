@@ -1,0 +1,2 @@
+{"url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE78nnn/GSE78709/suppl/GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz", "expected_size": 1187342132, "nconn": 8}
+{"complete": true, "size": 1187342132, "sha256": "8868fa641c2c89bef0c8aa18b6b553030cc7199ea4be4f12c2cd1f3ecd458b85", "elapsed_s": 137.1, "errors": []}

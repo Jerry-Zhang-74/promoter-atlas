@@ -1,0 +1,71 @@
+{
+  "candidate_version": "v6.10.0-starget.rc1",
+  "batch": "batch09",
+  "written_at": "2026-10-03T06:12:38+0800",
+  "tests": [
+    {
+      "name": "join_identity",
+      "pass": true,
+      "detail": "eligible set == full_s ∩ feature universe (18769); each gene unique: True"
+    },
+    {
+      "name": "excluded_count_178",
+      "pass": true,
+      "detail": "excluded canonical S-defined = 178"
+    },
+    {
+      "name": "no_component_crossing",
+      "pass": true,
+      "detail": "components with >1 split = 0"
+    },
+    {
+      "name": "train_only_scaler",
+      "pass": true,
+      "detail": "scaler mean==train mean: True; scale==train std: True; no full-data leakage: True"
+    },
+    {
+      "name": "train_only_target_standardization",
+      "pass": true,
+      "detail": "saved target train mean/std match recomputed train-only values"
+    },
+    {
+      "name": "rank_formula_synthetic",
+      "pass": true,
+      "detail": "midpoint + tail mapping verified on synthetic reference; got [0.0, 0.125, 0.25, 0.375, 0.875, 1.0]"
+    },
+    {
+      "name": "rank_ties_and_range",
+      "pass": true,
+      "detail": "frozen F reproduced; out-of-range below=0 above=0; tied F-values=595"
+    },
+    {
+      "name": "target_standardization_inversion",
+      "pass": true,
+      "detail": "raw target standardization then inverse recovers raw S"
+    },
+    {
+      "name": "missing_vs_legitimate_zero",
+      "pass": true,
+      "detail": "no NaN: True; zero values: 0; all strictly negative: True (missing S excluded by join)"
+    },
+    {
+      "name": "saved_model_replay",
+      "pass": true,
+      "detail": "replayed all four arm predictions from serialized models/scaler/rank ref match predictions.tsv"
+    },
+    {
+      "name": "affine_diagnostic_deterministic",
+      "pass": true,
+      "detail": "Ridge affine-related predictions max err = 2.339e-13 (tol 1e-8)"
+    },
+    {
+      "name": "metric_artifact_consistency",
+      "pass": true,
+      "detail": "test Spearman and primary deltas recomputed from predictions.tsv match metrics.json"
+    }
+  ],
+  "n_pass": 12,
+  "n_total": 12,
+  "all_pass": true,
+  "elapsed_s": 8.83
+}

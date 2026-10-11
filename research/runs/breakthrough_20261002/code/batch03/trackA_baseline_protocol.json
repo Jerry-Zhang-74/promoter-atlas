@@ -1,0 +1,12 @@
+{
+  "written_at": "2026-10-02T22:37:00+08:00 (predeclared BEFORE baseline outcomes)",
+  "baseline": "sequence-feature ridge (gene-mean aggregation), version v6.6.0-seqfeatridge.rc1",
+  "feature_contract": "per-promoter mono(4)+dinuc(16)+GC(1)+length(1) computed on BOTH sym400 and up2000 => 44 features; gene feature = mean over the gene's promoters; z-score fit on train-inner only (final fit on full original train)",
+  "sequences": "sym400 (promoter_sym400_uint8.memmap) and up2000 (promoter_up2000_uint8.memmap), same rows as scratch encoder",
+  "training_scope": "human original-train genes only (46618 genes); no v6.3 weights, no labels, no donor-ortholog transfer",
+  "alpha_grid": [0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0],
+  "selection_rule": "max inner-val gene E Spearman on deterministic 90/10 gene holdout (seed 20261011), identical split to scratch encoder",
+  "final_fit": "ridge(selected alpha) on FULL original 46618 train genes; z-score on full train; evaluate once on frozen val/test",
+  "comparison_purpose": "isolate whether from-scratch CNN learns more than raw composition; NOT a leakage-free claim for v6.3/gene.rc5",
+  "version_namespace": "v6.6.0-seqfeatridge"
+}

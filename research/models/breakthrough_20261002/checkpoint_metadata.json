@@ -1,0 +1,108 @@
+{
+  "batch": "breakthrough_20261002_batch01",
+  "generated_at": "2026-10-02T09:53:01+08:00",
+  "checkpoints": {
+    "trackB_smallcnn_seed20261005.pt": {
+      "candidate_version": "v6.5.0-mpra.rc2",
+      "track": "K562MPRA",
+      "arch": "smallcnn",
+      "seed": 20261005,
+      "attempt_id": 2,
+      "run_id": "batch01_trackB_reproduction",
+      "best_val_epoch": 15,
+      "best_val_mse": 0.09287504851818085,
+      "target_scale_fit_train": {
+        "mean": 0.8545554280281067,
+        "std": 0.38521045446395874
+      },
+      "parent_model": "scratch",
+      "checkpoint_sha256": "a247d69e792b37f638149372a51e84811d211db814b4d55a1a873b1d76d839e7",
+      "note": "Reproduction-run checkpoint (deterministic CUDA). Canonical (attempt 1) metrics were produced by train_trackB.py which did not persist checkpoints; disclosed in self_review.json."
+    },
+    "trackB_smallcnn_seed20261006.pt": {
+      "candidate_version": "v6.5.0-mpra.rc2",
+      "track": "K562MPRA",
+      "arch": "smallcnn",
+      "seed": 20261006,
+      "attempt_id": 2,
+      "run_id": "batch01_trackB_reproduction",
+      "best_val_epoch": 14,
+      "best_val_mse": 0.0914633646607399,
+      "target_scale_fit_train": {
+        "mean": 0.8545554280281067,
+        "std": 0.38521045446395874
+      },
+      "parent_model": "scratch",
+      "checkpoint_sha256": "a006eb058d039af204857e953f794969d4b7ade2349dc6712cc51d1ece828d43",
+      "note": "Reproduction-run checkpoint (deterministic CUDA). Canonical (attempt 1) metrics were produced by train_trackB.py which did not persist checkpoints; disclosed in self_review.json."
+    },
+    "trackB_smallcnn_seed20261007.pt": {
+      "candidate_version": "v6.5.0-mpra.rc2",
+      "track": "K562MPRA",
+      "arch": "smallcnn",
+      "seed": 20261007,
+      "attempt_id": 2,
+      "run_id": "batch01_trackB_reproduction",
+      "best_val_epoch": 15,
+      "best_val_mse": 0.08865319937467575,
+      "target_scale_fit_train": {
+        "mean": 0.8545554280281067,
+        "std": 0.38521045446395874
+      },
+      "parent_model": "scratch",
+      "checkpoint_sha256": "9ab2a722584b2d1048c33428cead2e52c1b982f350967741d9acc99c9a3c473f",
+      "note": "Reproduction-run checkpoint (deterministic CUDA). Canonical (attempt 1) metrics were produced by train_trackB.py which did not persist checkpoints; disclosed in self_review.json."
+    },
+    "trackB_legnet_seed20261005.pt": {
+      "candidate_version": "v6.5.0-mpra.rc1",
+      "track": "K562MPRA",
+      "arch": "legnet",
+      "seed": 20261005,
+      "attempt_id": 2,
+      "run_id": "batch01_trackB_reproduction",
+      "best_val_epoch": 13,
+      "best_val_mse": 0.06686659157276154,
+      "target_scale_fit_train": {
+        "mean": 0.8545554280281067,
+        "std": 0.38521045446395874
+      },
+      "parent_model": "scratch",
+      "checkpoint_sha256": "08885d35c038affeb528b2e244ed5a5c29d52c2198d3a8fa3d664fa236b2f17a",
+      "note": "Reproduction-run checkpoint (deterministic CUDA). Canonical (attempt 1) metrics were produced by train_trackB.py which did not persist checkpoints; disclosed in self_review.json."
+    },
+    "trackB_legnet_seed20261006.pt": {
+      "candidate_version": "v6.5.0-mpra.rc1",
+      "track": "K562MPRA",
+      "arch": "legnet",
+      "seed": 20261006,
+      "attempt_id": 2,
+      "run_id": "batch01_trackB_reproduction",
+      "best_val_epoch": 14,
+      "best_val_mse": 0.06309240311384201,
+      "target_scale_fit_train": {
+        "mean": 0.8545554280281067,
+        "std": 0.38521045446395874
+      },
+      "parent_model": "scratch",
+      "checkpoint_sha256": "68f034590d4360a37edb9bce60cd6f068c03f66e7c033dbf790cf0e3b1982f69",
+      "note": "Reproduction-run checkpoint (deterministic CUDA). Canonical (attempt 1) metrics were produced by train_trackB.py which did not persist checkpoints; disclosed in self_review.json."
+    },
+    "trackB_legnet_seed20261007.pt": {
+      "candidate_version": "v6.5.0-mpra.rc1",
+      "track": "K562MPRA",
+      "arch": "legnet",
+      "seed": 20261007,
+      "attempt_id": 2,
+      "run_id": "batch01_trackB_reproduction",
+      "best_val_epoch": 16,
+      "best_val_mse": 0.06506316363811493,
+      "target_scale_fit_train": {
+        "mean": 0.8545554280281067,
+        "std": 0.38521045446395874
+      },
+      "parent_model": "scratch",
+      "checkpoint_sha256": "24a91aeb38cdbf377fa10eadccdfcaf2d325145c88580fe1570a96b93ebdaa81",
+      "note": "Reproduction-run checkpoint (deterministic CUDA). Canonical (attempt 1) metrics were produced by train_trackB.py which did not persist checkpoints; disclosed in self_review.json."
+    }
+  }
+}

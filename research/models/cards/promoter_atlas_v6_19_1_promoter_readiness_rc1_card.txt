@@ -1,0 +1,40 @@
+MODEL/REVISION CARD (append-only; does not replace any earlier card)
+version:      v6.19.1-promoter-readiness.rc1
+batch:        batch27 (parent decision 2026-10-03 ~18:21 Asia/Shanghai; control_34)
+type:         DATA / EVIDENCE REVISION - NO newly trained model, NO model weights, NO estimator fit, NO inference
+card written: 2026-10-03T18:57:44+08:00 by the batch27 worker
+
+WHAT THIS VERSION IS
+  A zero-fit cleanup + robustness revision of batch26 evidence plus the first objective-aligned
+  preparation of a NATIVE long-fragment autonomous-promoter dataset (SuRE / GSE78709, K562).
+
+CHANGED EVIDENCE (all new linked artifacts; batch26 files untouched)
+  reports/breakthrough_20261002/batch27/batch26_manifest_addendum.json   provenance corrections (linked to original SHA)
+  reports/breakthrough_20261002/batch27/homology_sensitivity.json        contamination-aware sensitivity, ZERO fits
+  reports/breakthrough_20261002/batch27/variant_bin_diagnostic.json      descriptive delta binning
+  reports/breakthrough_20261002/batch27/exec_gate_tests.json             execution gate, 9/9 mock tests, zero fits
+  reports/breakthrough_20261002/batch27/autonomous_fragment_data_ready.json  data-ready manifest
+  reports/breakthrough_20261002/batch27/next_batch_proposal.json         proposed batch28 (NOT launched)
+  figures: homology_sensitivity.png, variant_bin_diagnostic.png, long_fragment_cohort.png
+
+NEW DATA SOURCE (read-only, NOT a training freeze)
+  GSE78709 SuRE K562 autonomous promoter activity (PMC5498152), hg19/GRCh37
+  GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz
+    bytes 1,187,342,132 ; sha256 8868fa641c2c89bef0c8aa18b6b553030cc7199ea4be4f12c2cd1f3ecd458b85
+  153,562,178 measured insert rows | tier-1 eligible 8,033,394 | tier-2 (both bioreps detected) 253,629
+  186,969 independent genomic-overlap components | sequence retrieval 2500/2500 exact (Ensembl GRCh37)
+
+KEY RESULTS
+  batch26 ranking gain persists after removing the 2 known contaminated test groups
+    (delta-rho A1-A0 +0.0524 [0.0341, 0.0721], group bootstrap 1000)
+  data-ready gate for NEW from-scratch long-fragment training: MET (>=1000 inserts AND >=500 groups)
+  batch26 fit-budget compliance remains FAIL (5 executions vs declared 4) - recorded, not repaired
+
+NOT DONE / NOT CLAIMED
+  no training, no fine-tuning, no new inference, no promotion, no email
+  no claim that any old K562 model is independently tested on these source-exposed inserts
+  HEK293 rho 0.5264 / local-14 rho 0.4286 remain separate retrospective/OOD evidence only
+
+PRODUCTION POINTERS: unchanged (v6.3 main / v6.4 cellline pilot).
+NEXT: parent reads independent_review.json and dispatches; batch28 requires parent approval of the tier-2
+      eligibility rule and of the proposed protocol before any launch.

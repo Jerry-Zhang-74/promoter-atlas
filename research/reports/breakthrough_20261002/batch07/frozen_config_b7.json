@@ -1,0 +1,38 @@
+{
+  "acceptance_primary": {
+    "bootstrap_n": 1000,
+    "bootstrap_seed": 20261011,
+    "component_bootstrap_lb_gt_0": "whole-component bootstrap 95% LB for allMAE - retainedMAE > 0",
+    "high_error_threshold": 0.2,
+    "min_rel_mae_reduction": 0.05,
+    "min_test_coverage": 0.8,
+    "random_mask_n": 500,
+    "random_mask_seed": 20261012
+  },
+  "candidate_version": "v6.8.0-covergate.rc1",
+  "coverage_rule": {
+    "coverage_score": "squared Mahalanobis distance (x-mu)^T precision (x-mu); lower = more central in this particular feature geometry, NOT calibrated probability",
+    "diagnostic_points": [
+      "50%",
+      "70%",
+      "90%",
+      "100%"
+    ],
+    "feature_centrality_not_density": "multimodality and data-internal annotation bias remain",
+    "geometry": "StandardScaler fit on outer-train features only, then sklearn LedoitWolf covariance on standardized train features",
+    "no_labels_errors_heldout_used": true,
+    "primary_threshold": "90th percentile of TRAIN distances (deterministic linear quantile)",
+    "quantile_method": "linear"
+  },
+  "predictors": {
+    "optional_descriptive": "batch06 combined_fixedmean (saved, no CNN recompute)",
+    "primary": "frozen batch06 HGB (sklearn HistGradientBoostingRegressor)",
+    "reference": [
+      "frozen finalridge",
+      "batch05 B2 saved predictions"
+    ]
+  },
+  "question": "Can ONE pre-registered train-only feature-coverage rule reduce selective-prediction error at high coverage for the frozen HGB model? (applicability diagnostic, not certified confidence)",
+  "retrospective_note": "existing split/test repeatedly reused => retrospective/exploratory only, never prospective; a train-only threshold does not erase prior outcome-informed project decisions",
+  "scope": "gene-level Score_E ranking only; NOT promoter/construct/HEK293T activity"
+}

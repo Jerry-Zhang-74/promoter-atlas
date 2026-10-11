@@ -1,0 +1,17 @@
+model_name	promoter_model_v4_arch2_reduced_pilot
+phase	Phase 6 architecture route reduction
+input	architecture_v2_reduced_only
+arch_asset	features/sequence/promoter_architecture_features_v4_arch2_reduced.tsv
+targets	Score_E,Score_S,Score_B
+score_s_missing_policy	masked_loss
+split_key	record_id
+train_n	20000
+val_n	4000
+test_n	4000
+arch_feature_count	16
+best_epoch_by_val_mean_mse	56
+best_val_mean_mse	0.029352
+checkpoint	models/checkpoints/promoter_model_v4_arch2_reduced_pilot.pt
+eval_table	models/eval/promoter_model_v4_arch2_reduced_pilot_metrics.tsv
+best_summary_table	models/eval/promoter_model_v4_arch2_reduced_pilot_best_summary.tsv
+log_file	models/logs/train_promoter_model_v4_arch2_reduced_pilot.log

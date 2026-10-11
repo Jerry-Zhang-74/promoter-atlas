@@ -1,0 +1,18 @@
+# 训练记录
+
+AdamW，学习率 1e-4、权重衰减 1e-4、梯度裁剪 1.0。E/S/B 掩蔽 MSE 权重 1.0，片段活性 MSE 权重 0.2。bfloat16 前向、float32 参数和优化器；每条数据流批量 32。
+
+每轮 E/S/B 347,241 条、片段 531,860 条，16,868 步。两次断电后恢复模型、优化器、随机状态与游标。2026-10-04 13:15:17 完成两轮，global_step=33736。两次早期吞吐测试及训练执行记录分别保存。
+
+第一轮检查点 SHA-256：
+eac54b5bf5884d02cd07b2f5da67dc5e0a181be9ad69cc32be3e951622f067e6
+
+第二轮检查点 SHA-256：
+61e685a8eae9d51b3fa878b7481c21178dc90b60f1d34440e59d2f43bf3633e7
+
+DEV 规则选择第一轮，两个轮次的 TEST 结果均保留。整理后的提交代码与原始源码映射见 ORIGINAL_SOURCES.md。
+
+
+---
+公开目录整理说明：原项目路径位于 `research/` 内；当前入口为 `src/promoter_atlas/`，配置为 `configs/joint.json`。
+下载与复现步骤以 [REPRODUCIBILITY.md](REPRODUCIBILITY.md) 为准；旧路径引用用于追溯原始记录。

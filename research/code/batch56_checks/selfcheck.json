@@ -1,0 +1,21 @@
+{
+  "batch": "batch56",
+  "kind": "worker_selfcheck",
+  "at": "2026-10-04T09:35:50+0800",
+  "script_compiles": true,
+  "no_fit_no_gradient_no_gpu_no_web": true,
+  "writes": [
+    "code/batch56_checks/*",
+    "reports/breakthrough_20261002/batch56/*"
+  ],
+  "owner_files_edited": false,
+  "verdict": {
+    "critical_train_blocking": false,
+    "major_nonblocking": [
+      "C6-deadline"
+    ],
+    "minor": [
+      "C5-acc-sha"
+    ]
+  }
+}

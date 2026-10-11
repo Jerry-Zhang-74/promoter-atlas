@@ -1,0 +1,10 @@
+{
+  "files": {
+    "b3_common.py": "1266f3be61ae0e19c51162d6863b677310588d7daf81169caef4a0e917bab09a",
+    "prep_trackA_data.py": "b63856d6d7f28fe7c7eecce4f3e81051173d233c2e1ff3e9ee10c07c65f2ec17",
+    "scratch_gene_model.py": "1e5e61cec98fcafd350b1e47bb8c0bbfc4d0ea95058cedfd34ea844497883f1b",
+    "trackA_selection_protocol.json": "8e24ecd43bce3ab9ba770fe8afef57f67c573b1ab0a2e49accaff655dc664f45",
+    "train_scratch_gene.py": "f2b3cbd27c59bccff816dfdd72008a7084482b48375e80a61ee78522ddb0382e"
+  },
+  "snapshot_at": "2026-10-02T22:01:47+08:00"
+}

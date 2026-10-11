@@ -1,0 +1,119 @@
+{
+  "candidate_version": "v6.15.0-multitask.rc1",
+  "batch": "batch16",
+  "written_at_local": "2026-10-03T10:27:12.827514+0800",
+  "purpose": "Reconcile frozen code_hashes.json (written by preflight at 10:11:15) with the code that ACTUALLY ran.",
+  "explanation": "Preflight ran BEFORE b16_baseline.py/b16_eval.py/b16_package.py/b16_self_check.py/b16_train.py were written, so code_hashes.json froze their PLACEHOLDER stubs (a062a4d1...). b16_inference.py did not exist at preflight. The completed A_s20261016 and A_s20261017 E/S fits used the CURRENT b16_train.py (5a0ca4dd) and b16_model.py (575656d6). HGB baselines used current b16_baseline.py (d54cf754). This file records the actual-run SHAs; no retroactive claim that all match.",
+  "files": {
+    "b16_baseline.py": {
+      "current_sha256": "d54cf7541db00f063e402126beb6f82dadd6b358a1c02b827702cfd82428b0f7",
+      "current_bytes": 3937,
+      "current_mtime_ns": 1790993492212074200,
+      "frozen_sha256": "a062a4d1e195b2f8798d1008c2d48bb118a311156f19df129810a1e4e5154454",
+      "frozen_matches_current": false,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_baseline.py.d54cf7541db00f06.snapshot"
+    },
+    "b16_common.py": {
+      "current_sha256": "388f6e0db063cb47f2597cd90a62fb2afad29f5b9b6929c08cdbd090d572a180",
+      "current_bytes": 10090,
+      "current_mtime_ns": 1790993370885079800,
+      "frozen_sha256": "388f6e0db063cb47f2597cd90a62fb2afad29f5b9b6929c08cdbd090d572a180",
+      "frozen_matches_current": true,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_common.py.388f6e0db063cb47.snapshot"
+    },
+    "b16_data.py": {
+      "current_sha256": "44ba5e3ae58d18237ec6343fc69a3f4b85f554a434aaefabc2f9f5f6fe786a7d",
+      "current_bytes": 5218,
+      "current_mtime_ns": 1790993446948718100,
+      "frozen_sha256": "44ba5e3ae58d18237ec6343fc69a3f4b85f554a434aaefabc2f9f5f6fe786a7d",
+      "frozen_matches_current": true,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_data.py.44ba5e3ae58d1823.snapshot"
+    },
+    "b16_eval.py": {
+      "current_sha256": "d0fea56ff835e291648e8cbf7815333e6c9ce51ee0b9fa66d5f1243c334eaf5f",
+      "current_bytes": 8825,
+      "current_mtime_ns": 1790993666185696100,
+      "frozen_sha256": "a062a4d1e195b2f8798d1008c2d48bb118a311156f19df129810a1e4e5154454",
+      "frozen_matches_current": false,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_eval.py.d0fea56ff835e291.snapshot"
+    },
+    "b16_inference.py": {
+      "current_sha256": "d0fd8caa1fa66be68c4d0cec6cb17c8522d84fea48db99926af67b75c09bac1b",
+      "current_bytes": 4800,
+      "current_mtime_ns": 1790993690837122500,
+      "frozen_sha256": null,
+      "frozen_matches_current": false,
+      "frozen_at_preflight": false,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_inference.py.d0fd8caa1fa66be6.snapshot"
+    },
+    "b16_labels.py": {
+      "current_sha256": "2d081ed94ed788efb15ce74058795d44d0c1b464a584999b82b57fda7bb58c48",
+      "current_bytes": 5545,
+      "current_mtime_ns": 1790993402109584500,
+      "frozen_sha256": "2d081ed94ed788efb15ce74058795d44d0c1b464a584999b82b57fda7bb58c48",
+      "frozen_matches_current": true,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_labels.py.2d081ed94ed788ef.snapshot"
+    },
+    "b16_model.py": {
+      "current_sha256": "575656d6553d2684755386698849b49b1cbbe2016710db399564fe55774bea1a",
+      "current_bytes": 4709,
+      "current_mtime_ns": 1790993390427412600,
+      "frozen_sha256": "575656d6553d2684755386698849b49b1cbbe2016710db399564fe55774bea1a",
+      "frozen_matches_current": true,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_model.py.575656d6553d2684.snapshot"
+    },
+    "b16_package.py": {
+      "current_sha256": "17397201732270226696046a3b74a9e76038e169e61caf2c755e8881b326be9f",
+      "current_bytes": 9990,
+      "current_mtime_ns": 1790993713216323600,
+      "frozen_sha256": "a062a4d1e195b2f8798d1008c2d48bb118a311156f19df129810a1e4e5154454",
+      "frozen_matches_current": false,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_package.py.1739720173227022.snapshot"
+    },
+    "b16_preflight.py": {
+      "current_sha256": "b3fafeb3568978988ff326ea96b79daa2509caf0bf8bc3d5cfb280bb7d68c263",
+      "current_bytes": 5822,
+      "current_mtime_ns": 1790993473329455800,
+      "frozen_sha256": "b3fafeb3568978988ff326ea96b79daa2509caf0bf8bc3d5cfb280bb7d68c263",
+      "frozen_matches_current": true,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_preflight.py.b3fafeb356897898.snapshot"
+    },
+    "b16_self_check.py": {
+      "current_sha256": "6181536a3fb96a718c23838918ffe28b61c7498a603f2d81c422bbea143fcb1d",
+      "current_bytes": 7772,
+      "current_mtime_ns": 1790993727909084200,
+      "frozen_sha256": "a062a4d1e195b2f8798d1008c2d48bb118a311156f19df129810a1e4e5154454",
+      "frozen_matches_current": false,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_self_check.py.6181536a3fb96a71.snapshot"
+    },
+    "b16_split.py": {
+      "current_sha256": "f9b409544a1304e753f6dc8590df993b0c3847d032d55e559f10f65e142cbe0a",
+      "current_bytes": 11602,
+      "current_mtime_ns": 1790993205148857700,
+      "frozen_sha256": "f9b409544a1304e753f6dc8590df993b0c3847d032d55e559f10f65e142cbe0a",
+      "frozen_matches_current": true,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_split.py.f9b409544a1304e7.snapshot"
+    },
+    "b16_train.py": {
+      "current_sha256": "5a0ca4dd05920f4fc7e668fb3685670231a37f93056db3cb83f055ed230abc34",
+      "current_bytes": 16601,
+      "current_mtime_ns": 1790993587112712800,
+      "frozen_sha256": "a062a4d1e195b2f8798d1008c2d48bb118a311156f19df129810a1e4e5154454",
+      "frozen_matches_current": false,
+      "frozen_at_preflight": true,
+      "archived_snapshot": "models\\breakthrough_20261002\\batch16\\provenance\\b16_train.py.5a0ca4dd05920f4f.snapshot"
+    }
+  },
+  "placeholder_sha256": "a062a4d1e195b2f8798d1008c2d48bb118a311156f19df129810a1e4e5154454",
+  "placeholder_is_stub": true
+}

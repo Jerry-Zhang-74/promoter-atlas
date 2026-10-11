@@ -1,0 +1,158 @@
+{
+  "candidate_version": "v6.16.0-sequence.rc1",
+  "batch": "batch20",
+  "written_at_local": "2026-10-03T13:54:25+0800",
+  "supersedes_inputs": "uses rc2-shipped checkpoints UNCHANGED (no new fits in batch20)",
+  "code_sha256": {
+    "b20_cli.py": "5712eb460879df609f5bc2826bacb28fac8c5f616269086411339a2b44b36856",
+    "b20_common.py": "4a5d32555a52bdf1ee44c417e78f5a4356ea9817ed568b22b9a68cc9ec47b1e8",
+    "b20_domain_analysis.py": "131661f02727ebd41d5c29f347547abaf4f262ee437c5b261b7d5803a0254676",
+    "b20_features.py": "319eb8daf238b6a9899df5565d0dea3dca6fc8e648317b5a86aec614804eb69c",
+    "b20_gene.py": "491cbfb03e6645c151d25d52fcc52618a0369a6d28f3055fd4cc1300e0906fef",
+    "b20_gene_model.py": "e7a7cbb9214f6771b174e8d10524567059690d2e7b25d03a0c6d53ee15fab7ea",
+    "b20_metrics.py": "3ac5797e9ad52b607790685f5705aea0076ba5949575177082613074ef42e8ef",
+    "b20_mpra.py": "543a3bf8f17f2d8b3bbb014e8387febfa07ea46334a67fc444aa7a0274c16a51",
+    "b20_report.py": "50c49980ee86a0748ebbd7860a3fcc37fc1614d85b168126b0fb966c6fd637cb",
+    "b20_tests.py": "766a22617ef491420b52bd1d43e2a24c41d625306bdf6b7bb675dba19421976b"
+  },
+  "data_inputs_sha256": {
+    "b16_labels.npz": "41307128bac1123f1c44bea9ae1b91705df128c28f3d737820ed47314fce5e5f",
+    "b16_data.npz": "a92339debcc9508fbfc5a5eebfa70045e633ce8a83e0dd3bf3cc2e94ad088ed7",
+    "b16_scalers.npz": "221dc91e916be89d9e087840eabaedf039b19986cba5e1ad3c7091d6c2fb693b",
+    "mpra_supervised.tsv": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a",
+    "promoter_analysis_set.tsv": "456b0db1973053125c3548dec0d8c298c1e9fba27084baddce8c0b1c98b6b0fa",
+    "gene_expression_label_table.tsv": "34e20a961934c0ecc15a04b13f414b1fad803a4e13260f33134b536b8d7795b2"
+  },
+  "gene_model_weights_sha256": {
+    "E": "9f33f8e65b6f0c26209980b55d347b54c49e72fabc94ee4b84ebd987643cab79",
+    "S": "2e5fff2539645ada2e5e21a2ecdd3ab5d216f258da423548e8d5da873da4d214",
+    "B": "c45af0344717ac1f253853b38adeb6cbbdfea74e97f801f3ed7bba1ad3833aeb"
+  },
+  "gene_model_source": "models/breakthrough_20261002/batch16/model_{E,S,B}.pt (identical to v6.15.1-release.rc2 package)",
+  "mpra_legnet_weights": [
+    {
+      "fold": 0,
+      "seed": 20261008,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold0_seed20261008.pt",
+      "sha256": "33ce0d9c24db17582320c628ce955e11ce5d1ac41095db68825cfc4231df2199"
+    },
+    {
+      "fold": 0,
+      "seed": 20261009,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold0_seed20261009.pt",
+      "sha256": "a4c92ccf379acdc08c0329df284629cc633cdd4803e11dd118f1cbf9f840d8e5"
+    },
+    {
+      "fold": 0,
+      "seed": 20261010,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold0_seed20261010.pt",
+      "sha256": "80d2c952d02d3c2d7e2eebd34169d1aba1703f98b693f34657f31ef74d1b286e"
+    },
+    {
+      "fold": 1,
+      "seed": 20261008,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold1_seed20261008.pt",
+      "sha256": "0bda9041bae75b2b34ceea9166f2df3725f12b7f521d6d71756dfadbedec90d2"
+    },
+    {
+      "fold": 1,
+      "seed": 20261009,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold1_seed20261009.pt",
+      "sha256": "728ceb5e6c15597fa01d02ecee8da667255f72c65d170295a2b037e91fc4e218"
+    },
+    {
+      "fold": 1,
+      "seed": 20261010,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold1_seed20261010.pt",
+      "sha256": "1b7706c73c4d609fc81e78295a54287034a3afe81adbf17df1a4740ba4ac5bde"
+    },
+    {
+      "fold": 2,
+      "seed": 20261008,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold2_seed20261008.pt",
+      "sha256": "c55e5548eb1ec4e57ae58e7fa3b3df2ea90b02475d5324502da754d1bdc7e0d3"
+    },
+    {
+      "fold": 2,
+      "seed": 20261009,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold2_seed20261009.pt",
+      "sha256": "238052417615fb95aec773e05c489348a2286e90cf82823dc286b76b3351a114"
+    },
+    {
+      "fold": 2,
+      "seed": 20261010,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold2_seed20261010.pt",
+      "sha256": "d9e11c636f590e29dd174f179208c555c202b44fcd54a510cffff719c7b36375"
+    },
+    {
+      "fold": 3,
+      "seed": 20261008,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold3_seed20261008.pt",
+      "sha256": "8500f94b33f7094c3cca0aa6d88f0c267cccf19a526d8820293b03ab7283a407"
+    },
+    {
+      "fold": 3,
+      "seed": 20261009,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold3_seed20261009.pt",
+      "sha256": "c93fd47feb4598e6e5c39633647032c3d37e95f2a3fe3c2b9a9cc656fb75e38d"
+    },
+    {
+      "fold": 3,
+      "seed": 20261010,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold3_seed20261010.pt",
+      "sha256": "f1cb12bb00476597afeaccc38ddbfe3a37a36c1bf29d1523a659769432aaecfd"
+    },
+    {
+      "fold": 4,
+      "seed": 20261008,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold4_seed20261008.pt",
+      "sha256": "83d947913654b2199cbfdbf245f42517598dbf7575965bff3bcb0eb792b202c1"
+    },
+    {
+      "fold": 4,
+      "seed": 20261009,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold4_seed20261009.pt",
+      "sha256": "517b8f3b30299bed39d755a38529375290c65aa04ae3e0079161fba3d98e21e1"
+    },
+    {
+      "fold": 4,
+      "seed": 20261010,
+      "path": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch02\\weights_legnet_fold4_seed20261010.pt",
+      "sha256": "c1c20cbe1c37c4555cc192828c4ed16ff596066f955f34f58fb4611536b0094f"
+    }
+  ],
+  "mpra_source_sha256": {
+    "trackB_grouped_cv.py": "7de6cca87b2868911f9e3148fba0f3a0192d5dc386fc376f30cf5b802196b731",
+    "trackB_train_components.tsv": "3b0d12c3e26fd085794ea4d0f786160db393d876e30dfc5842d97c67320557a4",
+    "mpra_supervised.tsv": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a"
+  },
+  "split": {
+    "gene_split_source": "data/breakthrough_20261002/batch16/labels.npz['gene_split'] (corrected-component split)",
+    "gene_test_n": 5851,
+    "gene_val_n": 5609,
+    "mpra_split": "features/mpra/mpra_supervised.tsv['split'] (RANDOM, NOT family-grouped; batch02 grouped CV is the honest reference)"
+  },
+  "metrics_replay_check": {
+    "gene_E_test_spearman": 0.74279,
+    "gene_S_test_spearman": 0.43418,
+    "gene_B_test_spearman": 0.72618,
+    "rc2_expected": {
+      "E": 0.7427954,
+      "S": 0.4341868,
+      "B": 0.7261787
+    }
+  },
+  "scope": {
+    "supported": "164 bp K562 MPRA oligos; human gene-level natural-expression E/S/B for catalog genes and for raw promoter bags that reproduce the 1069-feature formula",
+    "unsupported": "arbitrary/truncated promoter-fragment activity; HEK293T or synthetic constructs; multi-species; temporal interpretation of S",
+    "unified_entry_point": "single CLI dispatches TWO DIFFERENT models (gene CNN arms + MPRA legnet). This is NOT a shared neural network."
+  },
+  "artifacts": {
+    "cli": "runs/breakthrough_20261002/code/batch20/b20_cli.py",
+    "self_check": "reports/breakthrough_20261002/batch20/worker_self_check.json",
+    "metrics": "reports/breakthrough_20261002/batch20/preliminary_metrics.json",
+    "usability_gap": "reports/breakthrough_20261002/batch20/usability_gap.json",
+    "domain_analysis": "reports/breakthrough_20261002/batch20/domain_error_analysis.json"
+  },
+  "manifest_rehashed_at_local": "2026-10-03T13:56:00+0800"
+}

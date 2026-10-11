@@ -1,0 +1,81 @@
+{
+  "module_dir": "runs/breakthrough_20261002/code/batch53_model_core",
+  "files": {
+    "_exec_gate_vendored.py": {
+      "sha256": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571",
+      "bytes": 5581
+    },
+    "checkpoint.py": {
+      "sha256": "735ec50cf8affb3dcecb92fe961a91acc07c7ec35f9caa83c1d41ca3f1f7a7a7",
+      "bytes": 4391
+    },
+    "data_adapter.py": {
+      "sha256": "fd345a74afc852581644abce5f310b56d4a222b81b4b6137846650161dba22fa",
+      "bytes": 12381
+    },
+    "epoch_cap.py": {
+      "sha256": "9db8f4f9043710caa6ca814322675f74e9993451661c6a2227c86aae14a2ffe0",
+      "bytes": 2734
+    },
+    "eval_replay.py": {
+      "sha256": "d58628cdef0e58362a7002b1c59f71570d75db43040e46a42658ef3ac235ef31",
+      "bytes": 13146
+    },
+    "exec_gate.py": {
+      "sha256": "f8d529ea48af073098f6a688d55bcffdc18b26d7de4120b5bd17cae7dbe66957",
+      "bytes": 2199
+    },
+    "gpu_lock.py": {
+      "sha256": "536b8b8103263f2161b7ee502c9ad9942a5ea876dd7487ec4b8aafad0c81addd",
+      "bytes": 3357
+    },
+    "io_utils.py": {
+      "sha256": "2688325d8fa7b412295701ab7a3cbdefe7a4b83f0d038d58ea9d83c68d43c99b",
+      "bytes": 1967
+    },
+    "losses.py": {
+      "sha256": "d32d92cad5a60d3510e06de6cf2c4352aeb79270b9b1ea847e355f5b46e608c4",
+      "bytes": 1825
+    },
+    "metrics.py": {
+      "sha256": "36ee55064d4e52beb395107bf2226829a5886ca7dec6c4b859139a4e0415130b",
+      "bytes": 3753
+    },
+    "model_core.py": {
+      "sha256": "5300a048cf076b28ba9db0b7a76eb28b01b073329b296f681237ed42b9a74a16",
+      "bytes": 7067
+    },
+    "normalizer.py": {
+      "sha256": "34c3f6be9e717bfe66c85a17c486d0b39b5d154a912de574a85da66212c7821d",
+      "bytes": 1292
+    },
+    "pipeline_coordinator.py": {
+      "sha256": "83d93bbcf77a7dab1e8f56a6aaebede67a2257715afaa64c3f19ce64f564f300",
+      "bytes": 8324
+    },
+    "r0_baseline.py": {
+      "sha256": "cee66584433a68e174e16fc6afb22d1c8156f050688b1a7880f7707b50453641",
+      "bytes": 3239
+    },
+    "selfcheck.py": {
+      "sha256": "c8eab3cde1a270b0b93e6d0712a50b275f87b28cbce58172d6ae916377770104",
+      "bytes": 1587
+    },
+    "spec.py": {
+      "sha256": "482d8403c9271b4a445f6e22c4148461da9ee32a9e83d8ba0fb02fe0ad94f3da",
+      "bytes": 4385
+    },
+    "train_neural.py": {
+      "sha256": "36c503da3bef4a1722a90ef086157d883a7e1e09a815c9a30ef73936ec3f243e",
+      "bytes": 13381
+    },
+    "tests/test_nofit.py": {
+      "sha256": "2658b739285cb2d71950c688245a9665f087d7977d106d01bd24baf633e6360b",
+      "bytes": 12752
+    },
+    "tests/test_pipeline.py": {
+      "sha256": "e1b35b66456e913404b372a462707fdef23bff26f62f0bb05ed009da27cb23a7",
+      "bytes": 2971
+    }
+  }
+}

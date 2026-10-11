@@ -1,0 +1,137 @@
+device	cuda
+seed	20260315
+seq_len	200
+arch_feature_count	18
+train_rows	20000
+val_rows	4000
+test_rows	4000
+batch_size	2048
+amp_enabled	True
+epoch	1	train_loss	0.291864	val_mean_mse	0.043338	E_r2	-0.1438	S_r2	-0.1556	B_r2	-0.2930	predEScorr	0.9003	sec	2.50
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	2	train_loss	0.079013	val_mean_mse	0.052004	E_r2	-0.1625	S_r2	-3.8829	B_r2	-0.2281	predEScorr	0.7507	sec	0.72
+epoch	3	train_loss	0.056940	val_mean_mse	0.040328	E_r2	0.0159	S_r2	-1.8875	B_r2	-0.0056	predEScorr	0.8263	sec	0.73
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	4	train_loss	0.046402	val_mean_mse	0.035520	E_r2	0.0373	S_r2	-0.6934	B_r2	0.0827	predEScorr	0.8177	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	5	train_loss	0.043485	val_mean_mse	0.030797	E_r2	0.1746	S_r2	-0.2048	B_r2	0.1540	predEScorr	0.6838	sec	0.78
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	6	train_loss	0.040993	val_mean_mse	0.030364	E_r2	0.1848	S_r2	-0.1706	B_r2	0.1647	predEScorr	0.4187	sec	0.77
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	7	train_loss	0.040167	val_mean_mse	0.029893	E_r2	0.1893	S_r2	-0.0622	B_r2	0.1722	predEScorr	0.4027	sec	0.78
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	8	train_loss	0.039648	val_mean_mse	0.029864	E_r2	0.1862	S_r2	-0.0401	B_r2	0.1738	predEScorr	0.5094	sec	0.91
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	9	train_loss	0.038747	val_mean_mse	0.029641	E_r2	0.1937	S_r2	-0.0366	B_r2	0.1790	predEScorr	0.5692	sec	0.68
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	10	train_loss	0.038525	val_mean_mse	0.029562	E_r2	0.1915	S_r2	-0.0129	B_r2	0.1825	predEScorr	0.5559	sec	0.93
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	11	train_loss	0.037935	val_mean_mse	0.029386	E_r2	0.1969	S_r2	0.0005	B_r2	0.1857	predEScorr	0.5125	sec	0.80
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	12	train_loss	0.037889	val_mean_mse	0.029325	E_r2	0.1996	S_r2	0.0095	B_r2	0.1851	predEScorr	0.4751	sec	0.78
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	13	train_loss	0.037523	val_mean_mse	0.029703	E_r2	0.1919	S_r2	-0.0443	B_r2	0.1784	predEScorr	0.4698	sec	0.80
+epoch	14	train_loss	0.037613	val_mean_mse	0.029187	E_r2	0.2040	S_r2	0.0070	B_r2	0.1895	predEScorr	0.4980	sec	0.79
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	15	train_loss	0.037549	val_mean_mse	0.029855	E_r2	0.1900	S_r2	-0.0898	B_r2	0.1780	predEScorr	0.4366	sec	0.79
+epoch	16	train_loss	0.037212	val_mean_mse	0.029362	E_r2	0.1983	S_r2	0.0076	B_r2	0.1845	predEScorr	0.4820	sec	0.63
+epoch	17	train_loss	0.036946	val_mean_mse	0.029122	E_r2	0.2054	S_r2	0.0218	B_r2	0.1898	predEScorr	0.3775	sec	0.87
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	18	train_loss	0.036791	val_mean_mse	0.029303	E_r2	0.2008	S_r2	0.0018	B_r2	0.1864	predEScorr	0.3995	sec	0.79
+epoch	19	train_loss	0.036635	val_mean_mse	0.029132	E_r2	0.2051	S_r2	0.0185	B_r2	0.1899	predEScorr	0.4833	sec	0.64
+epoch	20	train_loss	0.036413	val_mean_mse	0.028956	E_r2	0.2111	S_r2	0.0260	B_r2	0.1933	predEScorr	0.4411	sec	0.88
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	21	train_loss	0.036419	val_mean_mse	0.029073	E_r2	0.2073	S_r2	0.0245	B_r2	0.1904	predEScorr	0.4554	sec	0.66
+epoch	22	train_loss	0.036373	val_mean_mse	0.029106	E_r2	0.2078	S_r2	0.0276	B_r2	0.1874	predEScorr	0.4100	sec	0.98
+epoch	23	train_loss	0.036161	val_mean_mse	0.028990	E_r2	0.2095	S_r2	0.0195	B_r2	0.1939	predEScorr	0.4205	sec	0.74
+epoch	24	train_loss	0.036182	val_mean_mse	0.028893	E_r2	0.2133	S_r2	0.0212	B_r2	0.1957	predEScorr	0.4222	sec	0.79
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	25	train_loss	0.036119	val_mean_mse	0.029316	E_r2	0.2016	S_r2	0.0081	B_r2	0.1838	predEScorr	0.4335	sec	0.86
+epoch	26	train_loss	0.036146	val_mean_mse	0.028878	E_r2	0.2140	S_r2	0.0209	B_r2	0.1959	predEScorr	0.4465	sec	0.80
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	27	train_loss	0.035998	val_mean_mse	0.029146	E_r2	0.2050	S_r2	0.0252	B_r2	0.1881	predEScorr	0.3923	sec	0.84
+epoch	28	train_loss	0.035753	val_mean_mse	0.029005	E_r2	0.2107	S_r2	0.0206	B_r2	0.1916	predEScorr	0.4022	sec	0.65
+epoch	29	train_loss	0.035792	val_mean_mse	0.028850	E_r2	0.2131	S_r2	0.0333	B_r2	0.1966	predEScorr	0.4134	sec	0.92
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	30	train_loss	0.035564	val_mean_mse	0.029189	E_r2	0.2036	S_r2	0.0162	B_r2	0.1883	predEScorr	0.3929	sec	0.82
+epoch	31	train_loss	0.035533	val_mean_mse	0.029128	E_r2	0.2068	S_r2	0.0044	B_r2	0.1905	predEScorr	0.4315	sec	0.64
+epoch	32	train_loss	0.035563	val_mean_mse	0.028805	E_r2	0.2152	S_r2	0.0321	B_r2	0.1973	predEScorr	0.4033	sec	0.93
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	33	train_loss	0.035429	val_mean_mse	0.028978	E_r2	0.2088	S_r2	0.0304	B_r2	0.1937	predEScorr	0.4639	sec	0.66
+epoch	34	train_loss	0.035450	val_mean_mse	0.029065	E_r2	0.2082	S_r2	0.0220	B_r2	0.1903	predEScorr	0.3924	sec	0.90
+epoch	35	train_loss	0.035289	val_mean_mse	0.028985	E_r2	0.2119	S_r2	0.0100	B_r2	0.1932	predEScorr	0.3666	sec	0.74
+epoch	36	train_loss	0.035285	val_mean_mse	0.028778	E_r2	0.2156	S_r2	0.0333	B_r2	0.1984	predEScorr	0.3419	sec	0.74
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	37	train_loss	0.035455	val_mean_mse	0.029279	E_r2	0.2032	S_r2	0.0024	B_r2	0.1854	predEScorr	0.3860	sec	0.78
+epoch	38	train_loss	0.035130	val_mean_mse	0.028761	E_r2	0.2165	S_r2	0.0337	B_r2	0.1985	predEScorr	0.4482	sec	0.75
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	39	train_loss	0.035198	val_mean_mse	0.028898	E_r2	0.2116	S_r2	0.0323	B_r2	0.1954	predEScorr	0.3461	sec	0.75
+epoch	40	train_loss	0.035078	val_mean_mse	0.028754	E_r2	0.2179	S_r2	0.0339	B_r2	0.1974	predEScorr	0.3926	sec	0.61
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	41	train_loss	0.035183	val_mean_mse	0.028851	E_r2	0.2139	S_r2	0.0314	B_r2	0.1960	predEScorr	0.3903	sec	0.87
+epoch	42	train_loss	0.035059	val_mean_mse	0.028738	E_r2	0.2165	S_r2	0.0348	B_r2	0.1998	predEScorr	0.4092	sec	0.75
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	43	train_loss	0.034964	val_mean_mse	0.028705	E_r2	0.2186	S_r2	0.0313	B_r2	0.2001	predEScorr	0.3608	sec	0.66
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	44	train_loss	0.034976	val_mean_mse	0.029055	E_r2	0.2089	S_r2	0.0171	B_r2	0.1909	predEScorr	0.4651	sec	0.94
+epoch	45	train_loss	0.035084	val_mean_mse	0.028777	E_r2	0.2199	S_r2	-0.0105	B_r2	0.2008	predEScorr	0.4291	sec	0.62
+epoch	46	train_loss	0.034888	val_mean_mse	0.028659	E_r2	0.2197	S_r2	0.0343	B_r2	0.2014	predEScorr	0.3019	sec	0.86
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	47	train_loss	0.034672	val_mean_mse	0.028866	E_r2	0.2146	S_r2	0.0296	B_r2	0.1947	predEScorr	0.3282	sec	0.73
+epoch	48	train_loss	0.034800	val_mean_mse	0.028826	E_r2	0.2172	S_r2	0.0034	B_r2	0.1985	predEScorr	0.3780	sec	0.73
+epoch	49	train_loss	0.034778	val_mean_mse	0.028896	E_r2	0.2127	S_r2	0.0223	B_r2	0.1960	predEScorr	0.3364	sec	0.77
+epoch	50	train_loss	0.034810	val_mean_mse	0.028733	E_r2	0.2206	S_r2	-0.0090	B_r2	0.2026	predEScorr	0.3166	sec	0.80
+epoch	51	train_loss	0.034674	val_mean_mse	0.028700	E_r2	0.2194	S_r2	0.0310	B_r2	0.1997	predEScorr	0.3876	sec	0.80
+epoch	52	train_loss	0.034729	val_mean_mse	0.029081	E_r2	0.2085	S_r2	-0.0000	B_r2	0.1924	predEScorr	0.3444	sec	0.76
+epoch	53	train_loss	0.034705	val_mean_mse	0.029324	E_r2	0.2022	S_r2	-0.0152	B_r2	0.1864	predEScorr	0.3351	sec	0.76
+epoch	54	train_loss	0.034604	val_mean_mse	0.028655	E_r2	0.2213	S_r2	0.0284	B_r2	0.2008	predEScorr	0.5005	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	55	train_loss	0.034453	val_mean_mse	0.028702	E_r2	0.2192	S_r2	0.0277	B_r2	0.2002	predEScorr	0.3927	sec	0.78
+epoch	56	train_loss	0.034354	val_mean_mse	0.029197	E_r2	0.2066	S_r2	-0.0154	B_r2	0.1896	predEScorr	0.3530	sec	0.81
+epoch	57	train_loss	0.034418	val_mean_mse	0.029089	E_r2	0.2106	S_r2	-0.0003	B_r2	0.1898	predEScorr	0.4117	sec	0.81
+epoch	58	train_loss	0.034501	val_mean_mse	0.028707	E_r2	0.2191	S_r2	0.0252	B_r2	0.2005	predEScorr	0.3415	sec	0.77
+epoch	59	train_loss	0.034313	val_mean_mse	0.029126	E_r2	0.2102	S_r2	0.0008	B_r2	0.1878	predEScorr	0.3852	sec	0.76
+epoch	60	train_loss	0.034247	val_mean_mse	0.028909	E_r2	0.2147	S_r2	0.0102	B_r2	0.1950	predEScorr	0.4350	sec	0.76
+epoch	61	train_loss	0.034151	val_mean_mse	0.028737	E_r2	0.2193	S_r2	0.0269	B_r2	0.1981	predEScorr	0.4225	sec	0.75
+epoch	62	train_loss	0.034116	val_mean_mse	0.028775	E_r2	0.2186	S_r2	0.0191	B_r2	0.1977	predEScorr	0.2812	sec	0.74
+epoch	63	train_loss	0.034050	val_mean_mse	0.029151	E_r2	0.2085	S_r2	-0.0155	B_r2	0.1904	predEScorr	0.3867	sec	0.78
+epoch	64	train_loss	0.033981	val_mean_mse	0.028666	E_r2	0.2218	S_r2	0.0102	B_r2	0.2025	predEScorr	0.3960	sec	0.77
+epoch	65	train_loss	0.034228	val_mean_mse	0.028714	E_r2	0.2195	S_r2	0.0247	B_r2	0.1996	predEScorr	0.3986	sec	0.80
+epoch	66	train_loss	0.034103	val_mean_mse	0.028856	E_r2	0.2169	S_r2	0.0125	B_r2	0.1955	predEScorr	0.3705	sec	0.76
+epoch	67	train_loss	0.033836	val_mean_mse	0.028914	E_r2	0.2129	S_r2	0.0186	B_r2	0.1952	predEScorr	0.4753	sec	0.74
+epoch	68	train_loss	0.033912	val_mean_mse	0.028625	E_r2	0.2228	S_r2	0.0217	B_r2	0.2021	predEScorr	0.3183	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	69	train_loss	0.033799	val_mean_mse	0.028816	E_r2	0.2169	S_r2	0.0077	B_r2	0.1987	predEScorr	0.3986	sec	0.81
+epoch	70	train_loss	0.033756	val_mean_mse	0.028724	E_r2	0.2206	S_r2	0.0114	B_r2	0.2000	predEScorr	0.2322	sec	0.79
+epoch	71	train_loss	0.033789	val_mean_mse	0.028665	E_r2	0.2210	S_r2	0.0283	B_r2	0.2006	predEScorr	0.4334	sec	0.79
+epoch	72	train_loss	0.033787	val_mean_mse	0.029210	E_r2	0.2055	S_r2	-0.0067	B_r2	0.1886	predEScorr	0.2897	sec	0.78
+epoch	73	train_loss	0.033951	val_mean_mse	0.029036	E_r2	0.2102	S_r2	0.0114	B_r2	0.1917	predEScorr	0.5217	sec	0.75
+epoch	74	train_loss	0.033845	val_mean_mse	0.028615	E_r2	0.2220	S_r2	0.0248	B_r2	0.2031	predEScorr	0.3399	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v4_arch2_pilot.pt
+epoch	75	train_loss	0.033590	val_mean_mse	0.028775	E_r2	0.2177	S_r2	0.0275	B_r2	0.1973	predEScorr	0.3942	sec	0.75
+epoch	76	train_loss	0.033484	val_mean_mse	0.028810	E_r2	0.2163	S_r2	0.0227	B_r2	0.1974	predEScorr	0.4348	sec	0.79
+epoch	77	train_loss	0.033450	val_mean_mse	0.028817	E_r2	0.2171	S_r2	0.0118	B_r2	0.1978	predEScorr	0.4194	sec	0.80
+epoch	78	train_loss	0.033478	val_mean_mse	0.029106	E_r2	0.2095	S_r2	0.0046	B_r2	0.1890	predEScorr	0.3628	sec	0.75
+epoch	79	train_loss	0.033369	val_mean_mse	0.028618	E_r2	0.2220	S_r2	0.0243	B_r2	0.2030	predEScorr	0.3478	sec	0.75
+epoch	80	train_loss	0.033264	val_mean_mse	0.028719	E_r2	0.2199	S_r2	0.0252	B_r2	0.1988	predEScorr	0.3337	sec	0.77
+epoch	81	train_loss	0.033547	val_mean_mse	0.029432	E_r2	0.2020	S_r2	-0.0561	B_r2	0.1863	predEScorr	0.3940	sec	0.77
+epoch	82	train_loss	0.033668	val_mean_mse	0.030001	E_r2	0.1916	S_r2	-0.1438	B_r2	0.1758	predEScorr	0.1565	sec	0.77
+epoch	83	train_loss	0.033540	val_mean_mse	0.029003	E_r2	0.2125	S_r2	-0.0073	B_r2	0.1942	predEScorr	0.3336	sec	0.78
+epoch	84	train_loss	0.033299	val_mean_mse	0.028943	E_r2	0.2139	S_r2	0.0249	B_r2	0.1914	predEScorr	0.4927	sec	0.76
+epoch	85	train_loss	0.033451	val_mean_mse	0.028678	E_r2	0.2197	S_r2	0.0300	B_r2	0.2008	predEScorr	0.4151	sec	0.73
+epoch	86	train_loss	0.033226	val_mean_mse	0.029035	E_r2	0.2146	S_r2	-0.0212	B_r2	0.1922	predEScorr	0.3463	sec	0.74
+epoch	87	train_loss	0.033139	val_mean_mse	0.028794	E_r2	0.2169	S_r2	0.0135	B_r2	0.1993	predEScorr	0.2269	sec	0.76
+epoch	88	train_loss	0.033323	val_mean_mse	0.028764	E_r2	0.2194	S_r2	0.0100	B_r2	0.1990	predEScorr	0.3015	sec	0.74
+epoch	89	train_loss	0.033037	val_mean_mse	0.028649	E_r2	0.2208	S_r2	0.0298	B_r2	0.2015	predEScorr	0.3882	sec	0.77
+epoch	90	train_loss	0.033177	val_mean_mse	0.028775	E_r2	0.2181	S_r2	0.0209	B_r2	0.1979	predEScorr	0.3360	sec	0.77
+epoch	91	train_loss	0.032906	val_mean_mse	0.029328	E_r2	0.2039	S_r2	-0.0161	B_r2	0.1845	predEScorr	0.5137	sec	0.73
+epoch	92	train_loss	0.032986	val_mean_mse	0.029093	E_r2	0.2094	S_r2	-0.0004	B_r2	0.1908	predEScorr	0.4032	sec	0.74
+epoch	93	train_loss	0.033021	val_mean_mse	0.029221	E_r2	0.2094	S_r2	-0.0394	B_r2	0.1890	predEScorr	0.2117	sec	0.75
+epoch	94	train_loss	0.033032	val_mean_mse	0.028818	E_r2	0.2171	S_r2	0.0088	B_r2	0.1982	predEScorr	0.4413	sec	0.74
+epoch	95	train_loss	0.032985	val_mean_mse	0.028700	E_r2	0.2195	S_r2	0.0306	B_r2	0.1996	predEScorr	0.4864	sec	0.75
+epoch	96	train_loss	0.032964	val_mean_mse	0.028687	E_r2	0.2193	S_r2	0.0181	B_r2	0.2026	predEScorr	0.4825	sec	0.78
+epoch	97	train_loss	0.032960	val_mean_mse	0.029202	E_r2	0.2064	S_r2	-0.0035	B_r2	0.1877	predEScorr	0.5425	sec	0.78
+epoch	98	train_loss	0.032849	val_mean_mse	0.028682	E_r2	0.2187	S_r2	0.0336	B_r2	0.2010	predEScorr	0.4334	sec	0.80
+epoch	99	train_loss	0.032961	val_mean_mse	0.028837	E_r2	0.2160	S_r2	0.0242	B_r2	0.1958	predEScorr	0.3891	sec	0.77
+epoch	100	train_loss	0.032830	val_mean_mse	0.028656	E_r2	0.2208	S_r2	0.0165	B_r2	0.2031	predEScorr	0.2257	sec	0.78
+best_test	E_r2	0.2465	S_r2	-0.0059	B_r2	0.2190	predEScorr	0.3800

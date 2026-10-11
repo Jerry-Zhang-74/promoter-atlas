@@ -1,0 +1,32 @@
+[pass2] stream done N=153562178 elig=8033394 hits=410913 250s
+[pass2] union-find done 254s
+{
+  "pass": "pass2",
+  "source": "GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz",
+  "n_rows_scanned": 153562178,
+  "n_eligible_inserts_genomewide": 8033394,
+  "n_selected": 25000,
+  "n_selected_found_in_pass2": 25000,
+  "group_definition": "connected components of genomic-interval overlap (>=1bp) over ALL eligible inserts (genome-wide), restricted to the components that contain >=1 selected insert",
+  "n_groups_containing_selected": 23086,
+  "n_groups_with_>1_selected_member": 1535,
+  "selected_members_per_group_hist": {
+    "1": 21551,
+    "2": 1328,
+    "3": 137,
+    "4": 40,
+    "5": 8,
+    "6": 12,
+    "7": 3,
+    "8": 1,
+    "9": 2,
+    "13": 2,
+    "14": 1,
+    "23": 1
+  },
+  "max_selected_per_group": 23,
+  "n_edges_selected_vs_any_eligible": 410913,
+  "n_overlap_walk_capped_queries": 0,
+  "elapsed_s": 254.2
+}
+[pass2] DONE 254s

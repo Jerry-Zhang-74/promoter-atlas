@@ -1,0 +1,40 @@
+{
+  "task": "bounded mail/provenance housekeeping authorized in PARENT_ACCEPTANCE (batch31)",
+  "authorized_by": "runs/breakthrough_20261002/batch31/PARENT_ACCEPTANCE.txt (2026-10-03T21:20+08:00) + PROTOCOL.txt DISPATCH line",
+  "performed_by": "batch31 worker (DeepSeek session control_38)",
+  "performed_at": "2026-10-03T21:53:02.663397+08:00",
+  "no_direct_smtp": true,
+  "no_new_watcher": true,
+  "no_test_mail": true,
+  "target": "reports/breakthrough_20261002/batch30/independent_review.json",
+  "byte_backup": "reports/breakthrough_20261002/batch30/independent_review.json.orig_byte_backup_20261003",
+  "backup_sha256": "76896cb3f5dd83293d5c2d7956020cb810dbb4fb67fa68dff4e12c8118532d45",
+  "repaired_file_sha256": "2c689154e118d78de92fbd1fc8313e2aa08c3d58e36de39d10caf7a208c38466",
+  "additive_only": true,
+  "original_scientific_conclusions_unchanged": true,
+  "changes": [
+    "verdict.integrity: long 'PASS. ...' -> exact token 'PASS'; original sentence preserved at verdict.integrity_original_text",
+    "added keys: schema_provenance_correction, actual_llm_reviewer_identity, parent_acceptance_20261003, effective_verdict_note"
+  ],
+  "root_cause_fixed": "watcher classify_review_verdict() had returned blocked=ambiguous_scoped_integrity_verdict on the long integrity string, so the batch30 review_final event had NEVER been emitted (ledger showed only batch30:worker_prelim)",
+  "email_visible_summary": "reports/breakthrough_20261002/stage_email_rc3/batch30_stage_summary.json (3 errata + summary_zh); parent compliance FAIL is explicit, not concealed by overall PASS",
+  "local_verification": {
+    "backup_equals_original_sha": true,
+    "only_verdict_integrity_field_changed": true,
+    "classifier_after": "verdict=PASS kind=top_level_scoped blocked=false",
+    "render_contains_FAIL": true,
+    "render_contains_independence_errata": true,
+    "render_contains_llm_identity": true
+  },
+  "send_mechanism": "existing running watcher PID 28232 (stage_watcher.py --watch --interval 45); worker sent NO mail",
+  "resend_policy": "accepted/attempting/unknown never resend (unchanged; watcher ledger dedup)",
+  "watcher_outcome": {
+    "event_id": "batch30:review_final",
+    "attempted_at": "2026-10-03T21:53:04.417606+08:00",
+    "delivery": "accepted (2026-10-03T21:53:06.423632+08:00)",
+    "evidence_sha": "4ec09efb6aa72da0991ea0960f713766d1e06cfdc56bf42c53bf1896dd2cf374",
+    "note": "the event had NEVER fired before the repair (ledger showed only batch30:worker_prelim); the repair unblocked classify_review_verdict(); the rc3 stage-summary (written 21:52, re-read fresh on every poll) was already on disk at the 21:53:04 poll, so the email-visible body carries the parent compliance FAIL + identity + schema errata",
+    "evidence_sha_caveat": "the rendered evidence body contains clock-dependent fields, so a re-render now yields a different sha; content-level verification (build_review_evidence locally) confirmed the errata are present",
+    "resend_guard": "ledger dedup (accepted) prevents any resend; no further mail will be emitted for batch30"
+  }
+}

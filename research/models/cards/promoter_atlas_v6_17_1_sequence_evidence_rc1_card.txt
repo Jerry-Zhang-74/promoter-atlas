@@ -1,0 +1,51 @@
+promoter_atlas v6.17.1-sequence-evidence.rc1 (batch23) — bounded local sequence/endpoint evidence + public-data readiness
+========================================================================================================================
+Version: v6.17.1-sequence-evidence.rc1   Lineage: next after v6.17.0-hektransfer.rc1 (batch22). Parent decision 2026-10-03 15:42 Asia/Shanghai.
+Kind: BOUNDED EVIDENCE/DATA TASK preceding the next target-domain model comparison. ZERO neural training, ZERO new classical estimator fits.
+Stage 1 — LOCAL SEQUENCE/ENDPOINT RECONCILIATION (complete):
+  Corrects a material batch22 error. batch22 claimed the local constructs have "no DNA sequence in project records".
+  IN FACT reports/cellline_v2_20261001/construct_sequences.tsv + .fasta + construct_sequence_provenance.json existed since
+  2026-10-01 (before batch21 AND batch22 started) with full sequences, sha256, feature ranges/directionality, source hashes.
+  batch21 construct_audit.* and batch04 diagnostic already carried the correct SHAs for all 14 — batch22 contradicted its own predecessor.
+  Two SEPARATE axes retained, never collapsed:
+    sequence availability: 14/14 (sha256 + fasta verified; batch21/batch04 SHAs match 14/14)
+    assay-mapping certainty: 0/14 barcode-verified (mapping_evidence = filename_and_feature_length only)
+  Real lengths: ACTB/GAPDH family {100,200,300,400,500,2000} bp; CMVfull=584; CMVcore=204 (historical 200 retained as historical only).
+  Preserved qualifications: A5 differs from A20 suffix by 1 base at position 165; stored features unstranded.
+  Excluded unless direct evidence: 81 bp untransfected literature construct; unresolved A6.
+  correction.json preserves batch22's original claim as historical, gives the corrected fact, proves source files predate batch22
+  start (mtime+hash) and records how batch22 concluded wrongly (hardcoded CONSTRUCT_LENGTHS correct for only 4/14; inspected batch20
+  demo examples instead of cellline v2 sources). No fabricated sequence or mapping. Old artifacts kept read-only.
+Stage 2 — UNTUNED LOCAL DIAGNOSTIC (complete; NOT a reliability claim):
+  Applied the FIVE SAVED batch22 fold readouts (R1 86-d composition ridge; R2 214-d + frozen 128-d) to each ACTUAL native insert
+  under the EXACT saved batch22 preprocessing (no truncation/padding/restoration/repeated bags/fitting). Frozen encoder on cuda:0
+  (RTX 5060 Laptop GPU, cc [12,0]), batch 32, strict load_state_dict, sha bc35e5585fa7..., 111306 params, eval/no-grad.
+  Support flags per construct: training_length 133 vs actual 100..2000 (0/14 length-supported); cell/assay/endpoint mismatch
+  (HEK293 bulk log2 RNA/input vs HEK293T transient plasmid GFP D28 log10 relGFP); 0/14 barcode-verified; 2000 bp far above domain.
+  Max 20-mer containment vs training = 0 for ALL 14 (graded: k15<=3.5%, k12<=18%, k8 68-99%) -> external-context probe, not overlap artifact.
+  Every output = exploratory_model_score with unsupported_activity_prediction=true (batch22 hek_norm log2 scale); NEVER physical/validated activity.
+  Descriptive (n=14, retrospective/OOD, no calibration, no target-driven selection): R1 pooled rho +0.1253 (fold range -0.064..+0.341);
+  R2 pooled rho -0.0945 (fold range -0.380..+0.319); pairwise sign agreement R1 49/91=0.538, R2 44/91=0.484; within-family ACTB R2 rho 0.257 (n=6),
+  GAPDH -0.086 (n=6); CMV only 2 constructs -> not computed. Fold spread reported but is NOT a confidence interval.
+  Historical comparison included (v6.4 cellline construct-LOO/family-LOO) with explicit different-scope note.
+Stage 3 — PUBLIC DATA ACQUISITION + TRAINING READINESS (complete):
+  Tested the "larger target-domain supervision" hypothesis. Criterion >=1000 usable sequence-activity rows AND >=500 independent groups.
+  RESULT cohort_obtainable_within_bound = FALSE. Verified negative inventory with 4 leads:
+    GSE245191 (HEK293T+K562) processed table is architecture-only: 613762 rows, only 5 distinct control promoters (minP,noP,UBCp,EEF1A1p,Pgk1p);
+      file INCOMPLETE (5.7MB of ~33MB, sha bbadebf5...). GSE217680 (HEK293T/HepG2/K562) 6732 rows / 5 CREs (label is HEK293 not HEK293T).
+      GSE306816 HEK293T transient = STR variant-effect, EXCLUDED. GSE78709 SuRE = K562 only, EXCLUDED.
+  Processed downloads 8.32 MB (cap 750 MB); no bulk raw FASTQ/genome. Reused retrospective reference GSE188639: 673 rows / 669 groups, HEK293.
+  Readiness: data_ready.json + next_batch_proposal.json. Proposal keeps 673 rows/669 groups and the earlier from-scratch gate unchanged;
+  mechanism DIFFERENT from repeated K562 ranking loss: Recipe A matched composition baseline vs Recipe B cell-conditioned twin-head /
+  paired-cell multi-task on genuinely paired K562+HEK293 measurements, evaluated on held-out HEK293 groups only.
+  Budget: <=2 recipes x 2 seeds, <=4 full fits, <=3 GPU hours; fixed group split (fold_assignment.tsv, 5 folds, seed 20261025);
+  all transforms train-only; predeclared metrics + decision rule; per-fold checkpoints. PARENT MUST APPROVE the exact frozen protocol; batch23 has no fit permission.
+Claims/limits: does NOT claim two negative comparisons prove data volume is the binding constraint; does NOT claim cell transfer must fail;
+  the batch22 cross-cell rho ~0.816 is a diagnostic, not prediction performance; sequence availability does NOT establish assay mapping or supported length;
+  no deleted genomic sequence restored; last164 never used as a verified TSS window; original v6.3 TSS +/-200 / upstream-2000 not implied to be replaced by MPRA164.
+Compute: cuda:0 GPU inference only (encode-only, 14 inserts, batch 32), CPU <=4 threads; total GPU << 15 min cap; fits = 0.
+Artifacts: reports/breakthrough_20261002/batch23/{status,construct_reconciliation.{tsv,json},correction,local_diagnostic,public_source_inventory,
+  data_ready,next_batch_proposal,figures_manifest,manifest,selfcheck}.json + report.md, data/breakthrough_20261002/batch23/,
+  figures/batch23/, runs/breakthrough_20261002/code/batch23/.
+Ownership: only new batch23 dirs written; all prior sources/code/reports/models read-only and verified unmodified; worker writes selfcheck.json ONLY,
+  never labels its own result independently reviewed and never creates canonical independent_review.json.

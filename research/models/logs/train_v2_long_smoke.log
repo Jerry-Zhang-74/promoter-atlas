@@ -1,0 +1,9 @@
+name	v2_long_smoke
+seq_len	2000
+features	none
+feat_dim	0
+device	cuda
+params	314627
+train_rows	67337
+epoch 0 | loss 1.1714 | val E r2=0.0678 sp=0.3217 S r2=-0.8565 sp=0.0162 B r2=0.0365 sp=0.2800 | combined 0.2044
+epoch 1 | loss 0.1268 | val E r2=0.1007 sp=0.3407 S r2=-0.6199 sp=0.0249 B r2=0.0569 sp=0.3066 | combined 0.2216

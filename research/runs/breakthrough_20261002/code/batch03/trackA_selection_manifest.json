@@ -1,0 +1,24 @@
+{
+  "written_at": "2026-10-02T22:12:00+08:00 (FROZEN before final retrospective assessment)",
+  "protocol_ref": "trackA_selection_protocol.json",
+  "inner_split": "deterministic 90/10 gene holdout of 46618 train genes, seed 20261011 (inner-train 41956 / inner-val 4662 genes)",
+  "inner_selection_results": {
+    "v6.6.0-scratchgene.rc1_single": {
+      "lr_grid_inner_spearman": {"0.001": 0.6861180836252831, "0.0003": 0.6889887465685048},
+      "selected_lr": 0.0003,
+      "selected_inner_val_spearman": 0.6889887465685048,
+      "best_epoch": 11
+    },
+    "v6.6.0-scratchgene.rc2_bag": {
+      "lr_grid_inner_spearman": {"0.001": 0.7390217133975516, "0.0003": 0.7380028728905071},
+      "selected_lr": 0.001,
+      "selected_inner_val_spearman": 0.7390217133975516,
+      "best_epoch": 11
+    }
+  },
+  "selection_rule": "max inner-val gene E Spearman; per-candidate LR chosen independently from {0.001,0.0003}",
+  "epoch_rule_frozen": "final model = train on FULL original 46618 train genes for 12 epochs (the predeclared max), selected LR per candidate, seed 20261011; final checkpoint (epoch 12) evaluated once on frozen val/test",
+  "epoch_rule_note": "both candidates were still improving at the 12-epoch cap; no post-hoc epoch extension; possible headroom noted for a future batch",
+  "replication": "seeds 20261012/20261013 for both candidates (matched); partial robustness is disclosed, not claimed as 3-seed robustness",
+  "comparison_design": "rc1 single vs rc2 bag share the identical Trunk capacity; difference isolates scalar-mean inference vs embedding mean+max pooling"
+}

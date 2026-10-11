@@ -1,0 +1,54 @@
+{
+  "evaluator": "batch54_indep",
+  "split": "TEST",
+  "A": "runs/breakthrough_20261002/code/batch54_review/quarantine/A_TEST.tsv",
+  "B": "Njoint_TEST.tsv",
+  "n_pairs": 15527,
+  "n_groups": 639,
+  "A_pair": {
+    "group_mean_mae": 0.8397652722054465,
+    "macro_sign_accuracy": 0.5618561784977024,
+    "n_pairs": 15527,
+    "n_groups": 639,
+    "n_true_zero_pairs": 720,
+    "true_zero_rate": 0.04637083789527919,
+    "n_pred_ties": 0,
+    "pred_tie_rate": 0.0,
+    "n_sign_eligible_groups": 638
+  },
+  "B_pair": {
+    "group_mean_mae": 0.8387580534662414,
+    "macro_sign_accuracy": 0.5588384274760984,
+    "n_pairs": 15527,
+    "n_groups": 639,
+    "n_true_zero_pairs": 720,
+    "true_zero_rate": 0.04637083789527919,
+    "n_pred_ties": 0,
+    "pred_tie_rate": 0.0,
+    "n_sign_eligible_groups": 638
+  },
+  "bootstrap": {
+    "ok": true,
+    "n_groups": 639,
+    "n_boot": 2000,
+    "seed": 20261004,
+    "multiplicity_retained": true,
+    "mae_A_minus_B": {
+      "mean": 0.001049334174367605,
+      "lo": -0.003623811594294424,
+      "hi": 0.005345139615017423,
+      "n": 2000
+    },
+    "sign_B_minus_A": {
+      "mean": -0.002988145001062274,
+      "lo": -0.014768564658605137,
+      "hi": 0.009333836867784169,
+      "n": 2000
+    },
+    "improvement_mae_B_over_A": {
+      "mean": 0.001049334174367605,
+      "lo": -0.003623811594294424,
+      "hi": 0.005345139615017423
+    }
+  }
+}

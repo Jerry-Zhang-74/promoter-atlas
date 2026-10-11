@@ -1,0 +1,7 @@
+name	v2_long_smoke
+seq_len	2000
+features	none
+feat_dim	0
+device	cuda
+params	314627
+test_metrics	{"Score_E_r2": 0.11971077623177884, "Score_E_spearman": 0.36157058635578626, "Score_E_n": 44387, "Score_S_r2": -0.6168931603084022, "Score_S_spearman": 0.03747032157072937, "Score_S_n": 29467, "Score_B_r2": 0.07616708619341761, "Score_B_spearman": 0.32949527264538436, "Score_B_n": 44387, "combined_spearman": 0.24011666525341588}

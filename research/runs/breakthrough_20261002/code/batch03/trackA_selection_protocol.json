@@ -1,0 +1,51 @@
+{
+  "written_at": "2026-10-02T22:10:00+08:00 (predeclared BEFORE outcomes)",
+  "task": "Track A: scratch sequence encoder from random init, human original-train genes only, gene-level Score_E",
+  "version_namespace": "v6.6.0-scratchgene",
+  "candidates": [
+    {
+      "id": "v6.6.0-scratchgene.rc1",
+      "internal_id": "single",
+      "description": "small 400bp CNN; gene-balanced single-promoter training (one promoter per gene per epoch, deterministic rotation); gene-mean inference over all promoters",
+      "trunk": "identical Trunk(out_dim=128): conv1(4->64,k7) + conv2(64->64,k5) + conv3(64->128,k5), BatchNorm+ReLU",
+      "readout": "global-mean over position -> Linear(128,1) per promoter; gene score = mean of promoter scalars"
+    },
+    {
+      "id": "v6.6.0-scratchgene.rc2",
+      "internal_id": "bag",
+      "description": "matched-capacity gene-bag CNN; up to 4 promoters/gene with deterministic rotation at train; concat(mean,max) embedding pooling -> Linear(256,1)",
+      "trunk": "identical Trunk(out_dim=128) (same capacity as rc1)",
+      "readout": "per-gene concat(mean,max) over promoter embeddings -> Linear(256,1); inference uses ALL promoters"
+    },
+    {
+      "id": "v6.6.0-scratchgene.rc3",
+      "internal_id": "dual400_2kb",
+      "description": "CONDITIONAL dual 400bp/2kb context; ONLY run if initial train-inner evidence supports broader context",
+      "status": "conditional, likely skipped"
+    }
+  ],
+  "hyperparameters": {
+    "lr_grid": [
+      0.001,
+      0.0003
+    ],
+    "epochs_max": 12,
+    "batch_size": 32,
+    "optimizer": "AdamW weight_decay=1e-4",
+    "loss": "MSE on raw gene Score_E",
+    "one_hot": "ACGT one-hot, N -> zero"
+  },
+  "selection_rule": "max inner-val gene E Spearman (train-inner 90/10 gene holdout, seed 20261011); tie -> larger LR; guardrail: report S/B unchanged (E-only)",
+  "inner_split": "deterministic 90/10 gene holdout of 46618 train genes, seed 20261011",
+  "seeds": {
+    "pilot": 20261011,
+    "replication": [
+      20261012,
+      20261013
+    ],
+    "note": "replication only for promising candidate + matched baseline if time permits; do NOT claim 3-seed robustness if partial"
+  },
+  "baseline": "sequence-feature ridge (mono/dinuc/GC/length on sym400+up2000, gene-mean aggregation) on exact same train genes, train-inner alpha selection",
+  "no_repeat_tuning_note": "original val/test are frozen and evaluated ONLY after selection manifest is saved; final assessment is retrospective",
+  "exposure_tracking": "known-donor-unexposed subsets computed via donor_exposure_sets (2241 test / 2289 val genes exposed)"
+}

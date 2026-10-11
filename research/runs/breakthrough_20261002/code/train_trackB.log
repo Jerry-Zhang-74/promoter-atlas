@@ -1,0 +1,20 @@
+train/val/test: 9442 1180 1181
+ridge alpha 10.0 test sp 0.4501 mae 0.253
+smallcnn seed 20261005 best_ep 16 test sp 0.5769 mae 0.2244
+smallcnn seed 20261006 best_ep 14 test sp 0.5626 mae 0.229
+smallcnn seed 20261007 best_ep 15 test sp 0.572 mae 0.2263
+legnet seed 20261005 best_ep 10 test sp 0.7041 mae 0.1836
+legnet seed 20261006 best_ep 17 test sp 0.744 mae 0.1754
+legnet seed 20261007 best_ep 16 test sp 0.7003 mae 0.1881
+{
+  "strongest_baseline_spearman": 0.5740110849626581,
+  "strongest_baseline_mae": 0.22573409974575043,
+  "legnet_spearman": 0.7424408509609594,
+  "legnet_mae": 0.17469018697738647,
+  "spearman_gain": 0.16842976599830128,
+  "relative_mae_improvement": 0.22612406732459078,
+  "spearman_criterion": true,
+  "mae_criterion": true,
+  "breakthrough_candidate": true
+}
+saved E:\promoter_atlas\reports\breakthrough_20261002\trackB_results.json

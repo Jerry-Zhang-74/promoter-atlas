@@ -1,0 +1,19 @@
+2026-10-03T10:35:59+0800
+=== batch16 recovery trainer launch (5 remaining fits) ===
+device: cuda NVIDIA GeForce RTX 5060 Laptop GPU
+skip (already complete) A_s20261016 E
+skip (already complete) A_s20261016 S
+skip (already complete) A_s20261016 B
+skip (already complete) A_s20261017 E
+skip (already complete) A_s20261017 S
+training A_s20261017 B
+done A_s20261017 B
+training B_s20261016
+done B_s20261016
+training B_s20261017
+done B_s20261017
+training C_s20261016
+done C_s20261016
+training C_s20261017
+done C_s20261017
+{"elapsed_s": 342.65}

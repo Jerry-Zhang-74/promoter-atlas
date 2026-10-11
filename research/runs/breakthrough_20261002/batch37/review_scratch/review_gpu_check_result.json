@@ -1,0 +1,56 @@
+{
+  "parm_version": "0.2.6",
+  "torch": "2.11.0+cu128",
+  "device": "cuda:0",
+  "pid": 52496,
+  "nvidia_smi_start": "NVIDIA GeForce RTX 5060 Laptop GPU, 164 MiB, 8151 MiB, 0 %, 43",
+  "nvidia_smi_after": "NVIDIA GeForce RTX 5060 Laptop GPU, 164 MiB, 8151 MiB, 0 %, 43",
+  "params_on_cuda": true,
+  "param_device": "cuda:0",
+  "input_on_cuda": true,
+  "n_unique_forwards": 4,
+  "n_folds": 5,
+  "elapsed_s": 2.26,
+  "score_compare": [
+    {
+      "seq_id": "0e44257f1d8f9c91b63f",
+      "reviewer_mean": 0.8146994829177856,
+      "cached_mean": 0.8146993876,
+      "absdiff": 9.531778555338377e-08
+    },
+    {
+      "seq_id": "a93387fd19707ab875da",
+      "reviewer_mean": 0.708592164516449,
+      "cached_mean": 0.7085885763,
+      "absdiff": 3.588216448968673e-06
+    },
+    {
+      "seq_id": "bcc5719a89a50350cd9d",
+      "reviewer_mean": 0.6885507702827454,
+      "cached_mean": 0.6885427952,
+      "absdiff": 7.97508274541503e-06
+    },
+    {
+      "seq_id": "dd6c191e79b1ce9b4604",
+      "reviewer_mean": 0.8474275946617127,
+      "cached_mean": 0.8474282503,
+      "absdiff": 6.556382873279532e-07
+    }
+  ],
+  "max_absdiff_vs_cached": 7.97508274541503e-06,
+  "pairs": [
+    {
+      "arm": "SAT",
+      "oid": "maptprom_chr17_45893536_altseq1_T_to_A",
+      "d_reviewer": 0.03272811174392709,
+      "label_logFC": "0.00105022433955942"
+    },
+    {
+      "arm": "KV",
+      "oid": "SNV_chr17_44904682_altseq_C_to_G",
+      "d_reviewer": -0.020041394233703658,
+      "label_logFC": "0.0325162567528742"
+    }
+  ],
+  "nvidia_smi_end": "NVIDIA GeForce RTX 5060 Laptop GPU, 164 MiB, 8151 MiB, 0 %, 43"
+}

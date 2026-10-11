@@ -1,0 +1,166 @@
+{
+  "section": "A",
+  "assembly": {
+    "HEK673": "hg19 (prior source Haberle2019 table6 / FANTOM5 CAGE)",
+    "library": "hg19 (official example_config.yaml GENOME=.../hg19_ch1-22_XYM.fa; pipeline reads genome[chrom][start:end] via pysam -> 0-based half-open)",
+    "comparison_valid": true
+  },
+  "convention": {
+    "HEK673": "0-based half-open [start0,end)=[start1-1,end), strand as stored",
+    "library": "0-based half-open [start,end), strand as stored",
+    "inclusivity": "1bp"
+  },
+  "library_source": {
+    "repo": "vansteensellab/PARM_preprocessing_pipeline",
+    "path": "example_data/promoter_library/chr*.txt.gz",
+    "columns": "chr,start,end,strand,iPCR,pDNA_pHY3_T2,HAP1_B1,HAP1_B2,AGS_B1,AGS_B2 (HAP1/AGS only)"
+  },
+  "full673_checksum": {
+    "n": 673,
+    "missing_flag": 0,
+    "top_decile_k": 68,
+    "rho": {
+      "PARM": 0.6905737298336427,
+      "R1": 0.4566222544370238,
+      "H1": 0.526448729125029
+    },
+    "top_decile": {
+      "PARM": {
+        "precision": 0.4117647058823529
+      },
+      "R1": {
+        "precision": 0.29411764705882354
+      },
+      "H1": {
+        "precision": 0.35294117647058826
+      }
+    }
+  },
+  "frozen_counts": {
+    "OVERLAP_any": 613,
+    "OVERLAP_same_strand": 611,
+    "DISJOINT": 59,
+    "UNKNOWN_chrom_not_distributed": 1,
+    "UNKNOWN_no_coord": 0
+  },
+  "subgroups": {
+    "OVERLAP_any": {
+      "n": 613,
+      "n_groups": 610,
+      "rho": {
+        "PARM": 0.7015182010016732,
+        "R1": 0.46481870056714386,
+        "H1": 0.5428800381256381
+      },
+      "top_decile_k": 62,
+      "top_decile": {
+        "PARM": {
+          "precision": 0.4032258064516129
+        },
+        "R1": {
+          "precision": 0.3064516129032258
+        },
+        "H1": {
+          "precision": 0.3548387096774194
+        }
+      },
+      "bootstrap": {
+        "draws": 2000,
+        "n_groups": 610,
+        "n": 613,
+        "rho_PARM": {
+          "mean": 0.6999086426797505,
+          "lo": 0.6549115837579779,
+          "hi": 0.7409391295171748,
+          "n": 2000
+        },
+        "rho_R1": {
+          "mean": 0.4639307570699544,
+          "lo": 0.3955842618119615,
+          "hi": 0.5334615374565761,
+          "n": 2000
+        },
+        "rho_H1": {
+          "mean": 0.5419117108711764,
+          "lo": 0.47832033706890553,
+          "hi": 0.6037796655651447,
+          "n": 2000
+        },
+        "PARM_minus_R1": {
+          "mean": 0.2359778856097961,
+          "lo": 0.17857369292797554,
+          "hi": 0.29373704612749774,
+          "n": 2000
+        },
+        "PARM_minus_H1": {
+          "mean": 0.15799693180857413,
+          "lo": 0.10856410884417167,
+          "hi": 0.20925942630271252,
+          "n": 2000
+        },
+        "note": "paired group resample with multiplicities (group=669 frozen groups); rows carried with their group"
+      }
+    },
+    "DISJOINT": {
+      "n": 59,
+      "n_groups": 59,
+      "rho": {
+        "PARM": 0.545470485096435,
+        "R1": 0.28550555230859154,
+        "H1": 0.2640561075394507
+      },
+      "top_decile_k": 6,
+      "top_decile": {
+        "PARM": {
+          "precision": 0.5
+        },
+        "R1": {
+          "precision": 0.16666666666666666
+        },
+        "H1": {
+          "precision": 0.3333333333333333
+        }
+      },
+      "bootstrap": {
+        "note": "<100 groups: descriptive only, no bootstrap/CI",
+        "n_groups": 59,
+        "n": 59
+      }
+    },
+    "UNKNOWN_chrom_not_distributed": {
+      "n": 1,
+      "n_groups": 1,
+      "rho": {
+        "PARM": null,
+        "R1": null,
+        "H1": null
+      },
+      "bootstrap": {
+        "note": "<100 groups: descriptive only, no bootstrap/CI",
+        "n_groups": 1,
+        "n": 1
+      }
+    },
+    "SSDISJOINT_within_overlap_any": {
+      "n": 2,
+      "n_groups": 2,
+      "rho": {
+        "PARM": null,
+        "R1": null,
+        "H1": null
+      },
+      "bootstrap": {
+        "note": "<100 groups: descriptive only, no bootstrap/CI",
+        "n_groups": 2,
+        "n": 2
+      }
+    }
+  },
+  "caveats": [
+    "Distributed library is an OFFICIAL SUBSET with HAP1/AGS columns only; HEK293 training membership is UNKNOWN (HAP1/AGS columns do not establish it).",
+    "DISJOINT here = no overlap with the distributed subset on a distributed chromosome; NOT demonstrated disjoint from the full training library, NOT proof of unseen families / no training exposure.",
+    "Gene-level overlap not determinable (library files carry coordinates only, no gene identifiers).",
+    "Residual near-homology / family membership remains UNKNOWN.",
+    "Interval overlap = coordinate overlap, not confirmed oligo/sequence identity (library sequences not distributed)."
+  ]
+}

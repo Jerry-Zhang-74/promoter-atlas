@@ -1,0 +1,6 @@
+name	v2_conv_arch
+features	arch
+feat_dim	16
+device	cuda
+params	209987
+test_metrics	{"Score_E_r2": 0.25216629193283135, "Score_E_spearman": 0.4821751252911637, "Score_E_n": 44387, "Score_S_r2": 0.07280046942964491, "Score_S_spearman": 0.2804135303417584, "Score_S_n": 29467, "Score_B_r2": 0.23308670028608003, "Score_B_spearman": 0.4861503065690927, "Score_B_n": 44387, "combined_spearman": 0.4125523623783541}

@@ -1,0 +1,13 @@
+{
+  "generated_at_local": "2026-10-03T14:40:59+0800",
+  "figures": [
+    "fig1_heldout_scatter.png",
+    "fig2_metrics_topdecile.png",
+    "fig3_constructs.png"
+  ],
+  "data_tables": [
+    "fig1_data.tsv",
+    "fig2_data.tsv",
+    "fig3_data.tsv"
+  ]
+}

@@ -1,0 +1,6 @@
+name	v2_smoke
+arch	dilated_resnet
+device	cuda
+params	491747
+test_metrics	{"Score_E_r2": -3.201992729803896, "Score_E_spearman": 0.32233987599984965, "Score_E_n": 44387, "Score_S_r2": -21.573928848569384, "Score_S_spearman": 0.018267713152089277, "Score_S_n": 29467, "Score_B_r2": -2.672399721651876, "Score_B_spearman": 0.22203835594969504, "Score_B_n": 44387, "combined_spearman": 0.19083923899059485}
+checkpoint	E:\promoter_atlas\models\checkpoints\v2_smoke.pt

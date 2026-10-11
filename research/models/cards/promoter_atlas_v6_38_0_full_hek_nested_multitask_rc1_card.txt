@@ -1,0 +1,19 @@
+model_card: promoter_atlas batch52 v6.38.0-full-hek-nested-multitask.rc1
+created: 2026-10-04T10:35:30.040979+08:00
+task: HEK293 MPRA promoter-fragment activity regression, target = Log2RPM_HEK293 (author units)
+data: GSE301246 v2_MH4 fold0 HEK293; 761655 endpoints
+reference: Ensembl GRCh37 (author hg19 contract) sha256 0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865; PROXY for donor HG02601
+arms: R0 (composition ridge 342 feat, alpha 100); Nabs (random-init CNN, absolute loss); Njoint (same CNN + 0.5 nested-difference loss)
+architecture: one-hot ACGT -> zero-pad 600 + valid mask; Conv1d(4,64,k9,same)+GELU; 3 residual blocks Conv1d(64,64,k5,same) dilations 1/2/4 + GELU + dropout 0.1; masked mean AND masked max + standardized loglength + GC; linear 130->64 GELU dropout 0.1 -> scalar
+optimizer: AdamW lr 0.001 wd 0.0001, grad clip 1.0, seed 20261004, batch 32 (pair microbatch 16), <=6 epochs, DEV-selected best
+selection metric: DEV group-mean pair MAE (earliest epoch on ties)
+shipped checkpoints:
+  Nabs_selected.ckpt  best_epoch=4  dev_pair_mae=0.848702
+  Njoint_selected.ckpt  best_epoch=4  dev_pair_mae=0.845781
+held-out TEST (single frozen evaluation):
+  R0 rho=0.5026 groupMAE=0.8628 top10=0.3955 pairGroupMAE=0.873207815334897 macroSign=0.5287432781224489
+  Nabs rho=0.5749 groupMAE=0.7796 top10=0.5389 pairGroupMAE=0.8397652726197352 macroSign=0.5618561784977024
+  Njoint rho=0.5799 groupMAE=0.7806 top10=0.5522 pairGroupMAE=0.8387580542574246 macroSign=0.5588384274760984
+verdict: LIMITED
+usage: python code/batch52_data_v2/predict_v2.py --checkpoint Nabs_selected.ckpt --seq ACGT... [--seq-file f.txt | --example]
+limits: reference-proxy not donor clone; HEK293 not local 293FT; observational nested pairs; NOT promoted (production pointer unchanged)

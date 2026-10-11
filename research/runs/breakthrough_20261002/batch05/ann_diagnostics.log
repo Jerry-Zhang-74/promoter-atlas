@@ -1,0 +1,18 @@
+{
+  "val": {
+    "delta_spearman": 0.07697552755628134,
+    "delta_r2": 0.1289592166321064,
+    "delta_mae": -0.021416820316584623
+  },
+  "test": {
+    "delta_spearman": 0.0629478211249258,
+    "delta_r2": 0.10930399607483154,
+    "delta_mae": -0.01959605900177261
+  }
+}
+{
+  "variant": "comp44_count",
+  "selected_alpha": 0.1,
+  "inner_val_spearman": 0.7101541397366237
+}
+DONE

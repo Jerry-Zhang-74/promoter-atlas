@@ -1,0 +1,59 @@
+{
+  "batch": "batch31",
+  "version": "v6.21.0-route-benchmark.rc1",
+  "generated_at": "2026-10-03T21:50:06+0800",
+  "external_source": {
+    "repo": "https://github.com/vansteensellab/PARM",
+    "commit": "260a27082942060364c1c4e2393018a0fa128844",
+    "weights": "pre_trained_models/HEK293/HEK293_fold0..4.parm (equal mean of 5 folds)",
+    "weights_git_blob_sha_verified": true,
+    "weights_sha256": "c311c2fb...",
+    "license": "repo LICENSE (academic evaluation); weights/code NOT redistributed",
+    "inference": "official PARM.PARM_predict.PARM_predict (L_max=600, filter_size=125, type_loss=poisson, n_seqs_per_batch=1); middle zero-padding contract",
+    "compat_note": "no source edits; missing deps (einops, biopython) installed into an ISOLATED target dir (pydeps), production venv unchanged"
+  },
+  "inputs": {
+    "hek673_133bp": {
+      "path": "data/breakthrough_20261002/batch31/inputs/hek673_133bp.fasta",
+      "n": 673,
+      "len": 133,
+      "source": "data/breakthrough_20261002/batch22/sequence_table.tsv"
+    },
+    "local_supported": {
+      "path": "data/breakthrough_20261002/batch31/inputs/local_supported.fasta",
+      "n": 12,
+      "source": "data/breakthrough_20261002/batch23/local_constructs.tsv (corrected); endpoints reports/cellline_v2_20261001/construct_endpoints_D28.tsv"
+    },
+    "local_unsupported_2000bp": {
+      "path": "data/breakthrough_20261002/batch31/inputs/local_unsupported_2000bp.fasta",
+      "n": 2,
+      "note": "A20,G20 len=2000 > L_max=600 -> not scored, retained observed-only"
+    }
+  },
+  "sha256": {
+    "data/breakthrough_20261002/batch31/inputs/hek673_133bp.fasta": "701c5b948146e7b0b11b6df8cf61acec3d1546a0a6311166e527082189ab9d3e",
+    "data/breakthrough_20261002/batch31/inputs/local_supported.fasta": "6c599f1ddcea10eaa85392a52d7be03ac8e71559c343761f9c1dfde05cdab40c",
+    "data/breakthrough_20261002/batch31/inputs/local_unsupported_2000bp.fasta": "f3146e2e0581b23ea274985f58adb2d0f1f5453edccf2507541dbd62329fc07b",
+    "data/breakthrough_20261002/batch31/_external/src/HEK293/HEK293_fold0.parm": "c311c2fbc107a561c173c70e702f24389fdc4bd8d925ae42bde8f627400fe602",
+    "data/breakthrough_20261002/batch31/_external/src/HEK293/HEK293_fold1.parm": "4f5a9375282cd9cb628d4edf3cebe823c42776dda6b1664457c8322afe776cd5",
+    "data/breakthrough_20261002/batch31/_external/src/HEK293/HEK293_fold2.parm": "3a11f6f99977d0a1329532a1612320787d2ea3c37d5b68cd36f842ce520efb6d",
+    "data/breakthrough_20261002/batch31/_external/src/HEK293/HEK293_fold3.parm": "e051e4ed0ab0871a5cd722d633165d0784b16c9270291c55808be57cd156520b",
+    "data/breakthrough_20261002/batch31/_external/src/HEK293/HEK293_fold4.parm": "cf8827f62830ceac1e08bb0eaca7f00e73e7afffedaf201a11556edb36c29aaf",
+    "data/breakthrough_20261002/batch31/results/parm_pred_hek673_133bp.tsv": "6102ab42000968aab5ac870bfc10b43134eed11da56b25b87546b0613cf9f0fb",
+    "data/breakthrough_20261002/batch31/results/parm_pred_local_supported.tsv": "154c6d397d7a6cd1d9b7fe5bdccbcc445c6bc5f76fc83df932db182604a297b7"
+  },
+  "qc_correction_20261003": {
+    "proxy_labels": "z=log2(1+(r/N_R)/((1+P)/N_D)); N_R1=37770653 N_R2=74081034 N_D=203742844",
+    "corrected_code": "code/batch31/sure_qc_proxy_v2.py",
+    "corrected_code_sha256": "c34e455a5ad0782dbb5acd9f9c9ea1a254cce81879327e54cb19141d634d165a",
+    "preserved_v1": "reports/breakthrough_20261002/batch31/sure_qc_raw_counts_v1/ (code+output+SHAs+time via preservation_manifest.json)",
+    "local_data_read": "data/breakthrough_20261002/batch29/rows.tsv + data/breakthrough_20261002/batch30/split.tsv (TRAIN chr1-16 only)"
+  },
+  "batch30_provenance_housekeeping_20261003": {
+    "target": "reports/breakthrough_20261002/batch30/independent_review.json",
+    "byte_backup": "reports/breakthrough_20261002/batch30/independent_review.json.orig_byte_backup_20261003",
+    "backup_sha256": "76896cb3f5dd83293d5c2d7956020cb810dbb4fb67fa68dff4e12c8118532d45",
+    "additive_only": true,
+    "record": "reports/breakthrough_20261002/batch31/mail_provenance_housekeeping.json"
+  }
+}

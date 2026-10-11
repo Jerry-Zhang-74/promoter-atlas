@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promoter-atlas"
+version = "6.5.0"
+description = "Dual-window promoter E/S/B prediction and reproducible research archive"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+dependencies = ["torch>=2.6,<3", "numpy>=1.26,<3", "pandas>=2.2,<4", "scipy>=1.12,<2"]
+
+[project.scripts]
+promoter-atlas = "promoter_atlas.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

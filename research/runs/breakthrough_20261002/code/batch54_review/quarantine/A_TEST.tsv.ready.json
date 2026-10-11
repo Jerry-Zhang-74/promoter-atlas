@@ -1,0 +1,12 @@
+{
+  "phase": "batch54_indep_replay",
+  "checkpoint": "data/breakthrough_20261002/batch52/corrected/models/Nabs/Nabs_selected.ckpt",
+  "checkpoint_sha256": "17a6f622c3d684743d75263af958cb71dad6f13f99e57f6fc69d5336e74c130f",
+  "split": "TEST",
+  "n_rows": 117155,
+  "pred_sha256": "79e2792c51574f4d5bf44dafc1f284e660b98044cfe820c7b596898194334ca2",
+  "elapsed_s": 6.716,
+  "device": "cuda:0",
+  "budget_s": 60.0,
+  "evaluator": "batch54"
+}

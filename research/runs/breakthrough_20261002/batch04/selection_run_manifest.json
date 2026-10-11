@@ -1,0 +1,146 @@
+{
+  "annotation_diagnostics": {
+    "alpha_grid": [
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "candidate_version": "v6.6.0-annridge.rc1",
+    "feature_variants": [
+      "log1p(promoter_count)",
+      "44 composition (no count)",
+      "44 composition + log1p(count)"
+    ],
+    "inner_split": "batch03 inner 90/10 gene fold, seed 20261011",
+    "note": "descriptive baseline set, NOT new NN arms, NOT causal"
+  },
+  "arms": {
+    "B1_repeat_bag": {
+      "arm_key": "repeat_bag",
+      "candidate_version": "v6.6.0-scratchgene.rc4",
+      "description": "one anchor promoter per gene per epoch (p0=(epoch+g)%n), repeated in ALL 4 slots; concat(mean,max) pooling -> Linear(256,1)"
+    },
+    "B2_diverse_bag": {
+      "arm_key": "diverse_bag",
+      "candidate_version": "v6.6.0-scratchgene.rc5",
+      "description": "first anchor matches B1 (p0=(epoch+g)%n); slots=(p0+k)%n for k=0..3 (deterministic cycling when n<4); same pooling/head"
+    }
+  },
+  "code_fix": {
+    "at": "2026-10-03T00:05:00+08:00",
+    "candidate_versions_unchanged": [
+      "v6.6.0-scratchgene.rc4",
+      "v6.6.0-scratchgene.rc5"
+    ],
+    "reason": "deterministic pooling bugfix BEFORE any new val/test evaluation: the batch03 GeneBagModel used CUDA-atomic index_add_/scatter_reduce_ for mean/max pooling, which is non-bitwise-reproducible across runs. pool_meanmax_4slot() implements the mathematically identical concat(mean,max) over the fixed 4 slots via reshape+reduction (no atomics), restoring bitwise reproducibility (resume_check: weights_sha_match=true, max_weight_absdiff=0.0).",
+    "scientific_design_unchanged": true,
+    "selection_unchanged": true,
+    "superseded_outputs_retained": "models/breakthrough_20261002/batch04/_superseded_nondeterministic_pooling/"
+  },
+  "code_hashes": {
+    "ann_diagnostics.py": "c180b4d2a8e1c1ed44fe6dfe91fb4b64d93d498fe73545bf6b66b43383f6f2eb",
+    "b4_common.py": "17ae59b9eb65413c6e23a4508209cef8de51cde850da27fe8867bcdf50637f91",
+    "b4_model.py": "9da226478f47661bc9c4295e271142ef0057a5a95cc45fc6b3fc087774cae170",
+    "eval_bag_v2.py": "d8662e1afc1803bc6ba97732a43e4585ff5f1d020c12ee1afd429fb111cebb6e",
+    "train_bag_v2.py": "ddb7ddffe7f2da2e4c06739c1b0a1729601086d821cdf822cc84ff5c71b4e842"
+  },
+  "hyperparameters": {
+    "bag_anchor": "p0=(epoch+g)%n identical for both arms",
+    "batch_size": 32,
+    "epoch_rule": "final.pt = epoch 12 (predeclared max); no post-hoc epoch choice; no LR grid",
+    "epochs": 12,
+    "loss": "MSE on raw gene Score_E",
+    "lr": 0.001,
+    "n_lt4_policy": "deterministic cycling fills 4 slots; repeated promoters carry extra sampling weight in mean (reported)",
+    "n_slots": 4,
+    "one_hot": "ACGT one-hot, N -> zero",
+    "optimizer": "AdamW weight_decay=1e-4",
+    "seeds": [
+      20261011,
+      20261012,
+      20261013
+    ]
+  },
+  "inference_policy": {
+    "descriptive": "all-promoter mean+max (batch03 rc2 style; train/inference mismatch for B1 by design)",
+    "frozen_before_eval": true,
+    "primary": "matched 4-slot, fixed epoch=0 rotation, mean+max pooling, SAME policy both arms"
+  },
+  "limits": {
+    "batch_max": 32,
+    "cpu_threads": 4,
+    "max_epochs_per_run": 12,
+    "max_gpu_walltime_min": 90,
+    "n_final_runs": 6,
+    "resume_check_min": 5
+  },
+  "manifest_sha256": "24bb569d38fd10d408354cf3b14cdb39a96cfe0de70fb32253e0edfd5385ec4f",
+  "protocol_ref": "runs/breakthrough_20261002/batch04/PROTOCOL.txt (APPROVED v1)",
+  "question": "gene-promoter diversity under matched input/head/update count (bounded controlled contrast, NOT a broad search to raise heldout scores)",
+  "run_ids": [
+    {
+      "arm": "repeat_bag",
+      "attempt_dir": "repeat_bag_s20261011",
+      "seed": 20261011
+    },
+    {
+      "arm": "repeat_bag",
+      "attempt_dir": "repeat_bag_s20261012",
+      "seed": 20261012
+    },
+    {
+      "arm": "repeat_bag",
+      "attempt_dir": "repeat_bag_s20261013",
+      "seed": 20261013
+    },
+    {
+      "arm": "diverse_bag",
+      "attempt_dir": "diverse_bag_s20261011",
+      "seed": 20261011
+    },
+    {
+      "arm": "diverse_bag",
+      "attempt_dir": "diverse_bag_s20261012",
+      "seed": 20261012
+    },
+    {
+      "arm": "diverse_bag",
+      "attempt_dir": "diverse_bag_s20261013",
+      "seed": 20261013
+    }
+  ],
+  "source_hashes": {
+    "batch03_common_source": "1266f3be61ae0e19c51162d6863b677310588d7daf81169caef4a0e917bab09a",
+    "batch03_model_source": "1e5e61cec98fcafd350b1e47bb8c0bbfc4d0ea95058cedfd34ea844497883f1b",
+    "batch03_train_source": "f2b3cbd27c59bccff816dfdd72008a7084482b48375e80a61ee78522ddb0382e",
+    "data_genes": "446f703adb05e597edfe2ea8a905713337fd82e685d520e49639189315ebe45a",
+    "data_npz": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072",
+    "data_prep_meta": "403661ee8d340ba1a8c4e655154f17e54fa2f87e8d94afee375b805058751d3f",
+    "data_promoters": "e1c814632ea91c5855f713f901cc6b7baf96324287de62308ec69c6d653abda5"
+  },
+  "strata_thresholds": {
+    "count_strata": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        1000000000
+      ]
+    ],
+    "derived_from": "TRAIN only (count distribution + GC tertiles)",
+    "gc_edges": [
+      0.4525,
+      0.57
+    ]
+  },
+  "written_at": "2026-10-02T23:47:00+08:00 (original FROZEN before any new val/test evaluation)"
+}

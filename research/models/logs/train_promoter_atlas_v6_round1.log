@@ -1,0 +1,86 @@
+name	promoter_atlas_v6_round1
+arch	promoter_atlas_v6_multiomics
+params	4754932
+n_tf	400
+n_omics	8
+rows	1621905
+epoch 0 step 0 loss 4.7745 esb=1.379 omics=1.142 tf=0.717 species=2.816 mask=2.208
+epoch 0 step 500 loss 2.4874 esb=0.615 omics=0.487 tf=0.575 species=0.036 mask=1.278
+epoch 0 step 1000 loss 2.1623 esb=0.497 omics=0.432 tf=0.508 species=0.004 mask=1.281
+epoch 0 step 1500 loss 2.0062 esb=0.621 omics=0.483 tf=0.474 species=0.001 mask=1.284
+epoch 0 step 2000 loss 1.9179 esb=0.515 omics=0.509 tf=0.583 species=0.001 mask=1.264
+epoch 0 step 2500 loss 1.8608 esb=0.568 omics=0.476 tf=0.528 species=0.001 mask=1.268
+epoch 0 step 3000 loss 1.8209 esb=0.461 omics=0.353 tf=0.521 species=0.000 mask=1.270
+epoch 0 step 3500 loss 1.7909 esb=0.512 omics=0.406 tf=0.453 species=0.002 mask=1.270
+epoch 0 step 4000 loss 1.7663 esb=0.335 omics=0.355 tf=0.485 species=0.000 mask=1.266
+epoch 0 | loss 1.7509 | val E r2=0.2489 S r2=0.1025 B r2=0.2191 | gene sp E=0.5964 S=0.3891 B=0.5879 | comb 0.5217 | species_acc 1.0000
+epoch 1 step 0 loss 1.5358 esb=0.467 omics=0.339 tf=0.440 species=0.000 mask=1.258
+epoch 1 step 500 loss 1.5611 esb=0.484 omics=0.433 tf=0.424 species=0.000 mask=1.256
+epoch 1 step 1000 loss 1.5541 esb=0.381 omics=0.442 tf=0.450 species=0.000 mask=1.270
+epoch 1 step 1500 loss 1.5481 esb=0.433 omics=0.337 tf=0.499 species=0.001 mask=1.248
+epoch 1 step 2000 loss 1.5378 esb=0.322 omics=0.342 tf=0.430 species=0.000 mask=1.257
+epoch 1 step 2500 loss 1.5279 esb=0.401 omics=0.408 tf=0.485 species=0.000 mask=1.278
+epoch 1 step 3000 loss 1.5179 esb=0.348 omics=0.334 tf=0.425 species=0.000 mask=1.261
+epoch 1 step 3500 loss 1.5078 esb=0.346 omics=0.403 tf=0.451 species=0.000 mask=1.267
+epoch 1 step 4000 loss 1.4982 esb=0.322 omics=0.348 tf=0.471 species=0.000 mask=1.262
+epoch 1 | loss 1.4914 | val E r2=0.2614 S r2=0.0278 B r2=0.2488 | gene sp E=0.6028 S=0.3329 B=0.6052 | comb 0.5089 | species_acc 1.0000
+epoch 2 step 0 loss 1.5114 esb=0.358 omics=0.449 tf=0.443 species=0.000 mask=1.251
+epoch 2 step 500 loss 1.3894 esb=0.203 omics=0.331 tf=0.398 species=0.000 mask=1.278
+epoch 2 step 1000 loss 1.3813 esb=0.376 omics=0.371 tf=0.439 species=0.000 mask=1.255
+epoch 2 step 1500 loss 1.3746 esb=0.319 omics=0.385 tf=0.468 species=0.000 mask=1.265
+epoch 2 step 2000 loss 1.3699 esb=0.284 omics=0.357 tf=0.347 species=0.000 mask=1.256
+epoch 2 step 2500 loss 1.3639 esb=0.228 omics=0.312 tf=0.397 species=0.000 mask=1.241
+epoch 2 step 3000 loss 1.3585 esb=0.385 omics=0.283 tf=0.445 species=0.000 mask=1.263
+epoch 2 step 3500 loss 1.3532 esb=0.209 omics=0.354 tf=0.454 species=0.000 mask=1.257
+epoch 2 step 4000 loss 1.3475 esb=0.228 omics=0.335 tf=0.449 species=0.000 mask=1.252
+epoch 2 | loss 1.3437 | val E r2=0.2774 S r2=0.0244 B r2=0.2479 | gene sp E=0.6315 S=0.3111 B=0.6397 | comb 0.5214 | species_acc 1.0000
+epoch 3 step 0 loss 1.3298 esb=0.273 omics=0.336 tf=0.429 species=0.000 mask=1.270
+epoch 3 step 500 loss 1.2686 esb=0.240 omics=0.391 tf=0.414 species=0.000 mask=1.263
+epoch 3 step 1000 loss 1.2666 esb=0.226 omics=0.289 tf=0.429 species=0.000 mask=1.258
+epoch 3 step 1500 loss 1.2653 esb=0.216 omics=0.301 tf=0.388 species=0.000 mask=1.261
+epoch 3 step 2000 loss 1.2625 esb=0.252 omics=0.371 tf=0.397 species=0.000 mask=1.263
+epoch 3 step 2500 loss 1.2593 esb=0.259 omics=0.378 tf=0.400 species=0.000 mask=1.257
+epoch 3 step 3000 loss 1.2571 esb=0.213 omics=0.312 tf=0.390 species=0.000 mask=1.243
+epoch 3 step 3500 loss 1.2541 esb=0.213 omics=0.323 tf=0.400 species=0.000 mask=1.256
+epoch 3 step 4000 loss 1.2506 esb=0.136 omics=0.351 tf=0.446 species=0.000 mask=1.255
+epoch 3 | loss 1.2485 | val E r2=0.3063 S r2=-0.0358 B r2=0.2798 | gene sp E=0.6107 S=0.2628 B=0.6156 | comb 0.4901 | species_acc 1.0000
+epoch 4 step 0 loss 1.2498 esb=0.196 omics=0.327 tf=0.428 species=0.000 mask=1.260
+epoch 4 step 500 loss 1.1918 esb=0.116 omics=0.290 tf=0.401 species=0.000 mask=1.258
+epoch 4 step 1000 loss 1.1901 esb=0.120 omics=0.311 tf=0.396 species=0.000 mask=1.235
+epoch 4 step 1500 loss 1.1895 esb=0.181 omics=0.230 tf=0.404 species=0.000 mask=1.259
+epoch 4 step 2000 loss 1.1878 esb=0.151 omics=0.297 tf=0.368 species=0.000 mask=1.234
+epoch 4 step 2500 loss 1.1862 esb=0.199 omics=0.300 tf=0.413 species=0.000 mask=1.249
+epoch 4 step 3000 loss 1.1840 esb=0.138 omics=0.255 tf=0.378 species=0.000 mask=1.248
+epoch 4 step 3500 loss 1.1820 esb=0.120 omics=0.309 tf=0.426 species=0.000 mask=1.262
+epoch 4 step 4000 loss 1.1802 esb=0.068 omics=0.269 tf=0.364 species=0.000 mask=1.263
+epoch 4 | loss 1.1790 | val E r2=0.2829 S r2=-0.0465 B r2=0.2618 | gene sp E=0.5841 S=0.2764 B=0.5801 | comb 0.4754 | species_acc 1.0000
+epoch 5 step 0 loss 1.1119 esb=0.084 omics=0.313 tf=0.381 species=0.000 mask=1.250
+epoch 5 step 500 loss 1.1264 esb=0.102 omics=0.233 tf=0.376 species=0.000 mask=1.257
+epoch 5 step 1000 loss 1.1251 esb=0.158 omics=0.310 tf=0.393 species=0.000 mask=1.238
+epoch 5 step 1500 loss 1.1244 esb=0.077 omics=0.324 tf=0.421 species=0.000 mask=1.245
+epoch 5 step 2000 loss 1.1229 esb=0.110 omics=0.277 tf=0.395 species=0.000 mask=1.257
+epoch 5 step 2500 loss 1.1213 esb=0.108 omics=0.314 tf=0.346 species=0.000 mask=1.245
+epoch 5 step 3000 loss 1.1199 esb=0.136 omics=0.211 tf=0.341 species=0.000 mask=1.250
+epoch 5 step 3500 loss 1.1187 esb=0.072 omics=0.294 tf=0.366 species=0.000 mask=1.256
+epoch 5 step 4000 loss 1.1171 esb=0.085 omics=0.280 tf=0.377 species=0.000 mask=1.246
+epoch 5 | loss 1.1160 | val E r2=0.2640 S r2=-0.0579 B r2=0.2500 | gene sp E=0.6030 S=0.2730 B=0.6046 | comb 0.4879 | species_acc 1.0000
+epoch 6 step 0 loss 1.0731 esb=0.072 omics=0.272 tf=0.351 species=0.000 mask=1.244
+epoch 6 step 500 loss 1.0747 esb=0.073 omics=0.321 tf=0.388 species=0.000 mask=1.249
+epoch 6 step 1000 loss 1.0738 esb=0.062 omics=0.239 tf=0.362 species=0.000 mask=1.227
+epoch 6 step 1500 loss 1.0742 esb=0.082 omics=0.322 tf=0.444 species=0.000 mask=1.240
+epoch 6 step 2000 loss 1.0736 esb=0.119 omics=0.207 tf=0.395 species=0.000 mask=1.255
+epoch 6 step 2500 loss 1.0725 esb=0.087 omics=0.279 tf=0.357 species=0.000 mask=1.250
+epoch 6 step 3000 loss 1.0716 esb=0.063 omics=0.275 tf=0.412 species=0.000 mask=1.242
+epoch 6 step 3500 loss 1.0708 esb=0.083 omics=0.239 tf=0.346 species=0.000 mask=1.256
+epoch 6 step 4000 loss 1.0701 esb=0.049 omics=0.180 tf=0.363 species=0.000 mask=1.252
+epoch 6 | loss 1.0692 | val E r2=0.2751 S r2=-0.0815 B r2=0.2552 | gene sp E=0.6042 S=0.2683 B=0.6052 | comb 0.4869 | species_acc 1.0000
+epoch 7 step 0 loss 1.0426 esb=0.060 omics=0.218 tf=0.377 species=0.000 mask=1.249
+epoch 7 step 500 loss 1.0473 esb=0.060 omics=0.292 tf=0.388 species=0.000 mask=1.248
+epoch 7 step 1000 loss 1.0480 esb=0.054 omics=0.242 tf=0.386 species=0.000 mask=1.254
+epoch 7 step 1500 loss 1.0470 esb=0.046 omics=0.249 tf=0.335 species=0.000 mask=1.251
+epoch 7 step 2000 loss 1.0468 esb=0.062 omics=0.297 tf=0.377 species=0.000 mask=1.259
+epoch 7 step 2500 loss 1.0469 esb=0.037 omics=0.273 tf=0.357 species=0.000 mask=1.237
+epoch 7 step 3000 loss 1.0471 esb=0.031 omics=0.247 tf=0.376 species=0.000 mask=1.246
+epoch 7 step 3500 loss 1.0472 esb=0.037 omics=0.203 tf=0.419 species=0.000 mask=1.249
+epoch 7 step 4000 loss 1.0473 esb=0.045 omics=0.258 tf=0.355 species=0.000 mask=1.253
+epoch 7 | loss 1.0469 | val E r2=0.2736 S r2=-0.0865 B r2=0.2533 | gene sp E=0.6115 S=0.2654 B=0.6103 | comb 0.4901 | species_acc 1.0000

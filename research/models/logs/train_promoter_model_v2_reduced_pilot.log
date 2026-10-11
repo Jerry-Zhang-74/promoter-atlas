@@ -1,0 +1,43 @@
+device	cuda
+seed	20260315
+seq_len	200
+motif_feature_count	64
+train_rows	20000
+val_rows	4000
+test_rows	4000
+batch_size	2048
+amp_enabled	True
+epoch	1	train_loss	0.331794	val_mean_mse	0.042544	E_r2	-0.1060	S_r2	-1.3599	B_r2	-0.0965	predEScorr	0.9410	sec	2.36
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	2	train_loss	0.076159	val_mean_mse	0.051692	E_r2	-0.1715	S_r2	-4.2735	B_r2	-0.1386	predEScorr	0.9714	sec	0.76
+epoch	3	train_loss	0.056571	val_mean_mse	0.042050	E_r2	-0.0447	S_r2	-2.1842	B_r2	-0.0021	predEScorr	0.9121	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	4	train_loss	0.045181	val_mean_mse	0.035629	E_r2	0.0509	S_r2	-0.3911	B_r2	0.0148	predEScorr	0.8277	sec	0.77
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	5	train_loss	0.042604	val_mean_mse	0.031569	E_r2	0.1408	S_r2	-0.1027	B_r2	0.1260	predEScorr	0.6977	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	6	train_loss	0.040862	val_mean_mse	0.031414	E_r2	0.1478	S_r2	-0.1194	B_r2	0.1308	predEScorr	0.5780	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	7	train_loss	0.040136	val_mean_mse	0.031233	E_r2	0.1492	S_r2	-0.0616	B_r2	0.1315	predEScorr	0.4580	sec	0.75
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	8	train_loss	0.039687	val_mean_mse	0.031138	E_r2	0.1547	S_r2	-0.0627	B_r2	0.1317	predEScorr	0.4108	sec	0.79
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	9	train_loss	0.039417	val_mean_mse	0.031235	E_r2	0.1488	S_r2	-0.0488	B_r2	0.1299	predEScorr	0.4111	sec	0.76
+epoch	10	train_loss	0.038626	val_mean_mse	0.031008	E_r2	0.1576	S_r2	-0.0606	B_r2	0.1364	predEScorr	0.4112	sec	0.77
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	11	train_loss	0.038497	val_mean_mse	0.030945	E_r2	0.1563	S_r2	-0.0417	B_r2	0.1387	predEScorr	0.3219	sec	0.77
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	12	train_loss	0.038207	val_mean_mse	0.030728	E_r2	0.1642	S_r2	-0.0392	B_r2	0.1434	predEScorr	0.3734	sec	0.79
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	13	train_loss	0.037990	val_mean_mse	0.030718	E_r2	0.1637	S_r2	-0.0415	B_r2	0.1448	predEScorr	0.3834	sec	0.77
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	14	train_loss	0.037625	val_mean_mse	0.031003	E_r2	0.1578	S_r2	-0.0477	B_r2	0.1345	predEScorr	0.3873	sec	0.89
+epoch	15	train_loss	0.037450	val_mean_mse	0.030767	E_r2	0.1654	S_r2	-0.0791	B_r2	0.1459	predEScorr	0.4026	sec	0.64
+epoch	16	train_loss	0.037522	val_mean_mse	0.030624	E_r2	0.1663	S_r2	-0.0366	B_r2	0.1473	predEScorr	0.4384	sec	0.87
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	17	train_loss	0.037285	val_mean_mse	0.030526	E_r2	0.1703	S_r2	-0.0461	B_r2	0.1505	predEScorr	0.4832	sec	0.76
+checkpoint_saved	models/checkpoints/promoter_model_v2_reduced_pilot.pt
+epoch	18	train_loss	0.037007	val_mean_mse	0.030621	E_r2	0.1660	S_r2	-0.0359	B_r2	0.1476	predEScorr	0.4055	sec	0.75
+epoch	19	train_loss	0.036561	val_mean_mse	0.030591	E_r2	0.1678	S_r2	-0.0429	B_r2	0.1486	predEScorr	0.3830	sec	0.75
+epoch	20	train_loss	0.036950	val_mean_mse	0.030561	E_r2	0.1688	S_r2	-0.0377	B_r2	0.1487	predEScorr	0.4026	sec	0.77
+best_test	E_r2	0.2025	S_r2	-0.0182	B_r2	0.1828	predEScorr	0.4981

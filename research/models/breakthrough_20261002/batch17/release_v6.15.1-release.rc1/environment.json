@@ -1,0 +1,9 @@
+{
+  "candidate_version": "v6.15.1-release.rc1",
+  "generated_at_local": "2026-10-03T11:16:07+0800",
+  "python": "3.12.6",
+  "numpy": "2.5.3",
+  "torch": "2.11.0+cu128",
+  "cuda_available_at_package_time": true,
+  "device_note": "inference runs on CPU; no GPU required"
+}

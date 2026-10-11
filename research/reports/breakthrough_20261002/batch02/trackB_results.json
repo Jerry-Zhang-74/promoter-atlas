@@ -1,0 +1,229 @@
+{
+  "batch": 32,
+  "criterion": {
+    "legnet_mae": 0.16872098269123204,
+    "legnet_spearman": 0.7957707162669799,
+    "mae_criterion": false,
+    "multi_member_legnet_mae": 0.14791006346721874,
+    "multi_member_legnet_spearman": 0.745302563528767,
+    "multi_member_smallcnn_mae": 0.1532833287845911,
+    "multi_member_smallcnn_spearman": 0.7279425121983107,
+    "positive_mae_folds": 4,
+    "relative_mae_improvement": 0.03813454691289653,
+    "spearman_criterion": false,
+    "spearman_gain": 0.012921460070951296,
+    "strongest_baseline_mae": 0.17541017005000303,
+    "strongest_baseline_spearman": 0.7828492561960286
+  },
+  "epochs": 20,
+  "fold_assignment": {
+    "algorithm": "randomize whole components (rng seed 20261008) then balanced greedy assignment to smallest fold (tie->smallest index); multi-member components spread",
+    "fold_row_counts": [
+      1889,
+      1889,
+      1888,
+      1888,
+      1888
+    ],
+    "multi_component_rows_per_fold": [
+      591,
+      254,
+      304,
+      211,
+      730
+    ],
+    "multi_components_per_fold": [
+      44,
+      43,
+      42,
+      50,
+      26
+    ],
+    "n_components": 7557,
+    "n_sequences": 9442,
+    "seed": 20261008
+  },
+  "group_bootstrap_paired_gain": {
+    "mae_reduction_mean": 0.006679255276609127,
+    "mae_reduction_pct_positive": 1.0,
+    "n_components": 7557,
+    "n_resamples": 2000,
+    "spearman_gain_ci_high": 0.02390844997189917,
+    "spearman_gain_ci_low": 0.003255694428119632,
+    "spearman_gain_mean": 0.012976518639798004,
+    "spearman_gain_pct_positive": 1.0
+  },
+  "hamming_audit": {
+    "cross_fold_pairs_ham_le16": 49580,
+    "cross_fold_pairs_ham_le8": 0
+  },
+  "lr": 0.0003,
+  "overall": {
+    "legnet": {
+      "multi_member": {
+        "mae": 0.14791006346721874,
+        "mse": 0.04600314435018651,
+        "n": 2090,
+        "r2": 0.47918485286373647,
+        "spearman": 0.745302563528767
+      },
+      "overall": {
+        "mae": 0.16872098269123204,
+        "mse": 0.05793114401048472,
+        "n": 9442,
+        "r2": 0.6095944547672127,
+        "spearman": 0.7957707162669799
+      },
+      "singleton": {
+        "mae": 0.17463703562624125,
+        "mse": 0.06132199266255535,
+        "n": 7352,
+        "r2": 0.5971396039257845,
+        "spearman": 0.7823410197608626
+      }
+    },
+    "ridge": {
+      "multi_member": {
+        "mae": 0.20697048981117006,
+        "mse": 0.07327514111743114,
+        "n": 2090,
+        "r2": 0.17043054466013585,
+        "spearman": 0.4997730822135147
+      },
+      "overall": {
+        "mae": 0.24171998100472983,
+        "mse": 0.09642924039487893,
+        "n": 9442,
+        "r2": 0.35015075542211405,
+        "spearman": 0.6076919444835838
+      },
+      "singleton": {
+        "mae": 0.25159844082444416,
+        "mse": 0.10301140409045371,
+        "n": 7352,
+        "r2": 0.3232572320275944,
+        "spearman": 0.5803473453300589
+      }
+    },
+    "smallcnn": {
+      "multi_member": {
+        "mae": 0.1532833287845911,
+        "mse": 0.04940847972882201,
+        "n": 2090,
+        "r2": 0.4406320480212741,
+        "spearman": 0.7279425121983107
+      },
+      "overall": {
+        "mae": 0.17541017005000303,
+        "mse": 0.06063461754061826,
+        "n": 9442,
+        "r2": 0.5913753935768595,
+        "spearman": 0.7828492561960286
+      },
+      "singleton": {
+        "mae": 0.18170030854901162,
+        "mse": 0.0638259434419586,
+        "n": 7352,
+        "r2": 0.5806896720344372,
+        "spearman": 0.7707938917398923
+      }
+    }
+  },
+  "per_fold": {
+    "0": {
+      "legnet": {
+        "mae": 0.1606315568213604,
+        "spearman": 0.8138815253532931
+      },
+      "n": 1889,
+      "ridge": {
+        "mae": 0.22577921903324635,
+        "spearman": 0.6773149577955173
+      },
+      "smallcnn": {
+        "mae": 0.16839558800110271,
+        "spearman": 0.8011796306785132
+      }
+    },
+    "1": {
+      "legnet": {
+        "mae": 0.16357193662616049,
+        "spearman": 0.7933276836364259
+      },
+      "n": 1889,
+      "ridge": {
+        "mae": 0.23834739041651756,
+        "spearman": 0.6121311597113079
+      },
+      "smallcnn": {
+        "mae": 0.17373910097392004,
+        "spearman": 0.7846532791024684
+      }
+    },
+    "2": {
+      "legnet": {
+        "mae": 0.1670678583611468,
+        "spearman": 0.809473524523704
+      },
+      "n": 1888,
+      "ridge": {
+        "mae": 0.2444505191214437,
+        "spearman": 0.6430936895112703
+      },
+      "smallcnn": {
+        "mae": 0.17469670296483242,
+        "spearman": 0.80425081469607
+      }
+    },
+    "3": {
+      "legnet": {
+        "mae": 0.17182201769098712,
+        "spearman": 0.7956024270182361
+      },
+      "n": 1888,
+      "ridge": {
+        "mae": 0.2545790925556841,
+        "spearman": 0.5699166744282732
+      },
+      "smallcnn": {
+        "mae": 0.18175303109902782,
+        "spearman": 0.7746379895056597
+      }
+    },
+    "4": {
+      "legnet": {
+        "mae": 0.1805185558590132,
+        "spearman": 0.7477204230554769
+      },
+      "n": 1888,
+      "ridge": {
+        "mae": 0.24545391342671483,
+        "spearman": 0.5224809036145351
+      },
+      "smallcnn": {
+        "mae": 0.1784710276619399,
+        "spearman": 0.7344718114699308
+      }
+    }
+  },
+  "per_seed_spearman": {
+    "legnet": {
+      "20261008": 0.7699489457125442,
+      "20261009": 0.7738947230366554,
+      "20261010": 0.7742183206739851
+    },
+    "smallcnn": {
+      "20261008": 0.7775351795038855,
+      "20261009": 0.777915592646094,
+      "20261010": 0.7794752918982539
+    }
+  },
+  "seeds": [
+    20261008,
+    20261009,
+    20261010
+  ],
+  "split": "batch01 TRAIN partition only (9442 seq); 5-fold grouped CV",
+  "target": "activity (K562 MPRA Mean_log10)",
+  "wd": 0.0001
+}

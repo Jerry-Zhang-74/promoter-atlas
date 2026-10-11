@@ -1,0 +1,56 @@
+{
+  "candidate_version": "v6.12.0-sfeatablate.rc1",
+  "batch": "batch11",
+  "written_at": "2026-10-03T07:24:14+0800",
+  "tests": [
+    {
+      "name": "feature_subset_selection_order",
+      "pass": true,
+      "detail": "A=tri indices 0..511, B=tetra indices 512..1023, verified by name"
+    },
+    {
+      "name": "exact_old_prediction_matching",
+      "pass": true,
+      "detail": "full/baseline columns equal frozen batch10/batch09 TSVs to 1e-12"
+    },
+    {
+      "name": "training_only_scaling",
+      "pass": true,
+      "detail": "A/B scalers + target fit on eligible train only"
+    },
+    {
+      "name": "component_alignment",
+      "pass": true,
+      "detail": "eligible=18769 split={'train': 15004, 'val': 1898, 'test': 1867} components=18400 crossing=0"
+    },
+    {
+      "name": "saved_model_replay",
+      "pass": true,
+      "detail": "replayed A/B models match predictions.tsv"
+    },
+    {
+      "name": "bootstrap_paired_sampling",
+      "pass": true,
+      "detail": "seed deterministic, paired delta, percentile [0.625,99.375] => 98.75%% two-sided (width fraction 0.9875)"
+    },
+    {
+      "name": "thread_limits",
+      "pass": true,
+      "detail": "env caps=4; threadpoolctl num_threads=[4, 4, 4]"
+    },
+    {
+      "name": "nonoverwrite_guard",
+      "pass": true,
+      "detail": "b11_run --attempt 1 exits non-zero with REFUSE (returncode=1)"
+    },
+    {
+      "name": "status_identity",
+      "pass": true,
+      "detail": "worker pid 23116 != writer pid 32288; creation time verified"
+    }
+  ],
+  "n_pass": 9,
+  "n_total": 9,
+  "all_pass": true,
+  "elapsed_s": 30.82
+}

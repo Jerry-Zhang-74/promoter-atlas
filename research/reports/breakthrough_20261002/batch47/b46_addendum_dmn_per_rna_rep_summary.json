@@ -1,0 +1,38 @@
+{
+  "batch": "batch47",
+  "phase": "C_b46_addendum_dmn_per_rna_rep",
+  "generated_at": "2026-10-04T04:48:10+0800",
+  "n_triplets": 244,
+  "n_expected": 244,
+  "n_finite_per_rep": {
+    "K562_r1": 244,
+    "K562_r2": 244,
+    "HepG2_r1": 244,
+    "HepG2_r2": 244
+  },
+  "n_missing_per_rep": {
+    "K562_r1": 0,
+    "K562_r2": 0,
+    "HepG2_r1": 0,
+    "HepG2_r2": 0
+  },
+  "missing_explanations": "per-rep mean is the finite-barcode mean (nonfinite normalized values dropped, as in the frozen b46 per_fragment table); a null dmn means the max or min candidate per-rep mean is missing/nonfinite. No value is invented.",
+  "affected_triplet": {
+    "triplet_id": "long:rep01:gen0",
+    "library": "long",
+    "lineage": "01",
+    "generation": "0",
+    "info_max": "K562_fitness_232bp_replicate01_generation0_individual5_max",
+    "info_min": "K562_fitness_232bp_replicate01_generation0_individual140_min",
+    "dmn_K562_r1": 0.27827403621404256,
+    "dmn_K562_r1_status": "FINITE",
+    "dmn_K562_r2": 0.48354911131415257,
+    "dmn_K562_r2_status": "FINITE",
+    "dmn_HepG2_r1": 0.5737177328948051,
+    "dmn_HepG2_r1_status": "FINITE",
+    "dmn_HepG2_r2": 0.8584662240853005,
+    "dmn_HepG2_r2_status": "FINITE"
+  },
+  "source_table": "reports/breakthrough_20261002/batch46/per_fragment.tsv (already frozen)",
+  "triplet_membership": "reports/breakthrough_20261002/batch46/per_triplet.tsv (already frozen)"
+}

@@ -1,0 +1,9 @@
+name	v2_smoke
+arch	dilated_resnet
+device	cuda
+params	491747
+train_rows	67337
+val_rows	42402
+test_rows	44387
+epoch 0 | loss 2.3088 | val E r2=-3.3618 sp=0.3026 S r2=-21.1076 sp=0.0005 B r2=-2.9751 sp=0.1951 | combined 0.1700
+epoch 1 | loss 0.3225 | val E r2=-0.2443 sp=0.2772 S r2=-1.9397 sp=-0.0010 B r2=-0.0310 sp=0.1511 | combined 0.1483

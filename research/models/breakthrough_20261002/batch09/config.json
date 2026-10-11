@@ -1,0 +1,206 @@
+{
+  "candidate_version": "v6.10.0-starget.rc1",
+  "track": "starget",
+  "batch": "batch09",
+  "created_at": "2026-10-03T06:03:46+0800",
+  "freeze_note": "config.json written BEFORE any batch09 held-out (val/test) metric was computed; immutable freeze-point for the four predeclared research fits.",
+  "sources_sha256": {
+    "gene_expression_table.tsv": {
+      "path": "E:\\promoter_atlas\\labels\\build\\gene_expression_table.tsv",
+      "sha256": "9876abd64aa8f5dc46f09796d4dffec4f2385e553e281f32120a72a23c606ae4"
+    },
+    "gene_expression_label_table.tsv": {
+      "path": "E:\\promoter_atlas\\labels\\build\\gene_expression_label_table.tsv",
+      "sha256": "34e20a961934c0ecc15a04b13f414b1fad803a4e13260f33134b536b8d7795b2"
+    },
+    "batch08_label_audit_all_genes.tsv": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch08\\label_audit_all_genes.tsv",
+      "sha256": "632f4b7d9dcf0fefc2b1be96319afa8b41f1db67fcbaeba07d9a6ecb78e73ab7"
+    },
+    "batch03_trackA_gene_promoters.npz": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch03\\trackA_gene_promoters.npz",
+      "sha256": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072"
+    },
+    "batch05_split_arrays.npz": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch05\\split_arrays.npz",
+      "sha256": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5"
+    },
+    "batch06_features45.npz": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch06\\features45.npz",
+      "sha256": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800"
+    }
+  },
+  "expected_source_sha256": {
+    "batch05_split_arrays.npz": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5",
+    "batch06_features45.npz": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800"
+  },
+  "population": {
+    "canonical_genes": 58988,
+    "canonical_S_defined": 18947,
+    "feature_universe_genes": 57827,
+    "expected_eligible_S_defined_and_feature_covered": 18769,
+    "expected_excluded_canonical_S_defined": 178,
+    "note": "Eligible = canonical S-defined AND present in the batch03 57827-gene promoter-feature universe (has frozen composition/count features and a batch05 component split). The 178 excluded genes are S-defined in the canonical expression table but absent from the promoter-feature universe."
+  },
+  "S_label_definition": {
+    "DETECTABLE_TPM": 1.0,
+    "B_MIN": 0.3,
+    "MIN_DET_TISSUES": 3,
+    "formula": "S_raw = -MAD(log2(1+collapsed_mean_tpm)) over detectable (TPM>=1) tissues",
+    "eligibility": "B_raw = detectable/54 >= 0.30 AND detectable_tissue_count >= 3",
+    "direction": "larger / less-negative S = less across-tissue dispersion",
+    "not": "S is NOT post-transfection temporal stability",
+    "reference_target": "full-precision raw S (reconstructed in memory from gene_expression_table.tsv)",
+    "tie_note": "full-precision raw S has 0 true ties across the 18947 defined genes; the 6-decimal audit export and 10g export do not change ordering (verified). See preflight for measured tie/ordering checks."
+  },
+  "split": {
+    "source": "data/breakthrough_20261002/batch05/split_arrays.npz",
+    "name": "exact/RC + detected-near-identity blocked component split (NOT homology-free)",
+    "seed": 20261011,
+    "unchanged": true,
+    "note": "component-level split reused exactly as frozen; retrospective not prospective; exact/RC isolation does not establish complete near-homology independence."
+  },
+  "features": {
+    "source": "data/breakthrough_20261002/batch06/features45.npz",
+    "n_features": 45,
+    "composition": "comp44 (sym400+up2000 mono/dinuc/GC/length = 44) + log1p_count (1)",
+    "feature_names": [
+      "sym400_mono_A",
+      "sym400_mono_C",
+      "sym400_mono_G",
+      "sym400_mono_T",
+      "sym400_dinuc_AA",
+      "sym400_dinuc_AC",
+      "sym400_dinuc_AG",
+      "sym400_dinuc_AT",
+      "sym400_dinuc_CA",
+      "sym400_dinuc_CC",
+      "sym400_dinuc_CG",
+      "sym400_dinuc_CT",
+      "sym400_dinuc_GA",
+      "sym400_dinuc_GC",
+      "sym400_dinuc_GG",
+      "sym400_dinuc_GT",
+      "sym400_dinuc_TA",
+      "sym400_dinuc_TC",
+      "sym400_dinuc_TG",
+      "sym400_dinuc_TT",
+      "sym400_gc",
+      "sym400_len",
+      "up2000_mono_A",
+      "up2000_mono_C",
+      "up2000_mono_G",
+      "up2000_mono_T",
+      "up2000_dinuc_AA",
+      "up2000_dinuc_AC",
+      "up2000_dinuc_AG",
+      "up2000_dinuc_AT",
+      "up2000_dinuc_CA",
+      "up2000_dinuc_CC",
+      "up2000_dinuc_CG",
+      "up2000_dinuc_CT",
+      "up2000_dinuc_GA",
+      "up2000_dinuc_GC",
+      "up2000_dinuc_GG",
+      "up2000_dinuc_GT",
+      "up2000_dinuc_TA",
+      "up2000_dinuc_TC",
+      "up2000_dinuc_TG",
+      "up2000_dinuc_TT",
+      "up2000_gc",
+      "up2000_len",
+      "log1p_count"
+    ],
+    "no_label_features": true,
+    "note": "composition/count only; no E/S/B labels used as features."
+  },
+  "research_arms": {
+    "arm_ridge_raw": {
+      "model": "Ridge",
+      "config": {
+        "alpha": 0.1,
+        "fit_intercept": true
+      },
+      "target": "continuous raw S (standardized)"
+    },
+    "arm_ridge_rank": {
+      "model": "Ridge",
+      "config": {
+        "alpha": 0.1,
+        "fit_intercept": true
+      },
+      "target": "train-reference empirical rank F (standardized)"
+    },
+    "arm_hgb_raw": {
+      "model": "HistGradientBoostingRegressor",
+      "config": {
+        "max_iter": 200,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0.1,
+        "early_stopping": false,
+        "random_state": 20261011
+      },
+      "target": "continuous raw S (standardized)"
+    },
+    "arm_hgb_rank": {
+      "model": "HistGradientBoostingRegressor",
+      "config": {
+        "max_iter": 200,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0.1,
+        "early_stopping": false,
+        "random_state": 20261011
+      },
+      "target": "train-reference empirical rank F (standardized)"
+    }
+  },
+  "transform_rules": {
+    "X_scaler": "sklearn StandardScaler (with_mean/with_std) fit on eligible TRAIN rows only; reused for val/test",
+    "target_standardization": "z = (y - train_mean) / train_std (population std, ddof=0), fit on eligible TRAIN only",
+    "target_inverse": "y_hat = z_hat * train_std + train_mean (back to target units)",
+    "rank_formula": "F(x) = (count(train < x) + 0.5 * count(train == x)) / n_train; applied as a frozen function to train/val/test; values outside train support map to 0 (below) or 1 (above)",
+    "rank_reference_note": "train-reference empirical rank; NOT the global canonical rank",
+    "common_ranking_truth": "full-precision raw S (regardless of arm)"
+  },
+  "evaluation": {
+    "seed": 20261011,
+    "bootstrap_resamples": 2000,
+    "bootstrap_unit": "test components (genes within a component stay together)",
+    "bootstrap_paired": "both arms evaluated on the SAME resample; delta = rank Spearman - raw Spearman",
+    "interval": "percentile interval [1.25, 98.75] percent => 97.5 percent two-sided per comparison",
+    "interval_label": "conservative two-comparison adjustment convention (two primary comparisons); each comparison uses a 97.5 percent two-sided percentile interval",
+    "acceptance_rule": "scoped target-representation improvement requires delta >= 0.03 AND adjusted lower bound > 0",
+    "primary_comparisons": [
+      "rank-target minus raw-target TEST Spearman within Ridge",
+      "rank-target minus raw-target TEST Spearman within HGB"
+    ],
+    "descriptive_also": "fixed Ridge vs HGB within the same conditional test rows",
+    "no_cross_unit_mae": "MAE magnitudes are NEVER compared between raw and rank units",
+    "no_out_of_scope_comparison": "do NOT compare these S results to batch06 E performance or a v6.3 result"
+  },
+  "affine_diagnostic": {
+    "kind": "algebra test (not a fifth research arm, not a score gain)",
+    "transform": "y2 = AFF_A + AFF_B * y",
+    "AFF_A": 0.5,
+    "AFF_B": 2.0,
+    "model": "Ridge (identical alpha/intercept as research Ridge)",
+    "expectation": "predictions affine-related within numeric tolerance",
+    "metrics": "paired affine R2/Spearman invariance; unit-dependent MAE (x b) / MSE (x b^2)"
+  },
+  "resources": {
+    "cpu_threads_max": 4,
+    "gpu": "zero",
+    "fits": "four research fits + one affine diagnostic (algebra test)",
+    "no_search": "no hyperparameter / architecture / threshold / target-mapping search",
+    "no_validation_fit": "no val/test fitting of scaler, CDF, hyperparameter, stopping rule or target mapping"
+  },
+  "scope_limits": [
+    "human conditional gene-level S prediction only",
+    "not mammalian universal promoter strength / synthetic promoter activity / HEK293T construct validation / temporal stability",
+    "no prospective or causal claims",
+    "n=1 input equality never implies separately trained models have identical outputs",
+    "shared-trunk missing-label masking does not exclude indirect training influence from other labels"
+  ]
+}

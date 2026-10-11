@@ -1,0 +1,23 @@
+promoter_atlas candidate card
+candidate_version: v6.18.0-hek-kernel.rc1
+track/task: HEK293 core-promoter fragment activity -> fixed-kernel ridge (CPU)
+parent_model_version: none (NOT a neural checkpoint; deterministic kernels)
+data_version: data/breakthrough_20261002/batch22/sequence_table.tsv sha256 e6ea09134202bf6008a326ffe38cf3fd3acc003ae899845861f42d8c2e88b548
+split_version: data/breakthrough_20261002/batch22/fold_assignment.tsv sha256 f58589bb16632da7fc89c49cc2d20f8af2ba265449e58c7406f58d3a679ee82a (5 group folds, seed 20261025)
+code_version: runs/breakthrough_20261002/code/batch24/*.py
+evaluation_protocol_version: reports/breakthrough_20261002/batch24/results.json
+run_id: batch24_kernels_g1
+seed: none (deterministic solver; no random seeds)
+attempt_id: 1..10 (5 folds x 2 recipes)
+config_sha: a4bcfca141893d139f2c36d303af0235c0c0f1834954a134abb1dc9a99532d60
+creation_time: 2026-10-03T16:35:49+0800
+metrics (pooled OOF, log2(hek exp/input), n=673, 669 groups):
+  R1_cached baseline: rho 0.456622 MAE 0.571670 R2 0.191538 top-decile 0.294118
+  H1 global k4+k5   : rho 0.526449 MAE 0.539729 R2 0.276528 top-decile 0.352941
+  H2 global+position: rho 0.519965 MAE 0.541731 R2 0.285527 top-decile 0.352941
+decision: NO PROMOTION. Predeclared practical-gain rule NOT met (MAE reduction 5.6%/5.2% < 10%);
+          ranking gain is consistent (5/5 folds, 97.5% two-comparison delta-rho CI > 0) but is
+          retrospective adaptive development, not prospective validation.
+review_status: awaiting fresh independent review
+status: experimental / unpromoted
+scope_limits: published HEK293 (NOT HEK293T); reused batch22 folds; no cell-transfer or wet-lab claim

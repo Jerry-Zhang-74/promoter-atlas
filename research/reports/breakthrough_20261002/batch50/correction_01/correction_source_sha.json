@@ -1,0 +1,112 @@
+{
+ "record_type": "correction_source_sha",
+ "batch": "batch50",
+ "correction": "correction_01",
+ "generated_at": "2026-10-04T06:22:28.695896+08:00",
+ "corrected_sources": [
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/figures/fig1_local293ft_applicability.png",
+   "sha256": "2bdc0b788cb0bf4a7d36d2139342fcf359566927056b87ab716088650a8f0270",
+   "bytes": 178965
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/figures/fig1_local293ft_applicability.svg",
+   "sha256": "5e77ced5995313cd70287532db2c431253f7e4c17228b62cc5873b92af0555d3",
+   "bytes": 27353
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/figures/fig2_public_transfer_sameassay.png",
+   "sha256": "7b64bfd03be38ef8303746a8ab55b42476de1e86a2acf2ba1a36a5edcda8c821",
+   "bytes": 295411
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/figures/fig2_public_transfer_sameassay.svg",
+   "sha256": "5dba5e1ab20466787059372bfd34f6f12fb560cac84a03232d98f14a82bfd423",
+   "bytes": 46745
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/figures/fig3_route_capability.png",
+   "sha256": "ca8c985baad0bad81983952aeda996f795ecd87196ffb146355c3ff030456aeb",
+   "bytes": 343539
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/figures/fig3_route_capability.svg",
+   "sha256": "0fc9c13b22878eb915bccad6ab3d5ba54e75fe6584596a3bd5f57bfc6d16d381",
+   "bytes": 13724
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/ROUTE_zh.txt",
+   "sha256": "88d55668811df57d4b65f6822e7b9bac11f1bf528469001ab3426289cbcc916f",
+   "bytes": 3014
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/captions_zh.md",
+   "sha256": "bbabc85c960b5d4c5877acc54bcb4aea273f5724641ae9ad50d762a4085f0273",
+   "bytes": 2169
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/issue_list_before_after.md",
+   "sha256": "1d1cc367c37bbaec35f9744b67cd8171c96e0802ab7f268ede6bea5bfd5e6f82",
+   "bytes": 4383
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/correction_01/next_action_note.md",
+   "sha256": "eacd00b8d87a46a74fae1f6834772c03c218248a0454d5b1e781eb76fd4fa619",
+   "bytes": 2075
+  },
+  {
+   "path": "runs/breakthrough_20261002/code/batch50/correction_01/make_figs_corr.py",
+   "sha256": "acceb941a7c352ee6a40f245c23c634fa57e1d25ea085745e1ff2d3be1d04a37",
+   "bytes": 11122
+  }
+ ],
+ "original_bytes_preserved": [
+  {
+   "path": "reports/breakthrough_20261002/batch50/figures/fig1_local293ft_applicability.png",
+   "sha256": "22db1c60bb93d9a801100e04d3e9e2df551e6e8f8b11c2c00ca8a6d8cfdfe68b",
+   "bytes": 169237
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/figures/fig1_local293ft_applicability.svg",
+   "sha256": "48bff3d65c83c85aa420e5b635034f184855f92ead297efe60a0fada9d816f9c",
+   "bytes": 27243
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/figures/fig2_public_transfer_sameassay.png",
+   "sha256": "7b64bfd03be38ef8303746a8ab55b42476de1e86a2acf2ba1a36a5edcda8c821",
+   "bytes": 295411
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/figures/fig2_public_transfer_sameassay.svg",
+   "sha256": "5dba5e1ab20466787059372bfd34f6f12fb560cac84a03232d98f14a82bfd423",
+   "bytes": 46745
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/figures/fig3_route_capability.png",
+   "sha256": "4f6e4639b0578f21e5e6b8718e7ac50f8c19f6c310bf6d800a75ceba40ab830f",
+   "bytes": 322306
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/figures/fig3_route_capability.svg",
+   "sha256": "9aeab76b81a670e30236159d8acd48a8e8d051ea3ded297eb3fa8371c09640b7",
+   "bytes": 11662
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/ROUTE_zh.txt",
+   "sha256": "f5584cb80d8fc3f707c1068fc516a5a5c3c02711d59e5dfc6e3877605432da4c",
+   "bytes": 2536
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/figure_inputs.json",
+   "sha256": "0d552c3f4f1eaebcedb5c38f65d5e9d8b4a21d177b7571c89ed099e0ac8165c5",
+   "bytes": 20240
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch50/independent_review.json",
+   "sha256": "95ca8c2f5e5186c4904e0dbf1e5fc13f907787a494c63e3c71a58f0112d379fb",
+   "bytes": 13400
+  }
+ ],
+ "fig2_copied_byte_identical": true,
+ "note": "originals untouched; corrected outputs written only under correction_01"
+}

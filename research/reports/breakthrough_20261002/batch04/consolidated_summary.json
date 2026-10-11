@@ -1,0 +1,203 @@
+{
+  "arms": {
+    "diverse_bag": {
+      "arm": "diverse_bag",
+      "candidate": "v6.6.0-scratchgene.rc5",
+      "mean": {
+        "test_4slot_full_r2": 0.5137274268796741,
+        "test_4slot_full_sp": 0.7335896919253092,
+        "test_4slot_unexp_sp": 0.45950004811993916,
+        "test_allprom_full_sp": 0.751457984639004,
+        "test_allprom_unexp_sp": 0.4616384131716366,
+        "val_4slot_full_sp": 0.7188289316424759,
+        "val_4slot_unexp_sp": 0.43704887302355394
+      },
+      "seeds": {
+        "20261011": {
+          "test_4slot_full_r2": 0.5330419889079338,
+          "test_4slot_full_sp": 0.7335427849395686,
+          "test_4slot_unexp_sp": 0.4603911948650096,
+          "test_allprom_full_sp": 0.7518882378601718,
+          "test_allprom_unexp_sp": 0.46340731031090976,
+          "val_4slot_full_sp": 0.7198771692483988,
+          "val_4slot_unexp_sp": 0.4435644040290845
+        },
+        "20261012": {
+          "test_4slot_full_r2": 0.5412092407770074,
+          "test_4slot_full_sp": 0.7348071350404588,
+          "test_4slot_unexp_sp": 0.4608443320824091,
+          "test_allprom_full_sp": 0.7519897116125902,
+          "test_allprom_unexp_sp": 0.46227999396653185,
+          "val_4slot_full_sp": 0.7186609440033057,
+          "val_4slot_unexp_sp": 0.43682173847143185
+        },
+        "20261013": {
+          "test_4slot_full_r2": 0.46693105095408105,
+          "test_4slot_full_sp": 0.7324191557959001,
+          "test_4slot_unexp_sp": 0.4572646174123988,
+          "test_allprom_full_sp": 0.7504960044442502,
+          "test_allprom_unexp_sp": 0.45922793523746824,
+          "val_4slot_full_sp": 0.7179486816757231,
+          "val_4slot_unexp_sp": 0.43076047657014543
+        }
+      }
+    },
+    "repeat_bag": {
+      "arm": "repeat_bag",
+      "candidate": "v6.6.0-scratchgene.rc4",
+      "mean": {
+        "test_4slot_full_r2": 0.3432512774330978,
+        "test_4slot_full_sp": 0.6226966728193591,
+        "test_4slot_unexp_sp": 0.4044614505501933,
+        "test_allprom_full_sp": 0.6911552645327369,
+        "test_allprom_unexp_sp": 0.4356800858828387,
+        "val_4slot_full_sp": 0.6192999888308099,
+        "val_4slot_unexp_sp": 0.4117110005314398
+      },
+      "seeds": {
+        "20261011": {
+          "test_4slot_full_r2": 0.3336738431524344,
+          "test_4slot_full_sp": 0.6209179088612595,
+          "test_4slot_unexp_sp": 0.4029552276712133,
+          "test_allprom_full_sp": 0.6901492296336786,
+          "test_allprom_unexp_sp": 0.4343610306079584,
+          "val_4slot_full_sp": 0.6176454052953336,
+          "val_4slot_unexp_sp": 0.410731344390431
+        },
+        "20261012": {
+          "test_4slot_full_r2": 0.34997482923492274,
+          "test_4slot_full_sp": 0.6252178769548737,
+          "test_4slot_unexp_sp": 0.4097111242515204,
+          "test_allprom_full_sp": 0.6907872054828332,
+          "test_allprom_unexp_sp": 0.440372790578291,
+          "val_4slot_full_sp": 0.6196694589617683,
+          "val_4slot_unexp_sp": 0.41248541908574776
+        },
+        "20261013": {
+          "test_4slot_full_r2": 0.34610515991193636,
+          "test_4slot_full_sp": 0.6219542326419443,
+          "test_4slot_unexp_sp": 0.40071799972784594,
+          "test_allprom_full_sp": 0.6925293584816987,
+          "test_allprom_unexp_sp": 0.43230643646226663,
+          "val_4slot_full_sp": 0.6205851022353278,
+          "val_4slot_unexp_sp": 0.41191623811814054
+        }
+      }
+    }
+  },
+  "matched_design_checks": {
+    "initial_state_sha256": {
+      "diverse_bag": "11c371f76e61b4596cc38ad0298fe7805bba9927d3cacbfe4d27541692a1f693",
+      "repeat_bag": "11c371f76e61b4596cc38ad0298fe7805bba9927d3cacbfe4d27541692a1f693"
+    },
+    "initial_weights_match_B1_B2": true,
+    "n_params": {
+      "diverse_bag": 64257,
+      "repeat_bag": 64257
+    },
+    "n_params_match": true,
+    "note": "identical seed -> identical initial trunk+head weights; identical GeneBagModel; identical gene order; identical 4 slots"
+  },
+  "paired_b2_minus_b1": {
+    "20261011": {
+      "n_test_genes": 5603,
+      "test_delta_mae": {
+        "base": -0.031035110365061513,
+        "ci_high": -0.028133631314565047,
+        "ci_low": -0.03397025135479563,
+        "mean": -0.031010350270066277,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      },
+      "test_delta_r2": {
+        "base": 0.19936814575549944,
+        "ci_high": 0.21804141163551627,
+        "ci_low": 0.18136113957700303,
+        "mean": 0.19947948867433848,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      },
+      "test_delta_spearman": {
+        "base": 0.11262487607830907,
+        "ci_high": 0.12546858236789118,
+        "ci_low": 0.09983178161825032,
+        "mean": 0.11251812374875188,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      }
+    },
+    "20261012": {
+      "n_test_genes": 5603,
+      "test_delta_mae": {
+        "base": -0.03168649745494387,
+        "ci_high": -0.02895617032340174,
+        "ci_low": -0.03447136207459276,
+        "mean": -0.031683219922745254,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      },
+      "test_delta_r2": {
+        "base": 0.19123441154208487,
+        "ci_high": 0.2065076347020807,
+        "ci_low": 0.1761083384816438,
+        "mean": 0.19122846026311313,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      },
+      "test_delta_spearman": {
+        "base": 0.10958925808558506,
+        "ci_high": 0.12239271700951497,
+        "ci_low": 0.09732754183504749,
+        "mean": 0.10956586089899295,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      }
+    },
+    "20261013": {
+      "n_test_genes": 5603,
+      "test_delta_mae": {
+        "base": -0.01880405888569084,
+        "ci_high": -0.015866250792306663,
+        "ci_low": -0.021756465030969042,
+        "mean": -0.018810544773122218,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      },
+      "test_delta_r2": {
+        "base": 0.1208258910421448,
+        "ci_high": 0.13972299543906086,
+        "ci_low": 0.10186010405835344,
+        "mean": 0.12074691143137418,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      },
+      "test_delta_spearman": {
+        "base": 0.11046492315395584,
+        "ci_high": 0.12321434394877669,
+        "ci_low": 0.09791548512951836,
+        "mean": 0.11054622421252384,
+        "n_boot": 10000,
+        "n_genes": 5603,
+        "nonindependence_note": "paired genes; residual cross-gene homology/exact-dup not corrected; CI is design-conditional"
+      }
+    },
+    "_3seed_delta_spearman": {
+      "consistent_sign": true,
+      "mean": 0.11089301910595,
+      "note": "seed-consistency of the sign, NOT a significance test; genes are paired and non-independent",
+      "values": [
+        0.11262487607830907,
+        0.10958925808558506,
+        0.11046492315395584
+      ]
+    }
+  }
+}

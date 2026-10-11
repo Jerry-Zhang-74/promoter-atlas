@@ -1,0 +1,10 @@
+name	mpra_finetune	mode	finetune
+epoch 0 | loss 0.8540 | val mse 0.6339 r2 -3.3229 sp 0.3296
+epoch 5 | loss 0.1314 | val mse 0.1252 r2 0.1463 sp 0.4523
+epoch 10 | loss 0.0997 | val mse 0.0926 r2 0.3684 sp 0.6176
+epoch 15 | loss 0.0910 | val mse 0.0845 r2 0.4239 sp 0.6558
+epoch 20 | loss 0.0844 | val mse 0.0811 r2 0.4471 sp 0.6812
+epoch 25 | loss 0.0811 | val mse 0.0789 r2 0.4620 sp 0.6922
+epoch 30 | loss 0.0788 | val mse 0.0780 r2 0.4683 sp 0.6987
+epoch 35 | loss 0.0788 | val mse 0.0771 r2 0.4741 sp 0.7018
+epoch 39 | loss 0.0784 | val mse 0.0766 r2 0.4778 sp 0.7018

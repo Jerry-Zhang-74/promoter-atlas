@@ -13,7 +13,15 @@ __pycache__/
 *.npy
 *.zip
 *.part
-results/
+/results/
 verification_output/
-models/
+/models/
+.training-downloads/
+*.tar.zst.part*
+*.download
+*.restore-part
 Thumbs.db
+
+*.egg-info/
+build/
+dist/

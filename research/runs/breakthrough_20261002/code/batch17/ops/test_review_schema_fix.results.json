@@ -1,0 +1,78 @@
+{
+  "module": "stage_watcher_review_schema.patch",
+  "n_checks": 14,
+  "n_passed": 14,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "review-schema patch applies to watcher copy",
+      "pass": true,
+      "detail": "rc=0 patching file runs/breakthrough_20261002/code/stage_email_v3/stage_watcher.py"
+    },
+    {
+      "name": "patched watcher importable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "live stage_watcher.py untouched by this work",
+      "pass": true,
+      "detail": "git diff rc=0"
+    },
+    {
+      "name": "batch16 verdict dict no longer blocked",
+      "pass": true,
+      "detail": "None"
+    },
+    {
+      "name": "batch16 integrity machine verdict = PASS",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "batch16 scientific text preserved verbatim",
+      "pass": true,
+      "detail": "NONE_CLAIMED (honest negative result; no shared-backbone win; independent composite release)"
+    },
+    {
+      "name": "batch16 scientific machine verdict NOT guessed",
+      "pass": true,
+      "detail": "None"
+    },
+    {
+      "name": "top-level PASS still PASS",
+      "pass": true,
+      "detail": "{'kind': 'top_level', 'verdict': 'PASS', 'original_verdict': 'PASS', 'scientific_verdict': None, 'scientific_original': None, 'blocked': False, 'block_reason': None}"
+    },
+    {
+      "name": "nested schema still supported",
+      "pass": true,
+      "detail": "{'kind': 'nested', 'verdict': 'PASS', 'original_verdict': 'PASS', 'scientific_verdict': 'FAIL', 'scientific_original': 'FAIL', 'blocked': False, 'block_reason': None}"
+    },
+    {
+      "name": "empty artifact -> kind none",
+      "pass": true,
+      "detail": "{'kind': 'none', 'verdict': None, 'original_verdict': None, 'scientific_verdict': None, 'scientific_original': None, 'blocked': False, 'block_reason': None}"
+    },
+    {
+      "name": "conflicting schema stays blocked",
+      "pass": true,
+      "detail": "conflicting_verdict_schema (both top-level and nested verdicts present)"
+    },
+    {
+      "name": "unknown verdict dict blocked",
+      "pass": true,
+      "detail": "unrecognized_scoped_top_verdict (no integrity sub-verdict)"
+    },
+    {
+      "name": "non-PASS/FAIL integrity blocked",
+      "pass": true,
+      "detail": "ambiguous_scoped_integrity_verdict"
+    },
+    {
+      "name": "scoped integrity+scientific both carried",
+      "pass": true,
+      "detail": "{'kind': 'top_level_scoped', 'verdict': 'PASS', 'original_verdict': 'PASS', 'scientific_verdict': 'PASS', 'scientific_original': 'PASS', 'blocked': False, 'block_reason': None}"
+    }
+  ]
+}

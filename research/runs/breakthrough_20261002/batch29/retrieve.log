@@ -1,0 +1,66 @@
+[retr] cached=123 to_fetch=9877
+[retr] done=200/9877 10s bytes=212533
+[retr] done=500/9877 20s bytes=532654
+[retr] done=700/9877 30s bytes=743605
+[retr] done=1000/9877 40s bytes=1060009
+[retr] done=1200/9877 50s bytes=1278381
+[retr] done=1500/9877 60s bytes=1593036
+[retr] done=1700/9877 70s bytes=1810932
+[retr] done=2000/9877 80s bytes=2128230
+[retr] done=2200/9877 90s bytes=2338479
+[retr] done=2500/9877 100s bytes=2645045
+[retr] done=2800/9877 110s bytes=2967031
+[retr] done=3000/9877 120s bytes=3173603
+[retr] done=3100/9877 130s bytes=3277611
+[retr] done=3300/9877 140s bytes=3485900
+[retr] done=3650/9877 150s bytes=3846413
+[retr] done=3800/9877 160s bytes=3995625
+[retr] done=4050/9877 170s bytes=4259441
+[retr] done=4350/9877 180s bytes=4582199
+[retr] done=4500/9877 190s bytes=4746379
+[retr] done=4800/9877 200s bytes=5054512
+[retr] done=5050/9877 210s bytes=5332609
+[retr] done=5350/9877 220s bytes=5640385
+[retr] done=5650/9877 230s bytes=5957064
+[retr] done=5850/9877 240s bytes=6170672
+[retr] done=6050/9877 250s bytes=6379356
+[retr] done=6350/9877 260s bytes=6700497
+[retr] done=6600/9877 270s bytes=6968507
+[retr] done=6900/9877 280s bytes=7293089
+[retr] done=6950/9877 290s bytes=7352152
+[retr] done=7100/9877 300s bytes=7509941
+[retr] done=7450/9877 310s bytes=7877663
+[retr] done=7750/9877 320s bytes=8196081
+[retr] done=7950/9877 330s bytes=8402942
+[retr] done=8200/9877 340s bytes=8656789
+[retr] done=8450/9877 350s bytes=8909290
+[retr] done=8600/9877 360s bytes=9067805
+[retr] done=8800/9877 370s bytes=9275046
+[retr] done=9000/9877 380s bytes=9490287
+[retr] done=9350/9877 390s bytes=9846508
+[retr] done=9550/9877 400s bytes=10052597
+[retr] done=9877/9877 410s bytes=10389268
+{
+  "batch": "batch29",
+  "reference": "Ensembl GRCh37 REST /sequence/region/human (hg19), forward strand (:1)",
+  "coordinate_convention": "UCSC hg19 0-based half-open [start,end) == Ensembl GRCh37 1-based inclusive start+1..end",
+  "orientation_rule": "assay-oriented = forward for '+'; reverse-complement of forward applied EXACTLY ONCE for '-' (author-verified)",
+  "n_requested": 10000,
+  "n_from_cache": 123,
+  "n_length_ok": 10000,
+  "n_missing": 0,
+  "n_length_mismatch": 0,
+  "n_containing_nonACGT": 0,
+  "n_usable_forward": 10000,
+  "n_usable_assay_oriented": 10000,
+  "n_http_batches": 198,
+  "n_failed_batches": 0,
+  "failures": [],
+  "response_bytes_total": 10389268,
+  "elapsed_s": 410.4,
+  "forward_fasta": "data/breakthrough_20261002/batch29/sure29_forward.fa",
+  "forward_sha256": "ae8519cd684a6adeda6e8a3b16ec6fad97d9536ab7f32bc5f3e4bbfeef6dc2ed",
+  "assay_fasta": "data/breakthrough_20261002/batch29/sure29_assay_oriented.fa",
+  "assay_sha256": "399f3291a94a0e38391df581b919f367c9f1d1f0e5814b88f35b57a204c23509",
+  "length_examples_bad": []
+}

@@ -1,0 +1,12 @@
+{
+  "batch": "batch46",
+  "version": "v6.33.0-within-generation-selection.rc1",
+  "figures": [
+    "figures/fig1_within_generation_gain.png",
+    "figures/fig2_selector_utility.png"
+  ],
+  "definitions": {
+    "fig1": "per-lineage (faint) and per-generation-median (bold) K562 measured max-median / max-min contrasts; y=0 dashed.",
+    "fig2": "(a) mean utility vs uniform; (b) measured winner hit-rate vs uniform 1/3; (c) sign counts. Titles match plotted metrics."
+  }
+}

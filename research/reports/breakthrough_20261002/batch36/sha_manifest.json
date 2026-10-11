@@ -1,0 +1,151 @@
+{
+  "batch": "batch36",
+  "generated_at": "2026-10-03T16:14:17.362746+00:00",
+  "n_files": 36,
+  "files": {
+    "code/batch36/extract_supp_tables.py": {
+      "sha256": "aebe4955279d89994d98f4f710a37dda59098a005219f68f07706f2faf3b8094",
+      "bytes": 1999
+    },
+    "code/batch36/finalize_batch36.py": {
+      "sha256": "25be275c5fc8fa195bf8bda523d50a0c61d40c1a3b8ec14787c6d91099252a54",
+      "bytes": 6183
+    },
+    "code/batch36/fix_batch35_schema.py": {
+      "sha256": "9c2fa9313278c38a43a7006bac2d63339445fd7c90050a3743f91ccdc53de23f",
+      "bytes": 2493
+    },
+    "code/batch36/freeze_cohort.py": {
+      "sha256": "d32bd985c30585f3995405bc38fdb2fe451ea67ac3d30f562268599d76ef5a55",
+      "bytes": 9742
+    },
+    "code/batch36/manifest_and_readme.py": {
+      "sha256": "2d3820858d0f5c178fc64f31f6d574b45568b7a7899e5210709e322f877943bc",
+      "bytes": 6403
+    },
+    "code/batch36/reports_batch36.py": {
+      "sha256": "d1e2165a9fc3e6bf929cbd84a0bd7882965a788fbcb88365c91fc2d1b9e12e0c",
+      "bytes": 8294
+    },
+    "code/batch36/xlsx_min.py": {
+      "sha256": "d9f86e68d4a324c1588da02a18e27e1dbb9147beef6be09e4fcd202bbba99bd4",
+      "bytes": 2486
+    },
+    "data/breakthrough_20261002/batch36/mapt/media-1.xlsx": {
+      "sha256": "bc6e05853091d2d1245c73afb5551eabe8fb5ad4bfba2bb61fa8b5136e62090e",
+      "bytes": 73418975
+    },
+    "data/breakthrough_20261002/batch36/mapt/supp/s10_InDels_Neurons.tsv": {
+      "sha256": "7481b695a52cb25c8bdc5dc3afb467b99d96a0194863a8a71e1a196e817ec67c",
+      "bytes": 112957
+    },
+    "data/breakthrough_20261002/batch36/mapt/supp/s11_InDels_HEKs.tsv": {
+      "sha256": "f2ca24441f227aa273e76543020ec3497357646e4f7932f2bc63539a27767a8b",
+      "bytes": 113730
+    },
+    "data/breakthrough_20261002/batch36/mapt/supp/s12_SNVs_Neurons.tsv": {
+      "sha256": "c4cc86e000ae8b63a06c4ab2494a4ab8cd14731138b3b59345de041c7a3f016d",
+      "bytes": 1558074
+    },
+    "data/breakthrough_20261002/batch36/mapt/supp/s13_SNVs_HEKs.tsv": {
+      "sha256": "1fb49aaafc7e1715c85f1da0e4dd8f74005910bfc4490a00a35a879463b28a9e",
+      "bytes": 1568667
+    },
+    "data/breakthrough_20261002/batch36/mapt/supp/s14_MAPTprom_Neurons.tsv": {
+      "sha256": "b87c6da1a8bd6b003df509995ff71e0bcc60e7f62e2e15e500bce2ea3ca5e213",
+      "bytes": 1668320
+    },
+    "data/breakthrough_20261002/batch36/mapt/supp/s15_MAPTprom_HEKs.tsv": {
+      "sha256": "57b4efebbb6f6644ecd8aece8df16b8ae0f54024e9fd1ed3602706e0ae0fb7de",
+      "bytes": 1677497
+    },
+    "data/breakthrough_20261002/batch36/mapt/supp/s17_PromoterAI.tsv": {
+      "sha256": "67371ad494818f2d65bcdf05a223176f95a467b2f345fa7ee9687997b135503f",
+      "bytes": 245640
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_INDEL_HEK293FT.tsv": {
+      "sha256": "d18c82411dc2c7d87a84cfcf125d91208ed32381282eb3b3382706b8de53ec1b",
+      "bytes": 446347
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_INDEL_HEK293FT_inserts.fasta": {
+      "sha256": "40e138ae3d5fd6b744a0ae44ffb2393d5ff7b2d344d50fb78f6cb38f36a1bd63",
+      "bytes": 222815
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_INDEL_NEURON.tsv": {
+      "sha256": "eaa8fdad444162b6cfaf58d2939bae196011b6d3e2ee0a39bb5eaf44c317fe39",
+      "bytes": 452207
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_INDEL_NEURON_inserts.fasta": {
+      "sha256": "3f7d419dd5022940ec47f83f5c95b32fb6023a0f493300bb2ba7b476bb4aea7a",
+      "bytes": 229030
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_SNV_HEK293FT.tsv": {
+      "sha256": "86a6985a7cbcf0aff4f80a02f8b6a24d2b9210b9dcdbaa073d77e68d54857f11",
+      "bytes": 6233933
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_SNV_HEK293FT_inserts.fasta": {
+      "sha256": "71d2caab0204e060f8e804c293a07cb17dd4a80af694cd160d4af4d4f32985c4",
+      "bytes": 3090049
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_SNV_NEURON.tsv": {
+      "sha256": "b5ee2937e651dd6b26341e5e66f811745962ff9bb5237c4929adb7d60d191d44",
+      "bytes": 6314188
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_KV_SNV_NEURON_inserts.fasta": {
+      "sha256": "7ef73b176bc99d0d7de2f94a8dd048736689af71103ebfcb6c4cf2689d149795",
+      "bytes": 3176288
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_SAT_HEK293FT.tsv": {
+      "sha256": "b307e9be8cb588acac6708fee99741ca931e3c03faa686e31afe0b7655f15666",
+      "bytes": 5847629
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_SAT_HEK293FT_inserts.fasta": {
+      "sha256": "b0e38a80a89e8be57aa6867b9c9366d30ca6cf4fde4e1e6dc7e9aa61a31a2643",
+      "bytes": 2923444
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_SAT_NEURON.tsv": {
+      "sha256": "7b03580b347668c45a58eb02864dd28e7c578124fdf0f24dd7da6aa741ec22b8",
+      "bytes": 5926452
+    },
+    "data/breakthrough_20261002/batch36/mapt/cohort_SAT_NEURON_inserts.fasta": {
+      "sha256": "51bb9bd6a66834a6672cd5aefd5d6767ddc07797933e026a492dee1aa1cb5f5b",
+      "bytes": 3006265
+    },
+    "reports/breakthrough_20261002/batch36/figures/batch36_cohort_coverage.png": {
+      "sha256": "5aa796ef6d4d22049ff0d546fb70e6e63f37cf9d0bd0ca796ad9593560de9607",
+      "bytes": 43588
+    },
+    "reports/breakthrough_20261002/batch36/figures/batch36_logfc_by_cell.png": {
+      "sha256": "950b4d3209f6719ef772ff83d0fa4d2bbe54e60da69b288e0906f5ef2fc3c419",
+      "bytes": 33041
+    },
+    "reports/breakthrough_20261002/batch36/README.md": {
+      "sha256": "dfade4f9a4fd279bd8ddd279bf190da69d37af309b76a071b5bc542b90f29527",
+      "bytes": 3110
+    },
+    "reports/breakthrough_20261002/batch36/arm_readiness.tsv": {
+      "sha256": "7d39d98de0a831a3f4028d6a1c932d0b1e661bac2026492aa06197e102775317",
+      "bytes": 1235
+    },
+    "reports/breakthrough_20261002/batch36/cohort_freeze_audit.json": {
+      "sha256": "26fb51c6df845edcadf87fc9d579469b43826e74971129691ae245c8fe9f799c",
+      "bytes": 15146
+    },
+    "reports/breakthrough_20261002/batch36/label_source_manifest.json": {
+      "sha256": "7cb598139afa509b17c44d1f52b59fb78bc25f16e9797bb5218bde913283d79d",
+      "bytes": 4731
+    },
+    "reports/breakthrough_20261002/batch36/next_batch_proposal.json": {
+      "sha256": "2038d421e718e2d36048e37d1e239f411fc66703d3b9677749b234646065b8e5",
+      "bytes": 1905
+    },
+    "reports/breakthrough_20261002/batch36/remaining_work.json": {
+      "sha256": "c1ea5d6f3edc01290ff41ff7f5abc0ab97b00e1d96e4476fd1dd523c536feda6",
+      "bytes": 1734
+    },
+    "reports/breakthrough_20261002/batch36/source_manifest.json": {
+      "sha256": "8b3999749e4ac1f6173fe6250f3687c7be0b03976ca2653cdd25229107c6b8ce",
+      "bytes": 2024
+    }
+  }
+}

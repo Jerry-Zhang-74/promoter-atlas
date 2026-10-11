@@ -1,0 +1,68 @@
+{
+  "source": "data/breakthrough_20261002/batch44/syn.txt.gz  sha256=c7ce4b506a133afa5aee04c478c821b16dc64fdbfd612a8722779d06766244d6",
+  "denominators": {
+    "source_rows": 3556,
+    "unique_query_DNA": 889,
+    "unique_barcode": 3556,
+    "barcodes_per_fragment": {
+      "4": 889
+    },
+    "library_unique_query": {
+      "synthetic.promoters.short.70bp": 455,
+      "synthetic.promoters.long.232bp": 434
+    },
+    "category_summary": {
+      "short:design": {
+        "n_unique_DNA": 389,
+        "median_K562_meas": -0.26919525249109677,
+        "median_HepG2_meas": -0.3704233266382085
+      },
+      "short:MUTATED": {
+        "n_unique_DNA": 11,
+        "median_K562_meas": -1.1436729246601236,
+        "median_HepG2_meas": -0.9170286623963018
+      },
+      "short:top_individual": {
+        "n_unique_DNA": 11,
+        "median_K562_meas": 0.5577959738490437,
+        "median_HepG2_meas": 0.14284170295627716
+      },
+      "short:control": {
+        "n_unique_DNA": 44,
+        "median_K562_meas": -1.1997979421153258,
+        "median_HepG2_meas": -0.9727008622599272
+      },
+      "long:control": {
+        "n_unique_DNA": 42,
+        "median_K562_meas": -1.867546321730728,
+        "median_HepG2_meas": -1.5105879314577975
+      },
+      "long:best": {
+        "n_unique_DNA": 10,
+        "median_K562_meas": 0.8034874209695595,
+        "median_HepG2_meas": 0.6416872285342174
+      },
+      "long:design": {
+        "n_unique_DNA": 372,
+        "median_K562_meas": -0.203175275154175,
+        "median_HepG2_meas": -0.4560883433778925
+      },
+      "long:MUTATED": {
+        "n_unique_DNA": 10,
+        "median_K562_meas": -2.618562125666835,
+        "median_HepG2_meas": -2.207471551787199
+      }
+    }
+  },
+  "aggregation": "per unique query DNA within a library: per author RNA replicate = arithmetic mean of author normalized.log2rpm over finite barcode rows; assay summary = mean of the two replicate means.",
+  "metrics": {
+    "delta_K562_predicted_score": "published PARM K562 prediction at generation G minus at generation 0 (source score units)",
+    "delta_K562_measured_summary": "fixed measured activity summary (mean of the 2 replicate means of author normalized.log2rpm) at G minus at 0 (log2 RNA/DNA units)",
+    "spearman_rho": "tie-aware rank corr between source prediction and measured summary",
+    "gc_baseline_rho": "rank corr between query-DNA GC fraction and measured summary",
+    "top10_precision_enrichment": "k=ceil(0.1n); precision=overlap/k; enrichment=precision/(k/n); lexical-id tie rule; only n>=30",
+    "replicate_spearman": "rank corr between replicate-1 and replicate-2 measured summaries (measurement diagnostic)"
+  },
+  "unit_warning": "prediction and experiment have different units; NO MAE/R2/calibration computed; negative prediction not log-transformed; no sign flip.",
+  "independence_warning": "889 DNA are NOT 889 independent families (shared genetic-optimization ancestry + model-selected candidates); 3556 barcodes and 2 RNA columns are not independent n."
+}

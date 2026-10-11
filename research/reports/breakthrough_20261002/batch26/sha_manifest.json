@@ -1,0 +1,110 @@
+{
+  "batch": "batch26",
+  "version": "v6.19.0-strvariant.rc1",
+  "generated_at": "2026-10-03T18:10:57+08:00",
+  "preregistered_code_sha256": {
+    "b26_train.py": "a4a7c6f72ab544e79c17163736cdd4f92ca17091bf6fe0aff5620ca7fbf601c3",
+    "b26_data.py": "9786326e15a3bd54b080765115485bbb04b8505aa1e24e5dd1e06de8aac9051e",
+    "b26_metrics.py": "6e12fed2cf8ed3d7e43356c0c3bf643ee2bb8425c098cf96997596a2fa80d860"
+  },
+  "current_code_sha256": {
+    "b26_common.py": "f38ba9762e7f357dd255e4ae69e4957138e9e308cbdb3745ed71ec86c7a9e923",
+    "b26_data.py": "9786326e15a3bd54b080765115485bbb04b8505aa1e24e5dd1e06de8aac9051e",
+    "b26_train.py": "272e924e93c8e1308236284fafd12ecc6366d8862c69fbad5caf2703244bc24f",
+    "b26_metrics.py": "d10f1ea460551524f20afac2f31635b1e018769e8de4d198b0e5a1942d1995b2",
+    "b26_eval.py": "78ab05d9918a48ebc118d808724d8e38f8f4202f4b3ff73ff3dde1d1496ab9c7",
+    "b26_figs.py": "8980d3db2c5379bc3622d38cc9aa9989ce3f328a8e7831cbd6717143cbc54995",
+    "b26_registry.py": "72e93df8588f5f8a7657cc47e6d1e6524a50bd3d01cb210296026032d3358f9a",
+    "b26_infer_fasta.py": "f20415aa299b9789e42c4a6855abc40db974839100fd5d1f9c0b8b648295e181"
+  },
+  "post_prereg_code_changes": {
+    "b26_metrics.py": {
+      "prereg_sha": "6e12fed2cf8ed3d7e43356c0c3bf643ee2bb8425c098cf96997596a2fa80d860",
+      "current_sha": "d10f1ea460551524f20afac2f31635b1e018769e8de4d198b0e5a1942d1995b2",
+      "change": "APPEND-ONLY: added bootstrap_rho() after the fits. Existing fit-path functions (spearman, mae, r2, group_balanced_mae, group_bootstrap, top_decile) are byte-identical to fit time.",
+      "affects_fits": false,
+      "affects_evaluation_only": true
+    },
+    "b26_eval.py": {
+      "change": "created/edited for held-out evaluation after the fits; not part of any fit path.",
+      "affects_fits": false
+    },
+    "b26_figs.py|b26_registry.py|b26_infer_fasta.py": {
+      "change": "reporting/inference utilities written after the fits; no fit path.",
+      "affects_fits": false
+    }
+  },
+  "fit_defining_configuration_unchanged": true,
+  "data": {
+    "str_variant_rows.tsv": "99fc12ad80c60b1b90f7e70fa7f4baa2690a4ab43033d91ffd947b6b8078b432",
+    "encoded.npz": "6d16c3f4b91afd57dc71e0b207fbef6065fd8027116728bde2f7d4c979664232",
+    "split_manifest.tsv": "2fd72fdf51715920df80d15974ae85d0a5f68fee601e457737025116d8c8d239",
+    "test_predictions.tsv": "d7a4140534893783aa261b2a5c0aff26bff081109b0cdacafe36323d0937e543",
+    "input_batch25_str_variant_variants.tsv": "72a5298f0015dea50255ee169a5eee0f918a5ef6b9bc4775dec518384cae4c0e"
+  },
+  "models": {
+    "A0_ridgeC": "20b2b05cab911cf7932e402036bb2d556c321b67340973fefa6b75a6615c3021",
+    "A1_cnn_true_seed20261026": "3c512d5910a064fa98bf13c61c90d61277b6f766c682a516c050f57e91b403e4",
+    "A2_cnn_true_seed20261027": "b7a8f33bb26d322bebe83aeef3693d97663161a512de5bd7dde893dbdfd8e8b9",
+    "A3_cnn_shuffle_seed20261026": "2fe1d8859ee824b72b277029555abcd8b61da93e880b66cf98ff660ca1315648"
+  },
+  "attempt_ledger": {
+    "path": "runs/breakthrough_20261002/batch26/attempts/_ledger.jsonl",
+    "sha256": "07b2a0ec067bd4ce6db9c99965b44bb0c491c1d97e3c5b1b512b7d6ae447c018",
+    "full_fit_entries": 4,
+    "observed_executions": 5,
+    "compliance": "FAIL"
+  },
+  "reports": {
+    "cuda_evidence.json": "26c83b5eedce964caa67a0c2d310b08b0db4a380b8c87506d2c3821601010f6e",
+    "data_freeze.json": "d167c8e76672247562f0418c8cf29180e76337469a880b548f259e7d1f2187e7",
+    "fit_accounting_disclosure.json": "4adc89d27091ba65d339bc61cb56302649a8c0805774e89350d214870daebe06",
+    "groups.json": "e59b59e4c5dae45a514f9c6936383bfcfc8b76a5d74686defff3bc65cbe051fd",
+    "near_homology_audit.json": "4da688311a416626a96f967a243c2b230bfacf2f71a0f318eceee327d8c91f3d",
+    "next_batch_proposal.json": "8c3e63b6f96e67537dfa76f1a446cb3b557979e3cdb1649c17ccbed1ee092ea2",
+    "reconstruction_audit.json": "1590e578e6725678c39eb6d3e3e8919ef173c9ab907e4c4e7b028f66931ca3e9",
+    "replicate_audit.json": "b88b18470722bd372ef690d95bb38a00e17086ee28ffdf5f3d516dfa23dcc12a",
+    "selection_manifest.json": "cd5bb2de08b6d68a28ddb4e8bb51c45b8560bd32fd4f08c11653a00e29370281",
+    "selfcheck.json": "e20d0aa1aa7c93911abf3538a348586785f9373129ebe505a43098e5c5538ecb",
+    "settings.json": "daffc004fba93314d6389fe4eac276eb8bc81f9d2ad8618f53f1c3b20b74e0d3",
+    "status.json": "c78464e723a4fa314a4f001b86369fca3cd47f58a18b9b5559af9096ebaa09ef",
+    "test_metrics.json": "3afdad2f345b12e4783bb1ac06c8f4ee513c51b39896e0aabad9a87f133186be"
+  },
+  "figures": {
+    "heldout_metrics.png": "d178e1cd1fea2bcff9051149ac3a4bdf76f1a1b6ee23535a3f3c991512c12073",
+    "true_vs_pred.png": "2ce5ea77d2d090fcda04aed246b8d00b380948e4bf2b4f3c3cdd9d91923d2f45",
+    "within_locus_delta.png": "fdb7d236eef765451b5b11486650c9d89f8fd39bba9a866345c9a04cef6767eb"
+  },
+  "model_card": "24df58907c05b301e979a2db85a26ef24f499322e8814c4f74843d19729b8a75",
+  "note": "immutable provenance manifest; attempt ledger hashes reflect the corrected (append-only) state.",
+  "metric_function_reproduction": {
+    "claim": "the current (post-prereg append-only) b26_metrics functions reproduce the exact fit-time validation values from the saved val_pred.npz",
+    "per_attempt": {
+      "A1_cnn_true_seed20261026": {
+        "saved_best_val_group_balanced_mae": 0.34658555423275106,
+        "recomputed_now": 0.34658555423275106,
+        "abs_diff": 0.0,
+        "saved_best_val_spearman": 0.4766740583180869,
+        "recomputed_spearman_now": 0.4766740583180869,
+        "match": true
+      },
+      "A2_cnn_true_seed20261027": {
+        "saved_best_val_group_balanced_mae": 0.35391257625278943,
+        "recomputed_now": 0.35391257625278943,
+        "abs_diff": 0.0,
+        "saved_best_val_spearman": 0.44714667847295053,
+        "recomputed_spearman_now": 0.44714667847295053,
+        "match": true
+      },
+      "A3_cnn_shuffle_seed20261026": {
+        "saved_best_val_group_balanced_mae": 0.4434471347091685,
+        "recomputed_now": 0.4434471347091685,
+        "abs_diff": 0.0,
+        "saved_best_val_spearman": NaN,
+        "recomputed_spearman_now": null,
+        "match": true
+      }
+    },
+    "conclusion": "fit-path metric code is behaviourally unchanged; the append-only bootstrap_rho addition affects evaluation only"
+  }
+}

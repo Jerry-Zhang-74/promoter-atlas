@@ -1,0 +1,63 @@
+{
+  "candidate_version": "v6.11.0-sfeatgap.rc1",
+  "batch": "batch10",
+  "attempt": 1,
+  "extract_attempt": 1,
+  "created_at_local": "2026-10-03T06:45:06+0800",
+  "code_hashes": {
+    "b10_common.py": "10b5c2d62464de348654a0b1c4d65ab9f6755711839c0abd28cbbb1a206f7acd",
+    "b10_config.py": "4a19627e9182362a7a56fb79a0b91c7b9324a3350dca8d84a45142c9644244e7",
+    "b10_extract.py": "a8c2700623d3c51d56703e97b9be998ac17aa9421e6aeee3a0624b1e58471eb4",
+    "b10_preflight.py": "79dec1cc0a91a6592848b40e55856b13e839bfe5e24f625a25eff8965dd074ca",
+    "b10_proposal.py": "fa502a22fde762b2bfe5d7f00a234be976db7026c91aebb591b6765e70d6658e",
+    "b10_replay.py": "cd25adfc32f3270eae560ee5839cd793c747eb0a9bfb317ecbfcbdb77f40f99e",
+    "b10_report.py": "dcdd6d4bdd285a207620022fa70755bb1db072aad7e3049f34dd19cb8fdc600b",
+    "b10_run.py": "56d818c47825961e88f78d82a9253646deac2ae3576e9c3557e99fda1d586882",
+    "b10_status.py": "970dfabd4d336ae012b7065c1d10ae2fd0a73882f9d1d3ae5bd7b586d260decb",
+    "b10_tests.py": "905acea17466386b4e4e6075e453ec7c85b00b3a694d05b1b8082b4afff71a22"
+  },
+  "extract_dir": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch10\\attempt_001_extract",
+  "models_sha256": "fa50823f976af134227c13f1e55b3b8fcd88f21c4001cac6fda44425dbe0ace2",
+  "scaler_sha256": "050e83c3690de51f301d56bd19a83a8061005608674341cfa15828514553c352",
+  "thread_caps": {
+    "env": {
+      "OMP_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4",
+      "VECLIB_MAXIMUM_THREADS": "4",
+      "BLIS_NUM_THREADS": "4"
+    },
+    "threadpoolctl": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "filepath": "E:\\promoter_atlas\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll",
+        "version": "0.3.34.106.0",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 4,
+        "prefix": "vcomp",
+        "filepath": "E:\\promoter_atlas\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "filepath": "E:\\promoter_atlas\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "SkylakeX"
+      }
+    ]
+  },
+  "elapsed_s": 29.9
+}

@@ -1,0 +1,69 @@
+{
+ "TEST_decomposition": {
+  "R0": {
+   "MSE_row_weighted": 0.01800387940756763,
+   "between_frac_rw": 0.15034232466197883,
+   "within_frac_rw": 0.8496576753380212,
+   "MSE_group_equal": 0.017881404145329967,
+   "between_frac_ge": 0.17708857875790182,
+   "within_frac_ge": 0.8229114212420983
+  },
+  "R1": {
+   "MSE_row_weighted": 0.04252690665814647,
+   "between_frac_rw": 0.22416474286881627,
+   "within_frac_rw": 0.7758352571311838,
+   "MSE_group_equal": 0.045679519649515804,
+   "between_frac_ge": 0.29202978081540915,
+   "within_frac_ge": 0.7079702191845909
+  },
+  "Rnull": {
+   "MSE_row_weighted": 0.051784930819591006,
+   "between_frac_rw": 0.1701098323997435,
+   "within_frac_rw": 0.8298901676002567,
+   "MSE_group_equal": 0.050386766250685465,
+   "between_frac_ge": 0.2017888874861417,
+   "within_frac_ge": 0.7982111125138582
+  },
+  "const": {
+   "MSE_row_weighted": 0.015269356737853512,
+   "between_frac_rw": 0.12092074763635692,
+   "within_frac_rw": 0.8790792523636431,
+   "MSE_group_equal": 0.015169095849041062,
+   "between_frac_ge": 0.1484322832901597,
+   "within_frac_ge": 0.8515677167098403
+  }
+ },
+ "TRAIN_decomposition": {
+  "R0": {
+   "MSE_row_weighted": 0.016938649775867752,
+   "between_frac_rw": 0.016171814194349644,
+   "within_frac_rw": 0.9838281858056503
+  },
+  "R1": {
+   "MSE_row_weighted": 0.029627555112657696,
+   "between_frac_rw": 0.002234724674291924,
+   "within_frac_rw": 0.9977652753257081
+  },
+  "Rnull": {
+   "MSE_row_weighted": 0.0415197928209012,
+   "between_frac_rw": 0.019325002914140885,
+   "within_frac_rw": 0.9806749970858593
+  },
+  "const": {
+   "MSE_row_weighted": 0.01671783138884398,
+   "between_frac_rw": 0.03725640375637326,
+   "within_frac_rw": 0.9627435962436267
+  }
+ },
+ "identity_max_resid": {
+  "per_group": 2.7755575615628914e-17,
+  "row_weighted": 6.938893903907228e-18,
+  "group_equal": 6.938893903907228e-18
+ },
+ "replay_max_abs_diff_all318": {
+  "R0": 4.995670186414003e-07,
+  "R1": 4.993157827204442e-07,
+  "Rnull": 4.997271527695801e-07
+ },
+ "elapsed_s": 2.47
+}

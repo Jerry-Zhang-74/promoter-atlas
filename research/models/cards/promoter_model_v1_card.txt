@@ -1,0 +1,12 @@
+model_name	promoter_model_v1
+phase	Phase 6 baseline promoter model
+input	sequence_only_core_memmap
+targets	Score_E,Score_S,Score_B
+score_s_missing_policy	masked_loss
+split_key	record_id
+sequence_asset	promoters/memmap/promoter_up200_uint8.memmap
+sequence_index	promoters/memmap/promoter_up200_index.tsv
+dataset	labels/build/promoter_model_input_core.tsv + labels/releases/promoter_split_core.tsv
+checkpoint	models/checkpoints/promoter_model_v1.pt
+eval_table	models/eval/promoter_model_v1_metrics.tsv
+log_file	models/logs/train_promoter_model_v1.log

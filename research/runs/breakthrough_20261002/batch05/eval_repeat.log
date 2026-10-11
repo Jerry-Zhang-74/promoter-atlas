@@ -1,0 +1,206 @@
+{
+  "candidate": "v6.6.0-scratchgene.rc6",
+  "arm": "repeat_bag",
+  "seed": 20261011,
+  "val": {
+    "full": {
+      "n": 5782,
+      "spearman": 0.589759010775609,
+      "r2": 0.3252868000839274,
+      "mae": 0.19324341058112035,
+      "mse": 0.05684376669274843
+    },
+    "component_bootstrap_spearman": {
+      "point": 0.589759010775609,
+      "mean": 0.5897103474003663,
+      "ci_low": 0.5669069846947443,
+      "ci_high": 0.6106609047170721,
+      "n_genes": 5782,
+      "n_components": 5541,
+      "n_boot": 2000,
+      "nonindependence_note": "whole components resampled; within-component gene dependence preserved; cross-component residual near-identity/exact-dup NOT corrected; CI is design-conditional"
+    },
+    "component_bootstrap_r2": {
+      "point": 0.3252868000839274,
+      "mean": 0.32497257261074014,
+      "ci_low": 0.2937687119556343,
+      "ci_high": 0.3512721608566875,
+      "n_genes": 5782,
+      "n_components": 5541,
+      "n_boot": 2000,
+      "nonindependence_note": "whole components resampled; within-component gene dependence preserved; cross-component residual near-identity/exact-dup NOT corrected; CI is design-conditional"
+    },
+    "n_genes": 5782,
+    "n_components": 5541,
+    "fixed_n_strata": {
+      "n=1": {
+        "n": 3147,
+        "spearman": 0.3422426022736737,
+        "r2": -0.25835577293070466,
+        "mae": 0.21405468177842213,
+        "mse": 0.0668545349294571
+      },
+      "n=2-3": {
+        "n": 495,
+        "spearman": 0.5332691219363546,
+        "r2": 0.1706965827433483,
+        "mae": 0.16073570103205817,
+        "mse": 0.03955752214733219
+      },
+      "n>=4": {
+        "n": 2140,
+        "spearman": 0.41263240260069867,
+        "r2": -0.03934582572101819,
+        "mae": 0.1701584786974181,
+        "mse": 0.04612077763156098
+      }
+    },
+    "gc_strata": {
+      "gc_low": {
+        "n": 1904,
+        "spearman": 0.3079768570966308,
+        "r2": -0.06979108593125805,
+        "mae": 0.19780596600446929,
+        "mse": 0.05466121563080703
+      },
+      "gc_mid": {
+        "n": 1929,
+        "spearman": 0.3651188937020158,
+        "r2": 0.09334344385575266,
+        "mae": 0.2000608854433338,
+        "mse": 0.059460516664423084
+      },
+      "gc_high": {
+        "n": 1949,
+        "spearman": 0.3209056866037511,
+        "r2": 0.0202811787964714,
+        "mae": 0.182038682753893,
+        "mse": 0.056386027609411346
+      }
+    },
+    "count_strata": {
+      "count_low": {
+        "n": 0,
+        "spearman": null,
+        "r2": null,
+        "mae": null,
+        "mse": null
+      },
+      "count_mid": {
+        "n": 3813,
+        "spearman": 0.4195103895318078,
+        "r2": -0.06955067516791402,
+        "mae": 0.20457043696484994,
+        "mse": 0.062243194343569314
+      },
+      "count_high": {
+        "n": 1969,
+        "spearman": 0.3951152263325321,
+        "r2": -0.10721346410886068,
+        "mae": 0.1713084427796166,
+        "mse": 0.04638768866706025
+      }
+    }
+  },
+  "test": {
+    "full": {
+      "n": 5782,
+      "spearman": 0.6043625720948825,
+      "r2": 0.3432313346437479,
+      "mae": 0.19313225643866247,
+      "mse": 0.056242727724020204
+    },
+    "component_bootstrap_spearman": {
+      "point": 0.6043625720948825,
+      "mean": 0.6042120523337597,
+      "ci_low": 0.581611210490895,
+      "ci_high": 0.6255563474081536,
+      "n_genes": 5782,
+      "n_components": 5542,
+      "n_boot": 2000,
+      "nonindependence_note": "whole components resampled; within-component gene dependence preserved; cross-component residual near-identity/exact-dup NOT corrected; CI is design-conditional"
+    },
+    "component_bootstrap_r2": {
+      "point": 0.3432313346437479,
+      "mean": 0.34314733215370324,
+      "ci_low": 0.3134858337857052,
+      "ci_high": 0.36961732824932514,
+      "n_genes": 5782,
+      "n_components": 5542,
+      "n_boot": 2000,
+      "nonindependence_note": "whole components resampled; within-component gene dependence preserved; cross-component residual near-identity/exact-dup NOT corrected; CI is design-conditional"
+    },
+    "n_genes": 5782,
+    "n_components": 5542,
+    "fixed_n_strata": {
+      "n=1": {
+        "n": 3135,
+        "spearman": 0.3633728856489048,
+        "r2": -0.2345499845824306,
+        "mae": 0.21484246580549396,
+        "mse": 0.06530022044561651
+      },
+      "n=2-3": {
+        "n": 518,
+        "spearman": 0.5057748537964363,
+        "r2": 0.07343905031805342,
+        "mae": 0.16587964078037493,
+        "mse": 0.04601549758083344
+      },
+      "n>=4": {
+        "n": 2129,
+        "spearman": 0.4321348177567544,
+        "r2": -0.019468643356544968,
+        "mae": 0.1677942332099054,
+        "mse": 0.04539372139802975
+      }
+    },
+    "gc_strata": {
+      "gc_low": {
+        "n": 1955,
+        "spearman": 0.3091940639654311,
+        "r2": -0.10697194125817755,
+        "mae": 0.20080761408827522,
+        "mse": 0.054745753948377836
+      },
+      "gc_mid": {
+        "n": 1947,
+        "spearman": 0.3733951749098976,
+        "r2": 0.11450739571980983,
+        "mae": 0.19539243415631014,
+        "mse": 0.0569687701236026
+      },
+      "gc_high": {
+        "n": 1880,
+        "spearman": 0.3238941206117581,
+        "r2": 0.03461697444337175,
+        "mae": 0.18280997440608113,
+        "mse": 0.057047503883272295
+      }
+    },
+    "count_strata": {
+      "count_low": {
+        "n": 0,
+        "spearman": null,
+        "r2": null,
+        "mae": null,
+        "mse": null
+      },
+      "count_mid": {
+        "n": 3815,
+        "spearman": 0.43790265036268783,
+        "r2": -0.05664110086121932,
+        "mae": 0.2064318154574397,
+        "mse": 0.0618335938791882
+      },
+      "count_high": {
+        "n": 1967,
+        "spearman": 0.41525093136320035,
+        "r2": -0.09711542285115904,
+        "mae": 0.1673377380570483,
+        "mse": 0.045399232867911456
+      }
+    }
+  }
+}
+DONE

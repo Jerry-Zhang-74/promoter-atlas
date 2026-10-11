@@ -1,0 +1,48 @@
+{
+  "batch": "batch36",
+  "version": "v6.25.0-293ft-label-recovery.rc1",
+  "generated_at": "2026-10-03T16:12:27.252479+00:00",
+  "study": {
+    "pmid": "41959502",
+    "pmcid": "PMC13060879",
+    "doi": "10.64898/2026.03.06.710116",
+    "preprint": "bioRxiv v2 (2026-03-25 posting path); PREPRINT status",
+    "title": "Promoter mutagenesis and a massively parallel reporter screen of the MAPT locus"
+  },
+  "sources": [
+    {
+      "role": "MEASURED_LABELS",
+      "file": "data\\breakthrough_20261002\\batch36\\mapt\\media-1.xlsx",
+      "bytes": 73418975,
+      "sha256": "bc6e05853091d2d1245c73afb5551eabe8fb5ad4bfba2bb61fa8b5136e62090e",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "url": "https://www.biorxiv.org/content/biorxiv/early/2026/03/25/2026.03.06.710116/DC1/embed/media-1.xlsx",
+      "sheets_used": [
+        "s10_InDels_Neurons",
+        "s11_InDels_HEKs",
+        "s12_SNVs_Neurons",
+        "s13_SNVs_HEKs",
+        "s14_MAPTprom_Neurons",
+        "s15_MAPTprom_HEKs"
+      ],
+      "computed_score_sheets_NOT_ground_truth": [
+        "s17_PromoterAI"
+      ]
+    },
+    {
+      "role": "MEASURED_SEQUENCES",
+      "file": "data/breakthrough_20261002/batch35/mapt/gsm9640449_VariantMPRAdesignFile.fa.gz",
+      "bytes": 663111,
+      "sha256": "4f7243b83f4b9df08e64c1b0f3f2d7bedc9ca8fc270a424331e270dc9862f9e9",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM9640449",
+      "geo": "GSE325670 / GSM9640449",
+      "n_records": 36000,
+      "read_only": true
+    }
+  ],
+  "not_ground_truth": {
+    "s17_PromoterAI": "computed variant-effect scores (PromoterAI), NOT measured",
+    "gsm9640449_barcodeDictionary": "maps barcode<->oligo only; NOT counts/activity (not downloaded)"
+  },
+  "license": "Public NIH preprint supplement + public GEO; local academic research use."
+}

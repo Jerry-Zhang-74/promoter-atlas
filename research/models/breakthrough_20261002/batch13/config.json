@@ -1,0 +1,125 @@
+{
+  "candidate_version": "v6.14.0-scv5.rc1",
+  "track": "scv5",
+  "batch": "batch13",
+  "created_at": "2026-10-03T08:39:54+0800",
+  "freeze_note": "config.json written BEFORE any batch13 fit or held-out metric was computed; immutable freeze-point for the component five-fold cross-fitting retrospective robustness experiment.",
+  "sources_sha256": {
+    "gene_expression_table.tsv": {
+      "path": "E:\\promoter_atlas\\labels\\build\\gene_expression_table.tsv",
+      "sha256": "9876abd64aa8f5dc46f09796d4dffec4f2385e553e281f32120a72a23c606ae4"
+    },
+    "gene_expression_label_table.tsv": {
+      "path": "E:\\promoter_atlas\\labels\\build\\gene_expression_label_table.tsv",
+      "sha256": "34e20a961934c0ecc15a04b13f414b1fad803a4e13260f33134b536b8d7795b2"
+    },
+    "batch08_label_audit_all_genes.tsv": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch08\\label_audit_all_genes.tsv",
+      "sha256": "632f4b7d9dcf0fefc2b1be96319afa8b41f1db67fcbaeba07d9a6ecb78e73ab7"
+    },
+    "batch03_trackA_gene_promoters.npz": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch03\\trackA_gene_promoters.npz",
+      "sha256": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072"
+    },
+    "batch05_split_arrays.npz": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch05\\split_arrays.npz",
+      "sha256": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5"
+    },
+    "batch06_features45.npz": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch06\\features45.npz",
+      "sha256": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800"
+    },
+    "batch10_features1024.npz": {
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch10\\attempt_001_extract\\features1024.npz",
+      "sha256": "2dc7dc0eda7c60b3fa740261e39fb37832dc0e0faf81a7fa2f9cd37a11bc14f2"
+    }
+  },
+  "expected_source_sha256": {
+    "split_arrays.npz": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5",
+    "features45.npz": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800",
+    "features1024.npz": "2dc7dc0eda7c60b3fa740261e39fb37832dc0e0faf81a7fa2f9cd37a11bc14f2",
+    "trackA_gene_promoters.npz": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072"
+  },
+  "population": {
+    "canonical_genes": 58988,
+    "canonical_S_defined": 18947,
+    "feature_universe_genes": 57827,
+    "expected_eligible_S_defined_and_feature_covered": 18769,
+    "expected_excluded_canonical_S_defined": 178,
+    "expected_eligible_components": 18400,
+    "note": "Eligible = canonical S-defined AND present in the batch03 57827-gene promoter-feature universe (has frozen composition/count features and a batch05 component split). 18400 distinct component IDs among eligible."
+  },
+  "S_label_definition": {
+    "DETECTABLE_TPM": 1.0,
+    "B_MIN": 0.3,
+    "MIN_DET_TISSUES": 3,
+    "formula": "S_raw = -MAD(log2(1+collapsed_mean_tpm)) over detectable (TPM>=1) tissues",
+    "eligibility": "B_raw = detectable/54 >= 0.30 AND detectable_tissue_count >= 3",
+    "direction": "larger / less-negative S = less across-tissue dispersion",
+    "not": "S is NOT post-transfection temporal stability nor synthetic promoter activity",
+    "reference_target": "full-precision raw S (reconstructed in memory from gene_expression_table.tsv)",
+    "frozen_target_only": "continuous raw S only"
+  },
+  "fold_allocation": {
+    "scheme": "component five-fold cross-fitting",
+    "label_independent": true,
+    "labels_not_used": "raw S values never used for fold assignment",
+    "algorithm": "1) collect unique component IDs of eligible genes; 2) sort them by canonical string representation; 3) compute hash = SHA256(FOLD_SALT + ID) with FOLD_SALT = batch13|20261013|; 4) sort components by decreasing eligible gene size, then by hash, then by ID; 5) greedy-assign each component (in that order) to the fold with the smallest current eligible gene count (ties -> lowest fold index 0..4).",
+    "salt": "batch13|20261013|",
+    "n_folds": 5,
+    "every_gene_exactly_once_in_heldout": true,
+    "no_component_crossing": true,
+    "original_batch05_split_roles_retained_as_metadata_only": true,
+    "no_original_test_heldout_claim": true
+  },
+  "model": {
+    "model": "HistGradientBoostingRegressor",
+    "config": {
+      "max_iter": 200,
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "l2_regularization": 0.1,
+      "early_stopping": false,
+      "random_state": 20261011
+    },
+    "baseline_arm": "45 features (batch06 composition/count)",
+    "full_arm": "1069 features (45 baseline + 1024 batch10 positional sequence)",
+    "n_scientific_fits": 10,
+    "fits_per_fold": 2,
+    "no_feature_selection_hyperparam_search_seed_search_ensemble_gpu": true,
+    "target": "continuous raw S only"
+  },
+  "transform_rules": {
+    "X_scaler": "sklearn StandardScaler (with_mean/with_std) fit on the other four folds only; independent scaler per representation (base vs full)",
+    "target_standardization": "z = (y - train_mean) / train_std (population std ddof=0) fit on the other four folds only; shared within a paired fold",
+    "target_inverse": "y_hat = z_hat * train_std + train_mean (back to raw S units)",
+    "no_original_batch10_scaler_or_model_reuse": "original batch10 scalers/models saw different rows; NEVER reused for cross-fit training",
+    "feature_extraction_reused": "frozen batch06/batch10 feature matrices only; no refit of feature extraction"
+  },
+  "evaluation": {
+    "seed": 20261013,
+    "bootstrap_resamples": 2000,
+    "bootstrap_unit": "components resampled WITHIN fold, preserving per-fold component counts",
+    "bootstrap_paired": "full and base evaluated on the SAME resample; delta = full Spearman - base Spearman over pooled resampled OOF rows",
+    "interval": "percentile interval [2.5, 97.5] percent => 95 percent two-sided",
+    "primary_contrast": "pooled OOF full-minus-base Spearman",
+    "acceptance_criterion": "pooled delta >= 0.03 AND 95 percent lower bound > 0 AND positive fold Spearman delta in >= 4 of 5 folds",
+    "fixed_prediction_bootstrap_scope": "captures held-out sampling variability conditional on these ten fits; NOT training variation and NOT full research-selection/adaptivity uncertainty",
+    "show_all_folds": true,
+    "raw_r2_mae_mse_deltas_descriptive_secondary": true
+  },
+  "scope_limits": [
+    "retrospective robustness on reused labels; NOT independent external or prospective validation",
+    "does NOT repair all near-homology / adaptive-test concerns",
+    "exact/RC component grouping remains incomplete for near homology",
+    "positive threshold supports representation robustness within these conditions only",
+    "not reliable HEK293T / fragment activity / temporal stability / causal mechanism evidence"
+  ],
+  "resources": {
+    "cpu_threads_max": 4,
+    "gpu": "zero",
+    "fits": "exactly ten scientific fits (2 per fold x 5 folds)",
+    "numerical_fit_eval_budget_minutes": 60,
+    "no_search": "no hyperparameter / architecture / threshold / target-mapping search"
+  }
+}

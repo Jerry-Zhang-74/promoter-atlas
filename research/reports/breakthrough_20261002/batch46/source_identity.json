@@ -1,0 +1,35 @@
+{
+  "batch": "batch46",
+  "version": "v6.33.0-within-generation-selection.rc1",
+  "phase": "A_source_identity",
+  "source_file": "data/breakthrough_20261002/batch44/syn.txt.gz",
+  "official_filename": "GSE301246_Synthetic_Promoter_Libraries_Small_and_Large_Data.txt.gz",
+  "integrity": {
+    "compressed_bytes": 385134,
+    "decompressed_bytes": 2265693,
+    "gzip_eof": true,
+    "gzip_unused_tail_bytes": 0,
+    "gzip_crc_ok": true,
+    "sha256_compressed": "c7ce4b506a133afa5aee04c478c821b16dc64fdbfd612a8722779d06766244d6",
+    "sha256_decompressed": "e7fc776ccb982130d3eb225cc6f47ae22baa3752b43d60bdf41a8db265e8c223",
+    "compressed_sha256_matches_expected": true,
+    "decompressed_sha256_matches_b45": true,
+    "expected_compressed_sha256": "c7ce4b506a133afa5aee04c478c821b16dc64fdbfd612a8722779d06766244d6"
+  },
+  "n_data_rows": 3556,
+  "n_unique_query_DNA": 889,
+  "n_unique_info": 889,
+  "n_unique_barcode": 3556,
+  "b45_source_and_table_identity_ok": true,
+  "b45_cross_reference": {
+    "b45_freeze_sha256_compressed": "c7ce4b506a133afa5aee04c478c821b16dc64fdbfd612a8722779d06766244d6",
+    "b45_aggregation_n_unique_fragments": 889,
+    "b45_identity_n_unique_query_seq": 889
+  },
+  "non_design_row_counts": {
+    "MUTATED": 84,
+    "top_individual": 44,
+    "control": 344,
+    "best": 40
+  }
+}

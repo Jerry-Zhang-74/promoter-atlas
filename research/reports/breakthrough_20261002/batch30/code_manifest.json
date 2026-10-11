@@ -1,0 +1,30 @@
+{
+  "batch": "batch30",
+  "version": "v6.20.2-sure-native-readiness.rc1",
+  "files": {
+    "b30_audit100.py": "7495a1f3a948cd21e0d78a582c46ed39e7ba6a40a36bfc4f027968f0f6af0bd5",
+    "b30_ckpt.py": "bab966ef7cca1d9abedbea6d9afec898ad307feafcf0ddce736096868f76d8b0",
+    "b30_common.py": "4c99e98dee45c2766fbf38d0bed55cb9c90798efd9bf6e2f45df6512709d03f5",
+    "b30_data.py": "3afb3569cd83526daaf560e38fc0ba3b80020163279c172f60245c0291ac2bed",
+    "b30_exec_gate.py": "f59351ed0dd292e7560e341508e249a836f5817916814a20c6ff2a429ba54ce2",
+    "b30_freeze.py": "6974f4fd520b7f3ca2dc91de8828e34113d63798838b95bb9375015e8bcba8fa",
+    "b30_gate.py": "a85c062dfc739e4a7abc25bb0a6ba37070a87b6ce3e0495829f9ade23d3f2c54",
+    "b30_homology.py": "c5ddbc025760246f8c21de9290c0fd28da6bfe432fb27b5c63ed642c76826b7d",
+    "b30_infer_fasta.py": "274ab3cafd8a3c220734f1d7c5d0c7f4f820348fea30b41651510aad38f41c66",
+    "b30_metrics.py": "5d1c32cc68d64948f412a44d95ada3f7c887b9a235e6722dbc6967a3e41367f1",
+    "b30_model.py": "c5ae3efbc5ce83fa7ea9d3a30b9babb3096ceaf818cace48b216a9ced779c376",
+    "b30_preflight.py": "aac3c1da3ef9c6c03180033d251aabcc18e5836da8316751948e2697d43bdf7a",
+    "b30_registry.py": "86a364c97eca60c8b94b278df9aec0248370df1858318a5bc6a4e96f93b4a4a4",
+    "b30_review.py": "853930a071d8cb01f3efcf45db69c34fa35b935243310dd0e8f27133e3bd7fe4",
+    "b30_train.py": "400c8850429da51da6090b8e7cffeb34f416e42393d65ddee47961239e3a96fe"
+  },
+  "provenance_sources": {
+    "batch02/trackB_grouped_cv.py": "7de6cca87b2868911f9e3148fba0f3a0192d5dc386fc376f30cf5b802196b731",
+    "batch26/b26_common.py": "f38ba9762e7f357dd255e4ae69e4957138e9e308cbdb3745ed71ec86c7a9e923",
+    "batch26/b26_metrics.py": "d10f1ea460551524f20afac2f31635b1e018769e8de4d198b0e5a1942d1995b2",
+    "batch27/exec_gate.py": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571"
+  },
+  "written_at": "2026-10-03T20:57:00+08:00",
+  "n_files": 15,
+  "notes": "worker + independent reviewer sources; old batch02/26/27 sources read-only"
+}

@@ -1,0 +1,3 @@
+# Promoter Atlas v6.15.1-release.rc2 - inference dependencies (versions verified 2026-10-03)
+numpy==2.5.3
+torch==2.11.0

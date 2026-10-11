@@ -1,0 +1,195 @@
+{
+  "candidate_version": "v6.9.0-labelaudit.rc1",
+  "N": 58988,
+  "M": 18947,
+  "a": 0.67881058538322,
+  "b": 0.32118941461677997,
+  "score_s_defined_range": [
+    0.678811,
+    1.0
+  ],
+  "s_raw_defined_range": [
+    -3.774382,
+    -0.042451
+  ],
+  "affine_range": [
+    1.2908793414464598e-06,
+    1.0
+  ],
+  "max_score_s_recompute_err": 4.99991523517096e-07,
+  "s_raw_max_6dec_err": 4.9999807666401e-07,
+  "tie_audit_summary": {
+    "full_precision_tie_groups": 0,
+    "full_precision_tie_genes": 0,
+    "sixdec_tie_groups": 234,
+    "sixdec_tie_genes": 471,
+    "sixdec_rounding_only_groups": 234,
+    "sixdec_rounding_only_genes": 471,
+    "sixdec_true_tie_groups": 0,
+    "unique_sixdec_values_among_defined": 18710
+  },
+  "pipeline_counts": {
+    "canonical_genes": 58988,
+    "canonical_S_defined": 18947,
+    "human_records_v6_input": 507365,
+    "human_labeled_E_records": 436291,
+    "human_unlabeled_records": 71074,
+    "human_unique_labeled_genes": 57827,
+    "human_S_defined_records": 295766,
+    "human_S_missing_among_labeled_records": 140525,
+    "human_unique_S_genes": 18769,
+    "gene_split_manifest_genes": 56161,
+    "gene_split_manifest_S_defined": 18575,
+    "gene_split_manifest_note": "separate 56161-gene reference manifest (symbol-annotated); not the v6-input record universe"
+  },
+  "es_sensitivity": {
+    "n_S_defined_for_ES": 18947,
+    "topk": 1000,
+    "spearman_ES_legacy_vs_affine": 0.7175087036978655,
+    "spearman_ES_legacy_vs_rank": 0.7175085981040339,
+    "topk_overlap_legacy_vs_affine": 741,
+    "topk_overlap_legacy_vs_rank": 741,
+    "note": "S rescaling changes E*S objective weighting; NOT biological validation"
+  },
+  "B_tie_artifact": {
+    "B_raw_distinct_values": 55,
+    "B_tie_groups": 55,
+    "B_tied_genes_beyond_first": 58933,
+    "max_B_group_size": 24541,
+    "note": "Score_B uses stable gene_id-order tie-break for equal B_raw; left unchanged this batch"
+  },
+  "split_rows": [
+    {
+      "split": "train",
+      "records": 418315,
+      "labeled_E": 347241,
+      "unlabeled": 71074,
+      "s_defined": 234983,
+      "s_missing_labeled": 112258,
+      "unique_genes_total": 67482,
+      "unique_genes_S": 15058
+    },
+    {
+      "split": "val",
+      "records": 43517,
+      "labeled_E": 43517,
+      "unlabeled": 0,
+      "s_defined": 30458,
+      "s_missing_labeled": 13059,
+      "unique_genes_total": 5606,
+      "unique_genes_S": 1856
+    },
+    {
+      "split": "test",
+      "records": 45533,
+      "labeled_E": 45533,
+      "unlabeled": 0,
+      "s_defined": 30325,
+      "s_missing_labeled": 15208,
+      "unique_genes_total": 5603,
+      "unique_genes_S": 1855
+    }
+  ],
+  "mask_stats": [
+    {
+      "split": "train",
+      "label": "legacy_S",
+      "n_genes": 15058,
+      "min": 0.678811,
+      "max": 1.0,
+      "range": 0.32118899999999995,
+      "mean": 0.8391377383450658,
+      "sd": 0.09262203266584189,
+      "variance": 0.008578840935152283
+    },
+    {
+      "split": "train",
+      "label": "affine_S",
+      "n_genes": 15058,
+      "min": 1.2908793414464598e-06,
+      "max": 1.0,
+      "range": 0.9999987091206586,
+      "mean": 0.4991669889032193,
+      "sd": 0.2883719962451185,
+      "variance": 0.08315840821839465
+    },
+    {
+      "split": "train",
+      "label": "S_defined_rank",
+      "n_genes": 15058,
+      "min": 0.0,
+      "max": 1.0,
+      "range": 1.0,
+      "mean": 0.4991669881770501,
+      "sd": 0.28837199705220545,
+      "variance": 0.08315840868387718
+    },
+    {
+      "split": "val",
+      "label": "legacy_S",
+      "n_genes": 1856,
+      "min": 0.679167,
+      "max": 0.999712,
+      "range": 0.3205450000000001,
+      "mean": 0.8380526153017243,
+      "sd": 0.09260325853295322,
+      "variance": 0.008575363490920973
+    },
+    {
+      "split": "val",
+      "label": "affine_S",
+      "n_genes": 1856,
+      "min": 0.0011096711179139581,
+      "max": 0.9991033328407053,
+      "range": 0.9979936617227914,
+      "mean": 0.4957885368311412,
+      "sd": 0.28831354434093276,
+      "variance": 0.08312469985043099
+    },
+    {
+      "split": "val",
+      "label": "S_defined_rank",
+      "n_genes": 1856,
+      "min": 0.0011084133854111686,
+      "max": 0.9991027129737148,
+      "range": 0.9979942995883037,
+      "mean": 0.49578853533818434,
+      "sd": 0.2883135174417421,
+      "variance": 0.08312468433962975
+    },
+    {
+      "split": "test",
+      "label": "legacy_S",
+      "n_genes": 1855,
+      "min": 0.678878,
+      "max": 0.999898,
+      "range": 0.32101999999999997,
+      "mean": 0.8384470080862533,
+      "sd": 0.0929559497664785,
+      "variance": 0.008640808596988075
+    },
+    {
+      "split": "test",
+      "label": "affine_S",
+      "n_genes": 1855,
+      "min": 0.00020989053098273045,
+      "max": 0.999682430381083,
+      "range": 0.9994725398501002,
+      "mean": 0.49701645022610724,
+      "sd": 0.28941162297452055,
+      "variance": 0.08375908751274605
+    },
+    {
+      "split": "test",
+      "label": "S_defined_rank",
+      "n_genes": 1855,
+      "min": 0.00021112635912593687,
+      "max": 0.9996833104613111,
+      "range": 0.9994721841021852,
+      "mean": 0.4970164601735163,
+      "sd": 0.2894116509508508,
+      "variance": 0.08375910370609711
+    }
+  ],
+  "elapsed_s": 13.86
+}

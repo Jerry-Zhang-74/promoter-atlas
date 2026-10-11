@@ -1,0 +1,117 @@
+{
+  "training_input_sha256": "a3ba22a5e22bfbb29f40942af0fef16ccda331be9aba09c65c036e0fc359a993",
+  "training_rows": 1746138,
+  "within_species_genes_spanning_splits": 0,
+  "human_test_labeled_genes": 5603,
+  "human_test_genes_with_ortholog_training_label": 2241,
+  "human_val_labeled_genes": 5606,
+  "human_val_genes_with_ortholog_training_label": 2289,
+  "ortholog_label_overlap_by_species": [
+    {
+      "species": "bos_taurus",
+      "train_rows_with_test_donor": 4262,
+      "test_donor_genes": 1485,
+      "val_donor_genes": 1432
+    },
+    {
+      "species": "callithrix_jacchus",
+      "train_rows_with_test_donor": 3962,
+      "test_donor_genes": 1628,
+      "val_donor_genes": 1630
+    },
+    {
+      "species": "canis_lupus_familiaris",
+      "train_rows_with_test_donor": 3404,
+      "test_donor_genes": 1470,
+      "val_donor_genes": 1495
+    },
+    {
+      "species": "capra_hircus",
+      "train_rows_with_test_donor": 2491,
+      "test_donor_genes": 1501,
+      "val_donor_genes": 1463
+    },
+    {
+      "species": "cavia_porcellus",
+      "train_rows_with_test_donor": 2076,
+      "test_donor_genes": 1450,
+      "val_donor_genes": 1444
+    },
+    {
+      "species": "equus_caballus",
+      "train_rows_with_test_donor": 5909,
+      "test_donor_genes": 1499,
+      "val_donor_genes": 1441
+    },
+    {
+      "species": "loxodonta_africana",
+      "train_rows_with_test_donor": 1873,
+      "test_donor_genes": 1431,
+      "val_donor_genes": 1405
+    },
+    {
+      "species": "macaca_mulatta",
+      "train_rows_with_test_donor": 3971,
+      "test_donor_genes": 1688,
+      "val_donor_genes": 1696
+    },
+    {
+      "species": "monodelphis_domestica",
+      "train_rows_with_test_donor": 2341,
+      "test_donor_genes": 1274,
+      "val_donor_genes": 1291
+    },
+    {
+      "species": "mus_musculus",
+      "train_rows_with_test_donor": 8187,
+      "test_donor_genes": 1520,
+      "val_donor_genes": 1516
+    },
+    {
+      "species": "ornithorhynchus_anatinus",
+      "train_rows_with_test_donor": 2572,
+      "test_donor_genes": 1315,
+      "val_donor_genes": 1248
+    },
+    {
+      "species": "oryctolagus_cuniculus",
+      "train_rows_with_test_donor": 3067,
+      "test_donor_genes": 1377,
+      "val_donor_genes": 1328
+    },
+    {
+      "species": "ovis_aries",
+      "train_rows_with_test_donor": 6,
+      "test_donor_genes": 4,
+      "val_donor_genes": 12
+    },
+    {
+      "species": "pan_troglodytes",
+      "train_rows_with_test_donor": 4027,
+      "test_donor_genes": 1845,
+      "val_donor_genes": 1915
+    },
+    {
+      "species": "pteropus_vampyrus",
+      "train_rows_with_test_donor": 1425,
+      "test_donor_genes": 1416,
+      "val_donor_genes": 1404
+    },
+    {
+      "species": "rattus_norvegicus",
+      "train_rows_with_test_donor": 3222,
+      "test_donor_genes": 1451,
+      "val_donor_genes": 1407
+    },
+    {
+      "species": "sus_scrofa",
+      "train_rows_with_test_donor": 3656,
+      "test_donor_genes": 1533,
+      "val_donor_genes": 1490
+    }
+  ],
+  "mpra_test_rows_in_train_families": 51,
+  "mpra_test_n": 1139,
+  "mpra_core_sha256": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a",
+  "interpretation": "The frozen split is disjoint within each species but does not group orthologs across species. Scores describe this historical experiment, not a leakage-free estimate on unseen ortholog groups. MPRA small families can span splits; epoch 0 also used a different split whose exact assignment is unavailable."
+}

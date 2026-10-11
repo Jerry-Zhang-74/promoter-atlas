@@ -1,0 +1,39 @@
+{
+  "arm": "Nabs",
+  "attempt_id": "f80e66b9191348ee90a58c7d84adb35d",
+  "best": {
+    "epoch": -1,
+    "pair_mae": Infinity,
+    "unset": true
+  },
+  "checkpoint_latest": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\latest.json",
+  "dev_last": null,
+  "effective_batch": 64,
+  "elapsed_s": 21.61906409263611,
+  "epoch": 0,
+  "epoch_cap": 2,
+  "epochs_completed": 0,
+  "global_samples": 106368,
+  "history": [],
+  "init_sha": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+  "last_generation": 1,
+  "micro_batch": 64,
+  "next_pos": 106368,
+  "oom_events": [],
+  "oom_retries": 0,
+  "opt_steps": 1662,
+  "peak_cuda_mb": 2764.306432,
+  "resumed": false,
+  "resumed_from": null,
+  "run_id": "Nabs_throughput_variant",
+  "samples_per_s": 4920.101977783169,
+  "stop_marker": {
+    "epoch": 0,
+    "next_pos": 106368,
+    "opt_steps": 1662,
+    "reason": "stop_after_opt_steps",
+    "saved": true
+  },
+  "stopped": true,
+  "variant": "throughput_variant"
+}

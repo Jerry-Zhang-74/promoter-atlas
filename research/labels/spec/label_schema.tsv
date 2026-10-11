@@ -1,0 +1,5 @@
+label_name	role	semantic_meaning	axis_role	recommended_value_type	depends_on_expression_matrix	depends_on_sequence_qc	notes
+Score_E	primary_model_output	expression_strength	main_axis	continuous	yes	yes	pure magnitude target without stability mixture
+Score_S	primary_model_output	cross_tissue_stability	main_axis	continuous	yes	yes	must be decoupled from raw expression level
+Score_B	primary_model_output	expression_breadth	gate_or_stratification	continuous_or_fraction	yes	yes	used as entry gate or stratum rather than main experimental coordinate
+Score_HKG	downstream_ranking_aid	housekeeping_like_preference	ranking_only	continuous	yes	yes	derived from E/S/B and used for candidate prioritization

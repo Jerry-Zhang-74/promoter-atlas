@@ -1,0 +1,10 @@
+name	mpra_frozen	mode	frozen
+epoch 0 | loss 0.9397 | val mse 0.8488 r2 -4.7887 sp 0.0611
+epoch 5 | loss 0.1369 | val mse 0.1341 r2 0.0857 sp 0.3639
+epoch 10 | loss 0.1338 | val mse 0.1302 r2 0.1123 sp 0.3468
+epoch 15 | loss 0.1318 | val mse 0.1279 r2 0.1279 sp 0.3449
+epoch 20 | loss 0.1306 | val mse 0.1268 r2 0.1350 sp 0.3463
+epoch 25 | loss 0.1309 | val mse 0.1266 r2 0.1369 sp 0.3481
+epoch 30 | loss 0.1299 | val mse 0.1262 r2 0.1394 sp 0.3494
+epoch 35 | loss 0.1304 | val mse 0.1261 r2 0.1403 sp 0.3498
+epoch 39 | loss 0.1304 | val mse 0.1261 r2 0.1403 sp 0.3499

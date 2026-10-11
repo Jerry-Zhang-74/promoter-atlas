@@ -1,0 +1,73 @@
+{
+  "module": "budget_controller_carryforward.patch",
+  "n_checks": 13,
+  "n_passed": 13,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "patch applies to controller copy",
+      "pass": true,
+      "detail": "rc=0"
+    },
+    {
+      "name": "adopt baseline_cny = effective 242.67",
+      "pass": true,
+      "detail": "242.67"
+    },
+    {
+      "name": "adopt baseline_original_cny = 142.67",
+      "pass": true,
+      "detail": "142.67"
+    },
+    {
+      "name": "adopt carried_topup_cny = 100.00",
+      "pass": true,
+      "detail": "100.00"
+    },
+    {
+      "name": "adopt cumulative_topup_cny = 100.00 (not 0)",
+      "pass": true,
+      "detail": "100.00"
+    },
+    {
+      "name": "adopt spent continuous = 128.63",
+      "pass": true,
+      "detail": "128.63"
+    },
+    {
+      "name": "fresh baseline_cny = effective 242.67",
+      "pass": true,
+      "detail": "242.67"
+    },
+    {
+      "name": "fresh baseline_original_cny = 142.67",
+      "pass": true,
+      "detail": "142.67"
+    },
+    {
+      "name": "fresh cumulative_topup_cny = 100.00 (not 0)",
+      "pass": true,
+      "detail": "100.00"
+    },
+    {
+      "name": "fresh spent continuous = 128.63",
+      "pass": true,
+      "detail": "128.63"
+    },
+    {
+      "name": "balance.jsonl topup_cny carries 100.00",
+      "pass": true,
+      "detail": "{'ts': '2026-10-03T11:31:42.085342+08:00', 'phase': 'fresh', 'balance_cny': '114.04', 'spent_cny': '128.63', 'topup_cny': '100.00'}"
+    },
+    {
+      "name": "no-manifest default baseline 142.67",
+      "pass": true,
+      "detail": "142.67"
+    },
+    {
+      "name": "no-manifest zero topup",
+      "pass": true,
+      "detail": "0"
+    }
+  ]
+}

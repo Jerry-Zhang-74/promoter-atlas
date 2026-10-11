@@ -1,0 +1,8 @@
+{
+  "candidate_version": "v6.14.0-scv5.rc1",
+  "batch": "batch13",
+  "attempt": 1,
+  "completed_at_local": "2026-10-03T08:44:01+0800",
+  "n_fits_executed_this_run": 10,
+  "complete": true
+}

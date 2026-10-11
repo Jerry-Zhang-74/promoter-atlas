@@ -1,0 +1,14 @@
+{
+  "generated_at_local": "2026-10-03T15:57:59+0800",
+  "figures": {
+    "figures\\batch23\\fig_construct_lengths_applicability.png": "cb4fcda67595554f0ea856cef4e371eea617db95a876ad4d165eab2ca421e127",
+    "figures\\batch23\\fig_diagnostic_ranking.png": "37218f3f7d39215f2b4556923a9637886881c66f2f8d1a3f58e4ae60b0fde2f2"
+  },
+  "source_tables": {
+    "figures\\batch23\\fig_construct_lengths_data.tsv": "494d071d7ea3549d66e458a12d9c425f85c91335a11d5167fd535091fb9ea467",
+    "figures\\batch23\\fig_diagnostic_ranking_data.tsv": "183f468e2425d6b9ca70e67dc74990f116f79394e2804049e2cdc7eb52156bdb"
+  },
+  "n_constructs": 14,
+  "spearman_R2": -0.0945054945054945,
+  "spearman_R1": 0.12527472527472527
+}

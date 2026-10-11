@@ -1,0 +1,69 @@
+{
+  "batch": "batch58",
+  "checkpoint_schema": "batch58.checkpoint.v2",
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "files_sha256": {
+    "README.md": "7c0c51ca90d7fd58323b0df372da85da5462632800a4c6f8965effb281525f89",
+    "_exec_gate_vendored.py": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571",
+    "b58_core.py": "91970a4a76e4aaca31b0bf992b886f385e2e2d045ff7d0070e1fcb2b6c98d567",
+    "b58_gate.py": "8f9776232c44e20d7daebf8474c0110acfb1135fc2876f2c450ed7a713373355",
+    "b58_manifest.py": "bafa10e2a11937c071255276756281f8588fc09ccfe6f92576d8c45fc6c56ab8",
+    "b58_probe.py": "063300dc1ee39b1cbe403f2dd1ad4e43a49581c497b762e7850cc26d454b4327",
+    "b58_run.py": "4778b9c6868c7ad19ec173a588b32d4f210e3768e7a40cd74899845a645f7ebc",
+    "freeze_code_ready.py": "bf25e8cb6da417036ca38dbaa49da42ee04f38bdc1d9f6bc1bf01d3153c5b2dd",
+    "selfcheck_b58.py": "15798c256cf834ede2e9e8eeda905f3db99d1bc72ba3ef4bbcf52a4ef0fb3888",
+    "smoke_b58.py": "020453059764a5c315eb25dcdbd3f55f9393a4675f22f715e6ddf1c792f2cbd2"
+  },
+  "gate": {
+    "budget": 3,
+    "every_reservation_consuming": true,
+    "ledger": "runs/breakthrough_20261002/batch58/exec_gate_ledger.jsonl",
+    "planned": [
+      "b58-profile",
+      "b58-Nabs-throughput-variant",
+      "b58-resume-continuation"
+    ],
+    "reserve": 0,
+    "supersedes": "batch32 ceiling for b58 ONLY",
+    "vendored_sha256": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571"
+  },
+  "generated_at": "2026-10-04T10:25:19+0800",
+  "note": "Resource configuration variant + REAL checkpoint resume. NOT accuracy evidence; NOT exact replication when effective batch changes. batch52/53/57 files immutable; PARENT1012 patch KEPT (not reverted).",
+  "parent_pre_gpu_patch_1012": {
+    "changes": [
+      "b58_probe.select_batch: choose max samples/second (batch/median_s), NOT min latency",
+      "b58_probe.select_batch: plateau measured on throughput gain (<5%)",
+      "b58_probe.select_batch: unmeasured nvidia_free_gib is UNSAFE (fail-closed)",
+      "b58_run.precondition: require batch52/GPU_EVALUATION_DONE.json",
+      "b58_run: shared repaired GPU lock dir runs/breakthrough_20261002/batch52",
+      "b58_run: auto stop_steps = steps_per_epoch // 5 (stop inside epoch 0)"
+    ],
+    "kept": true,
+    "reverted": false,
+    "selector_fixture": "batch32@0.010s vs batch128@0.020s -> 128 selected (samples/s)",
+    "source": "runs/breakthrough_20261002/batch58/PARENT_PRE_GPU_CORRECTION.json",
+    "verified_by": "selfcheck_b58.check_selector_throughput_units (PASS)"
+  },
+  "preserves_original": true,
+  "resume_features": [
+    "next_pos (position AFTER last processed batch)",
+    "next/last batch id proof",
+    "coverage-prefix hash",
+    "strict config/init/data/device/eff-batch reject",
+    "two-generation immutable retention with sha before latest pointer",
+    "<=60s + epoch-end snapshots",
+    "SIG/stopfile graceful exit at saved optimizer boundary",
+    "OOM pre-step state+RNG restore and retry (recorded); no CPU neural fallback"
+  ],
+  "resume_supported": true,
+  "selfcheck": {
+    "all_passed": true,
+    "passed": 9,
+    "report": "reports/breakthrough_20261002/batch58/code_selfcheck.json",
+    "total": 9
+  },
+  "source_sha256": "1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96",
+  "status": "CODE_READY",
+  "target_column": "Log2RPM_HEK293",
+  "version": "v6.39.0-throughput-checkpoint.rc1"
+}

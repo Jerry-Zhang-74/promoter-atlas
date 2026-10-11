@@ -1,0 +1,87 @@
+{
+  "arm": "Nabs",
+  "attempt_id": "56abb70eeb5a4122b485b53959efd72d",
+  "best": {
+    "act_mae": 0.7973583440104948,
+    "epoch": 0,
+    "pair_mae": 0.8524896785895458,
+    "unset": false
+  },
+  "checkpoint_latest": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\latest.json",
+  "dev_last": {
+    "coverage_hash": "d16fe5294b358bbdde2b6020277a9dc7dd7f50667248fd2493e62d49327ce070",
+    "coverage_ok": true,
+    "dev": {
+      "mae": 0.8053737888615123,
+      "rho": 0.5822839744877006,
+      "rmse": 1.0986451387195242
+    },
+    "dev_pair_mae": 0.8538039981642439,
+    "dev_sign": 0.5483423184737777,
+    "epoch": 1,
+    "epoch_samples": 531860,
+    "epoch_seconds": 88.16308999061584,
+    "opt_steps": 16622
+  },
+  "effective_batch": 64,
+  "elapsed_s": 183.34236121177673,
+  "epoch": 2,
+  "epoch_cap": 2,
+  "epochs_completed": 2,
+  "global_samples": 1063720,
+  "history": [
+    {
+      "coverage_hash": "435f98b168a856f844dc88ef7ed81afdcf5e198ef08a6810e8c6ee4263bee343",
+      "coverage_ok": true,
+      "dev": {
+        "mae": 0.7973583440104948,
+        "rho": 0.5799153485244113,
+        "rmse": 1.0544624007299332
+      },
+      "dev_pair_mae": 0.8524896785895458,
+      "dev_sign": 0.5478282037245974,
+      "epoch": 0,
+      "epoch_samples": 531860,
+      "epoch_seconds": 71.73176550865173,
+      "opt_steps": 8311
+    },
+    {
+      "coverage_hash": "d16fe5294b358bbdde2b6020277a9dc7dd7f50667248fd2493e62d49327ce070",
+      "coverage_ok": true,
+      "dev": {
+        "mae": 0.8053737888615123,
+        "rho": 0.5822839744877006,
+        "rmse": 1.0986451387195242
+      },
+      "dev_pair_mae": 0.8538039981642439,
+      "dev_sign": 0.5483423184737777,
+      "epoch": 1,
+      "epoch_samples": 531860,
+      "epoch_seconds": 88.16308999061584,
+      "opt_steps": 16622
+    }
+  ],
+  "init_sha": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+  "last_generation": 5,
+  "micro_batch": 64,
+  "next_pos": 531860,
+  "oom_events": [],
+  "oom_retries": 0,
+  "opt_steps": 16622,
+  "peak_cuda_mb": 2764.306432,
+  "resumed": true,
+  "resumed_from": {
+    "carried_global_samples": 106368,
+    "carried_opt_steps": 1662,
+    "epoch": 0,
+    "generation": 1,
+    "next_pos": 106368,
+    "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0001.ckpt",
+    "sha256": "4e35b99c7a4cc9e44b439cb2f5afa10b0f61f83101eaa0041c79c599cca3d453"
+  },
+  "run_id": "Nabs_throughput_variant",
+  "samples_per_s": 5801.823391874553,
+  "stop_marker": null,
+  "stopped": false,
+  "variant": "throughput_variant"
+}

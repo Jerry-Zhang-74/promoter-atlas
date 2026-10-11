@@ -1,0 +1,7 @@
+name	v2_dual_nobn_zs
+arch	dual_stream_200_2000
+features	none
+feat_dim	0
+device	cuda
+params	534435
+test_metrics	{"Score_E_r2": 0.2412676504769986, "Score_E_spearman": 0.4789395117621221, "Score_E_n": 44387, "Score_S_r2": 0.11465074208785553, "Score_S_spearman": 0.3490760755204331, "Score_S_n": 29467, "Score_B_r2": 0.21882458054484066, "Score_B_spearman": 0.4630240455732587, "Score_B_n": 44387, "combined_spearman": 0.42950844253031517}

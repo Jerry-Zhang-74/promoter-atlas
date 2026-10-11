@@ -1,0 +1,13 @@
+[OK] R1_native_length_hooks {"n_params": 110145, "device": "cuda:0", "rows": [{"L": 200, "strand": "+", "tensor_w": 200, "model_in_w": 200, "max_code": 3, "ok": true}, {"L": 200, "strand": "-", "tensor_w": 200, "model_in_w": 200, "max_code": 3, "ok": true}, {"L": 1029, "strand": "+", "te
+[OK] R2_padding_invariance {"L": 200, "pred_a": -0.30077940225601196, "pred_b": -0.30077940225601196, "pad_varies": true}
+[OK] R3_independent_source_subset {"n_rechecked": 20, "max_abs_diff": 0.0, "audit_n_present": 100, "audit_max_abs_dy": 0.0, "audit_all_ok": true}
+[OK] R4_alignment_sample_consistent {"n_confirmed": 130, "n_sampled": 12, "mismatches": [], "audit_unexamined": 0, "audit_capped": false}
+[OK] R5_frozen_inputs_match_hashes {"rows_sha_match": true, "encoded_sha_match": true, "split_gates": true, "counts": {"train": {"inserts": 7690, "groups": 7572, "chroms": ["chr1", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "ch
+[OK] R6_zero_fits_no_test {"checkpoints": 0, "exec_ledger_records": 0, "test_opened": false}
+[OK] R7_reviewer_critique {"source_invariants_all_true": true, "source_invariants_false": [], "singleton_mass_preserved": true, "batch_means_recombine_exactly": true, "snapshot_optimizer_moments_survive_live_mutation": true, "state_digest_ignores_optimizer_state": true}
+{
+ "integrity": "PASS (native-length builder verified at forward hooks on cuda:0; padding-invariance exact; 100-row source evidence and frozen input hashes re-verified)",
+ "scientific_gain": "NONE / NOT APPLICABLE. batch30 is a code/data READINESS batch: ZERO fits, ZERO optimizer steps, no trained model, no performance claim, no promotion.",
+ "compliance": "PASS: zero fits confirmed (no ledger reservation, no checkpoints, test unopened); native-length contract and batch<=32 satisfied; bounded 90/90 alignment homology audit completed with 0 unexamined candidates and 0 confirmed cross-block components; prefit_gate 7/7; R7 critique of group-weight/singleton policy and latest/best checkpoint identity completed with 0 BLOCKER/MAJOR findings."
+}
+review json sha256: 259b64868cd2b27aaf7be9a28c2bf47bcc40e5ca7bf4b462b6470147700c7eec

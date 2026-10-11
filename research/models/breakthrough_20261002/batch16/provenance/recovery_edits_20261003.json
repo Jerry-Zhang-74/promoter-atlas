@@ -1,0 +1,31 @@
+{
+  "candidate_version": "v6.15.0-multitask.rc1",
+  "batch": "batch16",
+  "written_at_local": "2026-10-03T10:45:53+0800",
+  "purpose": "Recovery-runner code edits made by control23 worker (DeepSeek) after the 10:27:12 code_provenance_reconciled.json snapshot. b16_train.py frozen original (5a0ca4dd) is UNCHANGED and was NOT used for the 5 remaining fits.",
+  "edits": [
+    {
+      "file": "b16_train_resume.py",
+      "kind": "NEW recovery trainer (did not exist in original batch16 code)",
+      "prior_sha256": "c6d875f1e02b8cfeb0ed51fb767b35718083095d966862ec18300fec10c542e0 (first recovery draft)",
+      "final_sha256": "b68c37c8868b028917d48467b76889664ce58b91b5609aa9d609e02e873cf0a8",
+      "change": "added EPOCH_PRIME=1000003 + per-epoch deterministic sampler seed (gen_seed + epoch*EPOCH_PRIME) in both train_single and train_shared loop tops; fixes mid-epoch resume reproducing a DIFFERENT epoch permutation (resume==uninterrupted verified).",
+      "purpose": "run the 5 remaining fits with optimizer/RNG/sampler checkpointing + correct resume."
+    },
+    {
+      "file": "b16_resume_test.py",
+      "kind": "NEW test (did not exist in original batch16 code)",
+      "final_sha256": "5940fe653bbdce5f2823deeb3661fcea40276d6b3b7347d5e8feab9dc652217e",
+      "change": "interrupted-vs-uninterrupted checkpointing test; PASS."
+    },
+    {
+      "file": "b16_eval.py",
+      "kind": "EDIT to existing recovery-era file",
+      "prior_sha256": "d0fea56ff835e291648e8cbf7815333e6c9ce51ee0b9fa66d5f1243c334eaf5f",
+      "final_sha256": "6108567e6ffcb259087724952a6ab5dd90a5cee65befca2e0b87f519b4bb1786",
+      "change": "paired-component-bootstrap alignment fix: A pred files are pre-masked to valid genes (1880 for S) while B/C pred files span full test (5851); normalize each pred to masked-valid length before pooling. Fixes IndexError for S; E/B metric values unchanged.",
+      "purpose": "produce correct comparison.json + bootstrap deltas."
+    }
+  ],
+  "note": "genuine_code_fixes_used=2 of limit 3 (see status.json). No architecture/config/label/scale/split changes. b16_train.py remains 5a0ca4dd05920f4f... untouched and archived."
+}

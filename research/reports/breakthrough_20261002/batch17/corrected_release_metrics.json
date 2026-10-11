@@ -1,0 +1,1009 @@
+{
+  "candidate_version": "v6.15.1-release.rc1",
+  "source_candidate": "v6.15.0-multitask.rc1 (batch16 weights; packaging repair only)",
+  "batch": "batch17",
+  "kind": "corrected release metrics recomputed from saved targets/predictions (no retraining)",
+  "written_at_local": "2026-10-03T11:13:44+0800",
+  "elapsed_s": 200.32,
+  "provenance": {
+    "source_dir": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch16",
+    "data_dir": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch16",
+    "reference_seed": 20261016,
+    "seeds": [
+      20261016,
+      20261017
+    ],
+    "note": "saved per-fit prediction arrays; no new fits; test retrospective only"
+  },
+  "load_notes": [],
+  "known_confounds_prominent": [
+    "TRAINER/INIT/DATA-ORDER CONFOUND (batch16 F1): A_s20261016(all) and A_s20261017 E/S were fit by b16_train.py (global torch-RNG shuffle); B/C arms and A_s20261017 B were fit by b16_train_resume.py after process loss (deterministic per-epoch sampler seed gen_seed+epoch*1000003). Same algorithm/optimizer/loss/epochs, but DIFFERENT initialization RNG stream and data-order schedule. This is a real confound in EVERY B-vs-A and C-vs-A contrast. It is not biased toward A, so it does not manufacture the negative shared-network result, but it blocks a strictly controlled causal task-sharing claim.",
+    "AUXILIARY MISSINGNESS UNRESOLVED (batch16 F6): promoter_omics_targets_v1.tsv encodes uncovered assays as 0.0 with no NaN and no per-cell missingness flag. Zero-valued auxiliary measurements are treated as UNRESOLVED absence-vs-missing. No established benefit OR detriment of epigenetic auxiliary supervision is claimed.",
+    "RECOVERY-ERA TEST IS TOY (batch16 F2): the batch16 interrupted-vs-continuous checkpoint test used Linear(1,1) on CPU. See resume_diagnostic.json for the batch17 production-path (CNN/AdamW/CUDA/memmap/masks/sampler) diagnostic."
+  ],
+  "estimand_definitions": {
+    "per_seed": "one-fit saved predictions, raw target units",
+    "mean_of_seed": "unweighted mean of per-seed rho/r2/mae (n per seed listed)",
+    "ensemble": "Spearman/R2/MAE of the mean-over-seed predicted value per gene",
+    "baseline_hgb": "matched HistGradientBoosting from scratch on the corrected train split",
+    "same_row": "neural-A ensemble vs matched HGB on identical gene rows",
+    "validation_rule": "frozen: mean-of-seed per-target validation rho gain >= 0.02 AND no target drop > 0.02"
+  },
+  "per_seed": {
+    "A_s20261016": {
+      "E_val": {
+        "n": 5609,
+        "spearman": 0.7428702519418247,
+        "r2": 0.5560505848667039,
+        "mae": 0.15290537539248625
+      },
+      "E_test": {
+        "n": 5851,
+        "spearman": 0.7427954007236632,
+        "r2": 0.5617894058602015,
+        "mae": 0.1512885287197947
+      },
+      "S_val": {
+        "n": 1837,
+        "spearman": 0.4635129760650977,
+        "r2": 0.18286506929766388,
+        "mae": 0.2226903675521803
+      },
+      "S_test": {
+        "n": 1880,
+        "spearman": 0.4341868005329962,
+        "r2": 0.1698522862044638,
+        "mae": 0.20658869452853254
+      },
+      "B_val": {
+        "n": 5609,
+        "spearman": 0.7162545240323892,
+        "r2": 0.5919321532437589,
+        "mae": 0.18203017518561276
+      },
+      "B_test": {
+        "n": 5851,
+        "spearman": 0.7261787142748182,
+        "r2": 0.6029649323173951,
+        "mae": 0.17858432237098315
+      }
+    },
+    "A_s20261017": {
+      "E_val": {
+        "n": 5609,
+        "spearman": 0.7445861055423509,
+        "r2": 0.5739439460158926,
+        "mae": 0.1527339289882333
+      },
+      "E_test": {
+        "n": 5851,
+        "spearman": 0.7394714000802468,
+        "r2": 0.5679979056406732,
+        "mae": 0.1529418782735611
+      },
+      "S_val": {
+        "n": 1837,
+        "spearman": 0.440063295984303,
+        "r2": 0.20042953989874812,
+        "mae": 0.20945338748772988
+      },
+      "S_test": {
+        "n": 1880,
+        "spearman": 0.42037333645691954,
+        "r2": 0.19488587021522952,
+        "mae": 0.19451910732678696
+      },
+      "B_val": {
+        "n": 5609,
+        "spearman": 0.7107009185420385,
+        "r2": 0.5966624639949962,
+        "mae": 0.17824315088518713
+      },
+      "B_test": {
+        "n": 5851,
+        "spearman": 0.7168483859815638,
+        "r2": 0.6041864458343976,
+        "mae": 0.1759493357045639
+      }
+    },
+    "B_s20261016": {
+      "E_val": {
+        "n": 5609,
+        "spearman": 0.738726451408792,
+        "r2": 0.5678141907240755,
+        "mae": 0.15103943282046922
+      },
+      "E_test": {
+        "n": 5851,
+        "spearman": 0.739458645546537,
+        "r2": 0.5683609618960247,
+        "mae": 0.14872419268918444
+      },
+      "S_val": {
+        "n": 1837,
+        "spearman": 0.4423909982730254,
+        "r2": 0.17638885605906884,
+        "mae": 0.2201040121623735
+      },
+      "S_test": {
+        "n": 1880,
+        "spearman": 0.44587639504030474,
+        "r2": 0.18127126347306155,
+        "mae": 0.20249365452056237
+      },
+      "B_val": {
+        "n": 5609,
+        "spearman": 0.7157504875146821,
+        "r2": 0.5898747857291651,
+        "mae": 0.17435515687179165
+      },
+      "B_test": {
+        "n": 5851,
+        "spearman": 0.7294512234855718,
+        "r2": 0.5984009882717402,
+        "mae": 0.17025575583541647
+      }
+    },
+    "B_s20261017": {
+      "E_val": {
+        "n": 5609,
+        "spearman": 0.7321502848769468,
+        "r2": 0.551938965330613,
+        "mae": 0.15222846043071572
+      },
+      "E_test": {
+        "n": 5851,
+        "spearman": 0.7382102561282513,
+        "r2": 0.5618472452628431,
+        "mae": 0.14981390593983795
+      },
+      "S_val": {
+        "n": 1837,
+        "spearman": 0.4391714728852014,
+        "r2": 0.1928814440134451,
+        "mae": 0.21273756638491428
+      },
+      "S_test": {
+        "n": 1880,
+        "spearman": 0.45224284813705695,
+        "r2": 0.20399415432224333,
+        "mae": 0.19484570278793442
+      },
+      "B_val": {
+        "n": 5609,
+        "spearman": 0.7133466505459671,
+        "r2": 0.5853347035854218,
+        "mae": 0.17134432573820066
+      },
+      "B_test": {
+        "n": 5851,
+        "spearman": 0.7268026081281278,
+        "r2": 0.5960879656629274,
+        "mae": 0.1672090427258672
+      }
+    },
+    "C_s20261016": {
+      "E_val": {
+        "n": 5609,
+        "spearman": 0.7342894145217592,
+        "r2": 0.5557842939771074,
+        "mae": 0.1544324529161188
+      },
+      "E_test": {
+        "n": 5851,
+        "spearman": 0.7393561727210866,
+        "r2": 0.5645690277500419,
+        "mae": 0.15204981537869136
+      },
+      "S_val": {
+        "n": 1837,
+        "spearman": 0.4407696103083412,
+        "r2": 0.18202540225873165,
+        "mae": 0.2158870665602954
+      },
+      "S_test": {
+        "n": 1880,
+        "spearman": 0.4482218214318215,
+        "r2": 0.19831986288236136,
+        "mae": 0.1990624189523323
+      },
+      "B_val": {
+        "n": 5609,
+        "spearman": 0.7086607277162825,
+        "r2": 0.5868248572439572,
+        "mae": 0.17774170348309212
+      },
+      "B_test": {
+        "n": 5851,
+        "spearman": 0.7195959450028634,
+        "r2": 0.598637291996311,
+        "mae": 0.17463275668382316
+      }
+    },
+    "C_s20261017": {
+      "E_val": {
+        "n": 5609,
+        "spearman": 0.7408369394380419,
+        "r2": 0.5742679200968581,
+        "mae": 0.15040289011519503
+      },
+      "E_test": {
+        "n": 5851,
+        "spearman": 0.7388212529127762,
+        "r2": 0.5750089758501481,
+        "mae": 0.14969091698000297
+      },
+      "S_val": {
+        "n": 1837,
+        "spearman": 0.45650698064650164,
+        "r2": 0.17390193025232048,
+        "mae": 0.2091748758849996
+      },
+      "S_test": {
+        "n": 1880,
+        "spearman": 0.45110463542470036,
+        "r2": 0.20217485906647725,
+        "mae": 0.19246166796091463
+      },
+      "B_val": {
+        "n": 5609,
+        "spearman": 0.7074493151048104,
+        "r2": 0.600287887205873,
+        "mae": 0.17877968524382074
+      },
+      "B_test": {
+        "n": 5851,
+        "spearman": 0.7128768580801428,
+        "r2": 0.6062309252201004,
+        "mae": 0.17574443732473255
+      }
+    }
+  },
+  "reference_shipped_seed": {
+    "seed": 20261016,
+    "note": "actual deployed checkpoints (A_s20261016); split-key primary seed; not test-selected",
+    "per_seed_metrics": {
+      "E_val": {
+        "n": 5609,
+        "spearman": 0.7428702519418247,
+        "r2": 0.5560505848667039,
+        "mae": 0.15290537539248625
+      },
+      "E_test": {
+        "n": 5851,
+        "spearman": 0.7427954007236632,
+        "r2": 0.5617894058602015,
+        "mae": 0.1512885287197947
+      },
+      "S_val": {
+        "n": 1837,
+        "spearman": 0.4635129760650977,
+        "r2": 0.18286506929766388,
+        "mae": 0.2226903675521803
+      },
+      "S_test": {
+        "n": 1880,
+        "spearman": 0.4341868005329962,
+        "r2": 0.1698522862044638,
+        "mae": 0.20658869452853254
+      },
+      "B_val": {
+        "n": 5609,
+        "spearman": 0.7162545240323892,
+        "r2": 0.5919321532437589,
+        "mae": 0.18203017518561276
+      },
+      "B_test": {
+        "n": 5851,
+        "spearman": 0.7261787142748182,
+        "r2": 0.6029649323173951,
+        "mae": 0.17858432237098315
+      }
+    }
+  },
+  "mean_of_seed_and_ensemble": {
+    "A": {
+      "E": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5609
+            ],
+            "n": 5609,
+            "spearman": 0.7437281787420877,
+            "r2": 0.5649972654412982,
+            "mae": 0.15281965219035976,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5609,
+            "spearman": 0.7484721552581063,
+            "r2": 0.5809823741208482,
+            "mae": 0.15013079440635058,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5851
+            ],
+            "n": 5851,
+            "spearman": 0.741133400401955,
+            "r2": 0.5648936557504374,
+            "mae": 0.1521152034966779,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5851,
+            "spearman": 0.7458871910199854,
+            "r2": 0.5819206595518057,
+            "mae": 0.14937480383684493,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      },
+      "S": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              1837
+            ],
+            "n": 1837,
+            "spearman": 0.45178813602470036,
+            "r2": 0.191647304598206,
+            "mae": 0.2160718775199551,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 1837,
+            "spearman": 0.45776551614175476,
+            "r2": 0.2083551775295941,
+            "mae": 0.21317083175612656,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              1880
+            ],
+            "n": 1880,
+            "spearman": 0.42728006849495787,
+            "r2": 0.18236907820984666,
+            "mae": 0.20055390092765973,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 1880,
+            "spearman": 0.43347531419663615,
+            "r2": 0.20217654228236515,
+            "mae": 0.19750681096914285,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      },
+      "B": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5609
+            ],
+            "n": 5609,
+            "spearman": 0.7134777212872139,
+            "r2": 0.5942973086193776,
+            "mae": 0.18013666303539994,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5609,
+            "spearman": 0.7169650872721567,
+            "r2": 0.6004590200527891,
+            "mae": 0.17874846008488934,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5851
+            ],
+            "n": 5851,
+            "spearman": 0.721513550128191,
+            "r2": 0.6035756890758963,
+            "mae": 0.17726682903777352,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5851,
+            "spearman": 0.7252419193271306,
+            "r2": 0.6099962887313487,
+            "mae": 0.1756604692005716,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      }
+    },
+    "B": {
+      "E": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5609
+            ],
+            "n": 5609,
+            "spearman": 0.7354383681428693,
+            "r2": 0.5598765780273443,
+            "mae": 0.1516339466255925,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5609,
+            "spearman": 0.7427309383967059,
+            "r2": 0.5755396023964556,
+            "mae": 0.1489623018356827,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5851
+            ],
+            "n": 5851,
+            "spearman": 0.7388344508373941,
+            "r2": 0.565104103579434,
+            "mae": 0.14926904931451118,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5851,
+            "spearman": 0.7457208173210521,
+            "r2": 0.5799490168769574,
+            "mae": 0.14677911078294,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      },
+      "S": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              1837
+            ],
+            "n": 1837,
+            "spearman": 0.4407812355791134,
+            "r2": 0.18463515003625697,
+            "mae": 0.2164207892736439,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 1837,
+            "spearman": 0.4532818918537656,
+            "r2": 0.20394387078190324,
+            "mae": 0.21366058264459262,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              1880
+            ],
+            "n": 1880,
+            "spearman": 0.44905962158868085,
+            "r2": 0.19263270889765244,
+            "mae": 0.1986696786542484,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 1880,
+            "spearman": 0.4588988679546367,
+            "r2": 0.21388804337727052,
+            "mae": 0.19650484646542224,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      },
+      "B": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5609
+            ],
+            "n": 5609,
+            "spearman": 0.7145485690303246,
+            "r2": 0.5876047446572934,
+            "mae": 0.17284974130499614,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5609,
+            "spearman": 0.7230658064334373,
+            "r2": 0.6018660643223325,
+            "mae": 0.16961705438167676,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5851
+            ],
+            "n": 5851,
+            "spearman": 0.7281269158068497,
+            "r2": 0.5972444769673337,
+            "mae": 0.16873239928064182,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5851,
+            "spearman": 0.7367399417885685,
+            "r2": 0.6109355510963244,
+            "mae": 0.16552012137879402,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      }
+    },
+    "C": {
+      "E": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5609
+            ],
+            "n": 5609,
+            "spearman": 0.7375631769799005,
+            "r2": 0.5650261070369827,
+            "mae": 0.1524176715156569,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5609,
+            "spearman": 0.7444100662899353,
+            "r2": 0.5778907906740656,
+            "mae": 0.1504399150476831,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5851
+            ],
+            "n": 5851,
+            "spearman": 0.7390887128169314,
+            "r2": 0.5697890018000951,
+            "mae": 0.15087036617934718,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5851,
+            "spearman": 0.746224839261116,
+            "r2": 0.5832430289581175,
+            "mae": 0.1483703824988518,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      },
+      "S": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              1837
+            ],
+            "n": 1837,
+            "spearman": 0.4486382954774214,
+            "r2": 0.17796366625552607,
+            "mae": 0.21253097122264752,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 1837,
+            "spearman": 0.46186065061352954,
+            "r2": 0.20288214138849703,
+            "mae": 0.2091779889627892,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              1880
+            ],
+            "n": 1880,
+            "spearman": 0.4496632284282609,
+            "r2": 0.2002473609744193,
+            "mae": 0.19576204345662346,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 1880,
+            "spearman": 0.4625169021934832,
+            "r2": 0.2313182635535228,
+            "mae": 0.19133372814035468,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      },
+      "B": {
+        "val": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5609
+            ],
+            "n": 5609,
+            "spearman": 0.7080550214105464,
+            "r2": 0.5935563722249151,
+            "mae": 0.17826069436345643,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5609,
+            "spearman": 0.7171470456378229,
+            "r2": 0.6072058592195626,
+            "mae": 0.17564818775126056,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        },
+        "test": {
+          "mean_of_seed": {
+            "n_per_seed": [
+              5851
+            ],
+            "n": 5851,
+            "spearman": 0.716236401541503,
+            "r2": 0.6024341086082057,
+            "mae": 0.17518859700427786,
+            "estimand": "unweighted mean of per-seed metrics"
+          },
+          "ensemble": {
+            "n": 5851,
+            "spearman": 0.7246580346330184,
+            "r2": 0.615902230172448,
+            "mae": 0.172263364077173,
+            "estimand": "Spearman/R2/MAE of mean-over-seed predicted value (ensemble), valid-mask rows only",
+            "n_seeds": 2
+          }
+        }
+      }
+    }
+  },
+  "baseline_hgb": {
+    "E": {
+      "val": {
+        "n": 5609,
+        "spearman": 0.7302405106016847,
+        "r2": 0.5626713892580628,
+        "mae": 0.15362405037889512,
+        "estimand": "single matched HGB baseline (HGB_E45) on the corrected split"
+      },
+      "test": {
+        "n": 5851,
+        "spearman": 0.7334615045971005,
+        "r2": 0.5649663028907481,
+        "mae": 0.15253752725739345,
+        "estimand": "single matched HGB baseline (HGB_E45) on the corrected split"
+      }
+    },
+    "S": {
+      "val": {
+        "n": 1837,
+        "spearman": 0.4362471989833921,
+        "r2": 0.17956169561395297,
+        "mae": 0.21293431781516542,
+        "estimand": "single matched HGB baseline (HGB_S1069) on the corrected split"
+      },
+      "test": {
+        "n": 1880,
+        "spearman": 0.43336227743387207,
+        "r2": 0.19577992201472982,
+        "mae": 0.19854391470618396,
+        "estimand": "single matched HGB baseline (HGB_S1069) on the corrected split"
+      }
+    },
+    "B": {
+      "val": {
+        "n": 5609,
+        "spearman": 0.7096689688225877,
+        "r2": 0.5821205821773701,
+        "mae": 0.17665294788113794,
+        "estimand": "single matched HGB baseline (HGB_B45) on the corrected split"
+      },
+      "test": {
+        "n": 5851,
+        "spearman": 0.7190933658320556,
+        "r2": 0.5812408434525289,
+        "mae": 0.17523087996764053,
+        "estimand": "single matched HGB baseline (HGB_B45) on the corrected split"
+      }
+    }
+  },
+  "same_row_neural_vs_hgb": {
+    "E": {
+      "val": {
+        "n_common_rows": 5609,
+        "neural_A_ensemble": {
+          "n": 5609,
+          "spearman": 0.7484721552581063,
+          "r2": 0.5809823741208482,
+          "mae": 0.15013079440635058
+        },
+        "hgb": {
+          "n": 5609,
+          "spearman": 0.7302405106016847,
+          "r2": 0.5626713892580628,
+          "mae": 0.15362405037889512
+        },
+        "note": "both metrics computed on the identical gene rows (matched comparison)"
+      },
+      "test": {
+        "n_common_rows": 5851,
+        "neural_A_ensemble": {
+          "n": 5851,
+          "spearman": 0.7458871910199854,
+          "r2": 0.5819206595518057,
+          "mae": 0.14937480383684493
+        },
+        "hgb": {
+          "n": 5851,
+          "spearman": 0.7334615045971005,
+          "r2": 0.5649663028907481,
+          "mae": 0.15253752725739345
+        },
+        "note": "both metrics computed on the identical gene rows (matched comparison)"
+      }
+    },
+    "S": {
+      "val": {
+        "n_common_rows": 1837,
+        "neural_A_ensemble": {
+          "n": 1837,
+          "spearman": 0.45776551614175476,
+          "r2": 0.2083551775295941,
+          "mae": 0.21317083175612656
+        },
+        "hgb": {
+          "n": 1837,
+          "spearman": 0.4362471989833921,
+          "r2": 0.17956169561395297,
+          "mae": 0.21293431781516542
+        },
+        "note": "both metrics computed on the identical gene rows (matched comparison)"
+      },
+      "test": {
+        "n_common_rows": 1880,
+        "neural_A_ensemble": {
+          "n": 1880,
+          "spearman": 0.43347531419663615,
+          "r2": 0.20217654228236515,
+          "mae": 0.19750681096914285
+        },
+        "hgb": {
+          "n": 1880,
+          "spearman": 0.43336227743387207,
+          "r2": 0.19577992201472982,
+          "mae": 0.19854391470618396
+        },
+        "note": "both metrics computed on the identical gene rows (matched comparison)"
+      }
+    },
+    "B": {
+      "val": {
+        "n_common_rows": 5609,
+        "neural_A_ensemble": {
+          "n": 5609,
+          "spearman": 0.7169650872721567,
+          "r2": 0.6004590200527891,
+          "mae": 0.17874846008488934
+        },
+        "hgb": {
+          "n": 5609,
+          "spearman": 0.7096689688225877,
+          "r2": 0.5821205821773701,
+          "mae": 0.17665294788113794
+        },
+        "note": "both metrics computed on the identical gene rows (matched comparison)"
+      },
+      "test": {
+        "n_common_rows": 5851,
+        "neural_A_ensemble": {
+          "n": 5851,
+          "spearman": 0.7252419193271306,
+          "r2": 0.6099962887313487,
+          "mae": 0.1756604692005716
+        },
+        "hgb": {
+          "n": 5851,
+          "spearman": 0.7190933658320556,
+          "r2": 0.5812408434525289,
+          "mae": 0.17523087996764053
+        },
+        "note": "both metrics computed on the identical gene rows (matched comparison)"
+      }
+    }
+  },
+  "validation_rule_applied": {
+    "B": {
+      "per_target": {
+        "E": {
+          "A_val_rho_meanseed": 0.7437281787420877,
+          "B_val_rho_meanseed": 0.7354383681428693,
+          "gain": -0.008289810599218406
+        },
+        "S": {
+          "A_val_rho_meanseed": 0.45178813602470036,
+          "B_val_rho_meanseed": 0.4407812355791134,
+          "gain": -0.011006900445586942
+        },
+        "B": {
+          "A_val_rho_meanseed": 0.7134777212872139,
+          "B_val_rho_meanseed": 0.7145485690303246,
+          "gain": 0.0010708477431107255
+        }
+      },
+      "mean_gain": -0.006075287767231541,
+      "no_drop_gt_0.02": true,
+      "rule_pass": false,
+      "rule": "mean per-target val rho gain >= 0.02 AND no target drop > 0.02",
+      "estimand": "mean-of-seed VALIDATION Spearman (frozen rule uses validation only)"
+    },
+    "C": {
+      "per_target": {
+        "E": {
+          "A_val_rho_meanseed": 0.7437281787420877,
+          "C_val_rho_meanseed": 0.7375631769799005,
+          "gain": -0.006165001762187261
+        },
+        "S": {
+          "A_val_rho_meanseed": 0.45178813602470036,
+          "C_val_rho_meanseed": 0.4486382954774214,
+          "gain": -0.0031498405472789592
+        },
+        "B": {
+          "A_val_rho_meanseed": 0.7134777212872139,
+          "C_val_rho_meanseed": 0.7080550214105464,
+          "gain": -0.005422699876667436
+        }
+      },
+      "mean_gain": -0.004912514062044552,
+      "no_drop_gt_0.02": true,
+      "rule_pass": false,
+      "rule": "mean per-target val rho gain >= 0.02 AND no target drop > 0.02",
+      "estimand": "mean-of-seed VALIDATION Spearman (frozen rule uses validation only)"
+    }
+  },
+  "paired_component_bootstrap": {
+    "B": {
+      "E": {
+        "estimand": "ENSEMBLE delta = Spearman(mean-over-seed pred_B, y) - Spearman(mean-over-seed pred_A, y)",
+        "contrast": "B minus A",
+        "source_seeds": [
+          20261016,
+          20261017
+        ],
+        "valid_rows": 5851,
+        "component_grouping": "new_comp_dense (component-union); whole components resampled with replacement",
+        "n_components": 5397,
+        "resamples": 2000,
+        "bootstrap_seed": 20261012,
+        "base_point_estimate": -0.00016637369893324205,
+        "boot_mean": -0.0001657089334182363,
+        "ci95_low": -0.004386105125601078,
+        "ci95_high": 0.0039920910466666225,
+        "note": "ensemble estimand does NOT equal the mean-of-seed rho difference; both reported"
+      },
+      "S": {
+        "estimand": "ENSEMBLE delta = Spearman(mean-over-seed pred_B, y) - Spearman(mean-over-seed pred_A, y)",
+        "contrast": "B minus A",
+        "source_seeds": [
+          20261016,
+          20261017
+        ],
+        "valid_rows": 1880,
+        "component_grouping": "new_comp_dense (component-union); whole components resampled with replacement",
+        "n_components": 1708,
+        "resamples": 2000,
+        "bootstrap_seed": 20261012,
+        "base_point_estimate": 0.02542355375800054,
+        "boot_mean": 0.025772351522042096,
+        "ci95_low": 0.006477836114210418,
+        "ci95_high": 0.04497219637725233,
+        "note": "ensemble estimand does NOT equal the mean-of-seed rho difference; both reported"
+      },
+      "B": {
+        "estimand": "ENSEMBLE delta = Spearman(mean-over-seed pred_B, y) - Spearman(mean-over-seed pred_A, y)",
+        "contrast": "B minus A",
+        "source_seeds": [
+          20261016,
+          20261017
+        ],
+        "valid_rows": 5851,
+        "component_grouping": "new_comp_dense (component-union); whole components resampled with replacement",
+        "n_components": 5397,
+        "resamples": 2000,
+        "bootstrap_seed": 20261012,
+        "base_point_estimate": 0.01149802246143794,
+        "boot_mean": 0.01149178239757677,
+        "ci95_low": 0.006038621590260454,
+        "ci95_high": 0.017037853320585137,
+        "note": "ensemble estimand does NOT equal the mean-of-seed rho difference; both reported"
+      }
+    },
+    "C": {
+      "E": {
+        "estimand": "ENSEMBLE delta = Spearman(mean-over-seed pred_C, y) - Spearman(mean-over-seed pred_A, y)",
+        "contrast": "C minus A",
+        "source_seeds": [
+          20261016,
+          20261017
+        ],
+        "valid_rows": 5851,
+        "component_grouping": "new_comp_dense (component-union); whole components resampled with replacement",
+        "n_components": 5397,
+        "resamples": 2000,
+        "bootstrap_seed": 20261012,
+        "base_point_estimate": 0.0003376482411306947,
+        "boot_mean": 0.0003186814436612576,
+        "ci95_low": -0.005221371744852219,
+        "ci95_high": 0.006113892974274251,
+        "note": "ensemble estimand does NOT equal the mean-of-seed rho difference; both reported"
+      },
+      "S": {
+        "estimand": "ENSEMBLE delta = Spearman(mean-over-seed pred_C, y) - Spearman(mean-over-seed pred_A, y)",
+        "contrast": "C minus A",
+        "source_seeds": [
+          20261016,
+          20261017
+        ],
+        "valid_rows": 1880,
+        "component_grouping": "new_comp_dense (component-union); whole components resampled with replacement",
+        "n_components": 1708,
+        "resamples": 2000,
+        "bootstrap_seed": 20261012,
+        "base_point_estimate": 0.02904158799684703,
+        "boot_mean": 0.029367406494408423,
+        "ci95_low": 0.011230680692624923,
+        "ci95_high": 0.04833173049658816,
+        "note": "ensemble estimand does NOT equal the mean-of-seed rho difference; both reported"
+      },
+      "B": {
+        "estimand": "ENSEMBLE delta = Spearman(mean-over-seed pred_C, y) - Spearman(mean-over-seed pred_A, y)",
+        "contrast": "C minus A",
+        "source_seeds": [
+          20261016,
+          20261017
+        ],
+        "valid_rows": 5851,
+        "component_grouping": "new_comp_dense (component-union); whole components resampled with replacement",
+        "n_components": 5397,
+        "resamples": 2000,
+        "bootstrap_seed": 20261012,
+        "base_point_estimate": -0.0005838846941121911,
+        "boot_mean": -0.0006331854924835907,
+        "ci95_low": -0.008336330339639283,
+        "ci95_high": 0.007716294807881251,
+        "note": "ensemble estimand does NOT equal the mean-of-seed rho difference; both reported"
+      }
+    }
+  },
+  "test_use_statement": "Test predictions existed from batch16 but were NOT used to pick the seed, arm or architecture; selection used validation only. Reported test numbers are retrospective heldout, not prospective validation."
+}

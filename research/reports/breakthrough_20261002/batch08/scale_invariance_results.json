@@ -1,0 +1,70 @@
+{
+  "candidate_version": "v6.9.0-labelaudit.rc1",
+  "a": 0.67881058538322,
+  "b": 0.32118941461677997,
+  "note": "synthetic toy prediction clearly labelled; not a trained model",
+  "checks": [
+    {
+      "test": "MAE_paired_1over_b",
+      "pass": true,
+      "detail": "MAE'=0.1197087922  MAE/b=0.1197087922"
+    },
+    {
+      "test": "MSE_paired_1over_b2",
+      "pass": true,
+      "detail": "MSE'=0.0229272343  MSE/b^2=0.0229272343"
+    },
+    {
+      "test": "R2_paired_invariant",
+      "pass": true,
+      "detail": "R2'=0.7320885575  R2=0.7320885575"
+    },
+    {
+      "test": "Spearman_paired_invariant",
+      "pass": true,
+      "detail": "sp'=0.8893937508  sp=0.8893937508"
+    },
+    {
+      "test": "Spearman_target_only_invariant",
+      "pass": true,
+      "detail": "sp(target-only)=0.8893937508  sp=0.8893937508"
+    },
+    {
+      "test": "MAE_target_only_NOT_invariant",
+      "pass": true,
+      "detail": "target-only MAE=0.3428089546 vs MAE/b=0.1197087922"
+    },
+    {
+      "test": "MSE_target_only_NOT_invariant",
+      "pass": true,
+      "detail": "target-only MSE=0.1588315012 vs MSE/b^2=0.0229272343"
+    },
+    {
+      "test": "R2_target_only_NOT_invariant",
+      "pass": true,
+      "detail": "target-only R2=-0.8559925704 vs R2=0.7320885575"
+    },
+    {
+      "test": "real_defined_Spearman_invariant_to_affine",
+      "pass": true,
+      "detail": "sp_legacy=-0.2752087600 sp_affine(paired)=-0.2752087600"
+    },
+    {
+      "test": "legacy_affine_same_ordering",
+      "pass": true,
+      "detail": "affine is strictly monotonic in legacy"
+    },
+    {
+      "test": "legacy_fullprecision_raw_same_ordering",
+      "pass": true,
+      "detail": "no full-precision S_raw ties => legacy ordinal rank == full-precision raw order"
+    },
+    {
+      "test": "sixdec_raw_does_NOT_reproduce_legacy_ordering",
+      "pass": true,
+      "detail": "genes in 6-dec tie groups=471; order changes vs legacy under average-rank=247"
+    }
+  ],
+  "n_pass": 12,
+  "n_total": 12
+}

@@ -1,0 +1,174 @@
+train partition n = 9442
+fold assignment: {"seed": 20261008, "n_sequences": 9442, "n_components": 7557, "fold_row_counts": [1889, 1889, 1888, 1888, 1888], "multi_components_per_fold": [44, 43, 42, 50, 26], "multi_component_rows_per_fold": [591, 254, 304, 211, 730], "algorithm": "randomize whole components (rng seed 20261008) then balanced greedy assignment to smallest fold (tie->smallest index); multi-member components spread"}
+fold 0: outer 7553 held 1889 inner_tr 6051 inner_va 1502
+  ridge alpha 10.0
+  smallcnn fold0 seed20261008 best_ep 19 val_mse 0.045149 t 11.7s
+  smallcnn fold0 seed20261009 best_ep 19 val_mse 0.037938 t 9.9s
+  smallcnn fold0 seed20261010 best_ep 19 val_mse 0.041981 t 9.9s
+  legnet fold0 seed20261008 best_ep 18 val_mse 0.004337 t 22.3s
+  legnet fold0 seed20261009 best_ep 19 val_mse 0.005528 t 22.5s
+  legnet fold0 seed20261010 best_ep 18 val_mse 0.005549 t 24.2s
+fold 1: outer 7553 held 1889 inner_tr 6042 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold1 seed20261008 best_ep 19 val_mse 0.047261 t 11.5s
+  smallcnn fold1 seed20261009 best_ep 18 val_mse 0.043490 t 11.3s
+  smallcnn fold1 seed20261010 best_ep 19 val_mse 0.045425 t 11.7s
+  legnet fold1 seed20261008 best_ep 18 val_mse 0.006616 t 26.9s
+train partition n = 9442
+fold assignment: {"seed": 20261008, "n_  legnet fold1 seed20261010 best_ep 18 val_mse 0.005923 t 27.5s
+fold 2: outer 7554 held 1888 inner_tr 6045 inner_va 1509
+  ridge alpha 10.0
+  smallcnn fold2 seed20261008 best_ep 19 val_mse 0.053335 t 14.9s
+  smallcnn fold2 seed20261009 best_ep 19 val_mse 0.049239 t 14.8s
+  smallcnn fold2 seed20261010 best_ep 18 val_mse 0.049720 t 15.0s
+  legnet fold2 seed20261008 best_ep 19 val_mse 0.005078 t 27.8s
+51 inner_va 1502
+  ridge alpha 10.0
+  smallcnn fold0 seed20261008 cached
+  smallcnn fold0 seed20261009 cached
+  smallcnn fold0 seed20261010 cached
+  legnet fold0 seed20261008 cached
+  legnet fold0 seed20261009 cached
+  legnet fold0 seed20261010 cached
+fold 1: outer 7553 held 1889 inner_tr 6042 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold1 seed20261008 cached
+  smallcnn fold1 seed20261009 cached
+  smallcnn fold1 seed20261010 cached
+  legnet fold1 seed20261008 cached
+  legnet fold1 seed20261009 cached
+  resume legnet fold ckpt from epoch 3
+  legnet fold1 seed20261010 best_ep 18 val_mse 0.005923 t 25.9s
+fold 2: outer 7554 held 1888 inner_tr 6045 inner_va 1509
+  ridge alpha 10.0
+  resume smallcnn fold ckpt from epoch 1
+  smallcnn fold2 seed20261008 best_ep 19 val_mse 0.053335 t 14.3s
+  smallcnn fold2 seed20261009 best_ep 19 val_mse 0.049239 t 15.0s
+  smallcnn fold2 seed20261010 best_ep 18 val_mse 0.049720 t 15.2s
+  legnet fold2 seed20261008 best_ep 19 val_mse 0.005078 t 27.7s
+train partition n = 9442
+fold assignment: {"seed": 20261008, "n_sequences": 9442, "n_components": 7557, "fold_row_counts": [1889, 1889, 1888, 1888, 1888], "multi_components_per_fold": [44, 43, 42, 50, 26], "multi_component_rows_per_fold": [591, 254, 304, 211, 730], "algorithm": "randomize whole components (rng seed 20261008) then balanced greedy assignment to smallest fold (tie->smallest index); multi-member components spread"}
+fold 0: outer 7553 held 1889 inner_tr 6051 inner_va 1502
+  ridge alpha 10.0
+  smallcnn fold0 seed20261008 cached
+  smallcnn fold0 seed20261009 cached
+  smallcnn fold0 seed20261010 cached
+  legnet fold0 seed20261008 cached
+  legnet fold0 seed20261009 cached
+  legnet fold0 seed20261010 cached
+fold 1: outer 7553 held 1889 inner_tr 6042 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold1 seed20261008 cached
+  smallcnn fold1 seed20261009 cached
+  smallcnn fold1 seed20261010 cached
+  legnet fold1 seed20261008 cached
+  legnet fold1 seed20261009 best_ep 18 val_mse 0.006257 t 24.8s
+  legnet fold1 seed20261010 best_ep 18 val_mse 0.005923 t 22.4s
+fold 2: outer 7554 held 1888 inner_tr 6045 inner_va 1509
+  ridge alpha 10.0
+  smallcnn fold2 seed20261008 best_ep 19 val_mse 0.053335 t 9.9s
+  smallcnn fold2 seed20261009 best_ep 19 val_mse 0.049239 t 10.1s
+  smallcnn fold2 seed20261010 best_ep 18 val_mse 0.049720 t 9.9s
+  legnet fold2 seed20261008 best_ep 19 val_mse 0.005078 t 22.5s
+  legnet fold2 seed20261009 best_ep 19 val_mse 0.005880 t 22.5s
+  legnet fold2 seed20261010 best_ep 18 val_mse 0.004748 t 25.4s
+fold 3: outer 7554 held 1888 inner_tr 6043 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold3 seed20261008 best_ep 19 val_mse 0.054513 t 11.2s
+  smallcnn fold3 seed20261009 best_ep 19 val_mse 0.050868 t 11.2s
+  smallcnn fold3 seed20261010 best_ep 19 val_mse 0.051760 t 11.1s
+  legnet fold3 seed20261008 best_ep 19 val_mse 0.004168 t 26.5s
+  legnet fold3 seed20261009 best_ep 19 val_mse 0.005208 t 26.9s
+  legnet fold3 seed20261010 best_ep 19 val_mse 0.005263 t 26.9s
+fold 4: outer 7554 held 1888 inner_tr 6043 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold4 seed20261008 best_ep 17 val_mse 0.053719 t 11.1s
+  smallcnn fold4 seed20261009 best_ep 18 val_mse 0.053740 t 11.5s
+  smallcnn fold4 seed20261010 best_ep 18 val_mse 0.054628 t 11.3s
+  legnet fold4 seed20261008 best_ep 19 val_mse 0.005838 t 26.3s
+  legnet fold4 seed20261009 best_ep 18 val_mse 0.005446 t 23.9s
+  legnet fold4 seed20261010 best_ep 18 val_mse 0.005664 t 24.0s
+{
+  "strongest_baseline_spearman": 0.7794752918982539,
+  "strongest_baseline_mae": 0.17700347708190522,
+  "legnet_spearman": 0.7742183206739851,
+  "legnet_mae": 0.1799121403365807,
+  "spearman_gain": -0.005256971224268825,
+  "relative_mae_improvement": -0.016432802917931033,
+  "spearman_criterion": false,
+  "mae_criterion": false,
+  "positive_mae_folds": 2,
+  "multi_member_legnet_spearman": 0.7163456686515328,
+  "multi_member_smallcnn_spearman": 0.7299047991989572,
+  "multi_member_legnet_mae": 0.15550978580338248,
+  "multi_member_smallcnn_mae": 0.15258725049000893
+}
+train partition n = 9442
+fold assignment: {"seed": 20261008, "n_sequences": 9442, "n_components": 7557, "fold_row_counts": [1889, 1889, 1888, 1888, 1888], "multi_components_per_fold": [44, 43, 42, 50, 26], "multi_component_rows_per_fold": [591, 254, 304, 211, 730], "algorithm": "randomize whole components (rng seed 20261008) then balanced greedy assignment to smallest fold (tie->smallest index); multi-member components spread"}
+fold 0: outer 7553 held 1889 inner_tr 6051 inner_va 1502
+  ridge alpha 10.0
+  smallcnn fold0 seed20261008 cached
+  smallcnn fold0 seed20261009 cached
+  smallcnn fold0 seed20261010 cached
+  legnet fold0 seed20261008 cached
+  legnet fold0 seed20261009 cached
+  legnet fold0 seed20261010 cached
+fold 1: outer 7553 held 1889 inner_tr 6042 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold1 seed20261008 cached
+  smallcnn fold1 seed20261009 cached
+  smallcnn fold1 seed20261010 cached
+  legnet fold1 seed20261008 cached
+  legnet fold1 seed20261009 cached
+  legnet fold1 seed20261010 cached
+fold 2: outer 7554 held 1888 inner_tr 6045 inner_va 1509
+  ridge alpha 10.0
+  smallcnn fold2 seed20261008 cached
+  smallcnn fold2 seed20261009 cached
+  smallcnn fold2 seed20261010 cached
+  legnet fold2 seed20261008 cached
+  legnet fold2 seed20261009 cached
+  legnet fold2 seed20261010 cached
+fold 3: outer 7554 held 1888 inner_tr 6043 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold3 seed20261008 cached
+  smallcnn fold3 seed20261009 cached
+  smallcnn fold3 seed20261010 cached
+  legnet fold3 seed20261008 cached
+  legnet fold3 seed20261009 cached
+  legnet fold3 seed20261010 cached
+fold 4: outer 7554 held 1888 inner_tr 6043 inner_va 1511
+  ridge alpha 10.0
+  smallcnn fold4 seed20261008 cached
+  smallcnn fold4 seed20261009 cached
+  smallcnn fold4 seed20261010 cached
+  legnet fold4 seed20261008 cached
+  legnet fold4 seed20261009 cached
+  legnet fold4 seed20261010 cached
+{
+  "strongest_baseline_spearman": 0.7828492561960286,
+  "strongest_baseline_mae": 0.17541017005000303,
+  "legnet_spearman": 0.7957707162669799,
+  "legnet_mae": 0.16872098269123204,
+  "spearman_gain": 0.012921460070951296,
+  "relative_mae_improvement": 0.03813454691289653,
+  "spearman_criterion": false,
+  "mae_criterion": false,
+  "positive_mae_folds": 4,
+  "multi_member_legnet_spearman": 0.745302563528767,
+  "multi_member_smallcnn_spearman": 0.7279425121983107,
+  "multi_member_legnet_mae": 0.14791006346721874,
+  "multi_member_smallcnn_mae": 0.1532833287845911
+}
+{
+  "n_components": 7557,
+  "n_resamples": 2000,
+  "spearman_gain_mean": 0.012976518639798004,
+  "spearman_gain_ci_low": 0.003255694428119632,
+  "spearman_gain_ci_high": 0.02390844997189917,
+  "spearman_gain_pct_positive": 1.0,
+  "mae_reduction_mean": 0.006679255276609127,
+  "mae_reduction_pct_positive": 1.0
+}
+hamming audit {"cross_fold_pairs_ham_le8": 0, "cross_fold_pairs_ham_le16": 49580}
+DONE

@@ -1,0 +1,27 @@
+{
+  "title": "release/batch16 reviewer provenance correction (record only)",
+  "why": "the batch16 independent_review.json self-reports a shell wrapper pid (1870); the ACTUAL reviewer process identity is the controller-supervised reviewer owned by control_23.",
+  "artifact_field": {
+    "path": "reports/breakthrough_20261002/batch16/independent_review.json",
+    "reviewer.shell_pid": 1870,
+    "reviewer.started_at_local": "2026-10-03T10:49:00+0800",
+    "reviewer.finished_at_local": "2026-10-03T10:54:51+0800"
+  },
+  "actual_process_identity": {
+    "controller": "runs/breakthrough_20261002/control_23/status.json",
+    "phase": "reviewer",
+    "state": "complete",
+    "returncode": 0,
+    "pid": 17072,
+    "started_at": "2026-10-03T10:46:15.642537+08:00",
+    "finished_at": "2026-10-03T10:57:02.469964+08:00",
+    "stdout": "runs/breakthrough_20261002/control_23/reviewer.jsonl",
+    "review_complete": true
+  },
+  "model_evidence": {
+    "file": "runs/breakthrough_20261002/control_23/reviewer.stderr.log",
+    "line": "[claude-code:unrecognized_model] {\"model\": \"deepseek-v4-pro\", \"query_source\": \"sdk\"}"
+  },
+  "original_preserved": true,
+  "note": "the original batch16 review artifact is NOT modified; this record is the corrected provenance reference for the release report and version card."
+}

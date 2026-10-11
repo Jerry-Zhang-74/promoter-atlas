@@ -1,0 +1,29 @@
+{
+  "arm": "Njoint_TEST_parent_granted.tsv",
+  "split": "TEST",
+  "preds": "reports/breakthrough_20261002/batch54/Njoint_TEST_parent_granted.tsv",
+  "activity": {
+    "rho": 0.5798970700185372,
+    "group_mae": 0.7805684517698069,
+    "rmse": 1.0554604649980384,
+    "top10_precision_fixed_ids": 0.552150904745647,
+    "n_rows": 117155,
+    "group_counts": {
+      "n_groups_used": 794,
+      "n_groups_dropped_nonfinite": 0
+    }
+  },
+  "pair": {
+    "group_mean_mae": 0.8387580534662414,
+    "macro_sign_accuracy": 0.5588384274760984,
+    "rho_pooled": 0.20925522150738263,
+    "n_pairs": 15527,
+    "n_groups": 639,
+    "n_true_zero_pairs": 720,
+    "true_zero_rate": 0.04637083789527919,
+    "n_pred_ties": 0,
+    "pred_tie_rate": 0.0,
+    "n_sign_eligible_groups": 638
+  },
+  "evaluator": "batch54_indep_metrics"
+}

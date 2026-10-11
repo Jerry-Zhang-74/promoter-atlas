@@ -1,0 +1,54 @@
+{
+  "report_version": "metrics-snapshot-20261003-r1",
+  "snapshot_clock": "2026-10-03T09:28:49+08:00",
+  "protocol": "runs/breakthrough_20261002/batch14/PROTOCOL.txt",
+  "figures": [
+    {
+      "stem": "01_s_feature_gain",
+      "png": "reports\\breakthrough_20261002\\batch14\\01_s_feature_gain.png",
+      "svg": "reports\\breakthrough_20261002\\batch14\\01_s_feature_gain.svg",
+      "png_sha256": "70fa76e9ef93ee56650206cec3e46b8769b40fff5c918eadfad422aa6b663b26",
+      "svg_sha256": "ccc7998f3da73d1bb7ef50224b32d4401300bce540d5f441e39044a933c45aad",
+      "sources": {
+        "batch09_metrics": "reports/breakthrough_20261002/batch09/metrics.json",
+        "batch10_metrics": "reports/breakthrough_20261002/batch10/metrics.json"
+      },
+      "source_keys": "batch09 arms.ridge_raw/hgb_raw .spearman_vs_raw_truth/.r2/.mae ; batch10 augmented_arms.ridge_aug/hgb_aug ; primary_feature_gap.ridge/hgb (97.5% bootstrap CI)"
+    },
+    {
+      "stem": "02_s_cv_robustness",
+      "png": "reports\\breakthrough_20261002\\batch14\\02_s_cv_robustness.png",
+      "svg": "reports\\breakthrough_20261002\\batch14\\02_s_cv_robustness.svg",
+      "png_sha256": "3aa3af77e6239d298199e37c6ec08df8f358f639c0bcdbfa23450114ebb220cb",
+      "svg_sha256": "aa58f24fa0995cbf4184a2e625b434ecc3c23f1947606b93421043e00e61ec99",
+      "sources": {
+        "batch13_metrics": "reports/breakthrough_20261002/batch13/metrics.json",
+        "batch13_review": "reports/breakthrough_20261002/batch13/independent_review.json"
+      },
+      "source_keys": "batch13 fold_metrics.fold*.base/full.spearman ; pooled_oof.base/full .spearman/.r2/.mae ; primary_contrast.bootstrap.lo/.hi (95%)"
+    },
+    {
+      "stem": "03_s_prediction_distribution",
+      "png": "reports\\breakthrough_20261002\\batch14\\03_s_prediction_distribution.png",
+      "svg": "reports\\breakthrough_20261002\\batch14\\03_s_prediction_distribution.svg",
+      "png_sha256": "4b1bc35e3939d17bf740ddd3f063354da713db5993413358bdb4d38dc75606aa",
+      "svg_sha256": "cf36439aadaaeacf2272d474cdcb898fdff225c9fdf324d227e05794a4a3394c",
+      "sources": {
+        "batch13_oof": "data/breakthrough_20261002/batch13/oof_predictions.tsv",
+        "batch13_metrics": "reports/breakthrough_20261002/batch13/metrics.json"
+      },
+      "source_keys": "batch13 oof_predictions.tsv columns S_raw_full/base_pred/full_pred (recomputed Spearman/R2/MAE)"
+    },
+    {
+      "stem": "04_e_model_comparison",
+      "png": "reports\\breakthrough_20261002\\batch14\\04_e_model_comparison.png",
+      "svg": "reports\\breakthrough_20261002\\batch14\\04_e_model_comparison.svg",
+      "png_sha256": "ea9a23b57f0bd97dcb3f9aaf2957900dd046f5dfc5e29271afe16c4f004567b1",
+      "svg_sha256": "46b6f542dfb5f79fd73af10abf02ab7a18af91c5e34f6b4126725ba2a300e356",
+      "sources": {
+        "batch06_review": "reports/breakthrough_20261002/batch06/independent_review.json"
+      },
+      "source_keys": "batch06 independent_review.recomputed_primary_metrics.test_full.finalridge/hgb/combined_fixedmean"
+    }
+  ]
+}

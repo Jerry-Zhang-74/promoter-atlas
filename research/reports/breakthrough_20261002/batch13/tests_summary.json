@@ -1,0 +1,66 @@
+{
+  "candidate_version": "v6.14.0-scv5.rc1",
+  "batch": "batch13",
+  "written_at": "2026-10-03T08:46:28+0800",
+  "tests": [
+    {
+      "name": "fold_assignment_deterministic",
+      "pass": true,
+      "detail": "rerun yields identical fold map, order and counts"
+    },
+    {
+      "name": "fold_assignment_complete_no_crossing",
+      "pass": true,
+      "detail": "genes=18769 sum=18769 components=18400"
+    },
+    {
+      "name": "fold_assignment_label_independent",
+      "pass": true,
+      "detail": "assignment invariant to row permutation (no label input)"
+    },
+    {
+      "name": "manifest_matches_recompute",
+      "pass": true,
+      "detail": "saved manifest equals recomputed assignment"
+    },
+    {
+      "name": "train_only_scalers_targets",
+      "pass": true,
+      "detail": "fold0=True fold1=True fold2=True fold3=True fold4=True"
+    },
+    {
+      "name": "paired_row_alignment",
+      "pass": true,
+      "detail": "rows=18769 unique gene_id=True"
+    },
+    {
+      "name": "independent_metric_calc",
+      "pass": true,
+      "detail": "scipy delta=0.053930004 vs saved 0.053930004"
+    },
+    {
+      "name": "bootstrap_strata_reproducible",
+      "pass": true,
+      "detail": "within-fold component strata present, no NaN bootstrap deltas"
+    },
+    {
+      "name": "saved_model_replay_per_fold",
+      "pass": true,
+      "detail": "all folds base/full replay match"
+    },
+    {
+      "name": "nonoverwrite_guard",
+      "pass": true,
+      "detail": "b13_run --attempt 1 exits non-zero with REFUSE (returncode=1)"
+    },
+    {
+      "name": "thread_limits",
+      "pass": true,
+      "detail": "env caps=4; threadpoolctl num_threads=[4, 4, 4]"
+    }
+  ],
+  "n_pass": 11,
+  "n_total": 11,
+  "all_pass": true,
+  "elapsed_s": 48.4
+}

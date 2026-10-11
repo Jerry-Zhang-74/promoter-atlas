@@ -1,0 +1,12 @@
+{
+  "phase": "batch54_indep_replay",
+  "checkpoint": "data/breakthrough_20261002/batch52/corrected/models/Njoint/Njoint_selected.ckpt",
+  "checkpoint_sha256": "c2698adde33155e28eace574e05dd42d4eef737002e0c68084053ea9dccb0cee",
+  "split": "DEV",
+  "n_rows": 112640,
+  "pred_sha256": "9bb21f7e6b908839ad8052fde1ba7a35e3fc74b0e9e21ce4e28f7f1256eb3dcd",
+  "elapsed_s": 6.746,
+  "device": "cuda:0",
+  "budget_s": 60.0,
+  "evaluator": "batch54"
+}

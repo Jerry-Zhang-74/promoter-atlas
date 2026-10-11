@@ -1,0 +1,76 @@
+{
+  "candidate_version": "v6.15.1-release.rc2",
+  "source_candidate": "v6.15.1-release.rc1 (superseded) -> v6.15.1-release.rc2 (packaging + F17-3 input-validation fix; weights unchanged)",
+  "weights_origin": "v6.15.0-multitask.rc1 (batch16 arm A, reference seed 20261016; byte-identical)",
+  "generated_at_local": "2026-10-03T11:49:42+0800",
+  "architectures_shipped": {
+    "selected": "independent (arm A)",
+    "reference_seed": 20261016,
+    "rejected": [
+      "B shared",
+      "C shared+aux"
+    ]
+  },
+  "model_files": {
+    "E": {
+      "source": "models/breakthrough_20261002/batch16/A_s20261016/model_E.pt",
+      "sha256": "9f33f8e65b6f0c26209980b55d347b54c49e72fabc94ee4b84ebd987643cab79"
+    },
+    "S": {
+      "source": "models/breakthrough_20261002/batch16/A_s20261016/model_S.pt",
+      "sha256": "2e5fff2539645ada2e5e21a2ecdd3ab5d216f258da423548e8d5da873da4d214"
+    },
+    "B": {
+      "source": "models/breakthrough_20261002/batch16/A_s20261016/model_B.pt",
+      "sha256": "c45af0344717ac1f253853b38adeb6cbbdfea74e97f801f3ed7bba1ad3833aeb"
+    }
+  },
+  "package_files_sha256": {
+    "code/example_expected_output.json": "bbf6b9adb3d4faaf39a50cf2c575f81fbb71f7e913df1451e20783bd0320c646",
+    "code/example_input.npz": "06e515cf5764d35291ce34384dded2efe93304277b8af626644c34d5f8cb7f65",
+    "code/promoter_atlas_predict.py": "b066fa61f793858227b9110b650bba914b8854ebc9438b44baa9b303986a094b",
+    "code/run_example.py": "6482edadae544e0547bf626589f91e1009dd187935cf8bd41fc9a7d36bf75c8d",
+    "code/test_input_validation.py": "a29df939d960538823f2060ae60bde64b7fe68cbc011ac54a339677c8c2494b3",
+    "environment.json": "62036765008b8b996d5349dec187fd2774bfeedcf525c6b6254ac156ffae4387",
+    "labels/README.md": "c6182db8d52a35d4ef2c19f8e1a0749fab76e563dafab70ab1c7725647c9fe9d",
+    "MODEL_CARD.md": "07eb8d3cbcea10baeaadefd278655646316c289391fca9968ef4060c13acdf21",
+    "models/model_B.pt": "c45af0344717ac1f253853b38adeb6cbbdfea74e97f801f3ed7bba1ad3833aeb",
+    "models/model_E.pt": "9f33f8e65b6f0c26209980b55d347b54c49e72fabc94ee4b84ebd987643cab79",
+    "models/model_S.pt": "2e5fff2539645ada2e5e21a2ecdd3ab5d216f258da423548e8d5da873da4d214",
+    "negative_ablation_results.json": "60f190d75a343151f969c51693df8767a1b72d8a2d5edd7f32856f8158b0f17d",
+    "README.md": "60479f8dd6d551c381dd4cfe271e50932984509c7955e117a4890278e090027a",
+    "requirements.txt": "b99b16e63b9d66139b7cfe5c2cc76bb39b2d6210b0953c9aaf61070e266928f1",
+    "schema.json": "51d955f1deb15a597dfd8b3e91fc63916181a7dc3fadbb3b99120afbc9b3f752",
+    "transforms/scalers.npz": "221dc91e916be89d9e087840eabaedf039b19986cba5e1ad3c7091d6c2fb693b"
+  },
+  "package_files_sha256_note": "VERSION_MANIFEST.json is intentionally EXCLUDED from its own hash index (self-reference). Its hash is published in reports/breakthrough_20261002/batch18/release_report_v6_15_1_rc2.html and in artifact_index.json.",
+  "source_references": {
+    "batch16_deployment_bundle": "models/breakthrough_20261002/batch16/deployment_bundle.json",
+    "batch16_neural_results": "models/breakthrough_20261002/batch16/neural_results.json",
+    "batch16_comparison": "reports/breakthrough_20261002/batch16/comparison.json",
+    "batch16_independent_review": "reports/breakthrough_20261002/batch16/independent_review.json",
+    "batch17_independent_review": "reports/breakthrough_20261002/batch17/independent_review.json",
+    "batch18_corrected_metrics": "reports/breakthrough_20261002/batch18/corrected_release_metrics.json",
+    "batch18_numeric_source_table": "reports/breakthrough_20261002/batch18/corrected_release_metrics.tsv",
+    "batch18_provenance_corrected_diagnostic": "reports/breakthrough_20261002/batch18/resume_diagnostic_rc2.json",
+    "batch17_original_diagnostic_preserved": "reports/breakthrough_20261002/batch17/resume_diagnostic.json",
+    "batch18_release_report": "reports/breakthrough_20261002/batch18/release_report_v6_15_1_rc2.html",
+    "database_label_reference": "labels/build/gene_expression_label_table.tsv",
+    "database_label_trace_report": "reports/label_trace_20261001/"
+  },
+  "split": {
+    "name": "corrected component-union (batch05 exact/RC+forward-near-identity components + batch15 confirmed RC edges), hash fold allocation",
+    "sha256": "9b323318d5dc12fcd45d5db18aba70c41983b2130fd013e9f12b743caddde69f"
+  },
+  "packaged_vs_saved_prediction_crosscheck": {
+    "n_comparisons": 9,
+    "max_absdiff": 3.5582296641356592e-06,
+    "tolerance": 1e-05,
+    "verdict": "PASS"
+  },
+  "notes": [
+    "weights are unchanged batch16 fits; version bump is packaging/provenance + an input-validation fix",
+    "no training assets required to run the example",
+    "TOLERANCE: packaged-vs-saved max |diff| is compared to the unchanged 1e-5 bound; the observed value (3.558e-06) is a CPU float-order effect, not a device-specific relaxation. The tolerance is NOT relaxed merely for margin."
+  ]
+}

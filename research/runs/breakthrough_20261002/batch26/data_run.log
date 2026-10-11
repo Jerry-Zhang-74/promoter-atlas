@@ -1,0 +1,5 @@
+[recon] rows=57674 bad=0 struct_fail=0 0.9s
+[rep] checked=240 exact=240 maxdiff=4.98e-07
+[groups] loci=19742 groups=18909 overlap=2236 exact=0 maxsize=9
+[nh] cand=106793 checked=106793 h16=3 align=1 capped=False 9.1s
+[freeze] train_g=13228 val_g=2841 test_g=2840 rows=40208/8666/8800 unknown=0 16.5s

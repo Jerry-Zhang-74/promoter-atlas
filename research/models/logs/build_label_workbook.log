@@ -1,0 +1,30 @@
+Writing full label table 79852
+Rows written GeneLabels 4000
+Rows written GeneLabels 8000
+Rows written GeneLabels 12000
+Rows written GeneLabels 16000
+Rows written GeneLabels 20000
+Rows written GeneLabels 24000
+Rows written GeneLabels 28000
+Rows written GeneLabels 32000
+Rows written GeneLabels 36000
+Rows written GeneLabels 40000
+Rows written GeneLabels 44000
+Rows written GeneLabels 48000
+Rows written GeneLabels 52000
+Rows written GeneLabels 56000
+Rows written GeneLabels 60000
+Rows written GeneLabels 64000
+Rows written GeneLabels 68000
+Rows written GeneLabels 72000
+Rows written GeneLabels 76000
+Rows written GeneLabels 79852
+Rows written AnchorLabels 8
+{"kind":"table","sheet":"图中8个基因","address":"A1:J9","rows":9,"cols":10,"values":[["gene_id","基因名","Score_E","Score_S","Score_B","E_raw","S_raw","B_raw","可检出组织数","图中基因_1是"],["ENSG00000075624","ACTB",0.999644,0.70029,0.860546,10.772348,-1.079803,1,54,1],["ENSG00000166710","B2M",0.999458,0.735399,0.949616,10.171637,-0.743353,1,54,1],["ENSG00000156508","EEF1A1",0.999373,0.766559,0.935952,9.940968,-0.614573,1,54,1],["ENSG00000111640","GAPDH",0.999627,0.936105,0.885229,10.655489,-0.291508,1,54,1],["ENSG00000102144","PGK1",0.991049,0.927357,0.873192,6.796368,-0.307218,1,54,1],["ENSG00000161016","RPL8",0.999441,0.756845,0.940478,10.15883,-0.65025,1,54,1],["ENSG00000089157","RPLP0",0.999322,0.736518,0.865326,9.882874,-0.738163,1,54,1],["ENSG00000150991","UBC",0.997627,0.799702,0.931731,8.370453,-0.525532,1,54,1]]}
+{"kind":"notice","message":"Cell search matched 0 entries."}
+Rendered labels_preview.png
+Rendered trace_preview.png
+Rendered anchors_preview.png
+Rendered sources_preview.png
+Inspect result written to file: E:\promoter_atlas\outputs\01a0f783-d754-7803-abcf-34aa761a6a6b\全库标签与原始数据索引.xlsx.inspect.ndjson
+SAVED E:\promoter_atlas\outputs\01a0f783-d754-7803-abcf-34aa761a6a6b\全库标签与原始数据索引.xlsx

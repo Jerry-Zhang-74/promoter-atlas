@@ -1,0 +1,6 @@
+model_name	promoter_model_v1
+evaluation_type	unified_re_evaluation
+checkpoint	models/checkpoints/promoter_model_v1.pt
+input	sequence_memmap_only
+eval_table	models/eval/promoter_model_v1_metrics_unified.tsv
+note	Added unified E-S correlation diagnostics for registry consistency.

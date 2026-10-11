@@ -1,0 +1,76 @@
+{
+  "batch": "batch29",
+  "grouping_rule": "connected components of interval overlap + exact/RC dup + confirmed near-homolog",
+  "near_homology_method": {
+    "k": 13,
+    "candidate_min_shared_kmers": 10,
+    "containment_threshold": 0.25,
+    "identity_note": "containment ~ identity^k; threshold 0.25 approx 90%% identity at k=13",
+    "HF_cap_skipped_kmers": 200,
+    "residual": "k-mer/containment approximation, capped pair search and HF-kmer skipping; NOT a full all-pairs Smith-Waterman guarantee"
+  },
+  "split_rule": "chromosome blocks train chr1-16, val chr17-19, test chr20-22,X,Y",
+  "n_selected": 10000,
+  "n_usable_sequence": 10000,
+  "n_interval_overlap_merges": 118,
+  "n_exact_or_rc_dup_merges": 0,
+  "n_near_homolog_candidates": 453559,
+  "n_near_homolog_merges": 980,
+  "n_homolog_pairs": 4593,
+  "n_multiblock_components_excluded": 15,
+  "n_inserts_excluded_multiblock": 987,
+  "counts": {
+    "train": {
+      "inserts": 7690,
+      "groups": 7572,
+      "chroms": [
+        "chr1",
+        "chr10",
+        "chr11",
+        "chr12",
+        "chr13",
+        "chr14",
+        "chr15",
+        "chr16",
+        "chr2",
+        "chr3",
+        "chr4",
+        "chr5",
+        "chr6",
+        "chr7",
+        "chr8",
+        "chr9"
+      ]
+    },
+    "val": {
+      "inserts": 566,
+      "groups": 565,
+      "chroms": [
+        "chr17",
+        "chr18",
+        "chr19"
+      ]
+    },
+    "test": {
+      "inserts": 757,
+      "groups": 750,
+      "chroms": [
+        "chr20",
+        "chr21",
+        "chr22",
+        "chrX",
+        "chrY"
+      ]
+    }
+  },
+  "gates": {
+    "train_inserts>=1000": true,
+    "train_groups>=500": true,
+    "val_groups>=100": true,
+    "test_groups>=100": true,
+    "val_chroms>=2": true,
+    "test_chroms>=2": true
+  },
+  "gate_all": true,
+  "elapsed_s": 25.8
+}

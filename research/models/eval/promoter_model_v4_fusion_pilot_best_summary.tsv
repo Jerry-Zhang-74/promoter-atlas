@@ -1,0 +1,2 @@
+selection_rule	best_epoch	best_val_mean_mse	best_val_Score_E_r2	best_val_Score_S_r2	best_val_Score_B_r2	best_val_predEScorr	best_test_Score_E_r2	best_test_Score_S_r2	best_test_Score_B_r2	best_test_predEScorr
+lowest_val_mean_mse	91	0.02875929061944286	0.2199949026107788	0.004469394683837891	0.19948327541351318	-0.21664789289909575	0.23968344926834106	0.022204339504241943	0.2165471911430359	-0.21485395762564544

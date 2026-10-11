@@ -1,0 +1,9 @@
+{
+  "weights_sha_match": true,
+  "max_weight_absdiff": 0.0,
+  "pred_max_absdiff_50val": 0.0,
+  "first_batch_epoch1_match": true,
+  "elapsed_s": 32.3,
+  "n_steps_per_epoch": 1446
+}
+DONE

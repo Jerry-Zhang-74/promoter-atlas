@@ -1,0 +1,41 @@
+{
+  "batch": "batch58",
+  "version": "v6.39.0-throughput-checkpoint.rc1",
+  "built_at": "2026-10-04T10:25:19+0800",
+  "n_files": 17,
+  "excluded": [
+    "status",
+    "worker",
+    "heartbeat",
+    "review",
+    "mail",
+    "latest",
+    "current_training",
+    "gpu_",
+    "log_",
+    "process",
+    "resume_evidence",
+    "coverage_proof",
+    ".lock",
+    "_result"
+  ],
+  "files_sha256": {
+    "data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0004.ckpt": "4ba873e17e160604d2d61c4c236569db61b8994f7b48acc4c40962792c2133fd",
+    "data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0004.ckpt.sha256.json": "d23fda3c7473618f44904c1d219669890f75dda50007393f1142988783d21a34",
+    "data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0005.ckpt": "24571c4b9e36cf60033976c4f136d08663c3dd1a0bbc436551badd445af28d2b",
+    "data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0005.ckpt.sha256.json": "084d16403a9d2f8955768492ffb6a61a03e1d6b7b6ca06706bf0647d2353b164",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\CODE_READY.json": "e60aad0261fc9f43d329fe30a31c39901da70fa3bcd30f91218956ae07945929",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\README.md": "7c0c51ca90d7fd58323b0df372da85da5462632800a4c6f8965effb281525f89",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\_exec_gate_vendored.py": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\b58_core.py": "91970a4a76e4aaca31b0bf992b886f385e2e2d045ff7d0070e1fcb2b6c98d567",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\b58_gate.py": "8f9776232c44e20d7daebf8474c0110acfb1135fc2876f2c450ed7a713373355",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\b58_manifest.py": "bafa10e2a11937c071255276756281f8588fc09ccfe6f92576d8c45fc6c56ab8",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\b58_probe.py": "063300dc1ee39b1cbe403f2dd1ad4e43a49581c497b762e7850cc26d454b4327",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\b58_run.py": "4778b9c6868c7ad19ec173a588b32d4f210e3768e7a40cd74899845a645f7ebc",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\dryrun_b58.py": "7e12c9b7f194fea2d3641754b6bcd5e3b3638aae864257fe0ac93b90e0bde314",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\finalize_b58.py": "47177d1c3f2c0f2be132feb65ebff3c1b4af9b68e857dbb49d35819a5d82bd89",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\freeze_code_ready.py": "bf25e8cb6da417036ca38dbaa49da42ee04f38bdc1d9f6bc1bf01d3153c5b2dd",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\selfcheck_b58.py": "15798c256cf834ede2e9e8eeda905f3db99d1bc72ba3ef4bbcf52a4ef0fb3888",
+    "runs\\breakthrough_20261002\\code\\batch58_throughput\\smoke_b58.py": "020453059764a5c315eb25dcdbd3f55f9393a4675f22f715e6ddf1c792f2cbd2"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "candidate_version": "v6.11.0-sfeatgap.rc1",
+  "batch": "batch10",
+  "written_at": "2026-10-03T06:46:39+0800",
+  "tests": [
+    {
+      "name": "kmer_synthetic",
+      "pass": true,
+      "detail": "ACG=2, CGA=1, TTT=1, denom=7"
+    },
+    {
+      "name": "kmer_ambiguous_break",
+      "pass": true,
+      "detail": "ambiguous base breaks all k-mers -> zero block"
+    },
+    {
+      "name": "kmer_no_cross_bin",
+      "pass": true,
+      "detail": "pure-A: each bin AAA=1, tetra AAAA=1 (no boundary double count)"
+    },
+    {
+      "name": "denominator_conservation_synthetic",
+      "pass": true,
+      "detail": "block frequencies sum to 1 per block (valid denominator)"
+    },
+    {
+      "name": "gene_aggregation_permutation_invariance",
+      "pass": true,
+      "detail": "mean over promoters is permutation-invariant"
+    },
+    {
+      "name": "feature_order_names",
+      "pass": true,
+      "detail": "1024 new feature names in frozen order match declared indices"
+    },
+    {
+      "name": "x1024_block_sums_conserved",
+      "pass": true,
+      "detail": "block sums in {0,1}: [(0, 64, 0.0, 1.0000000000000004), (64, 128, 0.0, 1.0000000000000004), (128, 192, 0.9999999999999969, 1.0000000000000004), (192, 256, 0.9999999999999971, 1.0000000000000004), (256, 320, 0.0, 1.0000000000000038), (320, 384, 0.0, 1.000000000000004), (384, 448, 0.0, 1.000000000000004), (448, 512, 0.0, 1.0000000000000038), (512, 768, 0.9999999999999992, 1.0000000000000022), (768, 1024, 0.0, 1.0000000000000009)]"
+    },
+    {
+      "name": "alignment_split",
+      "pass": true,
+      "detail": "eligible=18769 split={'train': 15004, 'val': 1898, 'test': 1867}; components crossing=0"
+    },
+    {
+      "name": "train_only_transforms",
+      "pass": true,
+      "detail": "scaler/target fit on eligible train only; no full-data leakage"
+    },
+    {
+      "name": "no_label_features",
+      "pass": true,
+      "detail": "no label-named features; finite; max |rho(feature,S)|=0.221709 < 1"
+    },
+    {
+      "name": "thread_limits",
+      "pass": true,
+      "detail": "env caps=4; threadpoolctl num_threads=[4, 4, 4]"
+    },
+    {
+      "name": "nonoverwrite_guard",
+      "pass": true,
+      "detail": "b10_run --attempt 1 exits non-zero with REFUSE (returncode=1)"
+    },
+    {
+      "name": "saved_model_replay",
+      "pass": true,
+      "detail": "replayed ridge_aug/hgb_aug match predictions.tsv"
+    }
+  ],
+  "n_pass": 13,
+  "n_total": 13,
+  "all_pass": true,
+  "elapsed_s": 60.91
+}

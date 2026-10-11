@@ -1,0 +1,35 @@
+{
+  "kind": "artificial_cpu_no_fit_software_test",
+  "guarantees": [
+    "no training",
+    "no backward",
+    "no optimizer.step",
+    "no gpu",
+    "no network"
+  ],
+  "results": {
+    "init_bytes_identical_both_arms": "PASS",
+    "different_seed_differs": "PASS",
+    "onehot_matches_manual": "PASS",
+    "reject_gt600_and_null": "PASS",
+    "masked_max_ignores_padding": "PASS",
+    "constant_sequence_invariance_to_trailing_pad": "PASS",
+    "weighted_smooth_l1_normalization": "PASS",
+    "pair_difference_zero_intercept": "PASS",
+    "normalizer_roundtrip": "PASS",
+    "metrics_sanity": "PASS",
+    "adapter_valid_cohort_loads": "PASS",
+    "adapter_rejects_wrong_target_column": "PASS",
+    "adapter_rejects_length_mismatch": "PASS",
+    "adapter_rejects_group_split_leak": "PASS",
+    "adapter_rejects_missing_provenance": "PASS",
+    "checkpoint_atomic_strict_load_and_mismatch": "PASS",
+    "exec_gate_budget_max4_and_resume": "PASS",
+    "epoch_cap_throughput_only": "PASS",
+    "gpu_lock_acquire_release_identity": "PASS",
+    "r0_ridge_one_solve_and_delta": "PASS",
+    "eval_metrics_and_bootstrap_guard": "PASS"
+  },
+  "passed": 21,
+  "failed": []
+}

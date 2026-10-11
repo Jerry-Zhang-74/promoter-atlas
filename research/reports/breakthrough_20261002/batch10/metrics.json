@@ -1,0 +1,114 @@
+{
+  "candidate_version": "v6.11.0-sfeatgap.rc1",
+  "batch": "batch10",
+  "written_at": "2026-10-03T06:45:06+0800",
+  "seed": 20261011,
+  "n_eligible": 18769,
+  "n_train": 15004,
+  "n_val": 1898,
+  "n_test": 1867,
+  "target_standardization": {
+    "raw_train_mean": -0.5336610223136261,
+    "raw_train_std": 0.33092373224240557
+  },
+  "augmented_arms": {
+    "ridge_aug": {
+      "spearman_vs_raw_truth": 0.44658790326045184,
+      "mae": 0.2174767003670882,
+      "mse": 0.09455766662198557,
+      "r2": 0.1445116335987392
+    },
+    "hgb_aug": {
+      "spearman_vs_raw_truth": 0.47436144293110205,
+      "mae": 0.20812713594945273,
+      "mse": 0.08879179963522187,
+      "r2": 0.19667696620061792
+    }
+  },
+  "baseline_arms": {
+    "ridge_base": {
+      "spearman_vs_raw_truth": 0.37008663146628534,
+      "mae": 0.22118805275330314,
+      "mse": 0.09814673461169825,
+      "r2": 0.11204038064685595
+    },
+    "hgb_base": {
+      "spearman_vs_raw_truth": 0.40888782012905495,
+      "mae": 0.2153898828081284,
+      "mse": 0.09481461223902683,
+      "r2": 0.1421869782426024
+    }
+  },
+  "val_descriptive": {
+    "spearman_vs_raw_truth": {
+      "ridge_aug": 0.4078514393539046,
+      "hgb_aug": 0.44602740578988076,
+      "ridge_base": 0.34306570069431236,
+      "hgb_base": 0.42100618157014896
+    },
+    "within_raw_target": {
+      "ridge_aug": {
+        "mae": 0.21752064667843501,
+        "mse": 0.09802872132289547,
+        "r2": 0.12401290983365865
+      },
+      "hgb_aug": {
+        "mae": 0.20674643063748283,
+        "mse": 0.09082124621660288,
+        "r2": 0.18841908651948036
+      }
+    },
+    "note": "descriptive only; no scaler/hyperparameter/stopping/target mapping fit or selected on val"
+  },
+  "constant_baselines_raw": {
+    "train_mean": {
+      "mae": 0.23539691623018894,
+      "mse": 0.11054819467595069,
+      "r2": -0.0001589278848441733
+    },
+    "train_median": {
+      "mae": 0.22126263646629676,
+      "mse": 0.1168085951654415,
+      "r2": -0.056798436653421325
+    }
+  },
+  "raw_unit_deltas_aug_minus_base": {
+    "ridge": {
+      "mae_delta": -0.00371135238621495,
+      "mse_delta": -0.0035890679897126743,
+      "r2_delta": 0.032471252951883245
+    },
+    "hgb": {
+      "mae_delta": -0.007262746858675673,
+      "mse_delta": -0.006022812603804967,
+      "r2_delta": 0.05448998795801552
+    }
+  },
+  "primary_feature_gap": {
+    "convention": "Two primary comparisons; each uses a 97.5% two-sided percentile interval ([1.25, 98.75] percentiles of the paired component bootstrap delta distribution).",
+    "acceptance_rule": "scoped feature improvement requires delta >= 0.03 AND adjusted lower bound > 0",
+    "ridge": {
+      "point_estimate": 0.07650127179416649,
+      "bootstrap_mean": 0.07690441438754245,
+      "lo_pct": 1.25,
+      "hi_pct": 98.75,
+      "lo": 0.03589677567228604,
+      "hi": 0.11965614640703462,
+      "n_resamples": 2000,
+      "n_bootstrap_nan": 0
+    },
+    "hgb": {
+      "point_estimate": 0.0654736228020471,
+      "bootstrap_mean": 0.06639047822688565,
+      "lo_pct": 1.25,
+      "hi_pct": 98.75,
+      "lo": 0.03261989988739856,
+      "hi": 0.10146359069298186,
+      "n_resamples": 2000,
+      "n_bootstrap_nan": 0
+    },
+    "ridge_meets_rule": true,
+    "hgb_meets_rule": true
+  },
+  "elapsed_s": 29.88
+}

@@ -1,0 +1,89 @@
+{
+  "arm": "A",
+  "seed": 20261024,
+  "started_local": "2026-10-03T14:38:29+0800",
+  "elapsed_s": 15.1,
+  "epochs_run": 10,
+  "best_epoch": 4,
+  "best_val_spearman": 0.5742304818750894,
+  "best_val_mae": 0.22844842759231446,
+  "truncated_by_cap": false,
+  "fully_converged_20ep": false,
+  "device": "cuda:0",
+  "param_device": "cuda",
+  "train_pid": 24964,
+  "nvidia_smi_before": "230 MiB, 24 %",
+  "nvidia_smi_after": "230 MiB, 26 %",
+  "log": [
+    {
+      "epoch": 0,
+      "train_loss": 0.9202391585788211,
+      "val_spearman": 0.3955595164551491,
+      "val_mae": 0.2721905994699735,
+      "elapsed_s": 1.5
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.5308229880961212,
+      "val_spearman": 0.5068472274213793,
+      "val_mae": 0.25612308184612054,
+      "elapsed_s": 3.0
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4402636624117558,
+      "val_spearman": 0.5472441891111899,
+      "val_mae": 0.2410044617842462,
+      "elapsed_s": 4.4
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.3634862055297236,
+      "val_spearman": 0.5741571211075898,
+      "val_mae": 0.2340633174123891,
+      "elapsed_s": 5.9
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.32740235011521224,
+      "val_spearman": 0.5742304818750894,
+      "val_mae": 0.22844842759231446,
+      "elapsed_s": 7.5
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.2952931305185917,
+      "val_spearman": 0.5697456736588382,
+      "val_mae": 0.23276717499955038,
+      "elapsed_s": 9.0
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.2701728863994012,
+      "val_spearman": 0.5611340492995862,
+      "val_mae": 0.2387018702176027,
+      "elapsed_s": 10.4
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.2504849036450724,
+      "val_spearman": 0.5725775913683684,
+      "val_mae": 0.23126671124288242,
+      "elapsed_s": 11.9
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.21612822469575582,
+      "val_spearman": 0.5579131979177704,
+      "val_mae": 0.23409981582624445,
+      "elapsed_s": 13.3
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.19401019423998692,
+      "val_spearman": 0.57362617670672,
+      "val_mae": 0.23110997013002632,
+      "elapsed_s": 14.9
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "candidate_version": "v6.15.0-multitask.rc1",
+  "track": "multitask",
+  "batch": "batch16",
+  "created_at": "2026-10-03T10:11:16+0800",
+  "freeze_note": "config.json written BEFORE any batch16 fit; immutable freeze point",
+  "scope": "human gene-level natural-expression E/S/B; controlled neural task-sharing comparison",
+  "seeds": [
+    20261016,
+    20261017
+  ],
+  "seeds_are_run_ids": true,
+  "max_neural_fits": 10,
+  "max_hgb_baseline_fits": 3,
+  "split": {
+    "source": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch16\\split\\split_arrays.npz",
+    "name": "corrected component-union (batch05 + batch15 RC edges), SHA256 fold allocation",
+    "sha256": "9b323318d5dc12fcd45d5db18aba70c41983b2130fd013e9f12b743caddde69f",
+    "manifest": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch16\\split\\split_manifest.json",
+    "n_train": 46367,
+    "n_val": 5609,
+    "n_test": 5851,
+    "label_independent": true
+  },
+  "targets": {
+    "E": "Score_E rank-scaled [0,1]",
+    "S": "S_raw = -MAD(log2(1+detectable TPM)), S_defined mask (18769 eligible)",
+    "B": "B_raw = detectable/tissue_count"
+  },
+  "neural_config": {
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "max_epochs": 12,
+    "patience": 3,
+    "emb_dim": 128,
+    "feat_hidden": 128,
+    "aux_loss_coef": 0.1,
+    "cpu_threads": 4
+  },
+  "neural_architecture": {
+    "sequence_branch": "Trunk Conv1d(4,64,k7)+BN+ReLU -> Conv1d(64,64,k5)+BN+ReLU -> Conv1d(64,128,k5)+BN+ReLU; mean-over-positions -> 128/slot",
+    "bag": "diverse 4-slot; concat(mean,max) over slots -> 256",
+    "feature_branch": "Linear(1069,128)+ReLU+Linear(128,128) -> 128",
+    "combined_rep": "concat(256,128)=384",
+    "heads": "Linear(384,1) per task; C aux head Linear(128,7) on per-slot embedding BEFORE pooling",
+    "identical_inputs_across_arms": true,
+    "param_counts": {
+      "A_E": 217857,
+      "A_S": 217857,
+      "A_B": 217857,
+      "A_total": 653571,
+      "B": 218627,
+      "C": 219530
+    },
+    "note": "independent arm A owns 3 backbones (more total params); B/C share one backbone"
+  },
+  "aux": {
+    "fields": [
+      "h3k4me3",
+      "h3k27ac",
+      "h3k27me3",
+      "h3k4me1",
+      "h3k36me3",
+      "dnase",
+      "atac"
+    ],
+    "n_fields": 7,
+    "excluded": [
+      "cage_tss",
+      "procap_tss"
+    ],
+    "excluded_reason": "TSS-activity proxies of E",
+    "level": "promoter (before gene pooling), same selected slots",
+    "loss_coef": 0.1
+  },
+  "hgb_config": {
+    "max_iter": 200,
+    "learning_rate": 0.1,
+    "max_leaf_nodes": 15,
+    "l2_regularization": 0.1,
+    "early_stopping": false,
+    "random_state": 20261011
+  },
+  "hgb_baselines": {
+    "E45": "HGB on E, 45 features",
+    "S1069": "HGB on S, 1069 features",
+    "B45": "HGB on B, 45 features"
+  },
+  "evaluation": {
+    "primary": "per-target validation Spearman gain of shared vs independent (mean), no target drop > 0.02",
+    "threshold": {
+      "rho_gain_min": 0.02,
+      "no_drop_more_than": 0.02
+    },
+    "secondary": "R2/MAE per valid target common rows; heldout paired component bootstrap 95% delta",
+    "selection": "validation-only checkpoint choice (patience 3); no test selection; no best-seed choice",
+    "heldout": "evaluated once after candidate freeze; never used to redraw split"
+  },
+  "source_hashes": {
+    "trackA_gene_promoters.npz": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072",
+    "features45.npz": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800",
+    "features1024.npz": "2dc7dc0eda7c60b3fa740261e39fb37832dc0e0faf81a7fa2f9cd37a11bc14f2",
+    "split_arrays.npz": "9b323318d5dc12fcd45d5db18aba70c41983b2130fd013e9f12b743caddde69f",
+    "promoter_sym400_uint8.memmap": "e6fff961c532ada5fe1f16f0be10ed0a739fa9db9e875179bef4d64e163bc0f6",
+    "gene_expression_table.tsv": "9876abd64aa8f5dc46f09796d4dffec4f2385e553e281f32120a72a23c606ae4",
+    "gene_expression_label_table.tsv": "34e20a961934c0ecc15a04b13f414b1fad803a4e13260f33134b536b8d7795b2",
+    "promoter_omics_targets_v1.tsv": "1274842a4ccb75ad69a185da4e4858a87fdd2c91612245824c44ceec2b8d4168"
+  },
+  "data_hashes": {
+    "labels.npz": "41307128bac1123f1c44bea9ae1b91705df128c28f3d737820ed47314fce5e5f",
+    "data.npz": "a92339debcc9508fbfc5a5eebfa70045e633ce8a83e0dd3bf3cc2e94ad088ed7",
+    "scalers.npz": "221dc91e916be89d9e087840eabaedf039b19986cba5e1ad3c7091d6c2fb693b"
+  }
+}

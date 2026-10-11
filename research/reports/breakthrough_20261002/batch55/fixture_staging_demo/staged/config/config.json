@@ -1,0 +1,40 @@
+{
+  "config": {
+    "batch": "batch53_model_core",
+    "batch_size": 32,
+    "block_ch": 64,
+    "block_dilations": [
+      1,
+      2,
+      4
+    ],
+    "block_k": 5,
+    "dropout": 0.1,
+    "grad_clip_norm": 1.0,
+    "head_hidden": 64,
+    "in_ch": 4,
+    "lr": 0.001,
+    "max_eligible_len": 600,
+    "max_epochs": 6,
+    "max_len": 600,
+    "min_eligible_len": 100,
+    "n_res_blocks": 3,
+    "njoint_pair_weight": 0.5,
+    "optimizer": "AdamW",
+    "pair_microbatch": 16,
+    "pair_weight_def": "inverse TRAIN pair-group size, normalized mean 1",
+    "parent_protocol": "batch52/PROTOCOL.txt",
+    "pool_dim": 130,
+    "r0_alpha": 100.0,
+    "seed": 20261004,
+    "source_sha256": "1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96",
+    "spec_version": "v6.38.0-model-pipeline-code.rc1",
+    "stem_ch": 64,
+    "stem_k": 9,
+    "target_column": "Log2RPM_HEK293",
+    "weight_decay": 0.0001,
+    "weight_def": "inverse TRAIN group size, normalized mean 1"
+  },
+  "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+  "format": "batch55.config.v1"
+}

@@ -1,0 +1,58 @@
+n_genes 57827 n_promoters 436291
+exact/rc multi-gene canonical keys 624 edges 765
+informative k-mer fraction 0.9860191829232956
+sketch done 52.1
+candidate pairs tracked 4228198 skipped_buckets 0 truncated 0 time 64.7
+candidates share>=2 bands 2891147
+candidates after minhash-equality prefilter 2712614
+verify 100000 / 2712614
+verify 200000 / 2712614
+verify 300000 / 2712614
+verify 400000 / 2712614
+verify 500000 / 2712614
+verify 600000 / 2712614
+verify 700000 / 2712614
+verify 800000 / 2712614
+verify 900000 / 2712614
+verify 1000000 / 2712614
+verify 1100000 / 2712614
+verify 1200000 / 2712614
+verify 1300000 / 2712614
+verify 1400000 / 2712614
+verify 1500000 / 2712614
+verify 1600000 / 2712614
+verify 1700000 / 2712614
+verify 1800000 / 2712614
+verify 1900000 / 2712614
+verify 2000000 / 2712614
+verify 2100000 / 2712614
+verify 2200000 / 2712614
+verify 2300000 / 2712614
+verify 2400000 / 2712614
+verify 2500000 / 2712614
+verify 2600000 / 2712614
+verify 2700000 / 2712614
+verify 2712614 / 2712614
+confirmed near-identity pairs 2068548
+near-identity cross-gene edges 74144
+n_components 55402 largest component genes 142
+realized gene split {'train': 46263, 'val': 5782, 'test': 5782}
+exact/rc cross-split overlap unique keys {'train_val': 0, 'train_test': 0, 'val_test': 0}
+residual sample hits 0 / 200000
+WROTE split artifacts 212.8 s
+{
+  "realized": {
+    "train": 46263,
+    "val": 5782,
+    "test": 5782
+  },
+  "n_components": 55402,
+  "largest": 142,
+  "confirmed_near": 2068548,
+  "exact_rc_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "residual_hits": 0
+}

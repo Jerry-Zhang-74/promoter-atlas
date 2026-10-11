@@ -1,0 +1,24 @@
+{
+ "batch": "batch40",
+ "record_type": "source20_check",
+ "generated_at": "2026-10-04T01:42:43+0800",
+ "stratified_rows_reported": 23,
+ "strata": {
+  "main_chr17": 6,
+  "other_chrom_chr11": 1,
+  "other_chrom_chr21": 1,
+  "other_chrom_chr4": 1,
+  "other_chrom_chr14": 1,
+  "other_chrom_chr18": 1,
+  "other_chrom_chr1": 1,
+  "other_chrom_chr8": 1,
+  "other_chrom_chr22": 1,
+  "large_family_mapt_gap": 3,
+  "controls": 4,
+  "window_overlap_pair": 2
+ },
+ "workbook_label_coord_consistency": "label::chr:start-end == workbook cols B/C/D for all 7537 (b39 mismatch 0); reused unchanged",
+ "design_join": "7622/7537 exact_unique (+85/85 controls)",
+ "source_requests": 1,
+ "source_bytes": 429038
+}

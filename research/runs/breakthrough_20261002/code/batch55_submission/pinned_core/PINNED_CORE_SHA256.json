@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "checkpoint.py": "735ec50cf8affb3dcecb92fe961a91acc07c7ec35f9caa83c1d41ca3f1f7a7a7",
+    "io_utils.py": "2688325d8fa7b412295701ab7a3cbdefe7a4b83f0d038d58ea9d83c68d43c99b",
+    "model_core.py": "5300a048cf076b28ba9db0b7a76eb28b01b073329b296f681237ed42b9a74a16",
+    "normalizer.py": "34c3f6be9e717bfe66c85a17c486d0b39b5d154a912de574a85da66212c7821d",
+    "spec.py": "1a09583bc38c76c43e5ecb0dc85d7ea9a496a1504845ff1431c35aa103bcac69"
+  },
+  "pinned_at": "2026-10-04T09:33+0800",
+  "pinned_core_version": "batch53_model_core.v6.38.0-model-pipeline-code.rc1",
+  "source_dir": "runs/breakthrough_20261002/code/batch53_model_core"
+}

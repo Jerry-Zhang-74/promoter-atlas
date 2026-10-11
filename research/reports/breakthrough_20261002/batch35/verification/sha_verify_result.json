@@ -1,0 +1,24 @@
+{
+  "batch": "batch35",
+  "readonly_verification_runs": 2,
+  "consistent_across_runs": true,
+  "run1": {
+    "verified_at": "2026-10-03T23:56:11+0800",
+    "n_entries": 43,
+    "n_ok": 43,
+    "all_ok": true,
+    "mismatches": [],
+    "verification_output_leaked_into_manifest": [],
+    "manifest_self_sha256": "450ee2136355a365ce71751c6df81d1ab5ca63e896bdbdfb40c4de9c97bb995e"
+  },
+  "run2": {
+    "verified_at": "2026-10-03T23:56:11+0800",
+    "n_entries": 43,
+    "n_ok": 43,
+    "all_ok": true,
+    "mismatches": [],
+    "verification_output_leaked_into_manifest": [],
+    "manifest_self_sha256": "450ee2136355a365ce71751c6df81d1ab5ca63e896bdbdfb40c4de9c97bb995e"
+  },
+  "all_ok": true
+}

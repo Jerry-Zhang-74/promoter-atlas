@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-10-03T16:14:17.534984+00:00",
+  "verification_1": {
+    "n": 37,
+    "mismatches": [],
+    "ok": true
+  },
+  "verification_2": {
+    "n": 37,
+    "mismatches": [],
+    "ok": true
+  },
+  "consistent": true,
+  "all_match": true
+}

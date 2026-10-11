@@ -1,0 +1,23 @@
+{
+  "batch": "batch35",
+  "reviewer_independent_manifest_verification": true,
+  "requested_model": "deepseek-flash",
+  "run1": {
+    "n_entries": 43,
+    "n_ok": 43,
+    "mismatch": [],
+    "missing": []
+  },
+  "run2": {
+    "n_entries": 43,
+    "n_ok": 43,
+    "mismatch": [],
+    "missing": []
+  },
+  "consistent_across_runs": true,
+  "self_in_manifest": false,
+  "verification_output_in_manifest": false,
+  "mutable_files_in_manifest": [],
+  "manifest_n_entries_declared": 43,
+  "all_ok": true
+}

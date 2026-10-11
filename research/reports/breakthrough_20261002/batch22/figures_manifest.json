@@ -1,0 +1,120 @@
+{
+  "generated_at_local": "2026-10-03T15:32:17+0800",
+  "figures": [
+    "fig1_domain_shift.png",
+    "fig2_heldout_predictions.png",
+    "fig3_applicability.png"
+  ],
+  "source_tables": [
+    "fig1_data.tsv",
+    "fig2_data.tsv",
+    "fig3_data.tsv"
+  ],
+  "fig1": {
+    "n": 673,
+    "spearman_k562_vs_hek": 0.8155525662119264,
+    "spearman_ci": {
+      "point": 0.8155525662119264,
+      "lo": 0.7838059754142376,
+      "hi": 0.8417316169282845,
+      "n_groups": 673,
+      "n_boot": 2000
+    },
+    "note": "measured domain shift only; no model output"
+  },
+  "fig2": {
+    "pooled": {
+      "R0": {
+        "spearman": -0.08910149238432555,
+        "mae": 0.6527093347701819,
+        "r2": -0.0022796722155495885
+      },
+      "R1": {
+        "spearman": 0.45662225443702376,
+        "mae": 0.5716699766625224,
+        "r2": 0.19153822655777208
+      },
+      "R2": {
+        "spearman": 0.4616863225596763,
+        "mae": 0.5946368776313361,
+        "r2": 0.19393137355104506
+      }
+    }
+  },
+  "fig3": {
+    "construct_lengths": [
+      100,
+      200,
+      300,
+      400,
+      100,
+      200,
+      300,
+      400,
+      100,
+      200,
+      300,
+      400,
+      700,
+      700
+    ],
+    "n_constructs_with_sequence_in_records": 0,
+    "numeric_activity_claim": false,
+    "reason": "project records hold no DNA sequence for the 14 constructs; different assay (HEK293T transient plasmid GFP, D28) and mostly different length than the 133 bp trained domain -> no numeric claim"
+  },
+  "latency": {
+    "generated_at_local": "2026-10-03T15:32:17+0800",
+    "device": "cuda:0",
+    "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "compute_capability": [
+      12,
+      0
+    ],
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "inference_batch": 32,
+    "gpu_minutes_this_stage": null,
+    "latency_ms_per_batch32": 1.79,
+    "latency_ms_per_sequence": 0.056,
+    "throughput_seq_per_s": 17840.3,
+    "length_contract": [
+      {
+        "length": 100,
+        "out_dim": 128,
+        "ok": true
+      },
+      {
+        "length": 133,
+        "out_dim": 128,
+        "ok": true
+      },
+      {
+        "length": 164,
+        "out_dim": 128,
+        "ok": true
+      },
+      {
+        "length": 200,
+        "out_dim": 128,
+        "ok": true
+      },
+      {
+        "length": 300,
+        "out_dim": 128,
+        "ok": true
+      },
+      {
+        "length": 400,
+        "out_dim": 128,
+        "ok": true
+      },
+      {
+        "length": 700,
+        "out_dim": 128,
+        "ok": true
+      }
+    ],
+    "model_sha256": "bc35e5585fa73c951602628d6e98106c15d62500e703e73177ac19554132f081",
+    "note": "bounded timing only; total batch22 GPU wall time far below the 30 min cap"
+  }
+}

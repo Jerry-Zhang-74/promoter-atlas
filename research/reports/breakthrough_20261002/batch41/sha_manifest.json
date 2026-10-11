@@ -1,0 +1,60 @@
+{
+ "batch": "batch41",
+ "version": "v6.28.0-hekft-fragment-benchmark.rc1",
+ "generated_at": "2026-10-04T02:13:13+0800",
+ "note": "self-excluding; excludes sha_manifest itself + mutable status/selfcheck/review/mail",
+ "files": {
+  "reports/breakthrough_20261002/batch41/diagnostic_manifest.json": {
+   "sha256": "dc849f4b862a53688d7e94bdcdcb68fe6e155cf9142251a8b6bcd088ed2d0d06",
+   "bytes": 7319
+  },
+  "reports/breakthrough_20261002/batch41/figures/fig1_activity_ranking.png": {
+   "sha256": "42cc437b90bc5fab2636e400de5e3c1abb55946fabcbdbef7dbe3e3ab61a82aa",
+   "bytes": 37504
+  },
+  "reports/breakthrough_20261002/batch41/figures/fig2_topdecile_uncertainty.png": {
+   "sha256": "20f3371e212a116ceb44bc2ebc681704400db04a61c90ec60411c76e408c03b3",
+   "bytes": 50473
+  },
+  "reports/breakthrough_20261002/batch41/figures/fig3_scope_evidence.png": {
+   "sha256": "2b934fade520fe7f60ca0ece11575db08062cd2ae39d27412215f56f995070e5",
+   "bytes": 74076
+  },
+  "reports/breakthrough_20261002/batch41/predictions_unique_5fold.tsv": {
+   "sha256": "370bc4c5916d999288648f0e1472e31a3dd0b66710b76a203622451f34f5355c",
+   "bytes": 3133197
+  },
+  "reports/breakthrough_20261002/batch41/report.html": {
+   "sha256": "4312f10a4d30b4507b0ed6cef2acb057c9b28735cf843c4dc1b71c78f0b67ad9",
+   "bytes": 2640
+  },
+  "data/breakthrough_20261002/batch41/cache/h1/preds.json": {
+   "sha256": "1d1fdc92d7ebc81ca623cfa2698a216f29eb0e3771d58c4239ab545d5e42bbbf",
+   "bytes": 2613317
+  },
+  "data/breakthrough_20261002/batch41/cache/parm/preds.json": {
+   "sha256": "80a6bf348e3b93464b1e9a05275dc0af05a0ffe106bc69c398b9a6533104dc34",
+   "bytes": 2366960
+  },
+  "data/breakthrough_20261002/batch41/frozen_input_table.tsv": {
+   "sha256": "984093604759d7f7e0a968765d278177941c9658c37f356149afb6ee78a9fbf1",
+   "bytes": 4015558
+  },
+  "data/breakthrough_20261002/batch41/metrics_part1.json": {
+   "sha256": "4eb6763ad386eb26a5ca6ce717de03c60ca8be125a213fa7862b38eb38bc8e98",
+   "bytes": 3866
+  },
+  "data/breakthrough_20261002/batch41/metrics_part2.json": {
+   "sha256": "5fad957328f8e571cefd42026f55ca2f1fbda75973c955bc66dfe7230cc2237a",
+   "bytes": 6560
+  },
+  "data/breakthrough_20261002/batch41/report.json": {
+   "sha256": "1e6d68b4facab4663c655559e2a6d446f8fba24898711ed5312d2acbb5c961eb",
+   "bytes": 12164
+  },
+  "data/breakthrough_20261002/batch41/taskA_correction_addendum.json": {
+   "sha256": "38fe8d320c031dad9ffba9a3a5b7c848f7d7c26984e009e4eb05ed8de593560a",
+   "bytes": 13756
+  }
+ }
+}

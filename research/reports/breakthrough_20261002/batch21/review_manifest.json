@@ -1,0 +1,33 @@
+{
+  "artifact": "review_manifest.json",
+  "role": "Post-review recomputation of artifact SHA256 (original sha_manifest.json preserved but stale for 4 post-manifest edits).",
+  "generated_local": "2026-10-03T14:45:44+0800",
+  "hashes": {
+    "results.json": "c5efb847ce387749de4adf609c0898699e138fbf310bc335effa43764ff563a0",
+    "experiment_freeze.json": "d86df7da44e1a915195089b31726ddea8180cf1d69b55ca9bacad1e26742648e",
+    "group_audit.json": "25594b981bd38b5c135bb59190a15ace6a6cc7ad227fe1c0ce5648a32559c516",
+    "public_source_verification.json": "b66cf930d1e20602144d0be585b3d26c20eecb75255ef4d85a8674b5afc378a6",
+    "construct_audit.tsv": "c955e344c9b5696895e892c5ff49179939ab915d82db16327893b96b32802322",
+    "fit_accounting.json": "baf98c6de3493b45d09f115303ddf3655d6e9d951790949f21d5818ea420030f",
+    "training_gpu_evidence.json": "9e5712e9cf9f8158ce3de56d7b07655e31993caa021c85a5c209381be1cb41b3",
+    "test_predictions.tsv": "b9a92a1e130be1d84bf0bf8a5d6e3b776b471f21e1e4d04c632ab89ba97dc26b",
+    "sha_manifest.json": "0b2c2489a57a0121eb066585ec676e723193272ce2f3bc8ded5c7113e8e71f53",
+    "groups.npz": "3021f0b52427d7cb7fbcfbf71ea80fb099ffc05bff26b1e4b51f3a83a74809cb",
+    "split_assignment.tsv": "50b8613444c40d577928f239bf2c4994b2a078bf1ed0601f832996afbe1945da",
+    "ckpt_A_seed20261023.pt": "bc35e5585fa73c951602628d6e98106c15d62500e703e73177ac19554132f081",
+    "frozen_trackB_grouped_cv.py": "7de6cca87b2868911f9e3148fba0f3a0192d5dc386fc376f30cf5b802196b731",
+    "b21_train.py": "1c297abed30d57eb39ffd40224167be250478960d50eb4aacd1bf002d1e409a0",
+    "b21_groups.py": "d2706edb17f76765acfa651a9399444adbf8cf8ea1a93a34bcf6eedb437e47e4",
+    "b21_input.py": "69e14a8a23662b6332bec179ce0d48a7aa92b5a8577b923347771c1cd6705db3",
+    "b21_worker.log": "4bbc74563eda13ef704c72907b16414034cb35dbf7d1dc3b5ede4a3fdac35963",
+    "nohup.out": "f19f1ffa2219511188386fc1b99904b544641a9c49a30ced95048d101a8ded80",
+    "mpra_supervised.tsv": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a",
+    "batch20_untouched_original_review": "9496315deb995439416d5a6650fc733d10cd8ca0f8d6483eb9680eb478992505"
+  },
+  "stale_vs_original_sha_manifest": [
+    "reports/breakthrough_20261002/batch21/report.md",
+    "runs/breakthrough_20261002/batch21/WORKER_HANDOFF.md",
+    "data/breakthrough_20261002/batch21/raw_fasta_predictions.tsv",
+    "reports/breakthrough_20261002/batch21/sha_manifest.json (self)"
+  ]
+}

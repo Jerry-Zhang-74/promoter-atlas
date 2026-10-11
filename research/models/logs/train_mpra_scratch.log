@@ -1,0 +1,10 @@
+name	mpra_scratch	mode	scratch
+epoch 0 | loss 0.8927 | val mse 0.7661 r2 -4.2243 sp 0.1489
+epoch 5 | loss 0.1320 | val mse 0.1250 r2 0.1475 sp 0.4768
+epoch 10 | loss 0.0998 | val mse 0.0999 r2 0.3184 sp 0.6199
+epoch 15 | loss 0.0879 | val mse 0.0823 r2 0.4389 sp 0.6734
+epoch 20 | loss 0.0813 | val mse 0.0782 r2 0.4665 sp 0.6983
+epoch 25 | loss 0.0775 | val mse 0.0766 r2 0.4774 sp 0.7088
+epoch 30 | loss 0.0750 | val mse 0.0756 r2 0.4843 sp 0.7148
+epoch 35 | loss 0.0749 | val mse 0.0750 r2 0.4884 sp 0.7178
+epoch 39 | loss 0.0744 | val mse 0.0742 r2 0.4938 sp 0.7177

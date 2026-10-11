@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-10-11",
+  "scope": "local CPU demonstration and model identity; not full training or test-set reevaluation",
+  "status": "PASS",
+  "esb_examples": 8,
+  "activity_examples": 3,
+  "maximum_prediction_difference": 0.0,
+  "tensor_state_sha256": "80b9f51c93f284c7ece8901390d3e6d53df7cbb8b1408ab50bd22790c5ad21e5",
+  "python": "3.12.6",
+  "packages": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1"
+  },
+  "credentials_pattern_scan": "no findings in public text files",
+  "new_training": false
+}

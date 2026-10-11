@@ -1,0 +1,128 @@
+{
+  "source_sha": {
+    "features45.npz": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800",
+    "features1024.npz": "2dc7dc0eda7c60b3fa740261e39fb37832dc0e0faf81a7fa2f9cd37a11bc14f2",
+    "split_arrays.npz": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5",
+    "trackA_gene_promoters.npz": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072"
+  },
+  "source_sha_all_match": true,
+  "population": {
+    "n_unique_gene_ids": 57827,
+    "n_eligible": 18769,
+    "n_excluded_from_S_defined": 178,
+    "n_components": 18400
+  },
+  "population_ok": true,
+  "eligible_split_roles": {
+    "train": 15004,
+    "val": 1898,
+    "test": 1867
+  },
+  "eligible_split_components": {
+    "test": 1833,
+    "train": 14711,
+    "val": 1856
+  },
+  "fold_assignment": {
+    "fold_gene_counts": [
+      3754,
+      3754,
+      3754,
+      3754,
+      3753
+    ],
+    "fold_component_counts": [
+      3674,
+      3681,
+      3681,
+      3682,
+      3682
+    ],
+    "every_gene_exactly_once": true,
+    "no_component_crossing": true,
+    "balance_max_minus_min": 1
+  },
+  "fold_manifest": {
+    "saved_gene_counts_match": true,
+    "saved_component_counts_match": true,
+    "saved_components_by_fold_match": true,
+    "frozen_flag": true,
+    "manifest_sha256": "83aa752b265529e231f3d57937eeceff7e548d09fa89a7d3c9a35256f6f8c4dc",
+    "manifest_written_at": "2026-10-03T08:40:38+0800"
+  },
+  "labels_not_used": "assignment uses only component IDs / gene sizes; no S value present in algorithm",
+  "replay": {
+    "rows": 18769,
+    "unique_gene_id": true,
+    "max_abs_diff_base": 2.220446049250313e-16,
+    "max_abs_diff_full": 2.220446049250313e-16,
+    "max_abs_diff_const": 1.1102230246251565e-16,
+    "replay_exact_1e-9": true
+  },
+  "pooled_metrics": {
+    "base_spearman": 0.403160242153634,
+    "full_spearman": 0.4570902465219401,
+    "delta": 0.053930004368306084,
+    "const_spearman": -0.004902831828882613,
+    "const_mae": 0.23429650542374453
+  },
+  "pooled_metrics_match": {
+    "base_spearman": true,
+    "full_spearman": true,
+    "delta": true,
+    "const_mae": true
+  },
+  "fold_spearman_deltas_recomputed": [
+    0.044966923369493594,
+    0.03877154486032586,
+    0.0538676718736516,
+    0.06726839688077141,
+    0.06393386276917629
+  ],
+  "n_positive_folds": 5,
+  "fold_deltas_match": true,
+  "bootstrap": {
+    "seed": 20261013,
+    "n": 2000,
+    "lo": 0.044723164781179686,
+    "hi": 0.06284397750664075,
+    "mean": 0.05394254888052351,
+    "std": 0.004696705463339286,
+    "nan": 0,
+    "matches_saved_lo": true,
+    "matches_saved_hi": true
+  },
+  "acceptance_criterion": {
+    "pooled_delta_ge_003": true,
+    "lower95_gt_0": true,
+    "positive_folds_ge_4": true
+  },
+  "criterion_met": true,
+  "saved_criterion_met_matches": true,
+  "ledger": {
+    "n_entries": 1,
+    "n_fit_entries": 1,
+    "n_fits_executed": 10
+  },
+  "checkpoints": {
+    "n_model_joblib": 10,
+    "n_scaler_joblib": 10,
+    "complete_marker_exists": true
+  },
+  "code_hashes_match": {
+    "b13_common.py": true,
+    "b13_config.py": true,
+    "b13_fold_manifest.py": true,
+    "b13_preflight.py": true,
+    "b13_run.py": true
+  },
+  "fold_manifest_sha_matches_attempt_meta": true,
+  "thread_caps_recorded": {
+    "OMP_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "NUMEXPR_NUM_THREADS": "4",
+    "VECLIB_MAXIMUM_THREADS": "4",
+    "BLIS_NUM_THREADS": "4"
+  }
+}

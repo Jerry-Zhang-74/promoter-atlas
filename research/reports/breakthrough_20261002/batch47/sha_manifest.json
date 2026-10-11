@@ -1,0 +1,132 @@
+{
+  "batch": "batch47",
+  "version": "v6.34.0-scoped-input-routing.rc1",
+  "generated_at": "2026-10-04T04:53:49+08:00",
+  "excludes": [
+    "independent_review.json",
+    "manifest_verification.json",
+    "sha_manifest.json",
+    "status.json",
+    "verification.json",
+    "worker_selfcheck.json"
+  ],
+  "n_files": 29,
+  "files": {
+    "runs/breakthrough_20261002/code/batch47/b47_addendum_b46.py": {
+      "sha256": "783e7568dd1724d1299e6063593faae3e5f7744fb94ce714486672e0c1c617c4",
+      "bytes": 8523
+    },
+    "runs/breakthrough_20261002/code/batch47/b47_cli.py": {
+      "sha256": "9214e86d5825d03cd88487945bf42fa80e838cfdd37d1bdd6876e743c66eb584",
+      "bytes": 7722
+    },
+    "runs/breakthrough_20261002/code/batch47/b47_common.py": {
+      "sha256": "48d9668a1f46206851c2fc8e2e2b4e76604e1847c052eb01e0896afe081138e1",
+      "bytes": 5057
+    },
+    "runs/breakthrough_20261002/code/batch47/b47_fragment.py": {
+      "sha256": "678b833b71c210590bf463e8e96809148aefee5ff2c85ee1812976af469ff98d",
+      "bytes": 11881
+    },
+    "runs/breakthrough_20261002/code/batch47/b47_gene_observed.py": {
+      "sha256": "87080614e6f3ee73a6b576a6fccb1a12a787dd7555ddea6dd112282b37fbf442",
+      "bytes": 7701
+    },
+    "runs/breakthrough_20261002/code/batch47/b47_phaseD.py": {
+      "sha256": "522080b07161228e33d7bf5a07dca2240e20b7111a6340c85f4606a892aa3b27",
+      "bytes": 17276
+    },
+    "runs/breakthrough_20261002/code/batch47/b47_registry.py": {
+      "sha256": "80b701e979c80ce47120890ca1cf33a9537793d5e2358e20b67b13a3947bf8f4",
+      "bytes": 6031
+    },
+    "runs/breakthrough_20261002/code/batch47/b47_tests.py": {
+      "sha256": "9382f6f36cd9d7c9438865a25e2245cb14a5d98adcdeb3c8e5e04ce2b4c93930",
+      "bytes": 17358
+    },
+    "data/breakthrough_20261002/batch47/b47 test 测试/mixed.fasta": {
+      "sha256": "55af7b420a8c093e16405d1019f1d5720a7d795e33ca107c3fe3718790cf089f",
+      "bytes": 3500
+    },
+    "data/breakthrough_20261002/batch47/b47 test 测试/queryfile_is_fasta.txt": {
+      "sha256": "47181ed7d9e4ac07fa8fc6f59ee0d960f3e0d655d34c24b1adfc76c6460bd0af",
+      "bytes": 13
+    },
+    "data/breakthrough_20261002/batch47/b47 test 测试/tampered_manifest_copy.json": {
+      "sha256": "cf97e55d1561294cad06c4530cdeaab0126075f82c15676af71ad98d2a72eb55",
+      "bytes": 1676
+    },
+    "data/breakthrough_20261002/batch47/b47 test 测试/test_manifest.json": {
+      "sha256": "53b7bf2761b0a4e00f1102771b42552c2b8eb1003202f33ca562ccc41158b128",
+      "bytes": 1023
+    },
+    "data/breakthrough_20261002/batch47/b47 test 测试/valid_supported.fasta": {
+      "sha256": "6208e8670c29ab1441fca6fa95ba302398024d986beabb924610b91a0d1ea6ae",
+      "bytes": 586
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/gene.b47.json": {
+      "sha256": "6340c1e9b6e4953af31f526583d9727b9263139aedec91f56384ddc17e121522",
+      "bytes": 7428
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/gene.b47.tsv": {
+      "sha256": "f1f4eb16227d42bf8db06038a4f52ffc30e22c19167ba7d5072e94e2b9f8df94",
+      "bytes": 1382
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/miss.json": {
+      "sha256": "b303bd67ab436acd234b1deb46e950f05bdcb9eae374406c75e5af49efca3c7d",
+      "bytes": 254
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/mixed.b47.json": {
+      "sha256": "8f8033880e3af188f5fc61fc2c8044e840247ceec95d4a1bd10cac0beea83b5c",
+      "bytes": 11555
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/mixed.b47.tsv": {
+      "sha256": "d9712cdc5325726fcda182125ecc57eb3269589e0dc1eeb18dd451a07988f3a8",
+      "bytes": 3069
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/qf.json": {
+      "sha256": "bc6f85be85f7d0cbf5edde4777049845d4a84b211ccbd2f254be6886f6e441e8",
+      "bytes": 293
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/tam.json": {
+      "sha256": "94ed45b6820951e41838bb929c80ae733b59bcaed0bf08dc7c3dfc4e632d1d73",
+      "bytes": 273
+    },
+    "data/breakthrough_20261002/batch47/输出 out 测试/x.json": {
+      "sha256": "4fd7d445292fdcf011fe2a293592464ef2f3a124693cdc262c13de20b95cd5f0",
+      "bytes": 270
+    },
+    "reports/breakthrough_20261002/batch47/b46_addendum_dmn_per_rna_rep.tsv": {
+      "sha256": "e852f879496d8b75827c31aaf21e26d30568e3ba7aef4e64c9931603199c5fb3",
+      "bytes": 60920
+    },
+    "reports/breakthrough_20261002/batch47/b46_addendum_dmn_per_rna_rep_summary.json": {
+      "sha256": "e31b59fa71b3c1bd2f29c12cf77a9c43f712e4cb3b65a45bcce7d856c9dea17a",
+      "bytes": 1444
+    },
+    "reports/breakthrough_20261002/batch47/b46_addendum_nonfinite_correction.json": {
+      "sha256": "00ec7b6c1453b9ca567f25181b83d3c05feb81890a66eba61f509cea0ed8565f",
+      "bytes": 2771
+    },
+    "reports/breakthrough_20261002/batch47/code_sha256.json": {
+      "sha256": "c6ae136a228e8354b7e6e08e56b96d4ff7f7d2d5583b25474d765297cef3e215",
+      "bytes": 1347
+    },
+    "reports/breakthrough_20261002/batch47/next_batch_proposal.json": {
+      "sha256": "d9aa7103ce2e69b1bd665e2a7a42cc6334cae0e3fbcf57cb841954e7b42beb0e",
+      "bytes": 1542
+    },
+    "reports/breakthrough_20261002/batch47/remaining_work.json": {
+      "sha256": "b20bae803e46bc4a4c0328db08c6e11deea08bab321b6448e014bf916cc2ea73",
+      "bytes": 1143
+    },
+    "reports/breakthrough_20261002/batch47/test_evidence.json": {
+      "sha256": "cae135377fbd4273b2ed1521a8df6d052f91c15ca2e1dd62da461c2331970945",
+      "bytes": 3563
+    },
+    "reports/breakthrough_20261002/batch47/USAGE_zh.md": {
+      "sha256": "d6fafdc78cce74ecc488624d0a034c8b7591e91e7b2382a4ccb40f37c21b9515",
+      "bytes": 3576
+    }
+  }
+}

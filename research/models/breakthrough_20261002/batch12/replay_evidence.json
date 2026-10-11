@@ -1,0 +1,21 @@
+{
+  "candidate_version": "v6.13.0-siface.rc1",
+  "batch": "batch12",
+  "replay_at": "2026-10-03T08:05:33+0800",
+  "passed": true,
+  "acceptance_criterion": "catalog predicted_raw_S == batch10 hgb_aug_pred AND observed_raw_S == batch10 S_raw_full at atol/rtol 1e-10",
+  "atol": 1e-10,
+  "rtol": 1e-10,
+  "n_catalog_genes": 18769,
+  "n_batch10_genes": 18769,
+  "n_intersection": 18769,
+  "only_in_catalog": [],
+  "only_in_batch10": [],
+  "max_abs_pred_diff": 4.440892098500626e-16,
+  "max_abs_obs_diff": 4.440892098500626e-16,
+  "pred_allclose_1e_10": true,
+  "obs_allclose_1e_10": true,
+  "batch10_predictions_tsv": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch10\\predictions.tsv",
+  "batch10_predictions_sha256": "d6845fb2d64630213996d5e8f938bb9e9df96af579401a94f66a03a34b93e5d3",
+  "integrity_ok": true
+}

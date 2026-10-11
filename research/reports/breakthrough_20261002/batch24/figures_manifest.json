@@ -1,0 +1,9 @@
+{
+  "generated_at_local": "2026-10-03T16:30:27+0800",
+  "figures": {
+    "fig1_metrics_with_uncertainty.png": "700d0fa0fa6f4d0545e0fd6492c9ad3f8212e647e7443e80bca87c219b19653a",
+    "fig2_true_vs_predicted.png": "44bd951da752a58783d1ee9fb276e346d304c070f09f54a2092702ec77444218",
+    "fig3_local_applicability.png": "522ddf29b1217490b20a9941039cc60c46267a785edc9992e35f4698a3df0289"
+  },
+  "zero_fits": true
+}

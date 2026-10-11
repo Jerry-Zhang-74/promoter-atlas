@@ -1,0 +1,24 @@
+{
+  "attempt_id": 5,
+  "recipe": "H1",
+  "fold": 4,
+  "pid": 37256,
+  "alpha": 1.0,
+  "n_train": 539,
+  "n_holdout": 134,
+  "train_mean": 0.31518553221187484,
+  "residual_norm": 4.6872622259402534e-14,
+  "relative_residual": 2.4021788115103406e-15,
+  "elapsed_s": 0.009586811065673828,
+  "config_sha": "a4bcfca141893d139f2c36d303af0235c0c0f1834954a134abb1dc9a99532d60",
+  "input_sha": {
+    "sequence_table.tsv": "e6ea09134202bf6008a326ffe38cf3fd3acc003ae899845861f42d8c2e88b548",
+    "fold_assignment.tsv": "f58589bb16632da7fc89c49cc2d20f8af2ba265449e58c7406f58d3a679ee82a",
+    "oof_predictions.tsv": "e7ee2323db4fbd87b2435c3e9d29049226f31dd98d90165db67cd89f9247f151",
+    "local_constructs.tsv": "7b479b187eceda5dcc581e81f51def4795018eeb37927aacec319c158dce300e"
+  },
+  "pred_sha256": "cbd116e98b4b918a8246b24f5f4df781f47b9f86c5721eaeb42b0b3c0cf15890",
+  "weights_sha256": "68efa573e66081b464ca71d1bd6f329706455728f98cd59d10f28cb6c053c0b4",
+  "finite": true,
+  "zero_neural_fits": true
+}

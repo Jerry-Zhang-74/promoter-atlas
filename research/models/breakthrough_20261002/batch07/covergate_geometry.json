@@ -1,0 +1,43 @@
+{
+  "candidate_version": "v6.8.0-covergate.rc1",
+  "coverage_score": "squared Mahalanobis distance (x-mu)^T precision (x-mu); lower = more central in this particular feature geometry, NOT calibrated probability",
+  "diagnostic_thresholds": {
+    "0.50": 25.708630725029085,
+    "0.70": 32.08140529611878,
+    "0.90": 44.957864720922665,
+    "1.00": 14206.97551794076
+  },
+  "fit": {
+    "covariance": "sklearn.covariance.LedoitWolf(store_precision=True)",
+    "fit_on": "outer-TRAIN 45-feature rows only (n=46263)",
+    "heldout_features_used": false,
+    "labels_used": false,
+    "prediction_errors_used": false,
+    "scaler": "sklearn.preprocessing.StandardScaler (with_mean=True, with_std=True)"
+  },
+  "frozen_at": "2026-10-03T04:42:20.882268+08:00",
+  "geometry_file": "models/breakthrough_20261002/batch07/covergate_geometry.npz",
+  "geometry_sha256": "c70de2c9dd4a8f4ac329f9a7a5fdd8604adc9540c679055ccc7d930f9339cc01",
+  "limitations": [
+    "feature centrality, not comprehensive density/OOD guarantee",
+    "multimodality and data-internal annotation bias remain",
+    "gate miss is not proof of biological out-of-domain",
+    "retrospective/exploratory on reused split, never prospective"
+  ],
+  "primary_gate": {
+    "quantile": 0.9,
+    "quantile_method": "linear",
+    "threshold": 44.957864720922665
+  },
+  "source_shas": {
+    "features45_npz": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800",
+    "split_arrays_npz": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5"
+  },
+  "train_distance": {
+    "max": 14206.97551794076,
+    "mean": 31.014353887074126,
+    "min": 3.827025522447157,
+    "n": 46263,
+    "std": 122.43282740280657
+  }
+}

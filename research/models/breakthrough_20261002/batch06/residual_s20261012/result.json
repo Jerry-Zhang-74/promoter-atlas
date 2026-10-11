@@ -1,0 +1,72 @@
+{
+  "elapsed_s": 97.5,
+  "epochs_run": 12,
+  "global_step": 17352,
+  "history": [
+    {
+      "epoch": 0,
+      "global_step": 1446,
+      "train_loss": 0.040379451460270714
+    },
+    {
+      "epoch": 1,
+      "global_step": 2892,
+      "train_loss": 0.039327237238517526
+    },
+    {
+      "epoch": 2,
+      "global_step": 4338,
+      "train_loss": 0.038472856175963396
+    },
+    {
+      "epoch": 3,
+      "global_step": 5784,
+      "train_loss": 0.03777240078643809
+    },
+    {
+      "epoch": 4,
+      "global_step": 7230,
+      "train_loss": 0.037373911228705904
+    },
+    {
+      "epoch": 5,
+      "global_step": 8676,
+      "train_loss": 0.036625110615755886
+    },
+    {
+      "epoch": 6,
+      "global_step": 10122,
+      "train_loss": 0.03596636866648291
+    },
+    {
+      "epoch": 7,
+      "global_step": 11568,
+      "train_loss": 0.03549014898738405
+    },
+    {
+      "epoch": 8,
+      "global_step": 13014,
+      "train_loss": 0.03479152206810678
+    },
+    {
+      "epoch": 9,
+      "global_step": 14460,
+      "train_loss": 0.03409523682934161
+    },
+    {
+      "epoch": 10,
+      "global_step": 15906,
+      "train_loss": 0.03365200901736362
+    },
+    {
+      "epoch": 11,
+      "global_step": 17352,
+      "train_loss": 0.03268239215366738
+    }
+  ],
+  "lr": 0.001,
+  "n_params": 64257,
+  "n_train_genes": 46263,
+  "seed": 20261012,
+  "target": "OOF ridge residual (Score_E - OOF ridge prediction)"
+}

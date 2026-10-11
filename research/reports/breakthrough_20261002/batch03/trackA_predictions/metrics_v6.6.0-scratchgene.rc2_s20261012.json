@@ -1,0 +1,43 @@
+{
+  "candidate": "v6.6.0-scratchgene.rc2",
+  "checkpoint_sha256": "04dac520a89b7bbe5ed24129a325823eb3e43238ed251abdfbd8c4618489fbf2",
+  "lr": 0.001,
+  "mode": "bag",
+  "n_params": 64257,
+  "predictions_file": "E:\\promoter_atlas\\reports\\breakthrough_20261002\\batch03\\trackA_predictions\\pred_v6.6.0-scratchgene.rc2_s20261012.tsv",
+  "seed": 20261012,
+  "test": {
+    "full": {
+      "mae": 0.17150740614847143,
+      "mse": 0.04445186690535085,
+      "n": 5603,
+      "r2": 0.4755214515149663,
+      "spearman": 0.751279072198209
+    },
+    "n_unexposed": 3362,
+    "unexposed": {
+      "mae": 0.19213971446132583,
+      "mse": 0.05417289932862286,
+      "n": 3362,
+      "r2": -0.09227275543540747,
+      "spearman": 0.4617038717166397
+    }
+  },
+  "val": {
+    "full": {
+      "mae": 0.17286780082892217,
+      "mse": 0.044920115956157816,
+      "n": 5606,
+      "r2": 0.4702035106387171,
+      "spearman": 0.7362274988972575
+    },
+    "n_unexposed": 3317,
+    "unexposed": {
+      "mae": 0.19156326164581253,
+      "mse": 0.05360931227590689,
+      "n": 3317,
+      "r2": -0.055481084636708644,
+      "spearman": 0.4366888618635876
+    }
+  }
+}

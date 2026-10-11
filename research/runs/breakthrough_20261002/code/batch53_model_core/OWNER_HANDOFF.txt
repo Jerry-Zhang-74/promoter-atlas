@@ -1,0 +1,82 @@
+batch53 OWNER HANDOFF -- v6.38.0-model-pipeline-code.rc1
+Location: runs/breakthrough_20261002/code/batch53_model_core  (COPY-READONLY for b52 integration)
+Owner split: batch53 = model/train/checkpoint/eval/pipeline CODE only. batch52 owner = source,
+reference, cohort build and ALL actual fit executions/ledger/models. The helper launched NO fit.
+
+WHAT IS IMPLEMENTED (executable, tested, not just a contract)
+ - spec.py                frozen constants + config_dict/config_sha256 + target/source assertions
+ - model_core.py          SeqCNN (both arms identical init bytes), encoder, param_sha256, predictor
+ - losses.py              group-weighted SmoothL1; Njoint pair-difference (zero pair intercept)
+ - normalizer.py          TRAIN-only weighted target normalizer (fit once, inverse on output)
+ - data_adapter.py        portable cohort loader (TSV+FASTA or NPZ) with hard validation
+ - r0_baseline.py         R0 features (mono..tetra+GC+loglen=342) + weighted ridge alpha100
+ - checkpoint.py          atomic checkpoint (model/opt/RNG/sampler/normalizer/config/datahash/gate id)
+ - train_neural.py        Nabs/Njoint trainer (frozen loop, DEV group-mean pair MAE selection)
+ - epoch_cap.py           one-time throughput-only 6/4/2 shared cap (no DEV/TEST scores)
+ - gpu_lock.py            GPU-exclusive lock PID+creation, bounded handoff
+ - eval_replay.py         independent replay (GPU<=3min under lock) + CPU metrics/bootstrap/compare
+ - pipeline_coordinator.py R0 -> Nabs -> Njoint, ONE GPU, target-asserted, gated
+ - exec_gate.py           wrapper over REVIEWED gate (vendored byte-identical, sha pinned)
+ - tests/, selfcheck.py   artificial CPU no-fit software tests + one evidence JSON
+
+PARENT SPEC RE-READ (coordinator startup): batch52/PARENT_DATA_ACCEPTANCE.txt and
+batch52/PARALLEL_PIPELINE.txt are read and asserted (target Log2RPM_HEK293 present, Nabs/Njoint
+defined) before any fit. Config target assertion is enforced by spec.assert_target.
+
+DATA CONTRACT the b52 data owner must produce (validated by data_adapter.load_cohort):
+  <cohort_dir>/endpoints.tsv   coord_id  union_id  split  length  Log2RPM_HEK293  [+chr/start/end/strand]
+  <cohort_dir>/groups.tsv      union_id  split
+  <cohort_dir>/pairs.tsv       union_id  split  short_coord_id  long_coord_id  [short_len long_len]
+  <cohort_dir>/sequences.fa    FASTA, one record per coord_id (<=600bp)   OR sequences.npz{coord_ids,codes}
+  <cohort_dir>/reference_provenance.json {"assembly":"hg19","proxy_not_donor_clone":true,...}
+  <cohort_dir>/manifest.json   optional {"source_sha256": "<b52 source sha>"}
+Checks: exact length/IDs; sequences==endpoints ids; group disjoint; split-per-group constant and
+TRAIN/DEV/TEST groups disjoint; pair endpoints share the pair group/3prime endpoint; short<long;
+hg19 proxy declared; target column exact; source sha exact.
+
+EXACT INVOCATIONS for the b52 execution worker (paths from repo root E:/promoter_atlas)
+ 0) validate cohort (no fit):
+    .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch53_model_core/data_adapter.py <cohort_dir>
+ 1) R0 then Nabs then Njoint on ONE GPU (gated, MAX 4 in the b52 ledger):
+    .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch53_model_core/pipeline_coordinator.py \
+      --cohort-dir <cohort_dir> --out-root runs/breakthrough_20261002/batch52/models \
+      --ledger runs/breakthrough_20261002/batch52/exec_gate_ledger.jsonl \
+      --accepted-data-sha <b52_source_sha256> --i-understand-this-is-a-real-fit
+    (add --first-model-only to stop after Nabs; Nabs integrity marker = <out-root>/Nabs_ready.json)
+ 2) single arm (equivalent direct entrypoint):
+    .venv/Scripts/python.exe -X utf8 .../train_neural.py --cohort-dir <cohort_dir> --arm Nabs \
+      --out-dir <out> --ledger <b52_ledger> --accepted-data-sha <sha> --i-understand-this-is-a-real-fit
+ 3) independent replay (GPU <=3 min, holds lock only for forward) then CPU metrics:
+    .../eval_replay.py replay  --checkpoint <out>/Nabs_selected.ckpt --cohort-dir <cohort_dir> \
+      --split DEV --out <preds.tsv> --ready <preds.ready.json> --lock-dir <out> --budget-seconds 180
+    .../eval_replay.py metrics --cohort-dir <cohort_dir> --preds <preds.tsv> --split TEST --out <m.json>
+    .../eval_replay.py compare --cohort-dir <cohort_dir> --predA <nabs_preds.tsv> --predB <njoint_preds.tsv> \
+      --split TEST --out <final.json> --ready <final.ready.json>
+
+API (import; no import side effects)
+  data_adapter.load_cohort(dir, source_sha256=SOURCE_SHA256, validate_only=False) -> Cohort
+  train_neural.Trainer(arm, cohort, out_dir, ledger, device, epoch_cap, micro_batch, opt_in,
+                       accepted_data_sha, resume_from, resume_identity).run(max_seconds, cap_decider, cap_log_path)
+  pipeline_coordinator.run_pipeline(cohort_dir, out_root, ledger, run_dir, opt_in_fits, accepted_data_sha, ...)
+  eval_replay.replay_predictions(...); evaluate_split(...); paired_group_bootstrap(...); final_compare(...)
+  checkpoint.save_checkpoint(...)/load_checkpoint(path, expect_config_sha, expect_datahash) strict
+  exec_gate.open_ledger(ledger_path, budget=4).reserve(purpose[, resume_of, resume_identity])
+
+GATE / BUDGET
+  The reviewed gate is vendored byte-identical (sha256 e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571).
+  Budget is fixed at 4; R0, Nabs, Njoint planned; 1 reserve for a real failed/restarted execution.
+  Every actual execution reserves BEFORE its first gradient/solve; failures count. No hidden fit.
+  Resume passes resume_of=prior exec_id + matching resume_identity -> consumes=False (genuine checkpoint resume only).
+
+SAFETY INVARIANTS
+  Inputs >600bp or null are rejected. Masked max never selects padding; padded/ambiguous positions
+  are never pooled. Both arms share init bytes (param_sha256 verified) and config (config_sha256).
+  Real fits refuse without opt-in flag + accepted-data sha matching the cohort source sha.
+  eval_replay refuses to run without CUDA (no CPU neural fallback) and releases the GPU lock before
+  any CPU metrics. No module sends mail, reads credentials, or touches the network.
+
+VERIFICATION (this helper, artificial/no-fit only)
+  tests/test_nofit.py    -> 21/21 PASS  (tests/no_fit_evidence.json)
+  tests/test_pipeline.py -> 4/4 PASS    (tests/pipeline_test_evidence.json)
+  selfcheck.py -> runs/breakthrough_20261002/batch53/code_selfcheck.json (all_passed true)
+  Every module imports with no side effects; all files compile under python -X utf8.

@@ -1,0 +1,167 @@
+{
+  "candidate_version": "v6.10.0-starget.rc1",
+  "batch": "batch09",
+  "written_at": "2026-10-03T06:06:25+0800",
+  "seed": 20261011,
+  "n_eligible": 18769,
+  "n_train": 15004,
+  "n_val": 1898,
+  "n_test": 1867,
+  "rank_target_audit": {
+    "n_train": 15004,
+    "out_of_range": {
+      "val_test_below_train_min": 0,
+      "val_test_above_train_max": 0
+    },
+    "induced_ties": {
+      "n_distinct_F_non_train": 3018,
+      "n_F_values_with_ties": 595,
+      "n_non_train_rows_in_tied_F": 1342,
+      "n_non_train_rows": 3765
+    },
+    "clip_behavior": "values below train min -> 0; above train max -> 1"
+  },
+  "target_standardization": {
+    "raw_train_mean": -0.5336610223136261,
+    "raw_train_std": 0.33092373224240557,
+    "rank_train_mean": 0.5,
+    "rank_train_std": 0.2886751339536546
+  },
+  "arms": {
+    "ridge_raw": {
+      "spearman_vs_raw_truth": 0.37008663146628534,
+      "mae": 0.22118805275330314,
+      "mse": 0.09814673461169825,
+      "r2": 0.11204038064685595
+    },
+    "ridge_rank": {
+      "spearman_vs_raw_truth": 0.3837335369975172,
+      "mae": 0.22929683631923276,
+      "mse": 0.07263388313595205,
+      "r2": 0.1281514302530643
+    },
+    "hgb_raw": {
+      "spearman_vs_raw_truth": 0.40888782012905495,
+      "mae": 0.2153898828081284,
+      "mse": 0.09481461223902683,
+      "r2": 0.1421869782426024
+    },
+    "hgb_rank": {
+      "spearman_vs_raw_truth": 0.4207063785247834,
+      "mae": 0.22133515306479426,
+      "mse": 0.06878920884099002,
+      "r2": 0.17430032991923539
+    }
+  },
+  "val_descriptive": {
+    "spearman_vs_raw_truth": {
+      "ridge_raw": 0.34306570069431236,
+      "ridge_rank": 0.35967380165028917,
+      "hgb_raw": 0.42100618157014896,
+      "hgb_rank": 0.4264875648964099
+    },
+    "within_target": {
+      "ridge_raw": {
+        "mae": 0.21752901875817016,
+        "mse": 0.09973284334269128,
+        "r2": 0.10878483311018239
+      },
+      "ridge_rank": {
+        "mae": 0.2285786321274766,
+        "mse": 0.07211800311453008,
+        "r2": 0.1315011476488892
+      },
+      "hgb_raw": {
+        "mae": 0.211004077880432,
+        "mse": 0.09393740870814787,
+        "r2": 0.16057298104532436
+      },
+      "hgb_rank": {
+        "mae": 0.21943000806902785,
+        "mse": 0.06789097618043505,
+        "r2": 0.18240616279869326
+      }
+    },
+    "note": "descriptive only; no scaler/CDF/hyperparameter/stopping/target mapping is fit or selected on val"
+  },
+  "baselines": {
+    "raw_target": {
+      "train_mean": {
+        "mae": 0.23539691623018894,
+        "mse": 0.11054819467595069,
+        "r2": -0.0001589278848441733
+      },
+      "train_median": {
+        "mae": 0.22126263646629676,
+        "mse": 0.1168085951654415,
+        "r2": -0.056798436653421325
+      }
+    },
+    "rank_target": {
+      "train_mean": {
+        "mae": 0.24885076173937976,
+        "mse": 0.08334195175513419,
+        "r2": -0.0003810659775411729
+      },
+      "train_median": {
+        "mae": 0.24885076173937976,
+        "mse": 0.08334195175513419,
+        "r2": -0.0003810659775411729
+      }
+    }
+  },
+  "primary_target_representation": {
+    "convention": "Two primary comparisons; each uses a 97.5% two-sided percentile interval ([1.25, 98.75] percentiles of the paired component bootstrap delta distribution) as a conservative two-comparison adjustment.",
+    "acceptance_rule": "scoped target-representation improvement requires delta >= 0.03 AND adjusted lower bound > 0",
+    "ridge": {
+      "point_estimate": 0.013646905531231879,
+      "bootstrap_mean": 0.013744278858204811,
+      "lo_pct": 1.25,
+      "hi_pct": 98.75,
+      "lo": 0.0019928125511320255,
+      "hi": 0.026088195922146618,
+      "n_resamples": 2000,
+      "n_bootstrap_nan": 0
+    },
+    "hgb": {
+      "point_estimate": 0.011818558395728429,
+      "bootstrap_mean": 0.01207530112059602,
+      "lo_pct": 1.25,
+      "hi_pct": 98.75,
+      "lo": -0.010267636794443077,
+      "hi": 0.03396106711392435,
+      "n_resamples": 2000,
+      "n_bootstrap_nan": 0
+    },
+    "ridge_meets_rule": false,
+    "hgb_meets_rule": false
+  },
+  "ridge_vs_hgb_descriptive": {
+    "test_spearman_vs_raw_truth": {
+      "ridge_raw": 0.37008663146628534,
+      "ridge_rank": 0.3837335369975172,
+      "hgb_raw": 0.40888782012905495,
+      "hgb_rank": 0.4207063785247834
+    },
+    "note": "descriptive only; not an acceptance comparison and not compared to batch06 E or v6.3"
+  },
+  "affine_diagnostic": {
+    "max_abs_affine_err_all_rows": 2.339239912885205e-13,
+    "spearman_y1_vs_p1": 0.37008663146628534,
+    "spearman_y2_vs_p2": 0.37008663146628534,
+    "spearman_invariant": true,
+    "r2_y1": 0.1120403806468504,
+    "r2_y2": 0.11204038064685085,
+    "r2_invariant": true,
+    "mae_y1": 0.22118805275330297,
+    "mae_y2": 0.44237610550660583,
+    "mae_ratio_y2_over_y1": 1.9999999999999996,
+    "expected_mae_ratio": 2.0,
+    "mse_y1": 0.09814673461169884,
+    "mse_y2": 0.39258693844679526,
+    "mse_ratio_y2_over_y1": 3.9999999999999987,
+    "expected_mse_ratio": 4.0
+  },
+  "affine_diagnostic_pass": true,
+  "elapsed_s": 24.76
+}

@@ -1,0 +1,129 @@
+{
+  "generated_at_local": "2026-10-03T14:29:56+0800",
+  "started_local": "2026-10-03T14:29:48+0800",
+  "search_bound_minutes": 60,
+  "declared_selection_rule": "First verified HEK293/HEK293T promoter-reporter source with processed sequences and valid per-sequence scalar activity, >=1000 usable sequences AND >=100 independent sequence groups, within preparation bounds (<=500MB, <=30min). HEK293T preferred over HEK293 and never equated. Otherwise fall back to K562 GSE118242 as an explicitly in-domain experiment and record the HEK293T gap. Selection is availability-based, NOT score-based.",
+  "primary_candidate": {
+    "accession": "GSE188639",
+    "verification": {
+      "accession": "GSE188639",
+      "primary_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE188639",
+      "title": "A single-cell massively parallel reporter assay detects cell type specific cis-regulatory activity",
+      "pubmed": [
+        "36635387"
+      ],
+      "summary": "We developed a single-cell massively parallel reporter assay (scMPRA) to measure the activity of libraries of cis-regulatory sequences (CRSs) across multiple cell-types simultaneously. As a proof of concept, we assayed a library of core promoters in a mixture of HEK293 and K562 cells and showed that scMPRA is a reproducible, highly parallel, single-cell reporter gene assay. Our results show that housekeeping promoters and CpG island promoters have lower activity in K562 cells relative to HEK293, which likely reflects developmental differences between the cell lines. Within K562 cells, scMPRA identified a subset of developmental promoters that are upregulated in the CD34+/CD38- sub-state, confirming this state as more “stem-like.” Finally, we deconvolved the intrinsic and extrinsic components of cell-to-cell variability and found that developmental promoters have a higher proportion of extrinsic noise compared to housekeeping promoters. We anticipate scMPRA will be widely applicable for studying the role of CRSs across diverse cell types.",
+      "design": "single-cell massively parallel reporter assay of a core promoter library with 676 members and each sequence is barcoded 3 times with a 16 bp DNA barcode. A second 25 bp random barcodes was added during cloning. The library was sequencd using bulk RNA-seq and single-cell RNA-seq in K562 and HEK293 cells. Each experiment contains 2 replicates.",
+      "series_type": [
+        "Expression profiling by high throughput sequencing",
+        "Other"
+      ],
+      "supplementary_files": [
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188639/suppl/GSE188639_RAW.tar",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188639/suppl/GSE188639_k562_bulk_exp.csv.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188639/suppl/GSE188639_mixed_cell_bulk_exp.csv.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188639/suppl/GSE188639_retina_pBC_exp_rep1.csv.gz",
+        "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE188nnn/GSE188639/suppl/GSE188639_retina_pBC_exp_rep2.csv.gz"
+      ],
+      "sample_cell_backgrounds": [
+        "DH5a",
+        "HEK293",
+        "K562",
+        "K562, HEK293"
+      ],
+      "has_HEK293_arm": true,
+      "has_K562_arm": true,
+      "verified": true
+    },
+    "processed_probes": {
+      "GSE188639_mixed_cell_bulk_exp.csv.gz": {
+        "bytes": 27737,
+        "sha256": "3b21ee7fda17f177a25e1fdc86a06362430526c4b3580fb3f881c3538c9c142c",
+        "n_lines": 677,
+        "header": ",prom_id,k562 exp,hek exp,input,k562_norm,hek_norm",
+        "contains": "per-promoter k562 exp / hek exp / k562_norm / hek_norm",
+        "n_promoters": 676
+      },
+      "GSE188639_k562_bulk_exp.csv.gz": {
+        "bytes": 64302,
+        "sha256": "c491c31374f4cf186fb8f26d0903c0a8687effc0f1fcaa4cfa7053d5f4b5019c",
+        "n_lines": 6327,
+        "header": ",pBC,count_x,count_y"
+      }
+    },
+    "gate": {
+      "min_usable_sequences": 1000,
+      "min_independent_groups": 100,
+      "observed_usable_sequences": 676,
+      "cell": "HEK293 (not HEK293T)"
+    },
+    "verdict": "REJECTED_FOR_TRAINING",
+    "rejection_reason": "676 core-promoter members (< 1000 gate); cell is HEK293 not HEK293T; HEK activity exists as a bulk per-sequence column (hek_norm) but the library is too small for the declared training gate. Retained as a future HEK293 supervised source (single-cell deconvolution / larger library needed), not used to tune anything now."
+  },
+  "second_source_search": [
+    {
+      "accession": "GSE104878",
+      "note": "LegNet benchmark candidate",
+      "title": "Deciphering cis-regulatory logic with 100 million synthetic promoters",
+      "platform_organism": [
+        "Saccharomyces cerevisiae"
+      ],
+      "verdict": "REJECTED",
+      "reason": "non-human surrogate (Saccharomyces cerevisiae); protocol forbids a yeast surrogate for human activity"
+    },
+    {
+      "accession": "GSE163045",
+      "note": "LegNet GPRA candidate",
+      "title": "The evolution, evolvability, and engineering of gene regulatory DNA [GPRA]",
+      "platform_organism": [
+        "Saccharomyces cerevisiae"
+      ],
+      "verdict": "REJECTED",
+      "reason": "non-human surrogate (Saccharomyces cerevisiae); protocol forbids a yeast surrogate for human activity"
+    }
+  ],
+  "second_source_conclusion": "No second verified HUMAN promoter-activity source with processed sequence/activity and >=1000 sequences was obtained within the 60-minute bound; inspected yeast LegNet series were rejected as non-human surrogates.",
+  "local_selected_source": {
+    "accession": "GSE118242",
+    "path": "E:\\promoter_atlas\\features\\mpra\\mpra_supervised.tsv",
+    "sha256": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a",
+    "context": "K562",
+    "assay": "oligo MPRA",
+    "length_bp": 164,
+    "n_sequences": 11803,
+    "role": "in-domain training/validation/test source; not HEK293T and not a HEK293T substitute"
+  },
+  "dataset_decision": "K562 GSE118242 (local, in-domain)",
+  "HEK293T_gap": "No HEK293/HEK293T promoter-reporter source with >=1000 processed sequence/activity pairs was obtainable within bounds. The HEK293T gap is recorded explicitly; no K562 MPRA score is presented as HEK293T reliability.",
+  "constructs": {
+    "n_constructs": 14,
+    "families": {
+      "ACTB": 6,
+      "GAPDH": 6,
+      "CMV": 2
+    },
+    "n_scorable_by_164bp_candidate": 0,
+    "n_unsupported": 14
+  },
+  "excluded": [
+    {
+      "construct_id": "CMV_SP1_81_untransfected",
+      "family": "CMV",
+      "sequence_length_bp": "81",
+      "sequence_sha256": "ff870d46358218f7750c8d5248ffdb11c4b18f816ae0b39c4ab48e70952e2607",
+      "status": "user_confirmed_not_transfected",
+      "reason_excluded": "untransfected 81 bp fragment (user_confirmed_not_transfected); excluded from the measured construct set"
+    }
+  ],
+  "input_quality_rule": {
+    "max_N_fraction": 0.05,
+    "note": "sequences with >5 percent N are refused as unsupported; length must equal 164 bp for the K562 branch; IUPAC codes refused"
+  },
+  "source_sha256": {
+    "trackB_grouped_cv.py": "7de6cca87b2868911f9e3148fba0f3a0192d5dc386fc376f30cf5b802196b731",
+    "trackB_train_components.tsv": "3b0d12c3e26fd085794ea4d0f786160db393d876e30dfc5842d97c67320557a4",
+    "mpra_supervised.tsv": "5aaf8872e43dd0362fe4071801a9f536e3965e933cb8fb067518270aba32d24a",
+    "trackB_cv_fold_assignment.tsv": "c10a5b980d19c54afc36c5c9125884a245f974dc1770c957e664c91ef5c0abcc"
+  },
+  "endpoints_sha256": "9125f52bd0048fc6f0a72f7e42fe747ec8b7d1eba18baa6acbea26527279215f"
+}

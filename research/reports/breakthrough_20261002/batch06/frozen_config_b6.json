@@ -1,0 +1,100 @@
+{
+  "baselines": {
+    "b2_original": "batch05 B2 saved predictions (descriptive read-only comparator)",
+    "existing_batch05_ridge": "batch05 saved comp44+count ridge predictions (matched gene IDs, descriptive)",
+    "hgb": "sklearn HistGradientBoostingRegressor(max_iter=200, learning_rate=.1, max_leaf_nodes=15, l2_regularization=.1, early_stopping=False, random_state=20261011), outer train only",
+    "ridge_comp44_count": "reproduced current ridge comp44+count with nested/inner rules",
+    "zero_residual_finalridge": "finalridge prediction (nested-model reference)"
+  },
+  "candidate_version": "v6.7.0-residualgene.rc1",
+  "combination": {
+    "fixed_mean": "finalridge + arithmetic mean of the two seed residual outputs",
+    "no_blend_weight_clipping_ensemble": true,
+    "primary": "finalridge prediction + CNN residual prediction (un-clipped)"
+  },
+  "evaluation": {
+    "acceptance": "fixedmean vs EACH simple baseline >= .02 test Spearman gain with bootstrap 95% LB > 0 AND >= 3% relative MAE reduction; individual seeds nonnegative gain",
+    "bootstrap": "component-level (whole components resampled, 2000 iters)",
+    "metrics": [
+      "Spearman",
+      "R2",
+      "MAE",
+      "MSE",
+      "n"
+    ],
+    "strata": [
+      "n=1",
+      "n=2-3",
+      "n>=4",
+      "historical donor unexposed"
+    ],
+    "strata_thresholds_from_train": true
+  },
+  "features": {
+    "aggregation": "gene-mean over promoters",
+    "comp44": "per-promoter mono(4)+dinuc(16)+GC(1)+length(1) for sym400 and up2000 => 44; gene=mean over promoters",
+    "count": "log1p(n_promoters)",
+    "no_label_derived_features": true,
+    "total": "45 features (comp44 + log1p count)"
+  },
+  "inner_holdout": {
+    "algorithm": "same component-preserving greedy assignment",
+    "seed": 20261011,
+    "target_val_fraction": 0.1,
+    "used_for": "ridge alpha selection within each 4-fold subset AND full outer train final ridge selection"
+  },
+  "label": {
+    "definition": "rank-scaled [0,1] gene-level expression strength; E_raw=mean over tissues of log2(1+TPM); Score_E=rank(E_raw)/(n-1) over canonical 58988-gene table, stable-sort ties",
+    "denominator": "canonical 58988-gene label table",
+    "field": "Score_E",
+    "no_relabel_from_test": true
+  },
+  "neural": {
+    "architecture": "batch03 GeneBagModel: Trunk(conv1 4->64 k7, conv2 64->64 k5, conv3 64->128 k5, BN+ReLU); head Linear(256,1) on concat(mean,max)",
+    "arm": "diverse_bag (B2) 4-slot: anchor p0=(epoch+g)%n, slots=(p0+k)%n k=0..3",
+    "batch": 32,
+    "epochs": 12,
+    "final_only": true,
+    "init": "random init per seed",
+    "n_runs": 2,
+    "no_label_scaling": true,
+    "optimizer": "AdamW lr=0.001 weight_decay=0.0001",
+    "seeds": [
+      20261011,
+      20261012
+    ],
+    "target": "MSE residual target = canonical Score_E - OOF ridge prediction (outer train)"
+  },
+  "outer_folds": {
+    "algorithm": "components sorted by gene_count desc, tie-break seeded hash; greedy assign to bin minimizing (count+size)/target_fraction (target 0.2 each)",
+    "component_preserving": true,
+    "n_folds": 5,
+    "on": "outer TRAIN only",
+    "seed": 20261011
+  },
+  "question": "Does a from-scratch gene-bag CNN predicting honest component-fold OOF ridge residuals add predictive value beyond composition/count baselines, on the SAME corrected batch05 split?",
+  "ridge": {
+    "alpha_grid": [
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "scaling": "z-score using inner-train (selection) / full outer train (final fit) only",
+    "selection_metric": "inner-val Spearman (primary)",
+    "tie_rule": "prefer larger alpha"
+  },
+  "scope": "gene-level Score_E ranking only; NOT promoter/construct/HEK293T activity",
+  "split": {
+    "n_components": 55402,
+    "n_genes": 57827,
+    "n_test": 5782,
+    "n_train": 46263,
+    "n_val": 5782,
+    "sha256": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5",
+    "source": "data/breakthrough_20261002/batch05/split_arrays.npz (frozen, corrected)",
+    "type": "exact/RC + detected-near-identity blocked (NOT homology-free)"
+  }
+}

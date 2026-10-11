@@ -1,0 +1,33 @@
+{
+  "batch": "batch58",
+  "epochs_completed": 2,
+  "expected_samples_2_epochs": 1063720,
+  "final_checkpoint": {
+    "effective_batch": 64,
+    "epoch": 1,
+    "generation": 5,
+    "graceful_stop": false,
+    "next_pos": 531860,
+    "opt_steps": 16622,
+    "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0005.ckpt",
+    "run_id": "Nabs_throughput_variant",
+    "sha256": "24571c4b9e36cf60033976c4f136d08663c3dd1a0bbc436551badd445af28d2b",
+    "updated_at": "2026-10-04T10:24:12+0800"
+  },
+  "finished_at": "2026-10-04T10:25:19+0800",
+  "full_pass_coverage": true,
+  "gate_budget": 3,
+  "gate_consumed": 3,
+  "global_samples_final": 1063720,
+  "no_new_fit_allowance_requested": true,
+  "no_test_evaluation": true,
+  "peak_actual_vram_mib": 2958.0,
+  "real_resume_verified": true,
+  "sample_throughput_samples_per_s": 5189.854619815127,
+  "selected_effective_batch": 64,
+  "status": "TRAINING_DONE",
+  "target_column": "Log2RPM_HEK293",
+  "total_training_elapsed_s": 204.96142530441284,
+  "variant": "throughput_variant",
+  "version": "v6.39.0-throughput-checkpoint.rc1"
+}

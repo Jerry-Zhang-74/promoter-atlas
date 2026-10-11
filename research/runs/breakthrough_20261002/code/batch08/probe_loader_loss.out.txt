@@ -1,0 +1,16 @@
+=== per-row loader output (real AtlasDataset) ===
+case	label_mask	Score_E	Score_S	Score_B	m_E	m_S	m_B	y_E	y_S	y_B
+defined_S	1	0.79331	0.819621	0.988319	1.0	1.0	1.0	0.7933099865913391	0.8196210265159607	0.9883189797401428
+undefined_S	1	0.217268		0.093614	1.0	0.0	1.0	0.21726800501346588	0.0	0.09361399710178375
+unlabeled	0				0.0	0.0	0.0	0.0	0.0	0.0
+defined_E_zero	1	0.0		0.016156	1.0	0.0	1.0	0.0	0.0	0.016155999153852463
+defined_B_zero	1	0.265092		0.0	1.0	0.0	1.0	0.26509198546409607	0.0	0.0
+
+=== esb loss contribution with a zero prediction (real formula) ===
+Score_E: masked_sqerr_sum=0.746820  mask_sum=4  loss_contrib=0.186705
+Score_S: masked_sqerr_sum=1.343557  mask_sum=1  loss_contrib=1.343557
+Score_B: masked_sqerr_sum=0.985799  mask_sum=4  loss_contrib=0.246450
+
+=== gradient-influence verdict ===
+undefined_S row m_S=0.0 -> its (pred-target)^2 * m_S term is exactly 0, so it cannot move the Score_S head gradient.
+legitimate zero rows (defined_E_zero / defined_B_zero) keep m=1 with y=0.0, so the mask (not the y==0 sentinel) distinguishes missing from zero.

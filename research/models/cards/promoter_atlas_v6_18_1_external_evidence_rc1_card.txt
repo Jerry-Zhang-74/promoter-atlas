@@ -1,0 +1,33 @@
+VERSION CARD  promoter_atlas v6.18.1-external-evidence.rc1
+parent_version: v6.18.0-hek-kernel.rc1 (batch24)
+date_local: 2026-10-03T17:28:44+0800
+batch: batch25 (external-evidence resolution + zero-fit eval freeze)
+
+WHAT CHANGED
+  - No new model, no refit, no neural training, no GPU. Zero estimator fits of any kind in this batch.
+  - The frozen batch24 H1 (whole-spectrum k4/k5 kernel, S_global) and the batch22 R1 fold-ensemble were NOT applied to any new cohort:
+    no external cohort compatible with that promoter model was found.
+  - Added: external-evidence resolution of GSE245191 and GSE306816 plus a FROZEN, zero-fit dataset for a SEPARATE STR-variant task.
+
+MODEL STATE
+  H1 = 0.5*cos(k4 full-insert counts) + 0.5*cos(k5 counts), forward-only, kernel ridge alpha=1.0, train-fold-only centering (unchanged).
+  R1 = batch22 compositional baseline (unchanged). H2 = fixed-133bp positional model (unchanged, not primary).
+  batch24 retrospective ranking gain (H1 rho 0.526449 vs R1 0.456622; MAE 0.539729 vs 0.571670) remains UNPROMOTED:
+  the predeclared all-metric 10% MAE bar is not met and no HELD-OUT/PROSPECTIVE cohort exists yet.
+
+EVIDENCE RESOLVED THIS BATCH
+  GSE245191: complete 3,218,832-row processed table + SOFT + paper + author repo. The series is FIVE FIXED control promoters
+    (minP, EEF1A1p, noP, UBCp, Pgk1p) with architecture variants; there is NO sequence column and no promoter-sequence library.
+    The '0.3k/3k/10k/30k' figures are clone/bottleneck sizes, not library sizes. NOT a sequence-varied promoter cohort.
+  GSE306816: resolved to an STR variant-effect library (hSTR1 arm, HEK293T, 3 biological replicates, transient plasmid,
+    cDNA/gDNA ratio endpoint). Variable region = STR + hg38 genomic flank, recovered from the author design repo
+    (gymreklab/str_mpra_design array_probes.tsv) between the 5' adapter and the Gibson_AsiSI site; constant reporter context
+    is a minimal-promoter-GFP cassette in pGL4.23. Frozen as a SEPARATE task; the promoter kernels were NOT applied.
+
+FROZEN ARTIFACT
+  data/breakthrough_20261002/batch25/str_variant_variants.tsv -> 57,674 variants over 19,742 independent STR loci,
+  columns: variant, locus_id, motif, vreg_len, n_barcodes, mean_log2_ratio, vreg_seq.
+  Freeze record: reports/breakthrough_20261002/batch25/external_eval_freeze.json (written before any model score).
+
+PROMOTION STATUS: none. Nothing promoted; all prior artifacts preserved.
+INTEGRITY: independent review is NOT written by this worker (fresh reviewer writes independent_review.json).

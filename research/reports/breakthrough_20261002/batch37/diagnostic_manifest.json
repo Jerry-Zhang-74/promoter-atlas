@@ -1,0 +1,219 @@
+{
+  "batch": "batch37",
+  "version": "v6.26.0-frozen-variant-diagnostic.rc1",
+  "generated_at": "2026-10-04T00:28:25+0800",
+  "phase": "manifest",
+  "protocol": "runs/breakthrough_20261002/batch37/PROTOCOL.txt",
+  "parent_acceptance": "runs/breakthrough_20261002/batch37/PARENT_ACCEPTANCE.txt",
+  "target_requested_cell": "293FT",
+  "model_source_cell": "HEK293",
+  "pinned_model": {
+    "name": "PARM",
+    "repo": "https://github.com/vansteensellab/PARM",
+    "commit": "260a27082942060364c1c4e2393018a0fa128844",
+    "parm_version": "0.2.6",
+    "asset_root": "data/breakthrough_20261002/batch31/_external",
+    "weights_sha256": {
+      "HEK293/HEK293_fold0.parm": {
+        "sha256": "c311c2fbc107a561c173c70e702f24389fdc4bd8d925ae42bde8f627400fe602",
+        "matches_frozen": true
+      },
+      "HEK293/HEK293_fold1.parm": {
+        "sha256": "4f5a9375282cd9cb628d4edf3cebe823c42776dda6b1664457c8322afe776cd5",
+        "matches_frozen": true
+      },
+      "HEK293/HEK293_fold2.parm": {
+        "sha256": "3a11f6f99977d0a1329532a1612320787d2ea3c37d5b68cd36f842ce520efb6d",
+        "matches_frozen": true
+      },
+      "HEK293/HEK293_fold3.parm": {
+        "sha256": "e051e4ed0ab0871a5cd722d633165d0784b16c9270291c55808be57cd156520b",
+        "matches_frozen": true
+      },
+      "HEK293/HEK293_fold4.parm": {
+        "sha256": "cf8827f62830ceac1e08bb0eaca7f00e73e7afffedaf201a11556edb36c29aaf",
+        "matches_frozen": true
+      }
+    },
+    "code_sha256": {
+      "parm_pkg/PARM/PARM_predict.py": "caa19afafdb09ff445c578908a501f481330008ffb18f68f4e9e9345f08ac74c",
+      "parm_pkg/PARM/PARM_utils_load_model.py": "f5f1394dcf71946589a15886ad1e400fa013e5dcb17be263d5c6734056374e55",
+      "parm_pkg/PARM/PARM_misc.py": "380fd577999ac2e3f178cd6fa7e8e3044c2173438e8e67dbfdf73d0b207023e1",
+      "parm_pkg/PARM/version.py": "bc77a5023ce2c8055a0391a34097b13390f18b621bad5fec84987bd35db2c094",
+      "parm_pkg/PARM/PARM_utils_data_loader.py": "62b01d7cca2f2c6dbd459f508f282946d5fc759abe80d48bbe4a8edee924dc51",
+      "parm_pkg/PARM/PARM_mutagenesis.py": "2b33c160eaac109d4788a097211867c0783cfeb74e999465c1fd85e545103318"
+    },
+    "folds": 5,
+    "aggregation": "equal mean of 5 official HEK293 folds",
+    "input_encoding": "official bare FASTA; official central zero-pad to L_max=600; filter_size=125; type_loss=poisson"
+  },
+  "input_construction": {
+    "synthesized_design_bp": 249,
+    "deletion_design_bp": 244,
+    "flank_left_bp": 15,
+    "flank_right_bp": 15,
+    "variable_insert_bp": 219,
+    "deletion_insert_bp": 214,
+    "rule": "variable insert = design_seq[15:len-15]; constant flanks stripped; variant centered",
+    "no_rc_ensemble": true,
+    "no_tiling": true,
+    "no_length_clipping": true,
+    "no_flank_fill": true,
+    "orientation": "single author-supplied sequence only; source orientation field UNKNOWN; no outcome-chosen RC"
+  },
+  "source_corroboration_preflight": {
+    "status": "CORROBORATED_FROM_PRIMARY_METHODS_TEXT",
+    "source": "PMC13060879 Europe PMC full XML (local copy)",
+    "quotes": [
+      "MAPT Promoter Mutagenesis: 219 bp oligos were designed for a 2,000 bp region surrounding and including the promoter and ordered from Twist Biosciences.",
+      "For every base in this region, an oligo was designed where the reference sequence is centered on the position of interest, plus 3 alternate-base oligos and a centered 5 bp deletion.",
+      "For SNVs, 219 bp oligos were designed with the variant centered for both the reference sequence and the alternate allele.",
+      "The variant sequences were the length of 219 or 218 bp minus the number of bases being deleted.",
+      "Oligos were inserted into pLS-SceI following the published protocol."
+    ],
+    "empirical": "30 constant columns across the author 2000 reference oligos (15+15 flank); SAT SNV ref-vs-alt single-base mismatch at design offset 124; KV SNV alt-vs-ref mismatch at design offset 125 with alt base equal to header alt allele.",
+    "distinction": "249 bp synthesized design = 15+15 constant flank + 219 bp measured variable insert; the measured variable insert is scored; exact cloning/vector role beyond pLS-SceI is UNKNOWN (a fixed vector does NOT prove non-autonomy).",
+    "network_requests_used": 0,
+    "budget_requests_allowed": 3,
+    "budget_MB_allowed": 10
+  },
+  "arms": {
+    "SAT_HEK293FT": {
+      "n_rows": 8000,
+      "audit": {
+        "n_rows": 8000,
+        "pair_status_counts": {
+          "VALID_SNV": 6000,
+          "VALID_DEL": 2000
+        },
+        "valid_pairs": 8000,
+        "valid_fraction": 1.0,
+        "degenerate": 0,
+        "unresolved": 0,
+        "label_missing": 3,
+        "label_finite_for_metric": 7997,
+        "n_distinct_positions": 2000,
+        "n_groups_interval_union": 1
+      },
+      "strata": "6000 SNV + 2000 deletion kept separate"
+    },
+    "KV_SNV_HEK293FT": {
+      "n_rows": 8513,
+      "audit": {
+        "n_rows": 8513,
+        "pair_status_counts": {
+          "VALID_SNV": 6680,
+          "DEGENERATE_ALT_EQ_REF": 1833
+        },
+        "valid_pairs": 6680,
+        "valid_fraction": 0.7847,
+        "degenerate": 1833,
+        "unresolved": 0,
+        "label_missing": 17,
+        "label_finite_for_metric": 8496,
+        "n_distinct_positions": 8513,
+        "n_groups_interval_union": 180
+      },
+      "groups_2kb_gap_clusters": 48,
+      "note": "2kb-gap clusters are EXPLORATORY components, not verified independent CRE families"
+    }
+  },
+  "not_scored_this_batch": [
+    "KV InDel (HEK293FT)",
+    "neurons (SAT/KV)",
+    "local 14 constructs",
+    "HEK 673"
+  ],
+  "design_fasta": {
+    "path": "data/breakthrough_20261002/batch35/mapt/gsm9640449_VariantMPRAdesignFile.fa.gz",
+    "sha256": "4f7243b83f4b9df08e64c1b0f3f2d7bedc9ca8fc270a424331e270dc9862f9e9",
+    "n_records": 35100
+  },
+  "cohort_sources": {
+    "SAT_HEK293FT": "b307e9be8cb588acac6708fee99741ca931e3c03faa686e31afe0b7655f15666",
+    "KV_SNV_HEK293FT": "86a6985a7cbcf0aff4f80a02f8b6a24d2b9210b9dcdbaa073d77e68d54857f11"
+  },
+  "unique_sequences": {
+    "n_unique": 25193,
+    "length_distribution": {
+      "219": 23193,
+      "214": 2000
+    },
+    "max_allowed": 30000,
+    "within_budget": true
+  },
+  "metric_plan": {
+    "model_output": "per-sequence raw PARM HEK293 score; equal mean of 5 official HEK293 folds",
+    "predicted_effect_d": "mean_score(alt_insert) - mean_score(ref_insert); fixed before any label",
+    "true_effect": "author bcalm logFC (variant vs reference control); log base NOT assumed",
+    "forbidden": [
+      "log of possibly-negative output",
+      "linear calibration",
+      "MAE/R2 across incompatible units",
+      "choosing best fold",
+      "flipping globally-negative correlation",
+      "setting undefined rho to 0",
+      "outcome-chosen RC",
+      "subsetting by significance or label"
+    ],
+    "primary": {
+      "KV_SNV": {
+        "pooled_spearman": "Spearman(d, logFC); NaN-label rows excluded from numeric metric after row-count disclosure",
+        "per_region_spearman": "where >=10 pairs and non-constant",
+        "group_balanced_mean_strict_sign_accuracy": true,
+        "group_bootstrap": "paired group bootstrap 2000 with multiplicity retained, only if >=30 effective groups and deltaGC baseline finite; else descriptive"
+      },
+      "SAT": {
+        "descriptive_only": [
+          "all_finite_rho",
+          "SNV_rho",
+          "deletion_rho",
+          "strict_sign_accuracy"
+        ],
+        "no_generalization_ci_or_pvalues": true
+      }
+    },
+    "secondary": {
+      "SAT_allrows_p_and_abs_effect_strata": "descriptive interpretation only; never replaces primary"
+    },
+    "baselines_zero_fit": {
+      "delta_gc_fraction": "GC(alt_insert) - GC(ref_insert) on the SAME paired inserts",
+      "delta_length": "len(alt_insert) - len(ref_insert)",
+      "constant_predictor_rho": "undefined",
+      "direction_baselines": "fixed always-positive and always-negative sign rules; model strict sign accuracy with predicted ties counted wrong; true-zero effects excluded from sign denominator, all other finite effects retained"
+    },
+    "decision_rule_operational_only": {
+      "warrants_separate_variant_path_if": [
+        "KV pooled rho >= 0.20",
+        "valid group-bootstrap lower bound > 0",
+        "macro strict sign accuracy > both fixed sign baselines",
+        "no audit failure"
+      ],
+      "SAT_cannot_rescue_KV": true,
+      "if_groups_lt_30_or_CI_undefined": "verdict LIMITED, not PASS",
+      "no_model_promotion": true,
+      "old_HEK_MAE_gate_and_local_D28_fail_unchanged": true
+    }
+  },
+  "thresholds_frozen": {
+    "KV_rho_warrants_separate_path": 0.2,
+    "group_bootstrap_lower_must_exceed": 0.0,
+    "min_effective_groups_for_bootstrap": 30,
+    "per_region_min_pairs": 10,
+    "SAT_secondary_abs_logFC_strata": [
+      0.1
+    ],
+    "SAT_secondary_adjP_threshold": 0.05,
+    "max_unique_sequences": 30000,
+    "max_figures": 3,
+    "frozen": true,
+    "retrochange_allowed": false
+  },
+  "license": "PARM local academic evaluation only; weights/source NOT redistributed.",
+  "gpu": "none in this step (CPU assembly only)",
+  "outputs": {
+    "paired_inputs.tsv": "e39eb3955641c110eca45527f4e83bf51da330842b1cc7d739e17dcf15736e61",
+    "unique_sequences.fasta": "a24fdf1a7f8c61d30e43ae6e6f76d8c497325884368ed54895c7fbbfaa31b564",
+    "pair_sequence_ids.tsv": "9e9d4fd66f3bcfc0f8b7fa8984598978a5734f7abac45e9c9eea4006c5ea7f00"
+  }
+}

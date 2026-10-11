@@ -1,0 +1,58 @@
+{
+  "candidate_version": "v6.14.0-scv5.rc1",
+  "batch": "batch13",
+  "written_at": "2026-10-03T08:40:15+0800",
+  "source_sha_ok": {
+    "split_arrays.npz": true,
+    "features45.npz": true,
+    "features1024.npz": true,
+    "trackA_gene_promoters.npz": true
+  },
+  "source_sha": {
+    "split_arrays.npz": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5",
+    "features45.npz": "c776ecfa74163b5000de8f82aa8961b5aed154f80333d95665530947694c0800",
+    "features1024.npz": "2dc7dc0eda7c60b3fa740261e39fb37832dc0e0faf81a7fa2f9cd37a11bc14f2",
+    "trackA_gene_promoters.npz": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072",
+    "gene_expression_table.tsv": "9876abd64aa8f5dc46f09796d4dffec4f2385e553e281f32120a72a23c606ae4",
+    "gene_expression_label_table.tsv": "34e20a961934c0ecc15a04b13f414b1fad803a4e13260f33134b536b8d7795b2",
+    "batch08_label_audit_all_genes.tsv": "632f4b7d9dcf0fefc2b1be96319afa8b41f1db67fcbaeba07d9a6ecb78e73ab7"
+  },
+  "population": {
+    "canonical_genes": 58988,
+    "canonical_S_defined": 18947,
+    "feature_universe_genes": 57827,
+    "eligible_S_defined_and_feature_covered": 18769,
+    "excluded_canonical_S_defined": 178,
+    "eligible_matches_expected": true,
+    "excluded_matches_expected": true,
+    "eligible_components": 18400,
+    "eligible_components_matches_expected": true
+  },
+  "gene_identity_checks": {
+    "n_unique_gene_ids": 57827,
+    "log1p_count_matches_n_promoters": true,
+    "n_promoters_equals_diff_starts": true
+  },
+  "eligible_split": {
+    "train": {
+      "genes": 15004,
+      "components": 14711
+    },
+    "val": {
+      "genes": 1898,
+      "components": 1856
+    },
+    "test": {
+      "genes": 1867,
+      "components": 1833
+    },
+    "total_genes": 18769,
+    "total_components": 18400,
+    "note": "original batch05 train/val/test roles retained as metadata only for this experiment"
+  },
+  "excluded_genes": {
+    "count": 178,
+    "reason": "S-defined in canonical expression label table but absent from the 57827-gene promoter-feature universe"
+  },
+  "elapsed_s": 9.73
+}

@@ -1,0 +1,14 @@
+{
+  "purpose": "preserve provisional raw-count QC (v1) before the bounded zero-fit proxy-label correction required by PARENT_QC_FINDINGS_2142.txt",
+  "preserved_at": "2026-10-03T21:55:29.258489+08:00",
+  "v1_output": "reports/breakthrough_20261002/batch31/sure_qc_raw_counts_v1/sure_qc_metrics_v1.json",
+  "v1_output_sha256": "6e81ae18a9727c6d6791678fb7185945a8e2ad56d3c9e9cc37b03391793a8466",
+  "v1_code": "reports/breakthrough_20261002/batch31/sure_qc_raw_counts_v1/sure_qc_v1.py",
+  "v1_code_sha256": "a69db00eac1ac9d6a421694761e95cb58b6ee4bd20dd9c828aa12ce9bce340b7",
+  "v1_original_path_output": "reports/breakthrough_20261002/batch31/sure_qc_metrics.json",
+  "v1_original_output_sha256_at_preservation": "6e81ae18a9727c6d6791678fb7185945a8e2ad56d3c9e9cc37b03391793a8466",
+  "v1_original_path_code": "code/batch31/sure_qc.py",
+  "v1_original_code_sha256_at_preservation": "a69db00eac1ac9d6a421694761e95cb58b6ee4bd20dd9c828aa12ce9bce340b7",
+  "v1_overall_raw_count_rho": 0.11869538277413277,
+  "note": "v1 raw-count rho=0.118695 is provisional/secondary; NOT the predeclared proxy-label check"
+}

@@ -1,0 +1,8 @@
+{
+  "format": "batch55.normalizer.v1",
+  "normalizer": {
+    "frozen": false,
+    "mean": 0.0,
+    "std": 1.0
+  }
+}

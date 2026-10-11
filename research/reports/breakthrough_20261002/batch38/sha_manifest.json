@@ -1,0 +1,217 @@
+{
+ "record_type": "sha_manifest",
+ "batch": "batch38",
+ "generated_at": "2026-10-04T00:53:12+0800",
+ "files": [
+  {
+   "path": "reports/breakthrough_20261002/batch38/audit_decision.json",
+   "sha256": "55f33c8742b7dd1ad065ac6e3638d73d795127a2bb9270be9612167b5f0ac370",
+   "bytes": 17853
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/audit_report.md",
+   "sha256": "68622af408ae396f779bcac8341eadd734aac4b285321f5f3ee5cc85f820a58b",
+   "bytes": 2861
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/cache_reconciliation.json",
+   "sha256": "35d338b2120e0cc766f0f5873137f1ad4a8f3b8107eac6594d6aff4e6646fe4c",
+   "bytes": 1703
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/count_table.tsv",
+   "sha256": "8399cada88f56c45df30feaa83632bc79a8a2532cf5fbb2b93707c3377d272aa",
+   "bytes": 1128
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/next_batch_proposal.json",
+   "sha256": "936f302720fff3498c60d7ae456e1c49c09b60ae6c8d3c005d42f8a0fbb1dc6d",
+   "bytes": 1124
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/readiness_C.json",
+   "sha256": "c34a37049a87e8c560e55c9b26e7439fed951b2010d5d0a20ea8f4dc2693d780",
+   "bytes": 3762
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/remaining_work.json",
+   "sha256": "ba45d749dfa76f3c7fcfb3910ffa303b2790788e9b3c13bb023ec8311369d0aa",
+   "bytes": 1214
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/status.json",
+   "sha256": "ccc8407518fdb8125e74563893eae99bf5b542c1a8a82712ce745a68302c850b",
+   "bytes": 2014
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/version_registry_entry.json",
+   "sha256": "ca59d52bf6bcefcc7ba40040db81cdf65d318e33a413895d0ca616dd6f2cff84",
+   "bytes": 1324
+  },
+  {
+   "path": "reports/breakthrough_20261002/batch38/worker_selfcheck.json",
+   "sha256": "3961d98c2887350b9d5eee56ffde4b1a6474351ae70f920445819498cf365359",
+   "bytes": 1802
+  },
+  {
+   "path": "figures/batch38/fig1_kv_offset_evidence.png",
+   "sha256": "45ce0a9751c0f522e20e70ebe2efae156897451636342706320fbf1efebc1076",
+   "bytes": 58521
+  },
+  {
+   "path": "figures/batch38/fig2_kv_class_counts.png",
+   "sha256": "ead97b575db444b3740670f71ef8522cea0b6195bced567959c5774de2dd8320",
+   "bytes": 32272
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/curl_err_design.rmd.txt",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "bytes": 0
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/curl_err_fiveallelesmpradesign.tsv.txt",
+   "sha256": "fb1ca631afc1934517728059293460865629c6a7fcf00081c2bc5ea91576ca3f",
+   "bytes": 101
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/curl_err_heks_snvs.R.txt",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "bytes": 0
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/curl_err_variant_reference_key.tsv.txt",
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "bytes": 0
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/design.rmd",
+   "sha256": "63649d98c9305b9e9342899e1725b8efa6ff486a2fb713f878673672fb79ce30",
+   "bytes": 42420
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/fiveallelesmpradesign.tsv",
+   "sha256": "d05620298482fbb6846b45aeb67c43b36185de075e47a8808186ef3c8103bcb8",
+   "bytes": 1388736
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/heks_snvs.R",
+   "sha256": "ecfe74a538dbd4c9cc6afa630a202f3a2273111ad78d8908161acba0c3ee4c97",
+   "bytes": 2531
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/kv_classification.tsv",
+   "sha256": "499eb8f159d3f5a94113276267329f7f34b5a926f8c99d4f1c7b0990ad27fb22",
+   "bytes": 1483229
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/kv_identity_detail.tsv",
+   "sha256": "81023920721c48c18d3f281caaf9b72ba8dfe51b0b0b167459dc136f4127a522",
+   "bytes": 1344071
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/step2_status.json",
+   "sha256": "59339be9ad0f89a42db12e5a0b4a79dc72ceac71179d32158a6853b2b0e488cd",
+   "bytes": 97
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/step6_summary.json",
+   "sha256": "d65076647713a136db72fa41c96d187e56bd5b416393b87d8202387ea60da369",
+   "bytes": 7762
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/step7_groups.json",
+   "sha256": "30bf06277b744f4f05c95ec59b05ba5e68dfe11664754bbd36ff378e374ea08f",
+   "bytes": 1118
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/variant_reference_key.tsv",
+   "sha256": "d1baad866265f0843ddf24af4fc2184812ac0fb5c78abfdf9afac66619fcb839",
+   "bytes": 1195960
+  },
+  {
+   "path": "data/breakthrough_20261002/batch38/workbook_s2_s5_summary.json",
+   "sha256": "a0fb630d373365183584dfc775097325cac19d3345e25d9c58984794b88378ee",
+   "bytes": 6266
+  },
+  {
+   "path": "code/batch38/step10_build_D.py",
+   "sha256": "89dc630355f0676531f2ff05405595393533fca2d3b3cd5cb8a0e308b5788737",
+   "bytes": 17168
+  },
+  {
+   "path": "code/batch38/step1_design_overview.py",
+   "sha256": "36cce09b2c54474ffd6a546ab89839aa95a8de2072648da7bd04bcfb510e8d1f",
+   "bytes": 1348
+  },
+  {
+   "path": "code/batch38/step2_kv_identity.py",
+   "sha256": "701d69816db48294dafb1e506c018ea66b21d895e09a4fccf0ea4b645bd0fee7",
+   "bytes": 5001
+  },
+  {
+   "path": "code/batch38/step2b_probe.py",
+   "sha256": "c5f62420cc66f46920ffd9627b257ac535a1d6d0ed870ab250a3b0019b702bdf",
+   "bytes": 1992
+  },
+  {
+   "path": "code/batch38/step2c_pos_records.py",
+   "sha256": "4082b8dbd6f83ad7d4cae4f7bd9d262943c1345c0ee68bddfab0f94e73e91f2b",
+   "bytes": 770
+  },
+  {
+   "path": "code/batch38/step2d_genome_consistency.py",
+   "sha256": "df1db35cc1a3615345f2990c34cf3ab9a4102c21d40aef60e637dc9dd6faccfd",
+   "bytes": 2010
+  },
+  {
+   "path": "code/batch38/step2e_dump.py",
+   "sha256": "040d24eedc85a22d54b0119107e475e1d8af9407c54a3ecb23819e87cd464367",
+   "bytes": 849
+  },
+  {
+   "path": "code/batch38/step2f_tiling.py",
+   "sha256": "ca4b8a1f2359799a52814271e0467d337425fdcce304c05cfa44c3341f56795d",
+   "bytes": 1659
+  },
+  {
+   "path": "code/batch38/step2g_align.py",
+   "sha256": "5f4cb013791b402243b4764116987a71c3f994a1957763b2e6478ed79818deb3",
+   "bytes": 1167
+  },
+  {
+   "path": "code/batch38/step3_probe.py",
+   "sha256": "e0f3149b052ea779590fe3070ca9853d1e39d7413ef7ee49122cde361554799c",
+   "bytes": 2734
+  },
+  {
+   "path": "code/batch38/step4_tiling2.py",
+   "sha256": "b08291ac3a409b53cf32e278624e43a83d1bec33ae974eca33b9716d1359e734",
+   "bytes": 2428
+  },
+  {
+   "path": "code/batch38/step5_cross.py",
+   "sha256": "3c72b4961a2bee6f251a9eccaedc94b63a546a7595f1f80766f5acbb41411e1f",
+   "bytes": 1777
+  },
+  {
+   "path": "code/batch38/step6_audit.py",
+   "sha256": "a4197e6e694c1120b07e66a22a9b49b629b404dc694b6b5b27a5f431f7dec224",
+   "bytes": 6615
+  },
+  {
+   "path": "code/batch38/step7_groups.py",
+   "sha256": "f72112c23317ad12e3d681a0f95d03f4ac0ab82f1d52439fa160716a3afb775e",
+   "bytes": 2337
+  },
+  {
+   "path": "code/batch38/step8_c_workbook.py",
+   "sha256": "118cd795663f608b551cc457b0d52f453a934e9e31be539d09e7b638856c2f8f",
+   "bytes": 1797
+  },
+  {
+   "path": "code/batch38/step9_finalize.py",
+   "sha256": "ed0f001d1af6707976e4ca70a1b2a8216e3083f975b327f4540f89c7fb6a48f7",
+   "bytes": 15135
+  }
+ ]
+}

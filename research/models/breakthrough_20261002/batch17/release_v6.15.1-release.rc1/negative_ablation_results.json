@@ -1,0 +1,117 @@
+{
+  "candidate_version": "v6.15.1-release.rc1",
+  "source_candidate": "v6.15.0-multitask.rc1",
+  "kind": "negative / rejected ablation results (shared-network selection)",
+  "frozen_validation_rule": "mean per-target validation rho gain >= 0.02 AND no target drop > 0.02 (mean-of-seed)",
+  "result": {
+    "B": {
+      "mean_gain": -0.006075287767231541,
+      "no_drop_gt_0.02": true,
+      "rule_pass": false,
+      "per_target": {
+        "E": {
+          "A_val_rho_meanseed": 0.7437281787420877,
+          "B_val_rho_meanseed": 0.7354383681428693,
+          "gain": -0.008289810599218406
+        },
+        "S": {
+          "A_val_rho_meanseed": 0.45178813602470036,
+          "B_val_rho_meanseed": 0.4407812355791134,
+          "gain": -0.011006900445586942
+        },
+        "B": {
+          "A_val_rho_meanseed": 0.7134777212872139,
+          "B_val_rho_meanseed": 0.7145485690303246,
+          "gain": 0.0010708477431107255
+        }
+      }
+    },
+    "C": {
+      "mean_gain": -0.004912514062044552,
+      "no_drop_gt_0.02": true,
+      "rule_pass": false,
+      "per_target": {
+        "E": {
+          "A_val_rho_meanseed": 0.7437281787420877,
+          "C_val_rho_meanseed": 0.7375631769799005,
+          "gain": -0.006165001762187261
+        },
+        "S": {
+          "A_val_rho_meanseed": 0.45178813602470036,
+          "C_val_rho_meanseed": 0.4486382954774214,
+          "gain": -0.0031498405472789592
+        },
+        "B": {
+          "A_val_rho_meanseed": 0.7134777212872139,
+          "C_val_rho_meanseed": 0.7080550214105464,
+          "gain": -0.005422699876667436
+        }
+      }
+    }
+  },
+  "conclusion": "shared backbone (B) and shared+aux (C) were REJECTED on validation; independent composite ships",
+  "retrospective_heldout_ensemble": {
+    "A": {
+      "E": 0.7458871910199854,
+      "S": 0.43347531419663615,
+      "B": 0.7252419193271306
+    },
+    "B": {
+      "E": 0.7457208173210521,
+      "S": 0.4588988679546367,
+      "B": 0.7367399417885685
+    },
+    "C": {
+      "E": 0.746224839261116,
+      "S": 0.4625169021934832,
+      "B": 0.7246580346330184
+    }
+  },
+  "paired_component_bootstrap": {
+    "B": {
+      "E": {
+        "base_point_estimate": -0.00016637369893324205,
+        "ci95_low": -0.004386105125601078,
+        "ci95_high": 0.0039920910466666225,
+        "n_components": 5397
+      },
+      "S": {
+        "base_point_estimate": 0.02542355375800054,
+        "ci95_low": 0.006477836114210418,
+        "ci95_high": 0.04497219637725233,
+        "n_components": 1708
+      },
+      "B": {
+        "base_point_estimate": 0.01149802246143794,
+        "ci95_low": 0.006038621590260454,
+        "ci95_high": 0.017037853320585137,
+        "n_components": 5397
+      }
+    },
+    "C": {
+      "E": {
+        "base_point_estimate": 0.0003376482411306947,
+        "ci95_low": -0.005221371744852219,
+        "ci95_high": 0.006113892974274251,
+        "n_components": 5397
+      },
+      "S": {
+        "base_point_estimate": 0.02904158799684703,
+        "ci95_low": 0.011230680692624923,
+        "ci95_high": 0.04833173049658816,
+        "n_components": 1708
+      },
+      "B": {
+        "base_point_estimate": -0.0005838846941121911,
+        "ci95_low": -0.008336330339639283,
+        "ci95_high": 0.007716294807881251,
+        "n_components": 5397
+      }
+    }
+  },
+  "caveats": [
+    "TRAINER/INIT/DATA-ORDER CONFOUND (batch16 F1): A_s20261016(all) and A_s20261017 E/S were fit by b16_train.py (global torch-RNG shuffle); B/C arms and A_s20261017 B were fit by b16_train_resume.py after process loss (deterministic per-epoch sampler seed gen_seed+epoch*1000003). Same algorithm/optimizer/loss/epochs, but DIFFERENT initialization RNG stream and data-order schedule. This is a real confound in EVERY B-vs-A and C-vs-A contrast. It is not biased toward A, so it does not manufacture the negative shared-network result, but it blocks a strictly controlled causal task-sharing claim.",
+    "AUXILIARY MISSINGNESS UNRESOLVED (batch16 F6): promoter_omics_targets_v1.tsv encodes uncovered assays as 0.0 with no NaN and no per-cell missingness flag. Zero-valued auxiliary measurements are treated as UNRESOLVED absence-vs-missing. No established benefit OR detriment of epigenetic auxiliary supervision is claimed.",
+    "RECOVERY-ERA TEST IS TOY (batch16 F2): the batch16 interrupted-vs-continuous checkpoint test used Linear(1,1) on CPU. See resume_diagnostic.json for the batch17 production-path (CNN/AdamW/CUDA/memmap/masks/sampler) diagnostic."
+  ]
+}

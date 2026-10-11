@@ -1,0 +1,67 @@
+{
+  "batch": "batch35",
+  "version": "v6.24.0-293ft-cohort-readiness.rc1",
+  "frozen_before_inference": true,
+  "generated_at_note": "deterministic generator code/batch35/make_test_manifest.py",
+  "crosscheck_source": "data/breakthrough_20261002/batch31/results/parm_pred_local_supported.tsv",
+  "tolerance": 0.0001,
+  "files": {
+    "known_control.fasta": {
+      "path": "data/breakthrough_20261002/batch35/testdata/known_control.fasta",
+      "sha256": "818cfd46503efa0f5d25b63ec5d515470c77c6f0e2dc72738519dfbc61eff2cf",
+      "description": "ONE valid known control (A1|ACTB|100) for the fresh-nested-path GPU regression",
+      "expect": [
+        {
+          "id": "A1|ACTB|100",
+          "input_validity": "VALID",
+          "software_length_support": "SUPPORTED",
+          "frozen_batch31_fivefold_score": 3.1036716,
+          "tolerance": 0.0001,
+          "crosscheck_note": "frozen batch31 saved score, independently reproduced by batch34 at abs_diff 0.0"
+        }
+      ]
+    },
+    "invalid_only.fasta": {
+      "path": "data/breakthrough_20261002/batch35/testdata/invalid_only.fasta",
+      "sha256": "732abff36f4fd163d3903462cf3a41f3726894d39bebd76f6e5f9d443426281a",
+      "description": "invalid-only FASTA: no record is scored; must run with NO GPU",
+      "expect": [
+        {
+          "id": "inv_R",
+          "input_validity": "INVALID",
+          "invalid_reason": "INVALID_CHARS:R",
+          "score": null
+        },
+        {
+          "id": "inv_digit",
+          "input_validity": "INVALID",
+          "invalid_reason": "INVALID_CHARS:1",
+          "score": null
+        }
+      ]
+    },
+    "empty.fasta": {
+      "path": "data/breakthrough_20261002/batch35/testdata/empty.fasta",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "empty FASTA -> fatal input error exit 2 (no GPU)",
+      "expect": [
+        {
+          "global": "EMPTY_INPUT_NO_RECORDS"
+        }
+      ]
+    },
+    "duplicates.fasta": {
+      "path": "data/breakthrough_20261002/batch35/testdata/duplicates.fasta",
+      "sha256": "60a72a35e44cf138f1f68094c9117de677e3fc62817233203f358aa44c7966aa",
+      "description": "duplicate record IDs -> fatal input error exit 2 (no GPU)",
+      "expect": [
+        {
+          "global": "DUPLICATE_RECORD_IDS",
+          "duplicate_ids": [
+            "dup1"
+          ]
+        }
+      ]
+    }
+  }
+}

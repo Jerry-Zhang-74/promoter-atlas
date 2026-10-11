@@ -1,0 +1,6 @@
+category	path	size_bytes	size_human	suffix	name
+other	legacy_data/GRCh38.primary_assembly.genome.fa.fai	6482	6.3 KB	.primary_assembly.genome.fa.fai	GRCh38.primary_assembly.genome.fa.fai
+other	legacy_data/GRCh38.primary_assembly.genome.fa:Zone.Identifier	25	25.0 B	.primary_assembly.genome.fa:zone.identifier	GRCh38.primary_assembly.genome.fa:Zone.Identifier
+other	legacy_data/MD5SUMS	3074	3.0 KB		MD5SUMS
+other	legacy_data/gencode.v49.annotation.gtf	3323462848	3.1 GB	.v49.annotation.gtf	gencode.v49.annotation.gtf
+promoter_fasta	legacy_data/GRCh38.primary_assembly.genome.fa	3151417447	2.9 GB	.primary_assembly.genome.fa	GRCh38.primary_assembly.genome.fa

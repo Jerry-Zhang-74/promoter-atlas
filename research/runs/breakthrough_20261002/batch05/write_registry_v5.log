@@ -1,0 +1,90 @@
+{
+  "batch": "batch05",
+  "generated_at": "2026-10-03T02:41:36.065307+08:00",
+  "policy": "VERSION_POLICY.txt",
+  "production_pointer": "promoter_atlas_v6.3 (retained); v6.4 cellline pilot (retained); NO production pointer change",
+  "candidates": [
+    {
+      "candidate_version": "v6.6.0-scratchgene.rc6",
+      "track": "gene-label E (sequence-only from scratch), batch05 frozen sequence-component split",
+      "internal_id": "repeat_bag",
+      "status": "reviewed candidate (scoped, non-causal); NOT promoted",
+      "checkpoints": [
+        "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch05\\repeat_bag_s20261011\\final.pt"
+      ],
+      "checkpoint_sha256": {
+        "20261011": "5d3694af75f7203c32faa1adb5afccf50421fbfa9c88fe5ad941dc68e64be209"
+      },
+      "lr": 0.001,
+      "epochs": 12,
+      "seeds": [
+        20261011
+      ],
+      "metrics": {
+        "test_4slot_full_E_sp": 0.5903686819319465,
+        "test_4slot_full_E_r2": 0.35385096561049234,
+        "test_4slot_full_E_mae": 0.18859597867401381,
+        "val_4slot_full_E_sp": 0.6083818856724676,
+        "val_4slot_full_E_r2": 0.37144921159933575
+      },
+      "bag_policy": "repeat same anchor in 4 slots",
+      "training_scope": "human genes on frozen split (57827 genes), random init, no old weights/teacher/transferred labels",
+      "split": "exact/RC + detected-near-identity blocked (NOT homology-free)",
+      "exposure": "none inherited (scratch); retrospective; single seed",
+      "decision": "scoped controlled-contrast evidence under frozen split; NOT a claim that arm similarity proves capacity causality; no production promotion"
+    },
+    {
+      "candidate_version": "v6.6.0-scratchgene.rc7",
+      "track": "gene-label E (sequence-only from scratch), batch05 frozen sequence-component split",
+      "internal_id": "diverse_bag",
+      "status": "reviewed candidate (scoped, non-causal); NOT promoted",
+      "checkpoints": [
+        "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch05\\diverse_bag_s20261011\\final.pt"
+      ],
+      "checkpoint_sha256": {
+        "20261011": "54e3da27c71f2541aba388c09d5f960f7d150b3799dc1ce68936c4a9c0e7407f"
+      },
+      "lr": 0.001,
+      "epochs": 12,
+      "seeds": [
+        20261011
+      ],
+      "metrics": {
+        "test_4slot_full_E_sp": 0.7155368014213216,
+        "test_4slot_full_E_r2": 0.5147385738578725,
+        "test_4slot_full_E_mae": 0.16196971643169336,
+        "val_4slot_full_E_sp": 0.7102106571083768,
+        "val_4slot_full_E_r2": 0.499444431169056
+      },
+      "bag_policy": "up to 4 distinct promoters, deterministic cycling",
+      "training_scope": "human genes on frozen split (57827 genes), random init, no old weights/teacher/transferred labels",
+      "split": "exact/RC + detected-near-identity blocked (NOT homology-free)",
+      "exposure": "none inherited (scratch); retrospective; single seed",
+      "decision": "scoped controlled-contrast evidence under frozen split; NOT a claim that arm similarity proves capacity causality; no production promotion"
+    },
+    {
+      "candidate_version": "v6.6.0-annridge.rc2",
+      "track": "gene-label E annotation diagnostics (ridge, 3 feature variants, group-preserving inner fold)",
+      "internal_id": "ann_ridge",
+      "status": "reviewed diagnostic baseline (descriptive, non-causal)",
+      "checkpoints": [],
+      "lr": "n/a (ridge alpha selected on train-inner group-preserving fold)",
+      "epochs": "n/a",
+      "seeds": [
+        20261011
+      ],
+      "decision": "diagnostic baseline only; NOT a new NN arm; additive count info reported descriptively"
+    }
+  ],
+  "review_status": "pending independent review",
+  "key_observation": {
+    "b2_minus_b1_test_spearman": 0.12516811948937512,
+    "component_bootstrap_ci_high": 0.13978929787033642,
+    "component_bootstrap_ci_low": 0.11136864466328406,
+    "meets_improvement_threshold": true,
+    "note": "single neural seed -> seed robustness unresolved; this is a batch decision threshold, never permission to halt research or claim reliable construct activity",
+    "threshold": "B2 component-test Spearman over B1 >= 0.03 AND component-bootstrap lower bound > 0"
+  },
+  "frozen_manifest_sha256": "97c312b9c4ac7a817a589bf095c7b8d91fa900750551e0a8d7694e9e12c54c74"
+}
+DONE

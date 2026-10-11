@@ -1,0 +1,68 @@
+{
+  "batch": "batch29",
+  "artifact": "source_semantics_resolution",
+  "written_at": "2026-10-03T19:50:31+08:00",
+  "bound": "<=15 min, 3 targeted queries: Q1 GEO GSE78709 self record; Q2 Europe PMC PMC5498152 fullTextXML/supplementaryFiles; Q3 van Steensel author repo (github org vansteensellab)",
+  "queries": [
+    {
+      "id": "Q1",
+      "source": "NCBI GEO GSE78709 (acc.cgi targ=self form=text view=full)",
+      "result": "supplementary file list contains ONLY data tracks (counts txt.gz, bigWig) \u2014 NO author code/script. Series_summary: plasmid library of random genomic fragments upstream of a 20bp barcode, 0.2-2kb, decoded by paired-end sequencing; transcribed barcodes quantified in RNA.",
+      "file": "geo_gse78709_full.txt",
+      "sha256": "76e9d46fad03747075ab7606df0d682c5f17ad693325337f53db20718200dc7c"
+    },
+    {
+      "id": "Q2",
+      "source": "Europe PMC PMC5498152 fullTextXML + supplementaryFiles",
+      "result": "fullTextXML HTTP 500; supplementaryFiles: 'Article with id PMC5498152 is not open access one'. No supplementary code recoverable from Europe PMC.",
+      "file": "epmc_suppl.json",
+      "sha256": "a487cdb0b57f3ac27a46debc3fcae1c674ca40ff4e8f1ebf08f1d54f4444e2b9"
+    },
+    {
+      "id": "Q3",
+      "source": "github.com/vansteensellab (van Steensel author org) \u2014 PARM, PARM_preprocessing_pipeline",
+      "result": "genuine author code recovered (base64 from github contents API, git blob shas recorded).",
+      "files": [
+        {
+          "file": "normalize_counts.py",
+          "git_blob_sha": "34fedc5cf55b6f8fa8fcee8b5dc3389604d7dd1b",
+          "sha256": "151e5270932a25989810852c27891c66b5359448d17341dcd051de5d44d5a8e8"
+        },
+        {
+          "file": "get_onehot_from_normalized_data.py",
+          "git_blob_sha": "0b0cd51b3282ae68e1571409f62244666351e292",
+          "sha256": "bbacdace1d3a2cb30b8dbec9fe6b4f547c44f256c829f854972bddc6dc7c5e84"
+        },
+        {
+          "file": "get_replicate_correlations.py",
+          "git_blob_sha": "f28704ff5c5c7420da5b00fb08040e9537ce2b2c",
+          "sha256": "fbf18d5919ba928ccf2055fb33a361cb83d63b7866d46d910ba58445bafeafaf"
+        }
+      ]
+    }
+  ],
+  "ipcr_semantics": {
+    "status": "RESOLVED_BY_AUTHOR_CODE (but does NOT change the approved proxy)",
+    "evidence_file": "normalize_counts.py",
+    "exact_quote": "def nouds_norm_step1(replicate_col, ipcr_col, pseudocount, col_name):\n    sum_of_this_replicate = replicate_col.sum(axis=0)\n    replicate_rpm = replicate_col / sum_of_this_replicate * 1e6\n    sum_of_ipcr = ipcr_col.sum(axis=0)\n    ipcr_rpm = ipcr_col / sum_of_ipcr * 1e6\n    ratio = replicate_rpm / ipcr_rpm\n    ratio_plus_pseudocount = get_pseudocount(ratio, pseudocount, col_name)\n    log2_ratio = np.log2(ratio_plus_pseudocount)\n    minimum = np.min(log2_ratio)\n    log2_ratio = log2_ratio + abs(minimum)",
+    "interpretation": "The authors' own per-fragment model target is Log2RPM_cell = mean over biological replicate columns of log2(ratio + pseudocount), where ratio = (RNA_count/sum_RNA*1e6) / (iPCR_count/sum_iPCR*1e6). i.e. the deposited 'iPCR, SuRE23' column IS used by the authors as the per-fragment input-depth normalizer for the model target, NOT the '1 + plasmid' genome-coverage pseudocount construction. This is a NEW MATERIAL FINDING for the parent. It does not change the batch29 approved D=1+P proxy, which is retained exactly as declared.",
+    "note_vs_gate_hold": "batch28 GATE HOLD correctly rejected conflating 'iPCR reads' with 'mapped barcodes'; this author code resolves that iPCR is used as the normalizer, without claiming it equals unique-barcode multiplicity."
+  },
+  "strand_semantics": {
+    "status": "RESOLVED",
+    "evidence_file": "get_onehot_from_normalized_data.py",
+    "exact_quote": "# take reverse complement\nif coord[3] == '-':\n    reverse_DNA = ''.maketrans('ACGT','TGCA')\n    seq = seq.translate(reverse_DNA)[::-1]",
+    "interpretation": "coord[3] is the deposited 'strand' column. The author reads the FORWARD-strand genomic sequence and applies reverse-complement EXACTLY ONCE when strand == '-'. This matches the batch29 operational rule (assay-oriented = forward for '+'; RC once for '-').",
+    "coordinate_note": "normalize_counts.py writes out df.loc[:, ('iPCR','chr','start','end','strand')] unchanged as bed_cols; no coordinate shift."
+  },
+  "bigwig_header_probe": {
+    "status": "uninformative",
+    "detail": "GSE78709_SuRE23.iPCR.flat.count.160502.bw header range 0-2047 bytes: magic ok, version 4, zoomLevels 10, dataOffset 344; NO human-readable description string present. BigWig header alone cannot define row/column semantics (as the parent protocol states).",
+    "file": "ipcr_bw_head.bin",
+    "sha256": "99276339e8f8222fa44c4c591d37dfc769a4851790823da5530530a1b26df8a2"
+  },
+  "conclusion": "Source search RESOLVED the fragment strand/RC convention (author code) and identified that the authors' own model uses the iPCR column as the normalizer. Per parent protocol this does NOT change the approved batch29 proxy D_i = 1 + (plasmid PCRrep1+PCRrep2); the proxy is retained exactly as declared, and the iPCR finding is reported for the parent. Neural fitting is therefore permitted (strand meaning resolved).",
+  "no_credentials": true,
+  "no_email": true,
+  "no_new_wet_data": true
+}

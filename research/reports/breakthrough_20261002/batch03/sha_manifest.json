@@ -1,0 +1,27 @@
+{
+  "code_dir": "runs\\breakthrough_20261002\\code\\batch03",
+  "files": {
+    "b3_common.py": "1266f3be61ae0e19c51162d6863b677310588d7daf81169caef4a0e917bab09a",
+    "baseline_seq_ridge.py": "3664de165f666270f6b06027e3177c55bd7c81c366e3c32342aa607b5101481f",
+    "consolidate_trackA.py": "31d8b23075150a9d9beba16e14a446a2d00216968d74b1c04af8214ae76335cc",
+    "eval_replication.py": "fd46eb7ebff27955c95f5bf03ba28d969e801cb61388643a7225a2f6f0546f0a",
+    "eval_scratch_gene.py": "cfe3e8c023a51caccf6bb4d1b0c55aaa3ecbc313eef9544ad761e9381f960c58",
+    "finalize_batch03.py": "131a2340cb5254d2187d7d5dd0435910cbcc5b93359b4364fafbdf0d4ba561a1",
+    "homology_recheck.py": "1ae16a4ec6fa87a13e4af1b255cec9bb52bd5f161c3d3b9a9db7ed1dfed1b1ca",
+    "make_report.py": "9a13f76b2a0da43e71d5d8319f928e8f7dde7bee92a303242abf3a99eedda2b7",
+    "make_trackA_figs.py": "285c7a4af7971d5c0ac565e3f716a07ddf76bb903b51b76b503d00ae5bef020d",
+    "prep_trackA_data.py": "b63856d6d7f28fe7c7eecce4f3e81051173d233c2e1ff3e9ee10c07c65f2ec17",
+    "resume_check.py": "5f6de666ee4769dfbb3e68f007bbf2f85ccd166640871ef0cafedf8f05eb5ca3",
+    "scratch_gene_model.py": "1e5e61cec98fcafd350b1e47bb8c0bbfc4d0ea95058cedfd34ea844497883f1b",
+    "trackA_baseline_protocol.json": "b08ee5a97d37bd61ac9c29232df05eee8a8654c248a9fe3405768d7569ab6c1c",
+    "trackA_selection_manifest.json": "53a1921d175a5d32554e1953d4bd28ee10d9e8b099ce190bbcd60348483e8758",
+    "trackA_selection_protocol.json": "8e24ecd43bce3ab9ba770fe8afef57f67c573b1ab0a2e49accaff655dc664f45",
+    "trackA_source_sha.json": "aeb25acff4fe621d9fbaf5a43d18d81484ed54badc8f650dc42b31d13512ee28",
+    "trackB_mpra_transfer.py": "40a0a3c4141018747b13b7c9ae916b7a331fcb0ea3f2f30ceddf454e101d73fb",
+    "trackB_protocol.json": "7d9ed728a664859e6290ff4522a731cdfc530860eabb5d9de595e4ca7f50d2a8",
+    "trackB_v63_rerun.py": "c7a1a283a43a9b050df6d8790d6d69b2c41183bb4c8ac49626108e910bcc4578",
+    "train_scratch_gene.py": "f2b3cbd27c59bccff816dfdd72008a7084482b48375e80a61ee78522ddb0382e",
+    "verify_acceptance.py": "c86170d70bab8fe4244cf627f40575ff4f74d9dc6ef261c8e51d3d92420550fa"
+  },
+  "note": "SHA-256 of batch03 code + protocol/config JSON (acceptance-repair finalize)"
+}

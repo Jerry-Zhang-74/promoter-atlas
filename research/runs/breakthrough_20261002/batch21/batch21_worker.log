@@ -1,0 +1,30 @@
+[2026-10-03T14:29:46+0800] worker start pid=43404 version=v6.16.1-sequence.rc1
+[2026-10-03T14:29:46+0800] stage data start
+[2026-10-03T14:29:56+0800] stage data done in 10.5s
+[2026-10-03T14:29:56+0800] stage groups start
+[2026-10-03T14:30:00+0800] stage groups done in 3.4s
+[2026-10-03T14:30:00+0800] stage freeze start
+[2026-10-03T14:30:00+0800] stage freeze done in 0.0s
+[2026-10-03T14:30:00+0800] stage fit start
+[2026-10-03T14:31:18+0800] stage fit done in 78.3s
+[2026-10-03T14:31:18+0800] stage eval start
+[2026-10-03T14:31:42+0800] stage eval done in 24.1s
+[2026-10-03T14:31:42+0800] stage finalize start
+[2026-10-03T14:32:08+0800] stage finalize done in 26.2s
+[2026-10-03T14:32:08+0800] worker complete
+[2026-10-03T14:33:05+0800] worker start pid=47252 version=v6.16.1-sequence.rc1
+[2026-10-03T14:33:05+0800] stage fit start
+[2026-10-03T14:34:33+0800] stage fit done in 87.3s
+[2026-10-03T14:34:33+0800] stage eval start
+[2026-10-03T14:34:58+0800] stage eval done in 25.0s
+[2026-10-03T14:34:58+0800] stage finalize start
+[2026-10-03T14:35:24+0800] stage finalize done in 26.5s
+[2026-10-03T14:35:24+0800] worker complete
+[2026-10-03T14:38:02+0800] worker start pid=24964 version=v6.16.1-sequence.rc1
+[2026-10-03T14:38:02+0800] stage fit start
+[2026-10-03T14:39:32+0800] stage fit done in 89.6s
+[2026-10-03T14:39:32+0800] stage eval start
+[2026-10-03T14:39:55+0800] stage eval done in 23.3s
+[2026-10-03T14:39:55+0800] stage finalize start
+[2026-10-03T14:40:20+0800] stage finalize done in 24.4s
+[2026-10-03T14:40:20+0800] worker complete

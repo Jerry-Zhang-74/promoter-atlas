@@ -1,0 +1,183 @@
+{
+ "n_test_rows": 318,
+ "n_test_groups": 21,
+ "n_test_chroms": 5,
+ "alpha_units": "MPRAnalyze getAlpha (raw, unchanged)",
+ "R1": {
+  "pooled_spearman": 0.09105537269295995,
+  "r2": -1.8356669546520612,
+  "mae": 0.16617385265396606,
+  "group_balanced_mae": 0.17524321244447916
+ },
+ "R0": {
+  "pooled_spearman": 0.15840880496925192,
+  "r2": -0.2004872709080321,
+  "mae": 0.10724327126513034,
+  "group_balanced_mae": 0.10691816389868672
+ },
+ "Rnull": {
+  "pooled_spearman": -0.05438566408664658,
+  "r2": -2.45298691330725,
+  "mae": 0.18087503141429825,
+  "group_balanced_mae": 0.17749768787943102
+ },
+ "zero_fit_train_weighted_mean_baseline": {
+  "const": 1.1367366748700891,
+  "mae": 0.09755645985782448,
+  "group_balanced_mae": 0.09772764731372789
+ },
+ "top10": {
+  "R1": {
+   "k": 32,
+   "n": 318,
+   "precision": 0.125,
+   "enrichment": 1.2421875,
+   "base_rate": 0.10062893081761007
+  },
+  "R0": {
+   "k": 32,
+   "n": 318,
+   "precision": 0.0625,
+   "enrichment": 0.62109375,
+   "base_rate": 0.10062893081761007
+  },
+  "Rnull": {
+   "k": 32,
+   "n": 318,
+   "precision": 0.03125,
+   "enrichment": 0.310546875,
+   "base_rate": 0.10062893081761007
+  }
+ },
+ "cached_batch41_same_testids": {
+  "cached_parm_mean": {
+   "spearman": 0.1102261229039397,
+   "top10": {
+    "k": 32,
+    "n": 318,
+    "precision": 0.15625,
+    "enrichment": 1.552734375,
+    "base_rate": 0.10062893081761007
+   },
+   "n_used": 318
+  },
+  "cached_h1_mean": {
+   "spearman": 0.0321545646167128,
+   "top10": {
+    "k": 32,
+    "n": 318,
+    "precision": 0.125,
+    "enrichment": 1.2421875,
+    "base_rate": 0.10062893081761007
+   },
+   "n_used": 318
+  },
+  "gc": {
+   "spearman": 0.1681874164495937,
+   "top10": {
+    "k": 32,
+    "n": 318,
+    "precision": 0.09375,
+    "enrichment": 0.931640625,
+    "base_rate": 0.10062893081761007
+   },
+   "n_used": 318
+  }
+ },
+ "per_group": {
+  "R1": {
+   "n_groups_used": 17,
+   "n_groups_total": 21,
+   "macro_rho": 0.08576484526157113
+  },
+  "R0": {
+   "n_groups_used": 17,
+   "n_groups_total": 21,
+   "macro_rho": 0.11770676017166322
+  },
+  "Rnull": {
+   "n_groups_used": 17,
+   "n_groups_total": 21,
+   "macro_rho": 0.02603146339204554
+  }
+ },
+ "strata": {
+  "chr17": {
+   "n": 20,
+   "R1_rho": -0.13533834586466165,
+   "R1_mae": 0.19103989816138706,
+   "R0_rho": 0.04360902255639098,
+   "R0_mae": 0.10266232695657526,
+   "Rnull_rho": 0.2556390977443609,
+   "Rnull_mae": 0.13182370455037967,
+   "cached_parm_rho": 0.05413533834586466,
+   "cached_parm_mae": 0.4663899478607048
+  },
+  "non_chr17": {
+   "n": 298,
+   "R1_rho": 0.09535252867613533,
+   "R1_mae": 0.16450499053937404,
+   "R0_rho": 0.1566551012130236,
+   "R0_mae": 0.10755071719187899,
+   "Rnull_rho": -0.07608826021431798,
+   "Rnull_mae": 0.1841670667742928,
+   "cached_parm_rho": 0.12775166991682896,
+   "cached_parm_mae": 0.3536056112981562
+  }
+ },
+ "per_group_sizes": [
+  26,
+  26,
+  23,
+  22,
+  19,
+  18,
+  18,
+  18,
+  18,
+  18,
+  16,
+  13,
+  13,
+  13,
+  10,
+  10,
+  10,
+  9,
+  9,
+  7,
+  2
+ ],
+ "decision": {
+  "r1_rho": 0.09105537269295995,
+  "r0_rho": 0.15840880496925192,
+  "delta_rho": -0.06735343227629197,
+  "groupMAE_improvement_frac": -0.6390406087644354,
+  "criteria": {
+   "R1_test_rho_ge_0.30": false,
+   "R1_minus_R0_rho_ge_0.05": false,
+   "conditional_CI_lo_gt_0": null,
+   "groupMAE_at_least_10pct_lower": false,
+   "top10_not_lower": true
+  },
+  "criteria_all_met_except_CI": false,
+  "bootstrap_available": false,
+  "bootstrap_reason": "n_test_groups=21 < 30 -> conditional bootstrap/CI/significance NOT reported (protocol + pre-fit amendment)",
+  "verdict": "LIMITED",
+  "operational_PASS": false,
+  "note": "no model promotion; regional/group-held-out retrospective public-assay scope only; CI lo>0 UNMET (unavailable), so verdict LIMITED"
+ },
+ "cross_split_homology": {
+  "exact_or_rc": 0,
+  "confirmed_near_homology_merges": 0,
+  "min_cross_group_edit_distance": 28,
+  "residual_not_exhaustive": true
+ },
+ "generated_at": "2026-10-04T02:54:42+0800",
+ "script_sha256": "d8ae4e5a20c388ae6123fb052b3dcad6e1636dab7397255c662adf69ca90bdb0",
+ "train_diagnostic": {
+  "R1_train_rho": 0.2935211225426091,
+  "R0_train_rho": 0.2995806150289048,
+  "note": "in-sample overfit diagnostic only; NOT used for any selection"
+ }
+}

@@ -1,0 +1,18 @@
+{
+  "attempt_id": "E1_ridge",
+  "method": "ridge",
+  "n_features": 342,
+  "alpha": 100,
+  "component_fits": 1,
+  "n_train": 7690,
+  "n_val": 566,
+  "val_spearman": 0.13859843031303667,
+  "val_mae": 0.4349792691773507,
+  "val_group_balanced_mae": 0.43543234101156,
+  "val_groups": 565,
+  "mu_y": 0.26694700089558726,
+  "sd_y": 0.608848616327574,
+  "zero_variance_features": 0,
+  "weights_sha": "9d9c025ca4e55b761d852c5d1ecb231eeed787671ea6d8464a12aaaad60a6a87",
+  "finished_at": "2026-10-03T20:03:24+08:00"
+}

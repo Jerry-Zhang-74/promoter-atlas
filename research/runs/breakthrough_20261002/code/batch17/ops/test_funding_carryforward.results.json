@@ -1,0 +1,103 @@
+{
+  "module": "funding_carryforward",
+  "n_checks": 19,
+  "n_passed": 19,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "ctrl24 original baseline is 142.67",
+      "pass": true,
+      "detail": "142.67"
+    },
+    {
+      "name": "ctrl24 carried topup is 100.00",
+      "pass": true,
+      "detail": "100.00"
+    },
+    {
+      "name": "ctrl24 effective baseline is 242.67",
+      "pass": true,
+      "detail": "242.67"
+    },
+    {
+      "name": "ctrl24 last prior balance 114.04",
+      "pass": true,
+      "detail": "114.04"
+    },
+    {
+      "name": "ctrl23 reconstructs original 142.67",
+      "pass": true,
+      "detail": "142.67"
+    },
+    {
+      "name": "ctrl23 reconstructs carried 100.00",
+      "pass": true,
+      "detail": "100.00"
+    },
+    {
+      "name": "ctrl23 reconstructs effective 242.67",
+      "pass": true,
+      "detail": "242.67"
+    },
+    {
+      "name": "ctrl23 last balance 114.04",
+      "pass": true,
+      "detail": "114.04"
+    },
+    {
+      "name": "ctrl23 prior spent 128.63",
+      "pass": true,
+      "detail": "128.63"
+    },
+    {
+      "name": "fresh status baseline is effective",
+      "pass": true,
+      "detail": "242.67"
+    },
+    {
+      "name": "fresh status keeps original separate",
+      "pass": true,
+      "detail": "142.67"
+    },
+    {
+      "name": "fresh status carries topup",
+      "pass": true,
+      "detail": "100.00"
+    },
+    {
+      "name": "empty manifest default original",
+      "pass": true,
+      "detail": "142.67"
+    },
+    {
+      "name": "empty manifest zero carried",
+      "pass": true,
+      "detail": "0"
+    },
+    {
+      "name": "empty manifest no balance",
+      "pass": true,
+      "detail": "None"
+    },
+    {
+      "name": "explicit original honored",
+      "pass": true,
+      "detail": "150.00"
+    },
+    {
+      "name": "explicit effective 200.00",
+      "pass": true,
+      "detail": "200.00"
+    },
+    {
+      "name": "explicit prior spent 25.00",
+      "pass": true,
+      "detail": "25.00"
+    },
+    {
+      "name": "identity effective-balance==spent (ctrl23)",
+      "pass": true,
+      "detail": "242.67-114.04=128.63"
+    }
+  ]
+}

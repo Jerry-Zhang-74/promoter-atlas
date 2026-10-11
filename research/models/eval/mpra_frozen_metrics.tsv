@@ -1,0 +1,2 @@
+name	mode	test_mse	test_r2	test_spearman	test_n	family_mean_rho	family_n
+mpra_frozen	frozen	0.11865761876106262	0.1370212377294565	0.34794743369346903	1181	-0.25	4

@@ -1,0 +1,15 @@
+{
+  "batch": "batch46",
+  "version": "v6.33.0-within-generation-selection.rc1",
+  "measured_summary": "per RNA replicate = mean over FINITE barcode cells of author normalized.log2rpm; assay summary = mean of the two replicate means.",
+  "contrasts": "max-median and max-min of the measured summary within a frozen triplet.",
+  "selectors": {
+    "K562_score": "argmax published K562 PARM prediction (tie: lexical min info id)",
+    "GC_high": "argmax query GC fraction (tie: lexical min info id)",
+    "HepG2_score": "secondary argmax published HepG2 prediction"
+  },
+  "uniform": "mean of the three candidates measured summaries (uniform among THESE three).",
+  "oracle_best": "max of the three measured summaries; regret is hindsight only.",
+  "no_inference": "no pvalue/CI/bootstrap; ~10 related search lineages; no broad pooled rho as main proof.",
+  "no_cross_unit": "no MAE/R2 between prediction and activity; differences within same unit only."
+}

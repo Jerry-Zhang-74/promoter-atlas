@@ -1,0 +1,12 @@
+{
+  "attempt_id": "b22_R2_fold3",
+  "recipe": "R2",
+  "fold": 3,
+  "n_train": 539,
+  "n_test": 134,
+  "dim": 214,
+  "alpha": 100.0,
+  "elapsed_s": 0.0,
+  "config_sha": "31dd5f68d4f082f17d00484e81ea082b076e16e9a23ca4069de138160f229de6",
+  "input_sha": "e6ea09134202bf6008a326ffe38cf3fd3acc003ae899845861f42d8c2e88b548"
+}

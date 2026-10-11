@@ -1,0 +1,158 @@
+{
+  "event": "modelA_ready",
+  "found_at": "2026-10-04T09:45:44.909647+08:00",
+  "waiter": {
+    "pid": 19196,
+    "creation": 468750,
+    "started": "2026-10-04T09:36:04.887205+08:00",
+    "out_root": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch52\\corrected\\models",
+    "marker": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch52\\corrected\\models\\Nabs_ready.json",
+    "deadline": "2026-10-04T12:20:00+08:00",
+    "poll_seconds": 20.0
+  },
+  "marker": "data/breakthrough_20261002/batch52/corrected/models\\Nabs_ready.json",
+  "selected": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_selected.ckpt",
+  "selected_sha256": "17a6f622c3d684743d75263af958cb71dad6f13f99e57f6fc69d5336e74c130f",
+  "sidecar_sha_match": false,
+  "marker_contents": {
+    "arm": "Nabs",
+    "best": {
+      "act_mae": 0.782324677054148,
+      "epoch": 4,
+      "pair_mae": 0.848701607360504,
+      "unset": false
+    },
+    "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+    "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+    "history": [
+      {
+        "ckpt": {
+          "checkpoint": "Nabs_epoch00.ckpt",
+          "checkpoint_sha256": "9e8b9ee0448f9bb5348f78d8e787deb4cea6999c7e535bc7abdbe106682ebb07",
+          "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+          "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+          "epoch": 0,
+          "gate_attempt_id": "7657f6f007fb4c1d979d1f10943a4db3",
+          "global_step": 531860,
+          "path": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_epoch00.ckpt"
+        },
+        "dev": {
+          "mae": 0.7974147462679324,
+          "rho": 0.58716300606805,
+          "rmse": 1.059945505872168
+        },
+        "dev_pair_mae": 0.8536250350842148,
+        "dev_sign": 0.5454818992508347,
+        "epoch": 0,
+        "loss": 0.28348548442032306
+      },
+      {
+        "ckpt": {
+          "checkpoint": "Nabs_epoch01.ckpt",
+          "checkpoint_sha256": "f2d61206122d014d270b49d49a841190497e2be113cc210d253ab9d1df6c4eaa",
+          "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+          "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+          "epoch": 1,
+          "gate_attempt_id": "7657f6f007fb4c1d979d1f10943a4db3",
+          "global_step": 531860,
+          "path": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_epoch01.ckpt"
+        },
+        "dev": {
+          "mae": 0.8109312605424775,
+          "rho": 0.5827962249400979,
+          "rmse": 1.0941350188635177
+        },
+        "dev_pair_mae": 0.8537408895530493,
+        "dev_sign": 0.5585983725014092,
+        "epoch": 1,
+        "loss": 0.24636845085121997
+      },
+      {
+        "ckpt": {
+          "checkpoint": "Nabs_epoch02.ckpt",
+          "checkpoint_sha256": "a812bfe5fd524239b97c58027b4c542859740848d8ed17f17ce68b8ff9587b10",
+          "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+          "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+          "epoch": 2,
+          "gate_attempt_id": "7657f6f007fb4c1d979d1f10943a4db3",
+          "global_step": 531860,
+          "path": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_epoch02.ckpt"
+        },
+        "dev": {
+          "mae": 0.7966518626831829,
+          "rho": 0.5927586350421938,
+          "rmse": 1.0679463069182593
+        },
+        "dev_pair_mae": 0.8502242210912071,
+        "dev_sign": 0.5575588975326794,
+        "epoch": 2,
+        "loss": 0.23709195960313503
+      },
+      {
+        "ckpt": {
+          "checkpoint": "Nabs_epoch03.ckpt",
+          "checkpoint_sha256": "5c6f7b18e755478a294d76e1835546875f09d5b1fb7bb8a221bf0b6c3fdfb98d",
+          "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+          "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+          "epoch": 3,
+          "gate_attempt_id": "7657f6f007fb4c1d979d1f10943a4db3",
+          "global_step": 531860,
+          "path": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_epoch03.ckpt"
+        },
+        "dev": {
+          "mae": 0.7866410886710838,
+          "rho": 0.5977470423902792,
+          "rmse": 1.0309315452497874
+        },
+        "dev_pair_mae": 0.8543077497889591,
+        "dev_sign": 0.5613274715296794,
+        "epoch": 3,
+        "loss": 0.23203085751418392
+      },
+      {
+        "ckpt": {
+          "checkpoint": "Nabs_epoch04.ckpt",
+          "checkpoint_sha256": "8f57d1c2dd445553a19a9058dcadd891f06a120eaf5849b4cb0b1cdc7b18fe34",
+          "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+          "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+          "epoch": 4,
+          "gate_attempt_id": "7657f6f007fb4c1d979d1f10943a4db3",
+          "global_step": 531860,
+          "path": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_epoch04.ckpt"
+        },
+        "dev": {
+          "mae": 0.782324677054148,
+          "rho": 0.594468801281408,
+          "rmse": 1.0436548364646878
+        },
+        "dev_pair_mae": 0.848701607360504,
+        "dev_sign": 0.5579317381778813,
+        "epoch": 4,
+        "loss": 0.2278464903887247
+      },
+      {
+        "ckpt": {
+          "checkpoint": "Nabs_epoch05.ckpt",
+          "checkpoint_sha256": "6f278b66ea9f62254cb43dd1acb5461c142b8950523acd1116558602ecae0f16",
+          "config_sha256": "12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157",
+          "datahash": "a17fcb741bc115c886f23e895d93e290b766b872644d5cd964d7d81a570f302d",
+          "epoch": 5,
+          "gate_attempt_id": "7657f6f007fb4c1d979d1f10943a4db3",
+          "global_step": 531860,
+          "path": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_epoch05.ckpt"
+        },
+        "dev": {
+          "mae": 0.7841993564384683,
+          "rho": 0.594946408411438,
+          "rmse": 1.052414155441693
+        },
+        "dev_pair_mae": 0.8528384331160808,
+        "dev_sign": 0.5626277373049605,
+        "epoch": 5,
+        "loss": 0.2244207011355824
+      }
+    ],
+    "init_sha": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+    "selected": "data/breakthrough_20261002/batch52/corrected/models\\Nabs\\Nabs_selected.ckpt"
+  }
+}

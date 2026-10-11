@@ -1,0 +1,500 @@
+{
+  "hek673": {
+    "n": 673,
+    "n_groups": 669,
+    "top_decile_k": 68,
+    "source_seen_rows": 4,
+    "rho": {
+      "PARM": 0.6905737298336427,
+      "R1": 0.4566222544370238,
+      "H1": 0.526448729125029
+    },
+    "top_decile": {
+      "PARM": {
+        "precision": 0.4117647058823529,
+        "enrichment": 4.117647058823529
+      },
+      "R1": {
+        "precision": 0.29411764705882354,
+        "enrichment": 2.941176470588235
+      },
+      "H1": {
+        "precision": 0.35294117647058826,
+        "enrichment": 3.5294117647058822
+      }
+    },
+    "paired_group_bootstrap": {
+      "draws": 2000,
+      "n_groups": 669,
+      "rho_PARM_minus_R1": {
+        "mean": 0.2341602181462944,
+        "ci95_lo": 0.1794963697577227,
+        "ci95_hi": 0.2907773902973451
+      },
+      "rho_PARM_minus_H1": {
+        "mean": 0.16442510300808458,
+        "ci95_lo": 0.11852474849220412,
+        "ci95_hi": 0.21492793757269055
+      },
+      "scope": "paired group-level bootstrap on identical matched rows; group=669 frozen groups; ranking only"
+    },
+    "notes": "PARM=pretrained external HEK293 (cross-assay); R1/H1=de-novo OOF on Haberle2019; no MAE/R2 across unlike scales"
+  },
+  "local": {
+    "supported_constructions": [
+      {
+        "id": "A1",
+        "family": "ACTB",
+        "len": 100,
+        "obs": 1.9086964992733457,
+        "pred": 3.1036716
+      },
+      {
+        "id": "A2",
+        "family": "ACTB",
+        "len": 200,
+        "obs": 1.876170452366899,
+        "pred": 3.6612754
+      },
+      {
+        "id": "A3",
+        "family": "ACTB",
+        "len": 300,
+        "obs": 1.8553665070657406,
+        "pred": 3.9266057
+      },
+      {
+        "id": "A4",
+        "family": "ACTB",
+        "len": 400,
+        "obs": 1.8097638385530739,
+        "pred": 5.1499395
+      },
+      {
+        "id": "A5",
+        "family": "ACTB",
+        "len": 500,
+        "obs": 1.8538093760690997,
+        "pred": 4.799169
+      },
+      {
+        "id": "CMVcore",
+        "family": "CMV",
+        "len": 204,
+        "obs": 1.1487910937004562,
+        "pred": 3.3241138
+      },
+      {
+        "id": "CMVfull",
+        "family": "CMV",
+        "len": 584,
+        "obs": 2.488865354591746,
+        "pred": 3.6043675
+      },
+      {
+        "id": "G1",
+        "family": "GAPDH",
+        "len": 100,
+        "obs": 1.33647119471689,
+        "pred": 1.2867763
+      },
+      {
+        "id": "G2",
+        "family": "GAPDH",
+        "len": 200,
+        "obs": 1.2573226386648555,
+        "pred": 1.6796501
+      },
+      {
+        "id": "G3",
+        "family": "GAPDH",
+        "len": 300,
+        "obs": 1.283230829028111,
+        "pred": 1.3638241
+      },
+      {
+        "id": "G4",
+        "family": "GAPDH",
+        "len": 400,
+        "obs": 1.2626363028332965,
+        "pred": 1.0967518
+      },
+      {
+        "id": "G5",
+        "family": "GAPDH",
+        "len": 500,
+        "obs": 1.372183730994758,
+        "pred": 0.96467847
+      }
+    ],
+    "families": {
+      "ACTB": {
+        "n_supported": 5,
+        "n_pairs": 10,
+        "n_pairs_comparable": 10,
+        "n_pairs_obs_tie": 0,
+        "n_pairs_pred_tie": 0,
+        "direction_accuracy": 0.0,
+        "baseline_increasing_len_accuracy": 0.1,
+        "baseline_decreasing_len_accuracy": 0.9,
+        "subgroup_obs_fc_ge_1.25": {
+          "n_pairs": 1,
+          "accuracy": 0.0
+        },
+        "ids": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5"
+        ]
+      },
+      "GAPDH": {
+        "n_supported": 5,
+        "n_pairs": 10,
+        "n_pairs_comparable": 10,
+        "n_pairs_obs_tie": 0,
+        "n_pairs_pred_tie": 0,
+        "direction_accuracy": 0.2,
+        "baseline_increasing_len_accuracy": 0.6,
+        "baseline_decreasing_len_accuracy": 0.4,
+        "subgroup_obs_fc_ge_1.25": {
+          "n_pairs": 2,
+          "accuracy": 0.0
+        },
+        "ids": [
+          "G1",
+          "G2",
+          "G3",
+          "G4",
+          "G5"
+        ]
+      },
+      "CMV": {
+        "n_supported": 2,
+        "n_pairs": 1,
+        "n_pairs_comparable": 1,
+        "n_pairs_obs_tie": 0,
+        "n_pairs_pred_tie": 0,
+        "direction_accuracy": 1.0,
+        "baseline_increasing_len_accuracy": 1.0,
+        "baseline_decreasing_len_accuracy": 0.0,
+        "subgroup_obs_fc_ge_1.25": {
+          "n_pairs": 1,
+          "accuracy": 1.0
+        },
+        "ids": [
+          "CMVcore",
+          "CMVfull"
+        ]
+      }
+    },
+    "macro_family_accuracy": 0.39999999999999997,
+    "macro_baseline_increasing": 0.5666666666666667,
+    "macro_baseline_decreasing": 0.43333333333333335,
+    "pairs": [
+      {
+        "a": "A1",
+        "b": "A2",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0325,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A1",
+        "b": "A3",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0533,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A1",
+        "b": "A4",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0989,
+        "obs_fc_ge_1_25": 1
+      },
+      {
+        "a": "A1",
+        "b": "A5",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0549,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A2",
+        "b": "A3",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0208,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A2",
+        "b": "A4",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0664,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A2",
+        "b": "A5",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0224,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A3",
+        "b": "A4",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0456,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A3",
+        "b": "A5",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0016,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "A4",
+        "b": "A5",
+        "obs_dir": -1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 0.044,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G1",
+        "b": "G2",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0791,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G1",
+        "b": "G3",
+        "obs_dir": 1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0532,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G1",
+        "b": "G4",
+        "obs_dir": 1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 1,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0738,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G1",
+        "b": "G5",
+        "obs_dir": -1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 0.0357,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G2",
+        "b": "G3",
+        "obs_dir": -1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 0.0259,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G2",
+        "b": "G4",
+        "obs_dir": -1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 0.0053,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G2",
+        "b": "G5",
+        "obs_dir": -1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 0.1149,
+        "obs_fc_ge_1_25": 1
+      },
+      {
+        "a": "G3",
+        "b": "G4",
+        "obs_dir": 1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 1,
+        "agree_len_incr": 0,
+        "agree_len_decr": 1,
+        "obs_fold_change_log10": 0.0206,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G3",
+        "b": "G5",
+        "obs_dir": -1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 0.089,
+        "obs_fc_ge_1_25": 0
+      },
+      {
+        "a": "G4",
+        "b": "G5",
+        "obs_dir": -1,
+        "pred_dir": 1,
+        "len_dir": -1,
+        "agree_parm": 0,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 0.1095,
+        "obs_fc_ge_1_25": 1
+      },
+      {
+        "a": "CMVcore",
+        "b": "CMVfull",
+        "obs_dir": -1,
+        "pred_dir": -1,
+        "len_dir": -1,
+        "agree_parm": 1,
+        "agree_len_incr": 1,
+        "agree_len_decr": 0,
+        "obs_fold_change_log10": 1.3401,
+        "obs_fc_ge_1_25": 1
+      }
+    ],
+    "unsupported": [
+      {
+        "id": "A20",
+        "family": "ACTB",
+        "len": 2000,
+        "observed_log10": "1.6794836761761032",
+        "pred": null,
+        "reason": "len>600 official L_max"
+      },
+      {
+        "id": "G20",
+        "family": "GAPDH",
+        "len": 2000,
+        "observed_log10": "1.2287530113899512",
+        "pred": null,
+        "reason": "len>600 official L_max"
+      }
+    ],
+    "notes": "pair comparisons are not independent n; technical replicates not biological; no false new-family CI; fivefold spread is model disagreement only"
+  },
+  "exploratory_rule": {
+    "components": {
+      "C1_macro_family_direction_ge_2of3": {
+        "value": 0.39999999999999997,
+        "threshold": 0.6666666666666666,
+        "pass": false
+      },
+      "C2_each_family_ge_1of2": {
+        "values": {
+          "ACTB": 0.0,
+          "GAPDH": 0.2,
+          "CMV": 1.0
+        },
+        "pass": false
+      },
+      "C3_exceeds_both_length_baselines": {
+        "macro": 0.39999999999999997,
+        "incr": 0.5666666666666667,
+        "decr": 0.43333333333333335,
+        "pass": false
+      },
+      "C4_HEK673_rho_ge_saved_R1": {
+        "parm": 0.6905737298336427,
+        "R1": 0.4566222544370238,
+        "pass": true
+      }
+    },
+    "all_pass": false,
+    "scope": "retrospective diagnostic rule fixed before predictions; PASS cannot certify novel-family/293FT or 2000bp reliability; failure is informative and triggers no new fit"
+  },
+  "chassis_note": "Actual local chassis/target = 293FT (user correction 2026-10-03). PARM HEK293 is CROSS-CELL/CROSS-ASSAY. Public HEK293/HEK293T source identities unchanged."
+}

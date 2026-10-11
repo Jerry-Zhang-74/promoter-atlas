@@ -1,0 +1,16 @@
+model_name	promoter_model_v3_pair_pilot
+phase	Phase 6 grammar-lite pilot
+input	sequence_memmap_plus_pair_features
+sequence_asset	promoters/memmap/promoter_up200_uint8.memmap
+sequence_index	promoters/memmap/promoter_up200_index.tsv
+pair_feature_asset	features/motif/promoter_motif_pair_features_v1.tsv
+targets	Score_E,Score_S,Score_B
+score_s_missing_policy	masked_loss
+split_key	record_id
+train_n	20000
+val_n	4000
+test_n	4000
+pair_feature_count	20
+checkpoint	models/checkpoints/promoter_model_v3_pair_pilot.pt
+eval_table	models/eval/promoter_model_v3_pair_pilot_metrics.tsv
+log_file	models/logs/train_promoter_model_v3_pair_pilot.log

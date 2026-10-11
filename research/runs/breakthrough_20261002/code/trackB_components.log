@@ -1,0 +1,38 @@
+matmul (11803, 656)
+ham computed
+ham pairs: 9144
+{
+  "ham_threshold": 8,
+  "n": 11803,
+  "seq_length": 164,
+  "n_components": 9918,
+  "largest": 301,
+  "largest_fraction": 0.0255019910192324,
+  "size_ge2": 205,
+  "size1": 9713,
+  "top20_sizes": [
+    301,
+    296,
+    293,
+    164,
+    104,
+    72,
+    69,
+    38,
+    36,
+    32,
+    32,
+    30,
+    29,
+    21,
+    20,
+    12,
+    11,
+    11,
+    11,
+    11
+  ],
+  "n_ham_pairs": 9144,
+  "n_rc_pairs": 0,
+  "n_fam_links": 182
+}

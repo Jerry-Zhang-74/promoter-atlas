@@ -1,0 +1,320 @@
+{
+  "begun_at": "2026-10-04T10:20:02+0800",
+  "checkpoint_hashes": {
+    "generations": [
+      {
+        "path": "Nabs_throughput_variant_gen0004.ckpt",
+        "sha256": "4ba873e17e160604d2d61c4c236569db61b8994f7b48acc4c40962792c2133fd"
+      },
+      {
+        "path": "Nabs_throughput_variant_gen0005.ckpt",
+        "sha256": "24571c4b9e36cf60033976c4f136d08663c3dd1a0bbc436551badd445af28d2b"
+      }
+    ],
+    "latest": {
+      "effective_batch": 64,
+      "epoch": 1,
+      "generation": 5,
+      "graceful_stop": false,
+      "next_pos": 531860,
+      "opt_steps": 16622,
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0005.ckpt",
+      "run_id": "Nabs_throughput_variant",
+      "sha256": "24571c4b9e36cf60033976c4f136d08663c3dd1a0bbc436551badd445af28d2b",
+      "updated_at": "2026-10-04T10:24:12+0800"
+    }
+  },
+  "complete_epoch_seconds": 88.16308999061584,
+  "ended_at": "2026-10-04T10:24:15+0800",
+  "gate_after": {
+    "budget": 3,
+    "consumed": 3,
+    "ledger": "E:\\promoter_atlas\\runs\\breakthrough_20261002\\batch58\\exec_gate_ledger.jsonl",
+    "planned": [
+      "b58-profile",
+      "b58-Nabs-throughput-variant",
+      "b58-resume-continuation"
+    ],
+    "purposes": [
+      "b58-profile",
+      "b58-Nabs-throughput-variant",
+      "b58-resume-continuation"
+    ],
+    "remaining": 0,
+    "reserve": 0,
+    "vendored_sha256": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571"
+  },
+  "gate_before": {
+    "budget": 3,
+    "consumed": 0,
+    "ledger": "E:\\promoter_atlas\\runs\\breakthrough_20261002\\batch58\\exec_gate_ledger.jsonl",
+    "planned": [
+      "b58-profile",
+      "b58-Nabs-throughput-variant",
+      "b58-resume-continuation"
+    ],
+    "purposes": [],
+    "remaining": 3,
+    "reserve": 0,
+    "vendored_sha256": "e1ff80a6e411d0989f7bfce3bd76950dabf8afb4f876e6b3c7e70692fc272571"
+  },
+  "gpu_lock": {
+    "acquired_at": "2026-10-04T10:20:02+0800",
+    "creation": 134355540028147456,
+    "pid": 49624,
+    "purpose": "b58-throughput"
+  },
+  "honest_eta_note": "all 2 requested epochs completed",
+  "honest_eta_seconds_remaining": 0,
+  "memory_target_assessment": {
+    "actual_peak_device_mib": 2958.0,
+    "detail": "reports/breakthrough_20261002/batch58/throughput_analysis.json",
+    "min_free_giB_floor": 0.7,
+    "reached": false,
+    "reason": "The requested ~6.7-7.1 GiB device target was NOT reached by the selected batch. Only batch 2048 touched it (nvidia_used 7.61 GiB) but left only 0.015 GiB free (< 0.7 GiB floor) and ran ~22x slower per step (586 vs 6402 samples/s at 1024), so it is UNSAFE and was rejected; batch 1024 used 5.62 GiB at 6402 samples/s. Per the PARENT1012 correction the 7 GiB target is SECONDARY to maximum safe throughput, so the fastest measured memory-safe batch was selected and usage was NOT padded.",
+    "requested_gib": [
+      6.7,
+      7.1
+    ]
+  },
+  "n_train": 531860,
+  "original_run": {
+    "blockers": [],
+    "checked_at": "2026-10-04T10:20:02+0800",
+    "compute_apps": {
+      "apps": [
+        {
+          "name": "C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.930.3748.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe",
+          "pid": 18820
+        }
+      ],
+      "blocking": []
+    },
+    "nabs_ready": true,
+    "njoint_ready": true,
+    "ok": true,
+    "original_alive": false,
+    "original_creation": 134355509691404167,
+    "original_pid": 54472
+  },
+  "peak_actual_vram_mib": 2958.0,
+  "process1": {
+    "arm": "Nabs",
+    "attempt_id": "f80e66b9191348ee90a58c7d84adb35d",
+    "best": {
+      "epoch": -1,
+      "pair_mae": Infinity,
+      "unset": true
+    },
+    "checkpoint_latest": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\latest.json",
+    "dev_last": null,
+    "effective_batch": 64,
+    "elapsed_s": 21.61906409263611,
+    "epoch": 0,
+    "epoch_cap": 2,
+    "epochs_completed": 0,
+    "global_samples": 106368,
+    "history": [],
+    "init_sha": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+    "last_generation": 1,
+    "micro_batch": 64,
+    "next_pos": 106368,
+    "oom_events": [],
+    "oom_retries": 0,
+    "opt_steps": 1662,
+    "peak_cuda_mb": 2764.306432,
+    "resumed": false,
+    "resumed_from": null,
+    "run_id": "Nabs_throughput_variant",
+    "samples_per_s": 4920.101977783169,
+    "stop_marker": {
+      "epoch": 0,
+      "next_pos": 106368,
+      "opt_steps": 1662,
+      "reason": "stop_after_opt_steps",
+      "saved": true
+    },
+    "stopped": true,
+    "variant": "throughput_variant"
+  },
+  "process1_stop_rc": 0,
+  "process1_vram": {
+    "min_free_mib": 5009.0,
+    "peak_used_mib": 2802.0,
+    "samples": 15
+  },
+  "process2": {
+    "arm": "Nabs",
+    "attempt_id": "56abb70eeb5a4122b485b53959efd72d",
+    "best": {
+      "act_mae": 0.7973583440104948,
+      "epoch": 0,
+      "pair_mae": 0.8524896785895458,
+      "unset": false
+    },
+    "checkpoint_latest": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\latest.json",
+    "dev_last": {
+      "coverage_hash": "d16fe5294b358bbdde2b6020277a9dc7dd7f50667248fd2493e62d49327ce070",
+      "coverage_ok": true,
+      "dev": {
+        "mae": 0.8053737888615123,
+        "rho": 0.5822839744877006,
+        "rmse": 1.0986451387195242
+      },
+      "dev_pair_mae": 0.8538039981642439,
+      "dev_sign": 0.5483423184737777,
+      "epoch": 1,
+      "epoch_samples": 531860,
+      "epoch_seconds": 88.16308999061584,
+      "opt_steps": 16622
+    },
+    "effective_batch": 64,
+    "elapsed_s": 183.34236121177673,
+    "epoch": 2,
+    "epoch_cap": 2,
+    "epochs_completed": 2,
+    "global_samples": 1063720,
+    "history": [
+      {
+        "coverage_hash": "435f98b168a856f844dc88ef7ed81afdcf5e198ef08a6810e8c6ee4263bee343",
+        "coverage_ok": true,
+        "dev": {
+          "mae": 0.7973583440104948,
+          "rho": 0.5799153485244113,
+          "rmse": 1.0544624007299332
+        },
+        "dev_pair_mae": 0.8524896785895458,
+        "dev_sign": 0.5478282037245974,
+        "epoch": 0,
+        "epoch_samples": 531860,
+        "epoch_seconds": 71.73176550865173,
+        "opt_steps": 8311
+      },
+      {
+        "coverage_hash": "d16fe5294b358bbdde2b6020277a9dc7dd7f50667248fd2493e62d49327ce070",
+        "coverage_ok": true,
+        "dev": {
+          "mae": 0.8053737888615123,
+          "rho": 0.5822839744877006,
+          "rmse": 1.0986451387195242
+        },
+        "dev_pair_mae": 0.8538039981642439,
+        "dev_sign": 0.5483423184737777,
+        "epoch": 1,
+        "epoch_samples": 531860,
+        "epoch_seconds": 88.16308999061584,
+        "opt_steps": 16622
+      }
+    ],
+    "init_sha": "07fb8c2c98a5411b2780612f11587917df2c8c41ab1c831d5083f316c179d197",
+    "last_generation": 5,
+    "micro_batch": 64,
+    "next_pos": 531860,
+    "oom_events": [],
+    "oom_retries": 0,
+    "opt_steps": 16622,
+    "peak_cuda_mb": 2764.306432,
+    "resumed": true,
+    "resumed_from": {
+      "carried_global_samples": 106368,
+      "carried_opt_steps": 1662,
+      "epoch": 0,
+      "generation": 1,
+      "next_pos": 106368,
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0001.ckpt",
+      "sha256": "4e35b99c7a4cc9e44b439cb2f5afa10b0f61f83101eaa0041c79c599cca3d453"
+    },
+    "run_id": "Nabs_throughput_variant",
+    "samples_per_s": 5801.823391874553,
+    "stop_marker": null,
+    "stopped": false,
+    "variant": "throughput_variant"
+  },
+  "process2_resume_rc": 0,
+  "process2_vram": {
+    "min_free_mib": 4853.0,
+    "peak_used_mib": 2958.0,
+    "samples": 94
+  },
+  "profile_ok": true,
+  "profile_rc": 0,
+  "profile_selection": {
+    "fastest_safe": 64,
+    "in_target_batches": [],
+    "oom_batches": [],
+    "plateau": {
+      "at_batch": 128,
+      "gain_vs_prev": -0.09906036356850481
+    },
+    "reason": "maximum samples/second among measured memory-safe candidates; 7GB is a target, never filler",
+    "safe_batches": [
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "selected": {
+      "batch": 64,
+      "median_s": 0.008360900013940409,
+      "nvidia_free_gib": 4.8935546875,
+      "nvidia_used_gib": 2.734375,
+      "ok": true,
+      "samples_per_s": 7654.678311340963,
+      "times_s": [
+        0.008092400006717071,
+        0.008967499976279214,
+        0.008360900013940409
+      ],
+      "torch_allocated_gib": 2.4021878242492676,
+      "torch_peak_gib": 2.572453022003174,
+      "torch_reserved_gib": 2.599609375
+    },
+    "selected_batch": 64
+  },
+  "resume_evidence": {
+    "carried_global_samples_match": true,
+    "carried_opt_steps_match": true,
+    "epochs_coverage_ok": [
+      [
+        0,
+        true
+      ],
+      [
+        1,
+        true
+      ]
+    ],
+    "expected_samples_2_epochs": 1063720,
+    "full_pass_coverage": true,
+    "global_samples_final": 1063720,
+    "process1_stop_marker": {
+      "epoch": 0,
+      "next_pos": 106368,
+      "opt_steps": 1662,
+      "reason": "stop_after_opt_steps",
+      "saved": true
+    },
+    "process1_stopped": true,
+    "process2_resumed": true,
+    "process2_resumed_from": {
+      "carried_global_samples": 106368,
+      "carried_opt_steps": 1662,
+      "epoch": 0,
+      "generation": 1,
+      "next_pos": 106368,
+      "path": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch58\\models\\Nabs_throughput_variant\\Nabs_throughput_variant_gen0001.ckpt",
+      "sha256": "4e35b99c7a4cc9e44b439cb2f5afa10b0f61f83101eaa0041c79c599cca3d453"
+    },
+    "restored_device": true
+  },
+  "sample_throughput_samples_per_s": 5189.854619815127,
+  "selected_batch": 64,
+  "selected_batch_final": 64,
+  "steps_per_epoch": 8311,
+  "stop_steps": 1662,
+  "target_column": "Log2RPM_HEK293",
+  "total_training_elapsed_s": 204.96142530441284,
+  "train_peak_used_mib": 2958.0
+}

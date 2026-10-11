@@ -1,0 +1,902 @@
+{
+  "section": "B",
+  "cell_context": {
+    "target": "USER 293FT (direct-user correction 2026-10-03)",
+    "historical_label_preserved": "HEK293T (original records, unchanged)",
+    "endpoint_definition": "log10( GFP-positive gated median / same-batch WT-negative median ); NOT positive-cell fraction"
+  },
+  "endpoint_evidence": {
+    "numerator_gate": [
+      "V1R"
+    ],
+    "numerator_statistic": [
+      "Median"
+    ],
+    "numerator_channel": [
+      "B525-A"
+    ],
+    "wt_negative_mean_values": [
+      1420.267,
+      1436.5,
+      1558.1
+    ],
+    "gfp_positive_percent_parent_present": true,
+    "target_name": "log10_GFP_positive_median_divided_by_same_batch_WT_negative_median",
+    "n_measurement_rows": 126,
+    "distinct_cell_line_reported": [
+      "HEK293T"
+    ],
+    "distinct_source_id": [
+      "S001",
+      "S002",
+      "S004"
+    ],
+    "days_after_transfection": [
+      "12",
+      "14",
+      "43"
+    ],
+    "days_after_sort": [
+      "28",
+      "5",
+      "7"
+    ],
+    "sort_round": [
+      "",
+      "2"
+    ],
+    "independent_biological_replicates_vals": [
+      ""
+    ]
+  },
+  "nesting_vs_2000bp": [
+    {
+      "family": "ACTB",
+      "construct": "A1",
+      "ref": "A20",
+      "len": 100,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1900
+    },
+    {
+      "family": "ACTB",
+      "construct": "A2",
+      "ref": "A20",
+      "len": 200,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1800
+    },
+    {
+      "family": "ACTB",
+      "construct": "A3",
+      "ref": "A20",
+      "len": 300,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1700
+    },
+    {
+      "family": "ACTB",
+      "construct": "A4",
+      "ref": "A20",
+      "len": 400,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1600
+    },
+    {
+      "family": "ACTB",
+      "construct": "A5",
+      "ref": "A20",
+      "len": 500,
+      "min_mismatch": 1,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1500
+    },
+    {
+      "family": "GAPDH",
+      "construct": "G1",
+      "ref": "G20",
+      "len": 100,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1900
+    },
+    {
+      "family": "GAPDH",
+      "construct": "G2",
+      "ref": "G20",
+      "len": 200,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1800
+    },
+    {
+      "family": "GAPDH",
+      "construct": "G3",
+      "ref": "G20",
+      "len": 300,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1700
+    },
+    {
+      "family": "GAPDH",
+      "construct": "G4",
+      "ref": "G20",
+      "len": 400,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1600
+    },
+    {
+      "family": "GAPDH",
+      "construct": "G5",
+      "ref": "G20",
+      "len": 500,
+      "min_mismatch": 0,
+      "strand_in_ref": "+",
+      "offset0_in_ref": 1500
+    }
+  ],
+  "series_containment": [
+    {
+      "family": "ACTB",
+      "short": "A1",
+      "long": "A2",
+      "short_len": 100,
+      "long_len": 200,
+      "contained_in_+": 100,
+      "contained_in_-": -1
+    },
+    {
+      "family": "ACTB",
+      "short": "A2",
+      "long": "A3",
+      "short_len": 200,
+      "long_len": 300,
+      "contained_in_+": 100,
+      "contained_in_-": -1
+    },
+    {
+      "family": "ACTB",
+      "short": "A3",
+      "long": "A4",
+      "short_len": 300,
+      "long_len": 400,
+      "contained_in_+": 100,
+      "contained_in_-": -1
+    },
+    {
+      "family": "ACTB",
+      "short": "A4",
+      "long": "A5",
+      "short_len": 400,
+      "long_len": 500,
+      "contained_in_+": -1,
+      "contained_in_-": -1
+    },
+    {
+      "family": "GAPDH",
+      "short": "G1",
+      "long": "G2",
+      "short_len": 100,
+      "long_len": 200,
+      "contained_in_+": 100,
+      "contained_in_-": -1
+    },
+    {
+      "family": "GAPDH",
+      "short": "G2",
+      "long": "G3",
+      "short_len": 200,
+      "long_len": 300,
+      "contained_in_+": 100,
+      "contained_in_-": -1
+    },
+    {
+      "family": "GAPDH",
+      "short": "G3",
+      "long": "G4",
+      "short_len": 300,
+      "long_len": 400,
+      "contained_in_+": 100,
+      "contained_in_-": -1
+    },
+    {
+      "family": "GAPDH",
+      "short": "G4",
+      "long": "G5",
+      "short_len": 400,
+      "long_len": 500,
+      "contained_in_+": 100,
+      "contained_in_-": -1
+    }
+  ],
+  "cmv": {
+    "CMVcore_in_CMVfull": {
+      "+": 380,
+      "-": -1
+    },
+    "CMVcore_len": 204,
+    "CMVfull_len": 584,
+    "core_documented_len": "200",
+    "core_sequence_len": "204"
+  },
+  "observed_D28": {
+    "A1": 1.9086964992733457,
+    "A2": 1.876170452366899,
+    "A3": 1.8553665070657406,
+    "A4": 1.8097638385530739,
+    "A5": 1.8538093760690997,
+    "G1": 1.33647119471689,
+    "G2": 1.2573226386648555,
+    "G3": 1.283230829028111,
+    "G4": 1.2626363028332965,
+    "G5": 1.372183730994758,
+    "CMVcore": 1.1487910937004562,
+    "CMVfull": 2.488865354591746,
+    "A20_2000bp_unsupported": 1.6794836761761032,
+    "G20_2000bp_unsupported": 1.2287530113899512
+  },
+  "direction_vs_frozen_models": {
+    "PARM": {
+      "ACTB": {
+        "n_pairs": 10,
+        "direction_accuracy": 0.0,
+        "baseline_increasing_len": 0.1,
+        "baseline_decreasing_len": 0.9,
+        "pairs": [
+          {
+            "a": "A1",
+            "b": "A2",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0325
+          },
+          {
+            "a": "A1",
+            "b": "A3",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0533
+          },
+          {
+            "a": "A1",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0989
+          },
+          {
+            "a": "A1",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0549
+          },
+          {
+            "a": "A2",
+            "b": "A3",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0208
+          },
+          {
+            "a": "A2",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0664
+          },
+          {
+            "a": "A2",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0224
+          },
+          {
+            "a": "A3",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0456
+          },
+          {
+            "a": "A3",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0016
+          },
+          {
+            "a": "A4",
+            "b": "A5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.044
+          }
+        ]
+      },
+      "GAPDH": {
+        "n_pairs": 10,
+        "direction_accuracy": 0.2,
+        "baseline_increasing_len": 0.6,
+        "baseline_decreasing_len": 0.4,
+        "pairs": [
+          {
+            "a": "G1",
+            "b": "G2",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0791
+          },
+          {
+            "a": "G1",
+            "b": "G3",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0532
+          },
+          {
+            "a": "G1",
+            "b": "G4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0738
+          },
+          {
+            "a": "G1",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0357
+          },
+          {
+            "a": "G2",
+            "b": "G3",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0259
+          },
+          {
+            "a": "G2",
+            "b": "G4",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0053
+          },
+          {
+            "a": "G2",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.1149
+          },
+          {
+            "a": "G3",
+            "b": "G4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0206
+          },
+          {
+            "a": "G3",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.089
+          },
+          {
+            "a": "G4",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.1095
+          }
+        ]
+      },
+      "CMV": {
+        "n_pairs": 1,
+        "direction_accuracy": 1.0,
+        "baseline_increasing_len": 1.0,
+        "baseline_decreasing_len": 0.0,
+        "pairs": [
+          {
+            "a": "CMVcore",
+            "b": "CMVfull",
+            "obs_dir": -1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 1.3401
+          }
+        ]
+      }
+    },
+    "H1": {
+      "ACTB": {
+        "n_pairs": 10,
+        "direction_accuracy": 0.9,
+        "baseline_increasing_len": 0.1,
+        "baseline_decreasing_len": 0.9,
+        "pairs": [
+          {
+            "a": "A1",
+            "b": "A2",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0325
+          },
+          {
+            "a": "A1",
+            "b": "A3",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0533
+          },
+          {
+            "a": "A1",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0989
+          },
+          {
+            "a": "A1",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0549
+          },
+          {
+            "a": "A2",
+            "b": "A3",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0208
+          },
+          {
+            "a": "A2",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0664
+          },
+          {
+            "a": "A2",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0224
+          },
+          {
+            "a": "A3",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0456
+          },
+          {
+            "a": "A3",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0016
+          },
+          {
+            "a": "A4",
+            "b": "A5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.044
+          }
+        ]
+      },
+      "GAPDH": {
+        "n_pairs": 10,
+        "direction_accuracy": 0.2,
+        "baseline_increasing_len": 0.6,
+        "baseline_decreasing_len": 0.4,
+        "pairs": [
+          {
+            "a": "G1",
+            "b": "G2",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0791
+          },
+          {
+            "a": "G1",
+            "b": "G3",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0532
+          },
+          {
+            "a": "G1",
+            "b": "G4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0738
+          },
+          {
+            "a": "G1",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0357
+          },
+          {
+            "a": "G2",
+            "b": "G3",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0259
+          },
+          {
+            "a": "G2",
+            "b": "G4",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0053
+          },
+          {
+            "a": "G2",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.1149
+          },
+          {
+            "a": "G3",
+            "b": "G4",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0206
+          },
+          {
+            "a": "G3",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.089
+          },
+          {
+            "a": "G4",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.1095
+          }
+        ]
+      },
+      "CMV": {
+        "n_pairs": 1,
+        "direction_accuracy": 0.0,
+        "baseline_increasing_len": 1.0,
+        "baseline_decreasing_len": 0.0,
+        "pairs": [
+          {
+            "a": "CMVcore",
+            "b": "CMVfull",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 1.3401
+          }
+        ]
+      }
+    },
+    "R1": {
+      "ACTB": {
+        "n_pairs": 10,
+        "direction_accuracy": 0.9,
+        "baseline_increasing_len": 0.1,
+        "baseline_decreasing_len": 0.9,
+        "pairs": [
+          {
+            "a": "A1",
+            "b": "A2",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0325
+          },
+          {
+            "a": "A1",
+            "b": "A3",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0533
+          },
+          {
+            "a": "A1",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0989
+          },
+          {
+            "a": "A1",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0549
+          },
+          {
+            "a": "A2",
+            "b": "A3",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0208
+          },
+          {
+            "a": "A2",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0664
+          },
+          {
+            "a": "A2",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0224
+          },
+          {
+            "a": "A3",
+            "b": "A4",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0456
+          },
+          {
+            "a": "A3",
+            "b": "A5",
+            "obs_dir": 1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0016
+          },
+          {
+            "a": "A4",
+            "b": "A5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.044
+          }
+        ]
+      },
+      "GAPDH": {
+        "n_pairs": 10,
+        "direction_accuracy": 0.3,
+        "baseline_increasing_len": 0.6,
+        "baseline_decreasing_len": 0.4,
+        "pairs": [
+          {
+            "a": "G1",
+            "b": "G2",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0791
+          },
+          {
+            "a": "G1",
+            "b": "G3",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0532
+          },
+          {
+            "a": "G1",
+            "b": "G4",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0738
+          },
+          {
+            "a": "G1",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.0357
+          },
+          {
+            "a": "G2",
+            "b": "G3",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0259
+          },
+          {
+            "a": "G2",
+            "b": "G4",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0053
+          },
+          {
+            "a": "G2",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.1149
+          },
+          {
+            "a": "G3",
+            "b": "G4",
+            "obs_dir": 1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 0.0206
+          },
+          {
+            "a": "G3",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.089
+          },
+          {
+            "a": "G4",
+            "b": "G5",
+            "obs_dir": -1,
+            "pred_dir": -1,
+            "len_dir": -1,
+            "agree": 1,
+            "obs_fold_change_log10": 0.1095
+          }
+        ]
+      },
+      "CMV": {
+        "n_pairs": 1,
+        "direction_accuracy": 0.0,
+        "baseline_increasing_len": 1.0,
+        "baseline_decreasing_len": 0.0,
+        "pairs": [
+          {
+            "a": "CMVcore",
+            "b": "CMVfull",
+            "obs_dir": -1,
+            "pred_dir": 1,
+            "len_dir": -1,
+            "agree": 0,
+            "obs_fold_change_log10": 1.3401
+          }
+        ]
+      }
+    }
+  },
+  "macro_family_direction": {
+    "PARM": 0.39999999999999997,
+    "H1": 0.3666666666666667,
+    "R1": 0.39999999999999997
+  },
+  "artifact_assessment": {
+    "orientation": "all family members align to the 2000bp reference on strand ['+'] -> orientation not a source of length-direction artifact",
+    "normalization": "single same-batch WT-negative denominator (1420.267) used for ALL 14 constructs -> no per-construct normalization switch",
+    "naming_structure": "A1-A4 share feature start 133 (3'-extension series); A5 feature 287-786 is a SHIFTED window, and A5 differs from the 2000bp at 1 base(s) -> A5 is not a clean extension of A4; naming/design window (not necessarily the assayed DNA) may explain part of the length-direction mismatch",
+    "absence_of_evidence": "no barcode link and no clone sequencing; observed mismatch mechanism cannot be proven from these records"
+  }
+}

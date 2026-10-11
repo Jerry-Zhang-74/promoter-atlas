@@ -1,0 +1,562 @@
+{
+  "generated_at_local": "2026-10-03T17:28:44+0800",
+  "ledger_entries": 24,
+  "dl_list_entries": 12,
+  "budget": {
+    "individual_timeout_s_max": 180,
+    "per_file_attempts_max": 3,
+    "processed_download_cap_mb": 750
+  },
+  "attempts": [
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE245nnn/GSE245191/suppl/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "ts": "2026-10-03T17:04:32+0800",
+      "state": "FAILED",
+      "error": "TypeError: OpenerDirector.open() got an unexpected keyword argument 'context'",
+      "elapsed_s": 0.03
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/soft/GSE306816_family.soft.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_family.soft.gz",
+      "ts": "2026-10-03T17:10:17+0800",
+      "http_status": 200,
+      "expected_length": "5399",
+      "actual_bytes": 5399,
+      "sha256": "a87c008d0fe4b42a19699cec9a4df48515578a0da26bd2f74a0c5d76cd1da7d8",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 1.48
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=41001006&retmode=json",
+      "out": "runs/breakthrough_20261002/batch25/source/pubmed_41001006_esummary.json",
+      "ts": "2026-10-03T17:10:25+0800",
+      "http_status": 200,
+      "expected_length": null,
+      "actual_bytes": 2373,
+      "sha256": "b147b58a27e46b88ccd0c629dfb09e93b7316db448791c9034e670e7cc449e05",
+      "size_matches_expected": false,
+      "gzip_ok": null,
+      "state": "PARTIAL",
+      "elapsed_s": 1.15
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=12458280&retmode=xml",
+      "out": "runs/breakthrough_20261002/batch25/source/pmc12458280.xml",
+      "ts": "2026-10-03T17:10:31+0800",
+      "http_status": 200,
+      "expected_length": null,
+      "actual_bytes": 160876,
+      "sha256": "6770ff76c8b101c9c4cc696b7f5649a44deca760dd44910c780862070a222736",
+      "size_matches_expected": false,
+      "gzip_ok": null,
+      "state": "PARTIAL",
+      "elapsed_s": 3.62
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str_mpra_design/main/scripts/make_arrays_constant_context.R",
+      "out": "runs/breakthrough_20261002/batch25/source/make_arrays_constant_context.R",
+      "ts": "2026-10-03T17:11:18+0800",
+      "state": "FAILED",
+      "error": "URLError: <urlopen error _ssl.c:983: The handshake operation timed out>",
+      "elapsed_s": 67.34
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str_mpra_design/main/scripts/make_arrays_max_context.R",
+      "out": "runs/breakthrough_20261002/batch25/source/make_arrays_max_context.R",
+      "ts": "2026-10-03T17:12:27+0800",
+      "state": "FAILED",
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "elapsed_s": 46.67
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str_mpra_design/main/README.md",
+      "out": "runs/breakthrough_20261002/batch25/source/str_mpra_design_README.md",
+      "ts": "2026-10-03T17:13:15+0800",
+      "state": "FAILED",
+      "error": "URLError: <urlopen error _ssl.c:983: The handshake operation timed out>",
+      "elapsed_s": 81.34
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design/README.md",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_design_README.md",
+      "ts": "2026-10-03T17:14:38+0800",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 24.21
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design-uber/README.md",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_design-uber_README.md",
+      "ts": "2026-10-03T17:15:03+0800",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 1.52
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE245nnn/GSE245191/suppl/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "ts": "2026-10-03T17:16:30+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "34573785",
+      "actual_bytes": 34573785,
+      "sha256": "bc00f86329f8c610644031a3ebb43ea3bc9b775c283772f4ea165e07c40486fe",
+      "size_matches_expected": true,
+      "gzip_ok": false,
+      "state": "PARTIAL",
+      "elapsed_s": 27.14
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE245nnn/GSE245191/suppl/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "ts": "2026-10-03T17:17:03+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "34573785",
+      "actual_bytes": 34573785,
+      "sha256": "bc00f86329f8c610644031a3ebb43ea3bc9b775c283772f4ea165e07c40486fe",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 16.78
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_association_merged_BC_STRs.tsv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_association_merged_BC_STRs.tsv.gz",
+      "ts": "2026-10-03T17:17:26+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "14224507",
+      "actual_bytes": 14224507,
+      "sha256": "af10c00b3521c7ce4ef6f98e6092585d1f9dbc6bf9676fd8691b66425b22b0b7",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 8.15
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "ts": "2026-10-03T17:17:36+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "8938608",
+      "actual_bytes": 8938608,
+      "sha256": "e86b42d5b7ec2e5ba9145c0f596815d007331c8b868a55a22fb727f81ae37614",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 4.87
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep2.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep2.csv.gz",
+      "ts": "2026-10-03T17:17:41+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "9481481",
+      "actual_bytes": 9481481,
+      "sha256": "83053f99e75bf68e94bdcd82f17891a8a8f39d2e4a68bc758aed41ddc9724c9d",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 17.71
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep3.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep3.csv.gz",
+      "ts": "2026-10-03T17:18:00+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "7230108",
+      "actual_bytes": 7230108,
+      "sha256": "ed081c5fe0df4d5117b211e56b239c841b61f44bda547c2e92a2be442b7f2fc5",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 5.33
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_linear_regression.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_linear_regression.csv.gz",
+      "ts": "2026-10-03T17:18:07+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "1161084",
+      "actual_bytes": 1161084,
+      "sha256": "dc17535e6387ad8635793947398ed24add7360728cfdd39c73d47b3930a414b9",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 4.21
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR2_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR2_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "ts": "2026-10-03T17:18:13+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "15205619",
+      "actual_bytes": 15205619,
+      "sha256": "d244e6b5827fd03aab4e9ec1c01ba24fdf2e0357e5b93e452d806d5ab66098ba",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 21.57
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9209nnn/GSM9209852/suppl/GSM9209852_dpSTR_association_Illumina_BC_STRs.tsv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSM9209852_dpSTR_association_Illumina_BC_STRs.tsv.gz",
+      "ts": "2026-10-03T17:18:36+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "11231653",
+      "actual_bytes": 11231653,
+      "sha256": "c61ebdcdfdd42629c41d5ee16588b43d680a99adc817bff9e69ee9f5183eca60",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 24.87
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str_mpra_design/main/design/tss_str_pairs.tsv",
+      "out": "runs/breakthrough_20261002/batch25/source/str_mpra_design_tss_str_pairs.tsv",
+      "ts": "2026-10-03T17:19:02+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "6849016",
+      "actual_bytes": 6849016,
+      "sha256": "44b313a8eddd54cdb873f89126cf64293bddfff6363ac7caee4adfbf1b0e5693",
+      "size_matches_expected": true,
+      "gzip_ok": null,
+      "state": "COMPLETE",
+      "elapsed_s": 4.24
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str_mpra_design/main/design/array_probes.tsv",
+      "out": "runs/breakthrough_20261002/batch25/source/str_mpra_design_array_probes.tsv",
+      "ts": "2026-10-03T17:19:07+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "52780255",
+      "actual_bytes": 52780255,
+      "sha256": "e845f14039b39b741ea75154070b15255d532ea57050577922d2442562b567bf",
+      "size_matches_expected": true,
+      "gzip_ok": null,
+      "state": "COMPLETE",
+      "elapsed_s": 110.83
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design-uber/uber_str_set.bed",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_uber_str_set.bed",
+      "ts": "2026-10-03T17:21:00+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 0.98
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design-uber/uber-v3.oligos.split.tab",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_uber-v3.oligos.split.tab",
+      "ts": "2026-10-03T17:21:02+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 0.73
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design-uber/round1_probe_seqs.tab",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_round1_probe_seqs.tab",
+      "ts": "2026-10-03T17:21:04+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 0.67
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE245nnn/GSE245191/suppl/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz",
+      "ts": "2026-10-03T17:04:36+0800",
+      "http_status": 200,
+      "expected_length": "34573785",
+      "state": "FAILED",
+      "error": "IncompleteRead: IncompleteRead(15391581 bytes read, 19182204 more expected)",
+      "elapsed_s": 1043.08
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_association_merged_BC_STRs.tsv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_association_merged_BC_STRs.tsv.gz",
+      "ts": "2026-10-03T17:17:26+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "14224507",
+      "actual_bytes": 14224507,
+      "sha256": "af10c00b3521c7ce4ef6f98e6092585d1f9dbc6bf9676fd8691b66425b22b0b7",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 8.15
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "ts": "2026-10-03T17:17:36+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "8938608",
+      "actual_bytes": 8938608,
+      "sha256": "e86b42d5b7ec2e5ba9145c0f596815d007331c8b868a55a22fb727f81ae37614",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 4.87
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep2.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep2.csv.gz",
+      "ts": "2026-10-03T17:17:41+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "9481481",
+      "actual_bytes": 9481481,
+      "sha256": "83053f99e75bf68e94bdcd82f17891a8a8f39d2e4a68bc758aed41ddc9724c9d",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 17.71
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep3.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep3.csv.gz",
+      "ts": "2026-10-03T17:18:00+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "7230108",
+      "actual_bytes": 7230108,
+      "sha256": "ed081c5fe0df4d5117b211e56b239c841b61f44bda547c2e92a2be442b7f2fc5",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 5.33
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR1_HEK293_linear_regression.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_linear_regression.csv.gz",
+      "ts": "2026-10-03T17:18:07+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "1161084",
+      "actual_bytes": 1161084,
+      "sha256": "dc17535e6387ad8635793947398ed24add7360728cfdd39c73d47b3930a414b9",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 4.21
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306816/suppl/GSE306816_hSTR2_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR2_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz",
+      "ts": "2026-10-03T17:18:13+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "15205619",
+      "actual_bytes": 15205619,
+      "sha256": "d244e6b5827fd03aab4e9ec1c01ba24fdf2e0357e5b93e452d806d5ab66098ba",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 21.57
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9209nnn/GSM9209852/suppl/GSM9209852_dpSTR_association_Illumina_BC_STRs.tsv.gz",
+      "out": "runs/breakthrough_20261002/batch25/source/GSM9209852_dpSTR_association_Illumina_BC_STRs.tsv.gz",
+      "ts": "2026-10-03T17:18:36+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "11231653",
+      "actual_bytes": 11231653,
+      "sha256": "c61ebdcdfdd42629c41d5ee16588b43d680a99adc817bff9e69ee9f5183eca60",
+      "size_matches_expected": true,
+      "gzip_ok": true,
+      "state": "COMPLETE",
+      "elapsed_s": 24.87
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str_mpra_design/main/design/tss_str_pairs.tsv",
+      "out": "runs/breakthrough_20261002/batch25/source/str_mpra_design_tss_str_pairs.tsv",
+      "ts": "2026-10-03T17:19:02+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "6849016",
+      "actual_bytes": 6849016,
+      "sha256": "44b313a8eddd54cdb873f89126cf64293bddfff6363ac7caee4adfbf1b0e5693",
+      "size_matches_expected": true,
+      "gzip_ok": null,
+      "state": "COMPLETE",
+      "elapsed_s": 4.24
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str_mpra_design/main/design/array_probes.tsv",
+      "out": "runs/breakthrough_20261002/batch25/source/str_mpra_design_array_probes.tsv",
+      "ts": "2026-10-03T17:19:07+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 200,
+      "expected_length": "52780255",
+      "actual_bytes": 52780255,
+      "sha256": "e845f14039b39b741ea75154070b15255d532ea57050577922d2442562b567bf",
+      "size_matches_expected": true,
+      "gzip_ok": null,
+      "state": "COMPLETE",
+      "elapsed_s": 110.83
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design-uber/uber_str_set.bed",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_uber_str_set.bed",
+      "ts": "2026-10-03T17:21:00+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 0.98
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design-uber/uber-v3.oligos.split.tab",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_uber-v3.oligos.split.tab",
+      "ts": "2026-10-03T17:21:02+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 0.73
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gymreklab/str-mpra/main/design-uber/round1_probe_seqs.tab",
+      "out": "runs/breakthrough_20261002/batch25/source/str-mpra_round1_probe_seqs.tab",
+      "ts": "2026-10-03T17:21:04+0800",
+      "proxy": "http://127.0.0.1:7897",
+      "http_status": 404,
+      "state": "FAILED",
+      "error": "HTTPError 404",
+      "elapsed_s": 0.67
+    }
+  ],
+  "accepted_artifacts": {
+    "runs/breakthrough_20261002/batch25/source/GSE306816_family.soft.gz": {
+      "bytes": 5399,
+      "sha256": "a87c008d0fe4b42a19699cec9a4df48515578a0da26bd2f74a0c5d76cd1da7d8",
+      "sha256_recorded_at_download": "a87c008d0fe4b42a19699cec9a4df48515578a0da26bd2f74a0c5d76cd1da7d8",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSE245191_bulk_MPRA_counts_promoters_architecture_positional_effects.txt.gz": {
+      "bytes": 34573785,
+      "sha256": "bc00f86329f8c610644031a3ebb43ea3bc9b775c283772f4ea165e07c40486fe",
+      "sha256_recorded_at_download": "bc00f86329f8c610644031a3ebb43ea3bc9b775c283772f4ea165e07c40486fe",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_association_merged_BC_STRs.tsv.gz": {
+      "bytes": 14224507,
+      "sha256": "af10c00b3521c7ce4ef6f98e6092585d1f9dbc6bf9676fd8691b66425b22b0b7",
+      "sha256_recorded_at_download": "af10c00b3521c7ce4ef6f98e6092585d1f9dbc6bf9676fd8691b66425b22b0b7",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz": {
+      "bytes": 8938608,
+      "sha256": "e86b42d5b7ec2e5ba9145c0f596815d007331c8b868a55a22fb727f81ae37614",
+      "sha256_recorded_at_download": "e86b42d5b7ec2e5ba9145c0f596815d007331c8b868a55a22fb727f81ae37614",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep2.csv.gz": {
+      "bytes": 9481481,
+      "sha256": "83053f99e75bf68e94bdcd82f17891a8a8f39d2e4a68bc758aed41ddc9724c9d",
+      "sha256_recorded_at_download": "83053f99e75bf68e94bdcd82f17891a8a8f39d2e4a68bc758aed41ddc9724c9d",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_BC_cDNA_gDNA_ratio_rep3.csv.gz": {
+      "bytes": 7230108,
+      "sha256": "ed081c5fe0df4d5117b211e56b239c841b61f44bda547c2e92a2be442b7f2fc5",
+      "sha256_recorded_at_download": "ed081c5fe0df4d5117b211e56b239c841b61f44bda547c2e92a2be442b7f2fc5",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR1_HEK293_linear_regression.csv.gz": {
+      "bytes": 1161084,
+      "sha256": "dc17535e6387ad8635793947398ed24add7360728cfdd39c73d47b3930a414b9",
+      "sha256_recorded_at_download": "dc17535e6387ad8635793947398ed24add7360728cfdd39c73d47b3930a414b9",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSE306816_hSTR2_HEK293_BC_cDNA_gDNA_ratio_rep1.csv.gz": {
+      "bytes": 15205619,
+      "sha256": "d244e6b5827fd03aab4e9ec1c01ba24fdf2e0357e5b93e452d806d5ab66098ba",
+      "sha256_recorded_at_download": "d244e6b5827fd03aab4e9ec1c01ba24fdf2e0357e5b93e452d806d5ab66098ba",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/GSM9209852_dpSTR_association_Illumina_BC_STRs.tsv.gz": {
+      "bytes": 11231653,
+      "sha256": "c61ebdcdfdd42629c41d5ee16588b43d680a99adc817bff9e69ee9f5183eca60",
+      "sha256_recorded_at_download": "c61ebdcdfdd42629c41d5ee16588b43d680a99adc817bff9e69ee9f5183eca60",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/str_mpra_design_tss_str_pairs.tsv": {
+      "bytes": 6849016,
+      "sha256": "44b313a8eddd54cdb873f89126cf64293bddfff6363ac7caee4adfbf1b0e5693",
+      "sha256_recorded_at_download": "44b313a8eddd54cdb873f89126cf64293bddfff6363ac7caee4adfbf1b0e5693",
+      "size_matches_download": true
+    },
+    "runs/breakthrough_20261002/batch25/source/str_mpra_design_array_probes.tsv": {
+      "bytes": 52780255,
+      "sha256": "e845f14039b39b741ea75154070b15255d532ea57050577922d2442562b567bf",
+      "sha256_recorded_at_download": "e845f14039b39b741ea75154070b15255d532ea57050577922d2442562b567bf",
+      "size_matches_download": true
+    }
+  },
+  "total_accepted_download_bytes": 161681515,
+  "total_accepted_download_MB": 154.19,
+  "source_dir_file_count": 40,
+  "source_dir_total_bytes": 162386465,
+  "source_dir_total_MB": 154.86,
+  "note_accounting": "The ledger covers the fetch.py attempts; a few small files (GEO SOFT/series_matrix, the two author R scripts, GitHub API listings) were fetched with curl/gh_get.py and are counted in source_dir_total_bytes. Total processed new downloads = 154.86 MB, under the 750 MB cap.",
+  "annotations": [
+    {
+      "issue": "fetch.py bug on first attempt",
+      "detail": "OpenerDirector.open(context=...) TypeError at 17:04:32; fixed to build_opener(ProxyHandler, HTTPSHandler). Zero bytes written.",
+      "severity": "code bug, resolved"
+    },
+    {
+      "issue": "GSE245191 direct (no-proxy) attempt",
+      "detail": "1043 s then IncompleteRead 15,391,581/34,573,785 bytes; abandoned. A resumable curl loop then re-fetched it; both direct routes were far slower than the local proxy route.",
+      "severity": "slow route abandoned; superseded"
+    },
+    {
+      "issue": "GSE245191 concurrent writers",
+      "detail": "The proxy fetch and the resumable curl loop briefly wrote the same path; the 17:16:30 validation read the file mid-write and reported gzip_ok=false although Content-Length matched. The 17:17:03 proxy re-write produced the final validated artifact (sha256 bc00f863..., gzip EOF '0\t0\n'); re-validated independently in this reporting step.",
+      "severity": "race, resolved; final artifact verified"
+    },
+    {
+      "issue": "eutils chunked responses labelled PARTIAL",
+      "detail": "pubmed_41001006_esummary.json and pmc12458280.xml have no Content-Length, so fetch.py could not confirm size and marked them PARTIAL. Both were independently validated complete (JSON parses; XML ends with </pmc-articleset>). No modelling uses them.",
+      "severity": "label only, content complete"
+    },
+    {
+      "issue": "raw.githubusercontent direct SSL failures",
+      "detail": "3 handshake timeouts / RemoteDisconnected (67 s, 47 s, 81 s) before switching to the proxy. All needed GitHub design files were then retrieved in full.",
+      "severity": "route changed; superseded"
+    },
+    {
+      "issue": "GitHub paths not found (404)",
+      "detail": "gymreklab/str-mpra main/design/README.md, main/design-uber/README.md, design-uber/uber_str_set.bed, design-uber/uber-v3.oligos.split.tab, design-uber/round1_probe_seqs.tab all 404. The files referenced in the batch24 proposal note were therefore NOT obtained; the 'uber' library is a different arm and is not required for the frozen hSTR1 task. Repo listing retrieved via the GitHub API instead (gh_*.json).",
+      "severity": "not required; recorded"
+    },
+    {
+      "issue": "hSTR2 association file out of cap",
+      "detail": "GSE306816_hSTR2_association_merged_BC_STRs.tsv.gz is 889,663,314 B (848 MB), which alone exceeds the per-batch processed-download cap; it was never downloaded. The hSTR2 arm is therefore NOT frozen; only the hSTR1 arm is frozen.",
+      "severity": "deliberate scope exclusion"
+    }
+  ]
+}

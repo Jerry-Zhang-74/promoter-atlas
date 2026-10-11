@@ -1,0 +1,17 @@
+[
+  {
+    "seq_id": "short",
+    "length": "100",
+    "activity_log2rpm_pred": "1.370819330215454"
+  },
+  {
+    "seq_id": "medium",
+    "length": "271",
+    "activity_log2rpm_pred": "1.1258083581924438"
+  },
+  {
+    "seq_id": "long",
+    "length": "600",
+    "activity_log2rpm_pred": "1.160210371017456"
+  }
+]

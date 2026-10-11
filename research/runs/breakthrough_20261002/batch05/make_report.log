@@ -1,0 +1,41 @@
+wrote report.txt and report.html
+==============================================================================
+Batch05 实验报告：冻结序列-组件划分下的匹配对比与简单基线
+==============================================================================
+候选: B1=v6.6.0-scratchgene.rc6(repeat_bag)  B2=v6.6.0-scratchgene.rc7(diverse_bag)
+注释基线: v6.6.0-annridge.rc2 (count/44组成/44组成+log1pcount ridge)
+
+【问题】batch04 的 B1/B2 受控对比与“简单注释基线几乎并列”的结论，在冻结序列-组件划分下是否保持。
+
+【冻结划分】exact/RC + detected-near-identity blocked (NOT homology-free)
+  基因数 train=46263 val=5782 test=5782 (目标 80/10/10)；组件数=55402，最大组件基因数=142
+  E 标签定义: rank-scaled [0,1] gene-level expression strength: E_raw(g)=mean over tissues of log2(1+TPM_g,t); Score_E=rank(E_raw)/(n-1). NOT raw tissue mean; gene-level (all promoters share it).
+  精确/RC 跨划分重叠唯一序列数: train_val=0 train_test=0 val_test=0 (必须为0)
+  近邻同源检索(有界,非穷尽): 候选(>=2band)=2891147, minhash预筛后=2712614, 确认近邻对=2068548, 跨基因边=74144
+  残余近邻抽样(跨划分随机对): 0/200000 命中 (有界核查, 非全面同源保证)
+
+【主结果 · 4槽匹配推理 (冻结epoch=0轮换)】
+  验证 gene E: B1 sp=0.5898 r2=0.3253 mae=0.1932 n=5782 | B2 sp=0.7070 r2=0.5031 mae=0.1644 n=5782
+  测试 gene E: B1 sp=0.6044 r2=0.3432 mae=0.1931 n=5782 | B2 sp=0.7096 r2=0.5129 mae=0.1650 n=5782
+
+【B2-B1 配对差异 (组件级bootstrap, 整组件重采样)】
+  val: dSpearman=0.1172 95%CI[0.1028, 0.1330] dR2=0.1778 n基因=5782 n组件=5541
+  test: dSpearman=0.1052 95%CI[0.0910, 0.1195] dR2=0.1697 n基因=5782 n组件=5542
+  非独立说明: 整组件重采样保留组件内基因依赖; 跨组件残余近邻/精确重复未校正; CI为设计条件型。
+
+【匹配设计核查】初始权重 B1==B2: True  参数量相等: True (B1=64257 B2=64257)
+
+【注释基线 (ridge, 组保持训练内折选alpha, 训练内缩放)】
+  count_only   alpha=0.1 test sp=0.6618 r2=0.4085 mae=0.1894 n=5782
+  comp44       alpha=0.1 test sp=0.6602 r2=0.4354 mae=0.1816 n=5782
+  comp44_count alpha=0.1 test sp=0.7231 r2=0.5447 mae=0.1620 n=5782
+  最优训练内选基线=comp44_count (inner_val sp=0.7102, alpha=0.1); 其测试 sp=0.7231 r2=0.5447
+  B2 测试 sp=0.7096 与最优基线差=-0.0135 (负值=基线占优, 不隐藏基线损失)
+
+【证据阈值】B2-B1 测试 dSpearman=0.1052, 组件bootstrap CI[0.0910, 0.1195], 达到>=.03且下界>0: True
+  (单种子=>种子稳健性未解决; 这是批次决策阈值, 不代表可靠构建活性, 不停止研究)
+
+【恢复验证】权重哈希一致=True 最大权重绝对差=0.0 首batch一致=True
+
+
+DONE

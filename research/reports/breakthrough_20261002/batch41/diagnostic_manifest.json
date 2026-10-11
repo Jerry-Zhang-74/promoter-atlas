@@ -1,0 +1,211 @@
+{
+ "batch": "batch41",
+ "version": "v6.28.0-hekft-fragment-benchmark.rc1",
+ "record_type": "diagnostic_manifest_FROZEN_BEFORE_FORWARD",
+ "frozen_at": "2026-10-04T02:06:51+0800",
+ "pid": 13128,
+ "frozen_before_any_forward": true,
+ "frozen_before_model_output_joining": true,
+ "rows": {
+  "biological": 7537,
+  "controls": 85,
+  "total": 7622
+ },
+ "input_contract": {
+  "input": "exact 270bp genomic insert = raw[15:285] of the author synthetic oligo (300bp=FWD15+270+REV15)",
+  "per_design_only": true,
+  "no_RC_ensemble": true,
+  "no_window": true,
+  "no_extra_adapter": true,
+  "no_reference_DNA_fill": true,
+  "PARM_padding": "official central zero-padding to L_max=600 (bare FASTA)",
+  "H1_input": "same 270bp insert, full-sequence 4/5-mer spectrum kernel (forward only)"
+ },
+ "labels": {
+  "primary": "MPRAnalyze getAlpha activity (condition V1; uq depth factors; 3 DNA + 3 RNA aggregate)",
+  "author_ascertainment": "upstream DNA-sum>=50 filter",
+  "secondary_not_primary_truth": [
+   "z",
+   "mad",
+   "p_empirical",
+   "p_mad",
+   "p_z"
+  ],
+  "kept_labels": "all (zero/negative/NA/nonsignificant kept); no activity-threshold or p-value selection",
+  "alpha_positive_all": true,
+  "alpha_finite_all": true,
+  "alpha_min": 0.805672690717579,
+  "alpha_max": 1.84354241131268,
+  "note": "apparently all-positive alpha; VERIFIED here, not enforced"
+ },
+ "sources": {
+  "design_sha256": "a61f3d7624bdc1cd6066cb0cfb015d482e2994885cf321da9e0bdb7e753aa82b",
+  "design_bytes": 429038,
+  "join_source": "reports\\breakthrough_20261002\\batch40\\joined_target.tsv",
+  "s5_raw_json": "data\\breakthrough_20261002\\batch39\\s5_rows_raw.json",
+  "batch22_sequence_table_sha256": "e6ea09134202bf6008a326ffe38cf3fd3acc003ae899845861f42d8c2e88b548",
+  "batch22_fold_assignment_sha256": "f58589bb16632da7fc89c49cc2d20f8af2ba265449e58c7406f58d3a679ee82a"
+ },
+ "model_assets": {
+  "PARM_weights_sha256": {
+   "HEK293_fold0.parm": "c311c2fbc107a561c173c70e702f24389fdc4bd8d925ae42bde8f627400fe602",
+   "HEK293_fold1.parm": "4f5a9375282cd9cb628d4edf3cebe823c42776dda6b1664457c8322afe776cd5",
+   "HEK293_fold2.parm": "3a11f6f99977d0a1329532a1612320787d2ea3c37d5b68cd36f842ce520efb6d",
+   "HEK293_fold3.parm": "e051e4ed0ab0871a5cd722d633165d0784b16c9270291c55808be57cd156520b",
+   "HEK293_fold4.parm": "cf8827f62830ceac1e08bb0eaca7f00e73e7afffedaf201a11556edb36c29aaf"
+  },
+  "PARM_L_max": 600,
+  "PARM_filter_size": 125,
+  "PARM_type_loss": "poisson",
+  "PARM_aggregation": "equal mean of 5 HEK293 folds",
+  "H1_gram_sha256": "45b5c161ad7c63f7831e2d466ba82e92b71325500520659b159afc02138cd5ad",
+  "H1_weights_sha256": {
+   "attempt_fold0_H1/weights.npz": "95572fcd20f44508ed138492bb3d8863b0225fbeb5b30f5c81fa329653d9f305",
+   "attempt_fold1_H1/weights.npz": "91c4244ba2869e385db1121d4ed5bb2ba1b3533982590a9f0cccfa0d9c11b29b",
+   "attempt_fold2_H1/weights.npz": "a2fc6bed890b15d7ac5d5d001a1dadad3a9dfa4d7d8caa1e3f7a984799ea8b3e",
+   "attempt_fold3_H1/weights.npz": "90ed323f169944e9234f2f032cac887745ae8a93178891aacbf14477faa7bac5",
+   "attempt_fold4_H1/weights.npz": "68efa573e66081b464ca71d1bd6f329706455728f98cd59d10f28cb6c053c0b4"
+  },
+  "H1_alpha_ridge": 1.0,
+  "H1_aggregation": "equal mean of 5 folds",
+  "GC_baseline": "GC fraction of the 270bp insert (higher GC -> higher activity, no fitted sign)",
+  "length_baseline": "constant 270 -> rho UNDEFINED (not scored)"
+ },
+ "groups": {
+  "definition": "label-free overlapping-270bp-window components (step90 merge per chromosome) + merge of shared exact/RC inserts where actually recovered",
+  "n_components": 306,
+  "chr17_components": 184,
+  "non_chr17_components": 122,
+  "shared_exact_or_rc_merges_among_distinct_labels": 0,
+  "not_independent_cre_families": true,
+  "size_histogram": {
+   "1": 19,
+   "2": 12,
+   "3": 13,
+   "4": 6,
+   "5": 9,
+   "6": 9,
+   "7": 7,
+   "8": 9,
+   "9": 11,
+   "10": 12,
+   "11": 17,
+   "12": 13,
+   "13": 13,
+   "14": 11,
+   "15": 8,
+   "16": 3,
+   "17": 8,
+   "18": 14,
+   "19": 11,
+   "20": 4,
+   "21": 3,
+   "22": 6,
+   "23": 5,
+   "24": 4,
+   "25": 9,
+   "26": 4,
+   "27": 2,
+   "28": 3,
+   "29": 3,
+   "32": 1,
+   "33": 4,
+   "34": 1,
+   "35": 6,
+   "36": 1,
+   "38": 3,
+   "40": 1,
+   "41": 2,
+   "42": 1,
+   "43": 1,
+   "44": 1,
+   "45": 2,
+   "48": 2,
+   "49": 2,
+   "50": 1,
+   "52": 2,
+   "53": 1,
+   "56": 3,
+   "58": 1,
+   "59": 1,
+   "61": 1,
+   "66": 1,
+   "74": 1,
+   "75": 1,
+   "76": 1,
+   "77": 1,
+   "78": 1,
+   "81": 2,
+   "100": 1,
+   "106": 2,
+   "107": 1,
+   "113": 1,
+   "147": 1,
+   "171": 1,
+   "176": 1,
+   "199": 1,
+   "220": 1,
+   "225": 1,
+   "597": 1
+  }
+ },
+ "dedup": {
+  "unique_sequences": 7622,
+  "max_unique_scored_per_model": 7622,
+  "note": "at most 7622 unique sequences scored once per model; dedup by sequence SHA"
+ },
+ "strata": {
+  "chr17_bio": 5868,
+  "non_chr17_bio": 1669
+ },
+ "design_only_excluded": {
+  "coordinate_biological_no_s5_truth": 1407,
+  "scrambled_controls_no_s5_truth": 15,
+  "role": "retained as counts only; excluded from performance"
+ },
+ "metric_plan": {
+  "primary": "pooled 7537 finite bio Spearman(alpha, pred) for PARM, H1, GC; paired rho differences",
+  "no_cross_unit": "no MAE/R2/log of PARM across output units; no calibration",
+  "gc_null": "constant or undefined GC -> null with reason (not 0)",
+  "top_decile": "k=ceil(0.1*n); deterministic ID tie-break; precision/enrichment vs same-alpha ranks; report true/pred ties",
+  "strata_report": [
+   "chr17 (expected 5868)",
+   "non-chr17 (expected 1669)",
+   "pooled"
+  ],
+  "per_component": "rho for components with >=10 finite/nonconstant rows; macro-average + n_eligible + size histogram",
+  "bootstrap": "paired 2000 component-resampling (with multiplicity) for rho/delta-rho/top10 if >=30 eligible components; CONDITIONAL uncertainty (residual regional dependence)",
+  "loco": "leave-one-chromosome-out pooled rho sensitivity (NO FITS); no formal chromosome CI",
+  "controls": "n=85 descriptive score-vs-alpha + ranked distribution only; not mixed into primary rho",
+  "model_spread": "5-fold spread = disagreement, NOT a CI",
+  "disclose": [
+   "one MAPT regional concentration",
+   "prior PARM/H1 training exposure UNKNOWN",
+   "retrospective transfer, not prospective or strict new family"
+  ]
+ },
+ "decision_rule": {
+  "frozen": true,
+  "supported_if_all": [
+   "PARM pooled rho >= 0.30",
+   "PARM minus H1 rho >= 0.05 with conditional paired-difference CI lo > 0",
+   "PARM top10 precision >= H1 top10 precision",
+   "PARM non-chr17 rho > 0 with no audit failure"
+  ],
+  "else": "LIMITED (if H1 unsupported/CI undefined -> LIMITED)",
+  "not_a_promotion": "operational resource decision only; does not replace old H1 MAE10% gate / local D28 FAIL",
+  "no_rescue_by": [
+   "strongest chromosome",
+   "subset",
+   "GC flip",
+   "automatic finetuning"
+  ]
+ },
+ "readout_assets": {
+  "parm": "official PARM HEK293 5 folds (restrictive license; local academic use; no redistribution)",
+  "h1": "batch24 fixed spectrum-kernel ridge readouts (inference only; existing weights)",
+  "gc": "no asset"
+ },
+ "frozen_input_table": "data\\breakthrough_20261002\\batch41\\frozen_input_table.tsv",
+ "elapsed_s": 0.171
+}

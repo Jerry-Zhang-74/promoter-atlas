@@ -1,0 +1,47 @@
+{
+  "report_version": "metrics-snapshot-20261003-r1",
+  "snapshot_clock": "2026-10-03T09:18:13+08:00",
+  "protocol": "runs/breakthrough_20261002/batch14/PROTOCOL.txt",
+  "sources": [
+    {
+      "key": "batch09_metrics",
+      "path": "reports/breakthrough_20261002/batch09/metrics.json",
+      "sha256": "1e95e51525163cb1ba9cef6f3988dc363ed6c6ffd2e9f5306b464ac02620b016"
+    },
+    {
+      "key": "batch10_metrics",
+      "path": "reports/breakthrough_20261002/batch10/metrics.json",
+      "sha256": "eb7928e5736a058248ac172aef409ec6f1a1d4d856b730fe067718ec56f774ab"
+    },
+    {
+      "key": "batch13_metrics",
+      "path": "reports/breakthrough_20261002/batch13/metrics.json",
+      "sha256": "780d1ca37b960d8290adc08cd4ed217a4b5d71fd4997371b325d8afee080181b"
+    },
+    {
+      "key": "batch13_review",
+      "path": "reports/breakthrough_20261002/batch13/independent_review.json",
+      "sha256": "ac70d9e3e6040d7391abdafc4eb56b740299c711999c2df74f86edc6e1f6f46b"
+    },
+    {
+      "key": "batch13_oof",
+      "path": "data/breakthrough_20261002/batch13/oof_predictions.tsv",
+      "sha256": "3aea9d2ddfbd4890c573dafc8b65d5b549ad94438645868af412c35a21f7cf47"
+    },
+    {
+      "key": "batch06_review",
+      "path": "reports/breakthrough_20261002/batch06/independent_review.json",
+      "sha256": "43d2399e886328b541caee193aad5785f7c2239a81a9424ee9483a1a5f93537d"
+    },
+    {
+      "key": "batch06_pred",
+      "path": "reports/breakthrough_20261002/batch06/predictions/pred_v6.7.0-residualgene.rc1.tsv",
+      "sha256": "0a35bbe9b7add35d1229846d9753a65ade7cffc7cbbf3cdd9556ac9e4faa1ec9"
+    },
+    {
+      "key": "cellline_metrics",
+      "path": "reports/cellline_v2_20261001/model_metrics.tsv",
+      "sha256": "08f62cd36465cd19ceaf90211271512d16a872d7208ba33b3b8257bd97c7c6ac"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+name	v2_long_both
+seq_len	2000
+features	both
+feat_dim	80
+device	cuda
+params	324867
+train_rows	336684
+epoch 0 | loss 0.2796 | val E r2=0.1535 sp=0.4246 S r2=-0.4641 sp=0.1018 B r2=0.1382 sp=0.3999 | combined 0.3055
+epoch 1 | loss 0.0986 | val E r2=0.2405 sp=0.4613 S r2=-0.4402 sp=0.1804 B r2=0.2136 sp=0.4439 | combined 0.3586
+epoch 2 | loss 0.0893 | val E r2=0.2659 sp=0.4870 S r2=0.0055 sp=0.2365 B r2=0.2296 sp=0.4654 | combined 0.3939
+epoch 3 | loss 0.0824 | val E r2=0.2685 sp=0.4779 S r2=0.0246 sp=0.2541 B r2=0.2409 sp=0.4626 | combined 0.3958
+epoch 4 | loss 0.0771 | val E r2=0.1999 sp=0.4870 S r2=0.0304 sp=0.2517 B r2=0.1608 sp=0.4639 | combined 0.3989
+epoch 5 | loss 0.0727 | val E r2=0.2295 sp=0.4809 S r2=0.0266 sp=0.2529 B r2=0.1931 sp=0.4681 | combined 0.3979
+epoch 6 | loss 0.0691 | val E r2=0.2222 sp=0.4863 S r2=0.0223 sp=0.2494 B r2=0.1826 sp=0.4681 | combined 0.3988
+epoch 7 | loss 0.0659 | val E r2=0.1556 sp=0.4768 S r2=-0.0450 sp=0.2695 B r2=0.1380 sp=0.4688 | combined 0.4022
+epoch 8 | loss 0.0621 | val E r2=0.1967 sp=0.4813 S r2=-0.0046 sp=0.2425 B r2=0.1342 sp=0.4550 | combined 0.3912
+epoch 9 | loss 0.0584 | val E r2=0.2418 sp=0.4628 S r2=0.0488 sp=0.2688 B r2=0.2056 sp=0.4446 | combined 0.3904
+epoch 10 | loss 0.0551 | val E r2=0.2274 sp=0.4636 S r2=0.0373 sp=0.2602 B r2=0.1950 sp=0.4426 | combined 0.3871
+epoch 11 | loss 0.0509 | val E r2=0.2183 sp=0.4462 S r2=0.0413 sp=0.2646 B r2=0.1817 sp=0.4349 | combined 0.3798
+epoch 12 | loss 0.0464 | val E r2=0.1521 sp=0.4485 S r2=0.0025 sp=0.2436 B r2=0.0851 sp=0.4319 | combined 0.3726
+epoch 13 | loss 0.0422 | val E r2=0.2099 sp=0.4475 S r2=0.0238 sp=0.2401 B r2=0.1721 sp=0.4285 | combined 0.3702
+epoch 14 | loss 0.0375 | val E r2=0.1683 sp=0.4332 S r2=-0.0168 sp=0.2285 B r2=0.1218 sp=0.4105 | combined 0.3559
+epoch 15 | loss 0.0329 | val E r2=0.1414 sp=0.4079 S r2=-0.0598 sp=0.2185 B r2=0.0995 sp=0.3976 | combined 0.3391
+epoch 16 | loss 0.0285 | val E r2=0.1548 sp=0.4294 S r2=-0.0707 sp=0.2185 B r2=0.1145 sp=0.4139 | combined 0.3517
+epoch 17 | loss 0.0248 | val E r2=0.1193 sp=0.3906 S r2=-0.0541 sp=0.2159 B r2=0.0942 sp=0.3805 | combined 0.3269
+epoch 18 | loss 0.0218 | val E r2=0.1183 sp=0.3952 S r2=-0.1955 sp=0.1909 B r2=0.0803 sp=0.3836 | combined 0.3208
+epoch 19 | loss 0.0194 | val E r2=0.0785 sp=0.3998 S r2=-0.3319 sp=0.1656 B r2=0.0277 sp=0.3859 | combined 0.3144
+epoch 20 | loss 0.0178 | val E r2=0.1001 sp=0.3981 S r2=-0.3377 sp=0.1715 B r2=0.0510 sp=0.3805 | combined 0.3144
+epoch 21 | loss 0.0167 | val E r2=0.0775 sp=0.3947 S r2=-0.4349 sp=0.1604 B r2=0.0267 sp=0.3771 | combined 0.3083
+epoch 22 | loss 0.0158 | val E r2=0.0713 sp=0.3948 S r2=-0.5107 sp=0.1537 B r2=0.0173 sp=0.3766 | combined 0.3058
+epoch 23 | loss 0.0154 | val E r2=0.0803 sp=0.3915 S r2=-0.4735 sp=0.1586 B r2=0.0331 sp=0.3742 | combined 0.3057
+epoch 24 | loss 0.0152 | val E r2=0.0774 sp=0.3912 S r2=-0.4921 sp=0.1567 B r2=0.0284 sp=0.3738 | combined 0.3048

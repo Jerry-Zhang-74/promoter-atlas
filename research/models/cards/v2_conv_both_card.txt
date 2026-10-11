@@ -1,0 +1,6 @@
+name	v2_conv_both
+features	both
+feat_dim	80
+device	cuda
+params	218179
+test_metrics	{"Score_E_r2": 0.2529087227581108, "Score_E_spearman": 0.4866417853989203, "Score_E_n": 44387, "Score_S_r2": 0.09060225936803423, "Score_S_spearman": 0.3179043424904528, "Score_S_n": 29467, "Score_B_r2": 0.2353831796977689, "Score_B_spearman": 0.4925252943695852, "Score_B_n": 44387, "combined_spearman": 0.4290545576236229}

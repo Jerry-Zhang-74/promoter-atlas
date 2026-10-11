@@ -1,0 +1,7 @@
+name	v2_long_nobn
+seq_len	2000
+features	none
+feat_dim	0
+device	cuda
+params	312579
+test_metrics	{"Score_E_r2": 0.3072134019528765, "Score_E_spearman": 0.552412604290745, "Score_E_n": 44387, "Score_S_r2": 0.04117527045283187, "Score_S_spearman": 0.26539539283252267, "Score_S_n": 29467, "Score_B_r2": 0.2796837548646489, "Score_B_spearman": 0.5470167960693888, "Score_B_n": 44387, "combined_spearman": 0.45060762822502815}

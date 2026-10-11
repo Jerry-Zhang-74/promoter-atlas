@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-10-04T09:36:42.082125+08:00",
+  "source": {
+    "path": "data/breakthrough_20261002/batch51/GSE301246_PARM_Training_Library_v2_MH4_normalized_fold0.bed.gz",
+    "bytes": 103144961,
+    "sha256_observed": "1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96",
+    "sha256_expected": "1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96",
+    "match": true
+  },
+  "reference": {
+    "path": "data/breakthrough_20261002/batch52/reference/GRCh37.primary_assembly.fa.gz",
+    "bytes": 869923173,
+    "bytes_expected": 869923173,
+    "sha256_observed": "0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865",
+    "sha256_expected": "0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865",
+    "match": true,
+    "assembly": "hg19 / GRCh37 Ensembl primary_assembly",
+    "proxy_not_donor_clone": true,
+    "note": "reference-encoded sequence is a proxy for donor HG02601; NOT clone sequence and NOT local 293FT validation"
+  },
+  "chrom_prefixes": {
+    "chr1": 80892,
+    "chr10": 27146,
+    "chr11": 44862,
+    "chr12": 41772,
+    "chr13": 11149,
+    "chr14": 27446,
+    "chr15": 28441,
+    "chr16": 35048,
+    "chr17": 52323,
+    "chr18": 11855,
+    "chr19": 51513,
+    "chr2": 48570,
+    "chr20": 22104,
+    "chr21": 7632,
+    "chr22": 16614,
+    "chr3": 46856,
+    "chr4": 26764,
+    "chr5": 36575,
+    "chr6": 35698,
+    "chr7": 32373,
+    "chr8": 30503,
+    "chr9": 20015,
+    "chrX": 25504
+  },
+  "n_distinct_chrom": 23,
+  "canonical_only": true,
+  "noncanonical": {}
+}

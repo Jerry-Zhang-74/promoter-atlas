@@ -1,0 +1,92 @@
+{
+  "batch": "batch60",
+  "byte_identity_proof": {
+    "all_non_revised_bytes_identical": true,
+    "claim": "weight/config/pinned_core/predict/normalizer/results/requirements bytes identical to the batch59 reviewed flat ZIPs; only docs + MODEL_MANIFEST version + mutable STAGING_STATUS + SHA256SUMS differ.",
+    "per_arm": {
+      "Nabs": {
+        "identical_files": 15,
+        "unexpected_changes": []
+      },
+      "Njoint": {
+        "identical_files": 15,
+        "unexpected_changes": []
+      }
+    }
+  },
+  "clock": "2026-10-04T10:55:27.735689+08:00",
+  "corrects": "batch59 v6.38.0-first-second-release-verification (minor findings F1/F2/F3)",
+  "defects_closed": {
+    "F1": "LICENSE_NOTES.md optimizer/RNG prose corrected (checkpoint IS a complete training checkpoint with optimizer/scheduler/sampler/RNG entries; no validated exact-resume claim; checkpoint bytes UNCHANGED, not stripped).",
+    "F2": "SHA256SUMS.txt root-relative flat; every listed literal path/hash resolves after fresh extraction of BOTH archives; all extracted files except SHA256SUMS.txt covered exactly once.",
+    "F3": "EN/ZH commands use root predict.py + portable python placeholder; no stale absolute workspace path or old version name."
+  },
+  "delivery_state": "READY_PENDING_INDEPENDENT_REVIEW",
+  "first_model": {
+    "base_files_byte_identical_count": 15,
+    "covered_exactly_once": true,
+    "dir": "releases/batch52_first_model/v6.38.1-nabs-final",
+    "ready": true,
+    "shared_scientific_bytes_identical_to_b59": true,
+    "sums_entries": 22,
+    "sums_pass": true,
+    "sums_paths_literal_resolve": true,
+    "version": "v6.38.1-nabs-final",
+    "weight_sha256": "17a6f622c3d684743d75263af958cb71dad6f13f99e57f6fc69d5336e74c130f",
+    "weight_sha_match": true,
+    "zip": "releases/batch52_first_model/v6.38.1-nabs-final-flat.zip",
+    "zip_crc_ok": true,
+    "zip_members": 23,
+    "zip_sha256": "b1010bafb345a232e48ad4f746f8fa9e0497ff7bf8a75be7713ce4d577ef5b31"
+  },
+  "inherited_runtime_proof": {
+    "batch59_independent_review": "reports/breakthrough_20261002/batch59/independent_review.json",
+    "batch59_smoke": "reports/breakthrough_20261002/batch59/smoke_boundary.json",
+    "note": "CUDA runtime NOT replayed in batch60: release code/config/weights are exact-SHA unchanged from the b59 bundles, so the batch59 independent runtime proof is inherited, not re-run."
+  },
+  "kind": "CORRECTED flat-layout distribution of the two genuinely trained, already independently CUDA-verified models; bounded repair of three packaging/documentation defects",
+  "no_email": true,
+  "no_upload_or_publication": true,
+  "remaining_work": [
+    "independent fresh review of the corrected archives (reports/breakthrough_20261002/batch60/independent_review.json)",
+    "atomic registry append (release revision only; production pointer unchanged)"
+  ],
+  "scientific_results_unchanged": true,
+  "scientific_scope": {
+    "epochs": {
+      "complete": 6,
+      "note": "selected checkpoint is after the 5th epoch",
+      "selected_epoch_zero_based": 4
+    },
+    "first_model": "Nabs (predeclared first)",
+    "global_step_note": "531860 is historical sample count, NOT actual optimizer steps (b53 defect; not hidden)",
+    "gt_600": "UNSUPPORTED (no windowing)",
+    "local_293FT": "UNVALIDATED",
+    "pair_comparison": "FAIL preserved: Njoint improvement ~0.12% < predeclared 10%; bootstrap CI includes 0",
+    "public_HEK293": "retrospective frozen-group split on author GSE301246 fold0 (target Log2RPM_HEK293)",
+    "reference_proxy": "GRCh37/hg19 proxy, NOT the donor clone sequence",
+    "supported_length_bp": [
+      100,
+      600
+    ]
+  },
+  "second_model": {
+    "base_files_byte_identical_count": 15,
+    "covered_exactly_once": true,
+    "dir": "releases/batch52_second_model/v6.38.1-njoint-final",
+    "ready": true,
+    "shared_scientific_bytes_identical_to_b59": true,
+    "sums_entries": 22,
+    "sums_pass": true,
+    "sums_paths_literal_resolve": true,
+    "version": "v6.38.1-njoint-final",
+    "weight_sha256": "c2698adde33155e28eace574e05dd42d4eef737002e0c68084053ea9dccb0cee",
+    "weight_sha_match": true,
+    "zip": "releases/batch52_second_model/v6.38.1-njoint-final-flat.zip",
+    "zip_crc_ok": true,
+    "zip_members": 23,
+    "zip_sha256": "7d79248404add390fa470f19bc2e7300f486ef95f446ec6a53c454ed02d78c36"
+  },
+  "verification": "reports/breakthrough_20261002/batch60/verification.json",
+  "version": "v6.38.1-release-layout-fix"
+}

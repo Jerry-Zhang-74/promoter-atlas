@@ -1,0 +1,67 @@
+{
+  "candidate_version": "v6.15.1-release.rc1",
+  "source_candidate": "v6.15.0-multitask.rc1 (batch16 weights; packaging/provenance repair only)",
+  "generated_at_local": "2026-10-03T11:16:07+0800",
+  "architectures_shipped": {
+    "selected": "independent (arm A)",
+    "reference_seed": 20261016,
+    "rejected": [
+      "B shared",
+      "C shared+aux"
+    ]
+  },
+  "model_files": {
+    "E": {
+      "source": "models\\breakthrough_20261002\\batch16\\A_s20261016\\model_E.pt",
+      "sha256": "9f33f8e65b6f0c26209980b55d347b54c49e72fabc94ee4b84ebd987643cab79"
+    },
+    "S": {
+      "source": "models\\breakthrough_20261002\\batch16\\A_s20261016\\model_S.pt",
+      "sha256": "2e5fff2539645ada2e5e21a2ecdd3ab5d216f258da423548e8d5da873da4d214"
+    },
+    "B": {
+      "source": "models\\breakthrough_20261002\\batch16\\A_s20261016\\model_B.pt",
+      "sha256": "c45af0344717ac1f253853b38adeb6cbbdfea74e97f801f3ed7bba1ad3833aeb"
+    }
+  },
+  "package_files_sha256": {
+    "code/example_expected_output.json": "64308a9ab53dd0c92bc35c07c15236fd0310345683d0eff177c4c24a387bbdae",
+    "code/example_input.npz": "06e515cf5764d35291ce34384dded2efe93304277b8af626644c34d5f8cb7f65",
+    "code/promoter_atlas_predict.py": "c94d3955b81a0b154e18c616cca874a3864958b9c6c90defe3ebca44da8a5077",
+    "code/run_example.py": "56172e28ec482075e76f5e97eafe16716148881d3f281f3c34ffea1ee0db956f",
+    "environment.json": "933cd0e30732a2fb14b653e779d98b484023499a2359e6e5f99d0d9304e7fef8",
+    "labels/README.md": "c6182db8d52a35d4ef2c19f8e1a0749fab76e563dafab70ab1c7725647c9fe9d",
+    "MODEL_CARD.md": "cc75ebd48b2d1e71aa917c6a8f015755d3da004587a3662e42bdcdd6fea2dfec",
+    "models/model_B.pt": "c45af0344717ac1f253853b38adeb6cbbdfea74e97f801f3ed7bba1ad3833aeb",
+    "models/model_E.pt": "9f33f8e65b6f0c26209980b55d347b54c49e72fabc94ee4b84ebd987643cab79",
+    "models/model_S.pt": "2e5fff2539645ada2e5e21a2ecdd3ab5d216f258da423548e8d5da873da4d214",
+    "negative_ablation_results.json": "275b6b10d0ae2948895e0b94614aa0e09344483d9dd823f36897812e328ed500",
+    "README.md": "3283336f8db4a4f81f9e4fec5ad1b74483cb4c900ec18b06b5d088dd2a22a1e8",
+    "requirements.txt": "0acd50ceb0d64f3cadeb1e66137ede37880418d64373f81ee5dfa458941a225a",
+    "schema.json": "85307c004b9ee4140d8e1221b446fcaae74cdc0f47f656852f9e3c0e24e8282a",
+    "transforms/scalers.npz": "221dc91e916be89d9e087840eabaedf039b19986cba5e1ad3c7091d6c2fb693b"
+  },
+  "source_references": {
+    "batch16_deployment_bundle": "models/breakthrough_20261002/batch16/deployment_bundle.json",
+    "batch16_neural_results": "models/breakthrough_20261002/batch16/neural_results.json",
+    "batch16_comparison": "reports/breakthrough_20261002/batch16/comparison.json",
+    "batch16_independent_review": "reports/breakthrough_20261002/batch16/independent_review.json",
+    "batch17_corrected_metrics": "reports/breakthrough_20261002/batch17/corrected_release_metrics.json",
+    "batch17_numeric_source_table": "reports/breakthrough_20261002/batch17/corrected_release_metrics.tsv",
+    "resume_diagnostic": "reports/breakthrough_20261002/batch17/resume_diagnostic.json"
+  },
+  "split": {
+    "name": "corrected component-union (batch05 exact/RC+forward-near-identity components + batch15 confirmed RC edges), hash fold allocation",
+    "sha256": "9b323318d5dc12fcd45d5db18aba70c41983b2130fd013e9f12b743caddde69f"
+  },
+  "packaged_vs_saved_prediction_crosscheck": {
+    "n_comparisons": 9,
+    "max_absdiff": 3.5582296641356592e-06,
+    "tolerance": 1e-05,
+    "verdict": "PASS"
+  },
+  "notes": [
+    "weights are unchanged batch16 fits; version bump is packaging only",
+    "no training assets required to run the example"
+  ]
+}

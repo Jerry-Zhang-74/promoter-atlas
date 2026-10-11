@@ -1,0 +1,115 @@
+{
+ "batch": "batch40",
+ "version": "v6.27.1-oligo-design-gate.rc1",
+ "generated_at": "2026-10-04T01:43:17+0800",
+ "excludes": [
+  "sha_manifest.json",
+  "status.json",
+  "worker_selfcheck.json",
+  "remaining_work.json",
+  "next_batch_proposal.json",
+  "independent_review.json",
+  "independent_reviewer.jsonl",
+  "review artifacts",
+  "mail artifacts"
+ ],
+ "production_pointer_note": "v6.3 main / v6.4 cellline pilot unchanged",
+ "files": {
+  "code/batch40/fetch_candidate.py": {
+   "sha256": "ddf3974655612f7d5e888029c108e6a2aa6e77bc603dbe320edfea391619f59f",
+   "bytes": 4040
+  },
+  "code/batch40/census.py": {
+   "sha256": "e4995e40aab4328e2c064726cd7fb5be6cf8c49e0076a0d1a1dbdbd9c75687cd",
+   "bytes": 2585
+  },
+  "code/batch40/join_gate.py": {
+   "sha256": "54c79eba99c8c1ee47bf33a817316a7ad7c7e89729e7ba5987ff1b6eb4335f9d",
+   "bytes": 4182
+  },
+  "code/batch40/validate_measured_dna.py": {
+   "sha256": "557c05c3815ce969b6c8ec38637c3d9a80d1a6062ebe2ad929a706c9e2266965",
+   "bytes": 3103
+  },
+  "code/batch40/finalize.py": {
+   "sha256": "dae780bfb0052a6e4aed285f024fe6cf7769058995462e62f5ad50a296a67f92",
+   "bytes": 6027
+  },
+  "code/batch40/grouping.py": {
+   "sha256": "b1f65d25506d5943af4fe4b16617797fbf512fc1ce3667b1053503f5d9f35010",
+   "bytes": 1834
+  },
+  "code/batch40/report_writer.py": {
+   "sha256": "b8831e66c03d1dd44fb275157a5522855e3dfbbb58c928d3509ba8af388335e4",
+   "bytes": 7942
+  },
+  "code/batch40/finalize_meta.py": {
+   "sha256": "966cbb90c4eee568e8269965dfb0f79b2a81f133a07ccb0a507047a89f38f290",
+   "bytes": 7268
+  },
+  "data/breakthrough_20261002/batch40/source/source_fetch_log.json": {
+   "sha256": "2598ba8defb7e6fc6cee9ca012150ea0ff591338d6096d8a9f3359adf3af5de8",
+   "bytes": 983
+  },
+  "data/breakthrough_20261002/batch40/source/GSM9580234_design_rmIllegalChars.fa.gz": {
+   "sha256": "a61f3d7624bdc1cd6066cb0cfb015d482e2994885cf321da9e0bdb7e753aa82b",
+   "bytes": 429038
+  },
+  "data/breakthrough_20261002/batch40/census.json": {
+   "sha256": "63843ea183714eee5126a78290ba1583197698812b524f2e41417006cc63875e",
+   "bytes": 1021
+  },
+  "data/breakthrough_20261002/batch40/join_gate.json": {
+   "sha256": "6fa17ed4283f4af4c82730ec9c43d4fa5f5faea873957d299e6779f4359778d7",
+   "bytes": 945
+  },
+  "data/breakthrough_20261002/batch40/measured_dna_validation.json": {
+   "sha256": "a9dff26aff7146e3fd324e02fe02eada210e807828c0f71bfdcefe1fc237921d",
+   "bytes": 402
+  },
+  "data/breakthrough_20261002/batch40/grouping.json": {
+   "sha256": "4e9f790a1a15914daa185c0b98e12379fbcb12abc1ccae3ea85f5efb7c4255a3",
+   "bytes": 2179
+  },
+  "reports/breakthrough_20261002/batch40/joined_target.tsv": {
+   "sha256": "5eca6a727a7b11114b38082f99dd4817bb6fecf794b2c774e88fc7d162b6037c",
+   "bytes": 6236041
+  },
+  "reports/breakthrough_20261002/batch40/design_270bp_inserts.fa": {
+   "sha256": "9513cd9d138219016b2ac2ed5dcdb69b6d42c09e2f62ab7b9fa06bf942d27b7a",
+   "bytes": 2408923
+  },
+  "reports/breakthrough_20261002/batch40/stratified_joins.tsv": {
+   "sha256": "39ddbc210adc7a7a7d3afbf469370315df9f0ddaebfb18954104d6a2dab58ab3",
+   "bytes": 3477
+  },
+  "reports/breakthrough_20261002/batch40/readiness_gate.json": {
+   "sha256": "faacd37b61a61d71485e3b30a697fcaefbf28e2667c6b3f8a75244a7131931b6",
+   "bytes": 1619
+  },
+  "reports/breakthrough_20261002/batch40/target_context_spec.json": {
+   "sha256": "db81ddd7f454d7266c4398f9a9ceeb507ae44ec1b5498c168d2bff7cd105647a",
+   "bytes": 2823
+  },
+  "reports/breakthrough_20261002/batch40/source20_check.json": {
+   "sha256": "832cd0c346356c9817e3287449bbd23b1d68f0c07638f41afd2080cbae9bfb2e",
+   "bytes": 713
+  },
+  "reports/breakthrough_20261002/batch40/addendum_correcting_b39.json": {
+   "sha256": "af4d88e34e6029f24228a36d654f1dc692c4ca6277e0fcc121db33fb33d32c80",
+   "bytes": 1374
+  },
+  "reports/breakthrough_20261002/batch40/source_audit_table.tsv": {
+   "sha256": "49cae19888b4f481377bf2e4076a19f59cfb7a54e2b6dcd39eee63d0a8a5d6e6",
+   "bytes": 284
+  },
+  "reports/breakthrough_20261002/batch40/data_readiness_report.md": {
+   "sha256": "81fb6884f273bbe6fdb52fcfa1e32ddddf6f67e64bdbabbc171fe03229a165bc",
+   "bytes": 4896
+  },
+  "reports/breakthrough_20261002/batch40/version_registry_entry.json": {
+   "sha256": "8412386e741d872750231192ac86f0674a7b1c2d642e2a302bd7efbf52d46a95",
+   "bytes": 1510
+  }
+ }
+}

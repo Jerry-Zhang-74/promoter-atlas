@@ -1,0 +1,91 @@
+batch57 OWNER FIX HANDOFF -- v6.38.1-model-core-critical-repair.rc2
+====================================================================
+Location (NEW, original batch53 bytes preserved untouched):
+  runs/breakthrough_20261002/code/batch57_model_core_rc2
+Drop-in replacement for: runs/breakthrough_20261002/code/batch53_model_core
+  (same module names/APIs; SAME config_sha256 = 12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157,
+   so on-disk checkpoints made by the live run remain strictly loadable -> ABI verified read-only).
+CODE_READY.json: atomic marker (hash of every shipped file). selfcheck: reports/.../batch57/code_selfcheck.json.
+No actual training / solve / gradient / GPU / network was performed by this repair worker.
+
+WHY: canonical batch53 independent review (09:28) returned compliance FAIL (D1..D12). This
+workstream repairs the MODEL CORE only; it is not a training run and confers no science PASS.
+
+--------------------------------------------------------------------------------------------------
+0) DO NOT RESTART THE LIVE FIT
+--------------------------------------------------------------------------------------------------
+The data owner (control_62) is mid-run: corrected R0 done, Nabs completed, Njoint reserved/running.
+Real ledger snapshot at write time (read dynamically, D6): 4/4 consumed (batch52-R0, R0, Nabs,
+Njoint), 0 remaining, NO reserve. OWNER-driven and still advancing; the count above is a snapshot.
+  * NO restart is required for any defect below; none change the frozen model weights /
+    architecture / numerical contract while a valid fresh fit is running.
+  * D2 (resume) is NOT on the live path (the live run never passes --resume-*), so D2 does NOT
+    invalidate the ongoing fresh fit. Resume is marked UNSUPPORTED (fail-closed) until repaired.
+  * GPU exclusivity is currently enforced OPERATIONALLY by the parent: only the trainer gets the
+    GPU; every other agent runs ZERO GPU until an explicit exclusive grant. The repaired D1 lock is
+    a correct backstop, not a replacement for that operational rule.
+
+--------------------------------------------------------------------------------------------------
+1) FIXES REQUIRING A NEW PROCESS (take effect on the next launch / next fit)
+--------------------------------------------------------------------------------------------------
+All are inert in the currently-running process; they activate when the owner launches a NEW process
+that imports batch57_model_core_rc2. NONE require killing the live Nabs fit.
+
+D1 gpu_lock.py       true (pid, OS-creation) identity: FOUR distinct FILETIME buffers; a lock held by
+                     a LIVE process is never reclaimed; release only own identity. New process only.
+D2 train_neural/     resume FAIL-CLOSED (ResumeUnsupported); any --resume-* aborts BEFORE reserving;
+   exec_gate         every restarted execution consumes a new slot (real restore not implemented in
+                     the time budget -- protocol fallback applied). New invocations only.
+D5 pipeline_coord    assert_parent_specs REQUIRES --expected-acceptance-sha and asserts the
+                     PARENT_DATA_ACCEPTANCE.txt sha256 (fail-closed); owner freezes it at launch.
+D7 train_neural/     Njoint asserts init bytes == recorded Nabs init_sha before first gradient.
+   coord             New-process only; harmless to the running Nabs.
+D9 train_neural      checkpoints record TRUE optimizer steps (opt_steps); sample count kept
+                     separately. Additive fields; old checkpoints still load.
+D10 train_neural     deterministic per-epoch pair shuffle + repeat counts (Njoint). Future Njoint.
+D11 checkpoint       selected checkpoints get a .sha256.json sidecar. Future saves.
+D6 exec_gate/coord   actual_status() reads the REAL ledger (no fictitious reserve); RUN_POLICY read
+                     DYNAMICALLY for 12:00 first-training / 13:00 / 20:00 deadlines. New invocation.
+
+--------------------------------------------------------------------------------------------------
+2) FIXES THAT ARE INDEPENDENT / EVAL-ONLY (safe any time, own CPU, NO GPU)
+--------------------------------------------------------------------------------------------------
+D3 eval_replay.final_compare  best fixed-direction baseline now uses max() (was min()).
+D8 eval_replay.evaluate_split top10_precision uses frozen coord/ID stable tie-breakers.
+D6 exec_gate.actual_status    correct remaining-slot accounting for reports.
+D12 data_adapter             ragged-row reject; NPZ byte-id decode + declared-length slice;
+                             ambiguous-base consistent exclusion (default reject; allow_ambiguous=True
+                             uses VALID-base length consistently).
+These run on CPU with the independent evaluator's OWN metrics; no GPU, no fit. The first-model TEST
+result stays quarantined and is not read by the Njoint trainer.
+
+--------------------------------------------------------------------------------------------------
+3) INTEGRATION (data owner) -- minimal, no rewrite of frozen weights
+--------------------------------------------------------------------------------------------------
+Point the helper import at the repaired directory, e.g. in run_all_v2.py:
+    HELPER = ".../runs/breakthrough_20261002/code/batch57_model_core_rc2"
+    from train_neural import Trainer            # unchanged API
+    from exec_gate import actual_status         # honest budget reporting
+Full coordinator (new invocation only) -- add the pinned acceptance hash:
+    .../pipeline_coordinator.py --cohort-dir <dir> --out-root <out> --ledger <b52 ledger> \
+        --expected-acceptance-sha <frozen sha256 of PARENT_DATA_ACCEPTANCE.txt> \
+        --accepted-data-sha <64-hex source sha> --i-understand-this-is-a-real-fit
+Eval/replay uses the same CLI (eval_replay.py replay|metrics|compare). The data owner decides
+integration; frozen model weights are NOT rewritten.
+
+--------------------------------------------------------------------------------------------------
+4) OLD batch53 'toy-solve' CONCERN -- FOR THE PREFLIGHT AUDITOR (recorded, NOT repeated)
+--------------------------------------------------------------------------------------------------
+batch53 tests/test_nofit.py (NOT shipped here) contains r0_ridge_one_solve_and_delta, which calls
+R0Model.fit -> np.linalg.solve, and exec_gate_budget_max4_and_resume asserts a NON-consuming resume.
+Both are obsolete. The batch57 suite (NEW file tests/test_nofit_rc2.py) performs ZERO np.linalg.solve
+and asserts resume is FAIL-CLOSED. This worker did NOT reproduce those solves and does NOT
+retroactively claim zero-solve for batch53; the batch53 selfcheck's "zero-solve" wording is an
+over-claim for the auditor to record (no new tiny fits were run to test it).
+
+--------------------------------------------------------------------------------------------------
+5) REMAINING / NOT DONE (honest)
+--------------------------------------------------------------------------------------------------
+* D2: real checkpoint-restore resume NOT implemented; resume is fail-closed (permitted fallback).
+* Cosmetic/report polish skipped to protect the 13:00 first-weights priority.
+* CODE ONLY. Verdict belongs to a fresh reviewer; core PASS != training performance.

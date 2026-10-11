@@ -1,0 +1,2 @@
+name	mode	test_mse	test_r2	test_spearman	test_n	family_mean_rho	family_n
+mpra_finetune	finetune	0.07095375657081604	0.48396413435718355	0.7040910207639355	1181	-0.375	4

@@ -1,0 +1,27 @@
+promoter_atlas v6.16.1-sequence.rc1 (batch21) — sequence (K562 MPRA 164 bp) loss comparison
+============================================================
+Version: v6.16.1-sequence.rc1   Lineage: next free after v6.16.0-sequence.rc1.
+Task: predict measured K562 GSE118242 per-sequence oligo-MPRA activity (log10) from 164 bp DNA.
+Dataset decision: K562 GSE118242 (local, in-domain) (availability-based, NOT score-based).
+  Primary public lead GSE188639 verified but REJECTED for training: REJECTED_FOR_TRAINING —
+  676 core-promoter members (< 1000 gate); cell HEK293 (not HEK293T). Retained as a future source.
+  HEK293T gap recorded explicitly; NO K562 score is presented as HEK293T reliability.
+Split: strict near-homology connected components (Hamming<=16 fwd+RC, exact dup incl.);
+  4710 components -> train/val/test rows {'0': 9443, '1': 1180, '2': 1180},
+  groups {'0': 2600, '1': 1090, '2': 1020}; cross-split Hamming<=16 pairs = 0 (audited).
+Fits: exactly 4 (2 arms x 2 seeds), single GPU (NVIDIA GeForce RTX 5060 Laptop GPU), batch 32,
+  AdamW lr 0.0003 wd 0.0001, max 20 epochs, val early stop patience 5 on Spearman.
+  Aggregate fit time 87.0s (~1.45 GPU-min) << 3 GPU-h cap; no truncation.
+Arms (SAME backbone/preprocessing/seed/optimizer; ONLY the loss differs):
+  A = MSE of train-standardized activity.
+  B = MSE + 0.1*mean softplus(-sign(z_i-z_j)*(p_i-p_j)) over within-minibatch pairs |z_i-z_j|>=0.5 (train rows only).
+Results (test, group-level n=1180, 1020 groups):
+['  Recipe A test: Spearman=0.6442 MAE=0.2157 R2=0.4338 top-decile-precision=0.6186 enrichment=6.19', '  Recipe B test: Spearman=0.6493 MAE=0.2169 R2=0.4297 top-decile-precision=0.6102 enrichment=6.10']
+  Composition ridge baseline (GC+3mer, train-only): Spearman=0.3685 MAE=0.2912 R2=0.1118 top-decile-precision=0.2458
+Decision (predeclared: mean seed Spearman gain>=0.02 AND >=5% MAE reduction AND top-decile precision not worse AND both seeds positive):
+  gain=0.0051, MAE reduction=-0.56%, top-decile not worse=False, both seeds positive=False -> IMPROVEMENT MET = False
+  Validation-only arm choice = Recipe B (no test-driven tuning).
+VERDICT: the explicit ranking objective did NOT yield a predeclared practical improvement on this in-domain
+  K562 task. Reported as an honest negative. Both neural recipes clearly exceed the composition baseline.
+Scope: K562 164 bp MPRA only. NOT HEK293T, NOT a length-aware solution, NOT gene E/S/B.
+  Changed-split values are NOT compared against the batch02 grouped-OOF 0.79577.

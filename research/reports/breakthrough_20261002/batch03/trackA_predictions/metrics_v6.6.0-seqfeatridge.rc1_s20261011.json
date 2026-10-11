@@ -1,0 +1,109 @@
+{
+  "alpha_grid": [
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "alpha_grid_inner_results": {
+    "0.1": {
+      "alpha": 0.1,
+      "inner_val_mae": 0.18123928068476053,
+      "inner_val_r2": 0.4307057266542784,
+      "inner_val_spearman": 0.6554201802078972
+    },
+    "1.0": {
+      "alpha": 1.0,
+      "inner_val_mae": 0.1813475639532476,
+      "inner_val_r2": 0.4298725214892878,
+      "inner_val_spearman": 0.6546015388207976
+    },
+    "10.0": {
+      "alpha": 10.0,
+      "inner_val_mae": 0.18152771513850705,
+      "inner_val_r2": 0.4283873403505306,
+      "inner_val_spearman": 0.652948383010809
+    },
+    "100.0": {
+      "alpha": 100.0,
+      "inner_val_mae": 0.18164677350992628,
+      "inner_val_r2": 0.4276755048944585,
+      "inner_val_spearman": 0.6523323579150542
+    },
+    "1000.0": {
+      "alpha": 1000.0,
+      "inner_val_mae": 0.18184611904102752,
+      "inner_val_r2": 0.42731036078470674,
+      "inner_val_spearman": 0.6520585588248814
+    },
+    "10000.0": {
+      "alpha": 10000.0,
+      "inner_val_mae": 0.18376960743869172,
+      "inner_val_r2": 0.4209064017987335,
+      "inner_val_spearman": 0.6492071979614732
+    }
+  },
+  "baseline": "sequence-feature ridge (gene-mean aggregation)",
+  "feature_contract": "per-promoter mono(4)+dinuc(16)+GC(1)+length(1) for sym400 and up2000 => 44; gene=mean over promoters; z-score on inner-train",
+  "inner_split": "identical to scratch encoder inner split (seed 20261011)",
+  "predictions_file": "E:\\promoter_atlas\\reports\\breakthrough_20261002\\batch03\\trackA_predictions\\pred_v6.6.0-seqfeatridge.rc1_s20261011.tsv",
+  "seed": 20261011,
+  "selected_alpha": 0.1,
+  "selection_rule": "max inner-val E Spearman over deterministic 90/10 gene holdout (seed 20261011)",
+  "test": {
+    "bootstrap_spearman_full": {
+      "ci_high": 0.6715509286910656,
+      "ci_low": 0.6395204746559032,
+      "mean": 0.6555953973779813
+    },
+    "bootstrap_spearman_unexposed": {
+      "ci_high": 0.4137458610752491,
+      "ci_low": 0.3515196468692816,
+      "mean": 0.38289803001060146
+    },
+    "full": {
+      "mae": 0.1805947435642543,
+      "mse": 0.0488205699358758,
+      "n": 5603,
+      "r2": 0.42397601183544453,
+      "spearman": 0.6557327024963304
+    },
+    "n_unexposed": 3362,
+    "unexposed": {
+      "mae": 0.1787784995596527,
+      "mse": 0.049914532834611704,
+      "n": 3362,
+      "r2": -0.006412523442806295,
+      "spearman": 0.3832874737264726
+    }
+  },
+  "val": {
+    "bootstrap_spearman_full": {
+      "ci_high": 0.6598890239828964,
+      "ci_low": 0.6277369386757141,
+      "mean": 0.6442559384241106
+    },
+    "bootstrap_spearman_unexposed": {
+      "ci_high": 0.41561754692078245,
+      "ci_low": 0.3545322280481881,
+      "mean": 0.38554404777340573
+    },
+    "full": {
+      "mae": 0.1836839612503632,
+      "mse": 0.049942187914922526,
+      "n": 5606,
+      "r2": 0.4109722278060969,
+      "spearman": 0.6443367387131392
+    },
+    "n_unexposed": 3317,
+    "unexposed": {
+      "mae": 0.18033006282419975,
+      "mse": 0.04983441117774961,
+      "n": 3317,
+      "r2": 0.018840642994742307,
+      "spearman": 0.38554300279011827
+    }
+  }
+}

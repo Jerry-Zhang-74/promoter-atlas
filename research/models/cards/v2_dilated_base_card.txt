@@ -1,0 +1,6 @@
+name	v2_dilated_base
+arch	dilated_resnet
+device	cuda
+params	491747
+test_metrics	{"Score_E_r2": 0.20389896403319985, "Score_E_spearman": 0.44073618308469115, "Score_E_n": 44387, "Score_S_r2": -0.27289730220675157, "Score_S_spearman": 0.14475867959579855, "Score_S_n": 29467, "Score_B_r2": 0.14989755242652558, "Score_B_spearman": 0.4271039916506858, "Score_B_n": 44387, "combined_spearman": 0.3337360090050774}
+checkpoint	E:\promoter_atlas\models\checkpoints\v2_dilated_base.pt

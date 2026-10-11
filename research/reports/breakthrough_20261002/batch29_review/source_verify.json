@@ -1,0 +1,59 @@
+{
+  "n_rows": 153562178,
+  "n_eligible": 37282554,
+  "n_bad_coord_or_strand": 0,
+  "n_noncanonical_chrom": 553226,
+  "n_length_out_of_range": 8724178,
+  "n_below_depth_P_lt_1": 107002220,
+  "N_D": 203742844,
+  "N_R1": 37770653,
+  "N_R2": 74081034,
+  "N_iPCR": 424419578,
+  "N_plasmid_P": 50180666,
+  "n_selected_first100_matched": 100,
+  "passA_compare": {
+    "n_rows": {
+      "reviewer": 153562178,
+      "passA": 153562178
+    },
+    "n_eligible": {
+      "reviewer": 37282554,
+      "passA": 37282554
+    },
+    "n_bad_coord_or_strand": {
+      "reviewer": 0,
+      "passA": 0
+    },
+    "n_noncanonical_chrom": {
+      "reviewer": 553226,
+      "passA": 553226
+    },
+    "n_length_out_of_range": {
+      "reviewer": 8724178,
+      "passA": 8724178
+    },
+    "n_below_depth_P_lt_1": {
+      "reviewer": 107002220,
+      "passA": 107002220
+    },
+    "N_D_1plusP": {
+      "reviewer": 203742844,
+      "passA": 203742844
+    },
+    "N_R1_2": {
+      "reviewer": [
+        37770653,
+        74081034
+      ],
+      "passA": [
+        37770653,
+        74081034
+      ]
+    }
+  },
+  "row_check": {
+    "n_checked": 90,
+    "count_mismatches": 0,
+    "max_abs_y_diff": 0.0
+  }
+}

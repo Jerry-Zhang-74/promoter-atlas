@@ -1,0 +1,23 @@
+{
+  "candidate_version": "v6.15.0-multitask.rc1",
+  "architecture": "independent",
+  "selection_reason": "no shared neural win; strongest supported independent (A) composite release",
+  "selection_uses_validation_only": true,
+  "seeds": [
+    20261016,
+    20261017
+  ],
+  "scalers": "E:\\promoter_atlas\\data\\breakthrough_20261002\\batch16\\scalers.npz",
+  "models": {
+    "E": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch16\\A_s20261016\\model_E.pt",
+    "S": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch16\\A_s20261016\\model_S.pt",
+    "B": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch16\\A_s20261016\\model_B.pt"
+  },
+  "note": "architecture chosen by the frozen validation rule (B shared failed: mean val rho gain -0.0061 < 0.02). Checkpoint = reference seed 20261016 (predeclared primary seed, also the split-key seed 'batch16|20261016|'); seed 20261017 is replication only, not used for selection.",
+  "shipped_model_test_metrics": {
+    "note": "single-seed A_s20261016 heldout/test rho (differs from the mean-of-seed rho reported in comparison.json)",
+    "E": 0.7427954007236632,
+    "S": 0.4341868005329962,
+    "B": 0.7261787142748182
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "candidate_version": "v6.9.0-labelaudit.rc1",
+  "track": "label_audit_S",
+  "scope": "S label audit only; no model training/promotion; no biological validation claim",
+  "source_S_definition": {
+    "E_raw": "mean over 54 tissues of log2(1+collapsed_mean_tpm)",
+    "B_raw": "count(collapsed_mean_tpm >= 1.0) / 54",
+    "S_raw": "-MAD(log2(1+collapsed_mean_tpm)) over detectable tissues (TPM>=1) only",
+    "S_eligibility": "B_raw >= 0.30 AND detectable_tissue_count >= 3",
+    "detectable_redundancy_note": "with 54 tissues, B_raw>=0.30 implies detectable>=17, so the detectable>=3 clause is redundant in practice",
+    "Score_S": "stable ascending ordinal rank / (N-1) over ALL N genes; undefined S_raw entered as -inf then Score_S cleared",
+    "tie_convention": "stable sort (equal raw values ordered by gene_id), NOT average-rank"
+  },
+  "affine_transform": {
+    "N_canonical_rows": 58988,
+    "M_defined": 18947,
+    "a": 0.67881058538322,
+    "b": 0.32118941461677997,
+    "formula": "S_affine = (legacy Score_S - a) / b",
+    "inverse": "legacy Score_S = a + b * S_affine",
+    "a_formula": "(N-M)/(N-1)",
+    "b_formula": "(M-1)/(N-1)",
+    "defined_domain": {
+      "legacy_min": 0.678811,
+      "legacy_max": 1.0,
+      "affine_min": 1.2908793414464598e-06,
+      "affine_max": 1.0
+    },
+    "endpoint_tolerance_note": "canonical Score_S stored to 6 decimals; stored min defined = 0.678811 vs exact a = 0.67881058538322",
+    "missing_preserved": true,
+    "ordering_preserved": true
+  },
+  "S_defined_rank": {
+    "formula": "average-rank ties on full-precision S_raw among M defined genes; quantile=(rank-1)/(M-1)",
+    "M": 18947,
+    "ties": "explicit average-rank (differs from legacy stable gene_id-order tie-break)",
+    "degenerate_note": "M<=1 unsupported (division by zero); here M=18947>1"
+  },
+  "tie_audit_summary": {
+    "full_precision_tie_groups": 0,
+    "full_precision_tie_genes": 0,
+    "sixdec_tie_groups": 234,
+    "sixdec_tie_genes": 471,
+    "sixdec_rounding_only_groups": 234,
+    "sixdec_rounding_only_genes": 471,
+    "sixdec_true_tie_groups": 0,
+    "unique_sixdec_values_among_defined": 18710
+  },
+  "score_s_recomputed_max_abs_err": 4.99991523517096e-07,
+  "pipeline_counts": {
+    "canonical_genes": 58988,
+    "canonical_S_defined": 18947,
+    "human_records_v6_input": 507365,
+    "human_labeled_E_records": 436291,
+    "human_unlabeled_records": 71074,
+    "human_unique_labeled_genes": 57827,
+    "human_S_defined_records": 295766,
+    "human_S_missing_among_labeled_records": 140525,
+    "human_unique_S_genes": 18769,
+    "gene_split_manifest_genes": 56161,
+    "gene_split_manifest_S_defined": 18575,
+    "gene_split_manifest_note": "separate 56161-gene reference manifest (symbol-annotated); not the v6-input record universe"
+  },
+  "es_sensitivity": {
+    "n_S_defined_for_ES": 18947,
+    "topk": 1000,
+    "spearman_ES_legacy_vs_affine": 0.7175087036978655,
+    "spearman_ES_legacy_vs_rank": 0.7175085981040339,
+    "topk_overlap_legacy_vs_affine": 741,
+    "topk_overlap_legacy_vs_rank": 741,
+    "note": "S rescaling changes E*S objective weighting; NOT biological validation"
+  },
+  "B_tie_artifact": {
+    "B_raw_distinct_values": 55,
+    "B_tie_groups": 55,
+    "B_tied_genes_beyond_first": 58933,
+    "max_B_group_size": 24541,
+    "note": "Score_B uses stable gene_id-order tie-break for equal B_raw; left unchanged this batch"
+  }
+}

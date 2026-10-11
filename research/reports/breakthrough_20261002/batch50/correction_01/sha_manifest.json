@@ -1,0 +1,96 @@
+{
+ "batch": "batch50",
+ "correction": "correction_01",
+ "version": "v6.36.0-morning-route-evidence.rc1",
+ "generated_at": "2026-10-04T06:23:42.178431+08:00",
+ "excluded_from_manifest": [
+  "sha_manifest.json(self)",
+  "manifest_verification.json(verification)",
+  "independent_review.json(review)",
+  "status.json(mutable)",
+  "mail"
+ ],
+ "n": 16,
+ "entries": [
+  {
+   "path": "figures/fig1_local293ft_applicability.png",
+   "bytes": 178965,
+   "sha256": "2bdc0b788cb0bf4a7d36d2139342fcf359566927056b87ab716088650a8f0270"
+  },
+  {
+   "path": "figures/fig1_local293ft_applicability.svg",
+   "bytes": 27353,
+   "sha256": "5e77ced5995313cd70287532db2c431253f7e4c17228b62cc5873b92af0555d3"
+  },
+  {
+   "path": "figures/fig2_public_transfer_sameassay.png",
+   "bytes": 295411,
+   "sha256": "7b64bfd03be38ef8303746a8ab55b42476de1e86a2acf2ba1a36a5edcda8c821"
+  },
+  {
+   "path": "figures/fig2_public_transfer_sameassay.svg",
+   "bytes": 46745,
+   "sha256": "5dba5e1ab20466787059372bfd34f6f12fb560cac84a03232d98f14a82bfd423"
+  },
+  {
+   "path": "figures/fig3_route_capability.png",
+   "bytes": 343539,
+   "sha256": "ca8c985baad0bad81983952aeda996f795ecd87196ffb146355c3ff030456aeb"
+  },
+  {
+   "path": "figures/fig3_route_capability.svg",
+   "bytes": 13724,
+   "sha256": "0fc9c13b22878eb915bccad6ab3d5ba54e75fe6584596a3bd5f57bfc6d16d381"
+  },
+  {
+   "path": "ROUTE_zh.txt",
+   "bytes": 3014,
+   "sha256": "88d55668811df57d4b65f6822e7b9bac11f1bf528469001ab3426289cbcc916f"
+  },
+  {
+   "path": "captions_zh.md",
+   "bytes": 2169,
+   "sha256": "bbabc85c960b5d4c5877acc54bcb4aea273f5724641ae9ad50d762a4085f0273"
+  },
+  {
+   "path": "issue_list_before_after.md",
+   "bytes": 4383,
+   "sha256": "1d1cc367c37bbaec35f9744b67cd8171c96e0802ab7f268ede6bea5bfd5e6f82"
+  },
+  {
+   "path": "next_action_note.md",
+   "bytes": 2075,
+   "sha256": "eacd00b8d87a46a74fae1f6834772c03c218248a0454d5b1e781eb76fd4fa619"
+  },
+  {
+   "path": "correction_source_sha.json",
+   "bytes": 4424,
+   "sha256": "0b47bf2b3ff8e9aafeddcdb5cfc5ab17342cb2c81264e15ddabfbe69d4769ce0"
+  },
+  {
+   "path": "correction_note.json",
+   "bytes": 3511,
+   "sha256": "97c02532eedf47bbb10889a735ac718a4c9ad197cb577ab4798af81a88013379"
+  },
+  {
+   "path": "selfcheck.json",
+   "bytes": 2881,
+   "sha256": "28fb90336b131554a1b67bbe42f9993d690900a107a7ab34e0b7f87bda7410ec"
+  },
+  {
+   "path": "../../version_registry.json",
+   "bytes": 52741,
+   "sha256": "eac464ea529612f3c21836bcfcd958397e254bda09301b16e4e4e500b9365f28"
+  },
+  {
+   "path": "../../CHANGELOG.txt",
+   "bytes": 26927,
+   "sha256": "7bfb1a1f6c59c3f25dd422a5b008d4c2c224d413f5562a315de1475c0a4be2c2"
+  },
+  {
+   "path": "../../../../runs/breakthrough_20261002/code/batch50/correction_01/make_figs_corr.py",
+   "bytes": 11122,
+   "sha256": "acceb941a7c352ee6a40f245c23c634fa57e1d25ea085745e1ff2d3be1d04a37"
+  }
+ ]
+}

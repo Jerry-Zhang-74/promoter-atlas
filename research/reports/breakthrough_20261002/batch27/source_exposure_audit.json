@@ -1,0 +1,31 @@
+{
+  "question": "do prior in-project K562 MPRA data contain these native 200-2000 bp SuRE inserts (exactly or by near homology)?",
+  "prior_mpra": {
+    "file": "features/mpra/mpra_supervised.tsv",
+    "n_oligos": 11803,
+    "oligo_lengths": [
+      164
+    ],
+    "note": "GSE118242-style lentiMPRA designed oligos; no genomic coordinates are provided in this file"
+  },
+  "exact_containment": {
+    "window_bp": 164,
+    "n_forward_windows_matching_a_prior_oligo": 0,
+    "n_reverse_complement_windows_matching_a_prior_oligo": 0,
+    "n_sure_inserts_tested": 2500,
+    "interpretation": "0 means no prior oligo appears verbatim inside any retrieved SuRE insert; it does NOT exclude shorter shared sequence"
+  },
+  "near_homology_indicator": {
+    "k": 31,
+    "mean_fraction_of_sure_31mers_present_in_prior_oligo_kmer_set": 0.008013555364658361,
+    "p95": 0.043849498899502105,
+    "max": 0.29792919171676685,
+    "n_inserts_with_any_shared_31mer": 850,
+    "interpretation": "31-mers are common in genomic sequence; a non-zero value is expected even for unrelated inserts and is only an upper-bound indicator, not evidence of overlap"
+  },
+  "conclusion": "Prior in-project MPRA oligos do not contain these SuRE fragments verbatim. Exposure at the level of exact sequence is NOT demonstrated; residual near-homology and short shared sequence remain UNRESOLVED. No old K562 model was evaluated on these inserts in this batch, so no independent-testing claim is made.",
+  "not_done": [
+    "no old-model inference on SuRE inserts (protocol: zero new inference)",
+    "no all-pairs alignment between SuRE inserts and prior oligos (out of budget)"
+  ]
+}

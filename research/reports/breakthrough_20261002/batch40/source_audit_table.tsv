@@ -1,0 +1,2 @@
+file	status	bytes	sha256	mime	retries	gzip_ok	url
+GSM9580234_design_rmIllegalChars.fa.gz	OK	429038	a61f3d7624bdc1cd6066cb0cfb015d482e2994885cf321da9e0bdb7e753aa82b	gzip	0	True	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9580nnn/GSM9580234/suppl/GSM9580234_design_rmIllegalChars.fa.gz

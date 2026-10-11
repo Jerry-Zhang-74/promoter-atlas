@@ -1,0 +1,11 @@
+{
+  "kind": "artificial_no_fit_software_test",
+  "results": {
+    "parent_specs_reread_and_target_asserted": "PASS",
+    "trainer_refuses_real_fit_without_optin": "PASS",
+    "coordinator_refuses_without_optin_before_any_solve": "PASS",
+    "epoch_cap_logged_once_structure": "PASS"
+  },
+  "passed": 4,
+  "failed": []
+}

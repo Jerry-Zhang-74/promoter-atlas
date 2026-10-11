@@ -1,0 +1,39 @@
+{
+  "file": "GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz",
+  "header": "chr | start | end | strand | iPCR, SuRE23 | SuRE K562 cDNA, Biorep1, PCRrep1 | SuRE K562 cDNA, Biorep1, PCRrep2 | SuRE K562 cDNA, Biorep1, PCRrep3 | SuRE K562 cDNA, Biorep1, PCRrep4 | SuRE K562 cDNA, Biorep2, PCRrep1 | SuRE K562 cDNA, Biorep2, PCRrep2 | plasmid library, PCR rep1 | plasmid library, PCR rep2",
+  "eligibility_rule": {
+    "D_definition": "D_i = iPCR + plasmid (per-fragment input read proxy; no extra +1)",
+    "D_min": 10,
+    "canonical_chrom": "chr1-22,X,Y",
+    "length_bp": [
+      200,
+      2000
+    ],
+    "valid": [
+      "start<end",
+      "strand in {+,-}",
+      "counts finite nonnegative"
+    ],
+    "rna_thresholded": false
+  },
+  "n_rows": 153562178,
+  "n_parse_fail": 0,
+  "n_negative_count": 0,
+  "n_bad_coord_or_strand": 0,
+  "n_noncanonical_chrom": 553226,
+  "n_length_out_of_range": 8724178,
+  "n_below_depth": 138238408,
+  "n_eligible": 6046366,
+  "n_dup_selected_keys_skipped": 0,
+  "n_alt_D_1plusplasmid_ge10": 1105,
+  "library_totals_fulltable": {
+    "N_D": 474600244,
+    "N_R1": 37770653,
+    "N_R2": 74081034,
+    "N_iPCR": 424419578,
+    "N_plasmid": 50180666
+  },
+  "selection_rule": "25000 smallest sha256('chrom:start-end:strand') among eligible reads (label-free)",
+  "n_selected": 25000,
+  "elapsed_s": 295.3
+}

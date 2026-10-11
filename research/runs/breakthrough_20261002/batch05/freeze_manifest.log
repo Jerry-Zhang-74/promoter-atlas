@@ -1,0 +1,107 @@
+{
+  "written_at": "frozen BEFORE training/evaluation (batch05)",
+  "protocol_ref": "runs/breakthrough_20261002/batch05/PROTOCOL.txt (APPROVED v1)",
+  "split": {
+    "name": "exact/RC + detected-near-identity blocked (NOT homology-free)",
+    "builder": "code/batch05/b5_split.py",
+    "deterministic": true,
+    "target_labels_not_used": true,
+    "seed": 20261011
+  },
+  "arms": {
+    "B1_repeat_bag": {
+      "candidate_version": "v6.6.0-scratchgene.rc6",
+      "arm_key": "repeat_bag",
+      "description": "anchor p0=(epoch+g)%n repeated in ALL 4 slots; concat(mean,max) pooling"
+    },
+    "B2_diverse_bag": {
+      "candidate_version": "v6.6.0-scratchgene.rc7",
+      "arm_key": "diverse_bag",
+      "description": "anchor matches B1; slots=(p0+k)%n for k=0..3 (cycle when n<4); same pooling/head"
+    }
+  },
+  "annotation_diagnostics": {
+    "candidate_version": "v6.6.0-annridge.rc2",
+    "feature_variants": [
+      "log1p(promoter_count)",
+      "44 composition (no count)",
+      "44 composition + log1p(count)"
+    ],
+    "alpha_grid": [
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "inner_split": "group-preserving component fold, seed 20261011",
+    "scaling": "train-only (inner-train for selection, full train for final fit)",
+    "note": "descriptive baseline set, NOT new NN arms, NOT causal"
+  },
+  "hyperparameters": {
+    "lr": 0.001,
+    "optimizer": "AdamW weight_decay=1e-4",
+    "epochs": 12,
+    "batch_size": 32,
+    "seed": 20261011,
+    "loss": "MSE on raw gene Score_E",
+    "epoch_rule": "final.pt = epoch 12 (predeclared max); no heldout epoch/model selection",
+    "one_hot": "ACGT one-hot, N -> zero",
+    "n_slots": 4,
+    "bag_anchor": "p0=(epoch+g)%n identical for both arms",
+    "n_lt4_policy": "deterministic cycling fills 4 slots (reported)"
+  },
+  "inference_policy": {
+    "primary": "matched 4-slot, fixed epoch=0 rotation, mean+max pooling, SAME policy both arms",
+    "frozen_before_eval": true
+  },
+  "run_ids": [
+    {
+      "arm": "repeat_bag",
+      "seed": 20261011,
+      "attempt_dir": "repeat_bag_s20261011"
+    },
+    {
+      "arm": "diverse_bag",
+      "seed": 20261011,
+      "attempt_dir": "diverse_bag_s20261011"
+    }
+  ],
+  "source_hashes": {
+    "data_npz": "cd53ccb608c2969f279ac46ed49f94c9b56efd672393c937ec730139e61e4072",
+    "memmap_sym400": "e6fff961c532ada5fe1f16f0be10ed0a739fa9db9e875179bef4d64e163bc0f6",
+    "memmap_up2000": "a44c82f14bb265932996a28698a081817410ef8165ca7ef69fe06177933be441",
+    "batch03_model_source": "1e5e61cec98fcafd350b1e47bb8c0bbfc4d0ea95058cedfd34ea844497883f1b",
+    "batch03_baseline_source": "3664de165f666270f6b06027e3177c55bd7c81c366e3c32342aa607b5101481f"
+  },
+  "split_artifact_hashes": {
+    "split_plan.json": "3852e04ca174a469696a396804d2a9fd0be71f82c3c59bcae082aacd9d03935d",
+    "split_arrays.npz": "4fbfccf43038fbe2211c2a21f113b11b38d92cf410bc3591c6bb3e3a42d8a6f5",
+    "split_assignment.tsv": "a01ccd879e3254f370e691149306206fdf419c3ffc2d4c671e84ce13038e5293",
+    "components.tsv": "6bedd7c3fa27b95f1d9e5ecd93d28e0d93c156a9f2ce6a5d2c3e03579017b311",
+    "near_identity_pairs.tsv": "65d16d65649ad7c172732c5b6e202a4a7fe318808c3e1bd89f00b9796885f6d0",
+    "exact_rc_summary.json": "2c34b4ac87f48f70a5ff1c7ad0b4a3b54696260b9bee5ced97b0223f72d8009b"
+  },
+  "code_hashes": {
+    "b5_common.py": "2fe07147d75982e0dded15c349c23dec588934ebce18ff64e894571903701c64",
+    "b5_split.py": "4a8a548e0173c63fcf77814d395ba38f797d1fc377ada5b9d56ca4bf9b0d2f64",
+    "b5_data.py": "9ba1c7733d4fa909b4b5379409f11300fc9a2fd75096fe16b3a8b0acfc5d016e",
+    "b5_model.py": "d5e6bb428d4187ab6865419a7fe065c9ca5061af96f21b60d82d3ae3a1e7ede4",
+    "train_bag_v5.py": "6910dd752615e20f635a2fd92804149b5928a73ea9022d054d13776f6299043f",
+    "eval_bag_v5.py": "044817f45fca62f271842c84887ee1085b2c7df134ab543afcf7719d7c9171a6",
+    "ann_diagnostics_v5.py": "929fe3d5ff052a76a05cb554539d1776875b11f3fcaac8b0791543d2bf2129f3",
+    "resume_check_v5.py": "929863a294f1b9424886f04276e421554129f6d209e67841e12e332f26bfd7d0",
+    "inference_entrypoint_v5.py": "eacf9c572292b5deea534549b26ec383eebc4e2e7c1f91fca43d6da0db0f544b"
+  },
+  "limits": {
+    "max_gpu_walltime_min": 60,
+    "max_epochs_per_run": 12,
+    "n_final_runs": 2,
+    "resume_check_min": 3,
+    "batch_max": 32,
+    "cpu_threads": 4
+  },
+  "manifest_sha256": "c142f68ce1e8cb7b9d56456b6fafff2c30c57efe11a7f7f86d37b81d940a8515"
+}
+DONE

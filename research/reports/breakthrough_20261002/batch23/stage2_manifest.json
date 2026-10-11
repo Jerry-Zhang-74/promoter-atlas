@@ -1,0 +1,13 @@
+{
+  "generated_at_local": "2026-10-03T15:46:28+0800",
+  "outputs": {
+    "data\\breakthrough_20261002\\batch23\\local_diagnostic_scores.tsv": "2ab64c05039b3e259ce36ad4807d89719906d5ee7c5bb9dbca9e9e47592378f5",
+    "reports/breakthrough_20261002/batch23/local_diagnostic.json": "3a19b1adfefa2ef6a1ac43c4221683e1a5bccf8a2e83b7328037e466f22a2690"
+  },
+  "gpu": {
+    "device": "cuda:0",
+    "model_sha256": "bc35e5585fa73c951602628d6e98106c15d62500e703e73177ac19554132f081",
+    "n_seqs_encoded": 14,
+    "batch": 32
+  }
+}

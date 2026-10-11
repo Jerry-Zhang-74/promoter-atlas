@@ -1,0 +1,20 @@
+{
+  "candidate_version": "v6.15.0-multitask.rc1",
+  "batch": "batch16",
+  "written_at_local": "2026-10-03T10:44:30+0800",
+  "elapsed_s": 0.01,
+  "selection": {
+    "architecture": "independent",
+    "reason": "no shared neural win; strongest supported independent (A) composite release",
+    "summary": {
+      "mean_gain": -0.006075287767231541,
+      "no_drop_gt_0.02": true,
+      "rule_pass": false,
+      "rule": "mean per-target val rho gain >= 0.02 AND no target drop > 0.02"
+    }
+  },
+  "deployment_bundle": "E:\\promoter_atlas\\models\\breakthrough_20261002\\batch16\\deployment_bundle.json",
+  "model_card": "E:\\promoter_atlas\\models\\cards\\promoter_atlas_v6_15_0_multitask_rc1_card.txt",
+  "zh_summary": "E:\\promoter_atlas\\reports\\breakthrough_20261002\\batch16\\batch16_summary_zh.html",
+  "inference_entrypoint": "E:\\promoter_atlas\\runs\\breakthrough_20261002\\code\\batch16\\b16_inference.py"
+}

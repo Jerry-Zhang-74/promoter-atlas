@@ -1,0 +1,6 @@
+file	status	bytes	sha256	mime	retries	gzip_crc_ok	url
+GSM9609016_designfile.fa.gz	OK	25939760	a08d0b7d29583d8a07f6910200f4eb240dfcc26f5dd2d249cf8d37ffdc1f0f96	gzip	0	True	https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9609nnn/GSM9609016/suppl/GSM9609016_designfile.fa.gz
+MPRAnalyze_oligoMPRA_heks.R	OK	3244	5bf248ed0c4bc16ac39e546ae71c68316a72ca95da4b9677ede732c74dc6323b	text/plain	0		https://raw.githubusercontent.com/HudsonAlpha/Hauser_MAPT_MPRAs/main/oligo_MPRA/mpranalyze/MPRAnalyze_oligoMPRA_heks.R
+generateDesignfile.rmd	OK	11932	c7c48b41f1e57ed7a90f2b91e809c6d4d25f5c399a9dcfcfc89d3099194fac11	text/plain	0		https://raw.githubusercontent.com/HudsonAlpha/Hauser_MAPT_MPRAs/main/oligo_MPRA/generateDesignfile.rmd
+mpranalyze_padding.py	OK	817	cf3f73f89b933b781ee091788d19dcfb1fc2e27ef1b5c06cddf2955ecd8feae4	text/plain	0		https://raw.githubusercontent.com/HudsonAlpha/Hauser_MAPT_MPRAs/main/oligo_MPRA/mpranalyze/mpranalyze_padding.py
+MPRAnalyze_oligoMPRA_neurons.R	OK	3580	debad25b022d200619efb6ddb51019674f01d1b061dcea283542f55364d7c9f9	text/plain	0		https://raw.githubusercontent.com/HudsonAlpha/Hauser_MAPT_MPRAs/main/oligo_MPRA/mpranalyze/MPRAnalyze_oligoMPRA_neurons.R

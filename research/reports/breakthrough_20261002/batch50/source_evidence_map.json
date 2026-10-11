@@ -1,0 +1,36 @@
+{
+ "batch": "batch50",
+ "version": "v6.36.0-morning-route-evidence.rc1",
+ "generated_at": "2026-10-04T06:09:30+08:00",
+ "rule": "each displayed number maps to source_file + JSON pointer/table row + SHA + units/population/heldout status (see figure_inputs.json)",
+ "artifact_to_sources": {
+  "figures/fig1_local293ft_applicability.png|svg": [
+    "reports/breakthrough_20261002/batch31/metrics.json (/local/families/*, /local/macro_family_accuracy, /local/unsupported)",
+    "reports/breakthrough_20261002/batch31/tables/local_pair_directions.tsv (row-level direction agreement)"
+  ],
+  "figures/fig2_public_transfer_sameassay.png|svg": [
+    "reports/breakthrough_20261002/batch41/independent_review.json (/independent_numbers/pooled_rho, /top10_precision, /parm_minus_h1_ci_cond)",
+    "reports/breakthrough_20261002/batch42/metrics.json (/R0,/R1,/Rnull,/zero_fit_train_weighted_mean_baseline,/decision)",
+    "reports/breakthrough_20261002/batch43/decision.json (/decomposition_answer/TEST_row_weighted_within_frac)",
+    "reports/breakthrough_20261002/batch43/correction_note.json (INVALID cross-unit MAE)",
+    "reports/breakthrough_20261002/batch31/metrics.json (/hek673/rho/PARM contextual only)"
+  ],
+  "figures/fig3_route_capability.png|svg": [
+    "reports/breakthrough_20261002/batch49/breadth_counts.json (/thresholds/0.30 n_frontier 12, eligible 18947)",
+    "data/breakthrough_20261002/batch49/out/gene_rank_minB_1.0.json (/counts below_E 0, eligible 8968, sum_ok)",
+    "reports/breakthrough_20261002/batch49/USAGE_zh.md (capability + scope)",
+    "reports/breakthrough_20261002/batch31/metrics.json + batch41/batch42 (failures)"
+  ],
+  "ROUTE_zh.txt": ["synthesis of the above; no new numbers"],
+  "captions_zh.md": ["per-figure source pointers; b49 catalog figure referenced at reports/breakthrough_20261002/batch49/figures/gene_rank_frontier.png (not redrawn)"],
+  "review_notes_addendum_20261004.json": [
+    "reports/breakthrough_20261002/batch49/independent_review.json (typed below_E)",
+    "data/breakthrough_20261002/batch49/out/gene_rank_minB_1.0.json (actual below_E 0)",
+    "reports/breakthrough_20261002/stage_email/stage_email_ledger.jsonl (batch49 accepted events)",
+    "runs/breakthrough_20261002/ops_stage_email_rc3/watcher.log"
+  ]
+ },
+ "runnable_entrypoint": "runs/breakthrough_20261002/code/batch49/b49_cli.py (guide: reports/breakthrough_20261002/batch49/USAGE_zh.md)",
+ "production_pointer_unchanged": {"main": "v6.3", "cellline_pilot": "v6.4"},
+ "no_new_model_weights": true
+}

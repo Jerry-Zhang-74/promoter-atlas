@@ -1,0 +1,16 @@
+model_name	promoter_model_v4_arch_pilot
+phase	Phase 6 architecture pilot
+input	sequence_memmap_plus_architecture
+sequence_asset	promoters/memmap/promoter_up200_uint8.memmap
+sequence_index	promoters/memmap/promoter_up200_index.tsv
+arch_asset	features/sequence/promoter_architecture_features_v1.tsv
+targets	Score_E,Score_S,Score_B
+score_s_missing_policy	masked_loss
+split_key	record_id
+train_n	20000
+val_n	4000
+test_n	4000
+arch_feature_count	6
+checkpoint	models/checkpoints/promoter_model_v4_arch_pilot.pt
+eval_table	models/eval/promoter_model_v4_arch_pilot_metrics.tsv
+log_file	models/logs/train_promoter_model_v4_arch_pilot.log

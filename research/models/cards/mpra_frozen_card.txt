@@ -1,0 +1,4 @@
+name	mpra_frozen
+mode	frozen
+supervision	GSE118242 K562 MPRA (Weingarten-Gabbay 2019)
+test_metrics	{"name": "mpra_frozen", "mode": "frozen", "test_mse": 0.11865761876106262, "test_r2": 0.1370212377294565, "test_spearman": 0.34794743369346903, "test_n": 1181, "family_mean_rho": -0.25, "family_n": 4}

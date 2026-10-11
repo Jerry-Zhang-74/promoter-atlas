@@ -1,0 +1,13 @@
+{
+  "kind": "artificial_no_fit_software_test_batch57",
+  "results": {
+    "trainer_refuses_real_fit_without_optin": "PASS",
+    "trainer_refuses_resume_failclosed": "PASS",
+    "coordinator_refuses_without_optin_before_any_solve": "PASS",
+    "epoch_cap_throughput_only": "PASS",
+    "checkpoint_abi_loads_live_arm_readonly_nograd": "PASS",
+    "run_policy_cpu_and_target_limits": "PASS"
+  },
+  "passed": 6,
+  "failed": []
+}

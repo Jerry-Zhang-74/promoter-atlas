@@ -1,0 +1,4 @@
+name	mpra_scratch
+mode	scratch
+supervision	GSE118242 K562 MPRA (Weingarten-Gabbay 2019)
+test_metrics	{"name": "mpra_scratch", "mode": "scratch", "test_mse": 0.07118600606918335, "test_r2": 0.48227503326191534, "test_spearman": 0.7076794852950911, "test_n": 1181, "family_mean_rho": 0.125, "family_n": 4}

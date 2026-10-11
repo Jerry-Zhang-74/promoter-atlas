@@ -1,0 +1,24 @@
+{
+  "batch": "batch34",
+  "version": "v6.23.0-scoped-inference.rc1",
+  "generated_at": "2026-10-03T23:28:24+0800",
+  "question": "Was 293FT merely a vector-packaging host, or an actual promoter-activity assay host?",
+  "answer": "Within the two named primary studies, 293FT was used as an ACTUAL promoter-activity assay host (TH reporter GFP in 17195153; survivin pSur length-variant comparison in 23847683), in addition to packaging/transfection duties. 293FT is therefore not merely a packaging host in the literature.",
+  "usable_cohort_found": false,
+  "why_not": "Both full studies use qualitative/semi-quantitative readouts (GFP imaging; Western blot) and do NOT provide accessible matched sequence + quantitative label tables; the TH construct is 6.3 kb (> PARM L_max).",
+  "strongest_lead": {
+    "pmid": "41959502",
+    "pmcid": "PMC13060879",
+    "why": "HEK293FT MPRA with sequence libraries and activity readouts (incl. 2,000 bp MAPT promoter saturation mutagenesis)",
+    "status": "metadata-only this batch; needs a bounded data-availability check (<=50MB, 0 fits)"
+  },
+  "bound_used": {
+    "targeted_queries": "2 esearch (Q3,Q4) + 2 abstract efetch + 2 full-text retrieval",
+    "full_studies_reviewed": 2,
+    "bytes_retrieved_total": 287239,
+    "cap_bytes": 10485760,
+    "note": "PMC1976183 full-text XML blocked by publisher; HTML article page used. PMC3701987 full XML."
+  },
+  "limitation_statement": "Within this bounded review NO qualified matched sequence + quantitative label 293FT cohort was found; this is a bounded-search result, NOT proof that no such data exist. Current 293FT performance remains UNRESOLVED; this does not block other computational work.",
+  "no_negative_overreach": true
+}

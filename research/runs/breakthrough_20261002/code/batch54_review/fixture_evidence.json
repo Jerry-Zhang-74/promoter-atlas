@@ -1,0 +1,22 @@
+{
+  "batch": "batch54",
+  "kind": "artificial_no_fit_metric_fixtures",
+  "fits": 0,
+  "solves": 0,
+  "gradients": 0,
+  "gpu": 0,
+  "network": 0,
+  "tests": {
+    "group_equal_mae_matches_bruteforce": "PASS",
+    "macro_sign_accuracy_truezero_and_ties": "PASS",
+    "constant_prediction_definitions": "PASS",
+    "topk_fixed_id_tiebreak_deterministic": "PASS",
+    "NA_handling_masks_nonfinite": "PASS",
+    "bootstrap_retains_multiplicity": "PASS",
+    "bootstrap_paired_improvement_sign": "PASS",
+    "fixed_baselines_zero_delta": "PASS"
+  },
+  "n_pass": 8,
+  "n_total": 8,
+  "all_passed": true
+}

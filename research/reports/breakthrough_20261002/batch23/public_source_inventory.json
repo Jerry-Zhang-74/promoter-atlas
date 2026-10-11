@@ -1,0 +1,196 @@
+{
+  "generated_at_local": "2026-10-03T15:56:58+0800",
+  "started_local": "2026-10-03T15:56:56+0800",
+  "batch": "batch23",
+  "hypothesis": "a larger HEK293/HEK293T promoter-autonomy sequence-activity cohort exists that can raise target-domain supervision above the batch21 from-scratch gate",
+  "criterion": ">=1000 usable sequence-activity rows AND >=500 independent sequence/locus groups with measured cell-specific promoter activity and defined sequences",
+  "reused_retrospective_reference": {
+    "accession": "GSE188639",
+    "title": "A single-cell massively parallel reporter assay detects cell type specific cis-regulatory activity (scMPRA core-promoter library)",
+    "role": "clearly REUSED retrospective reference (batch22 cohort); NOT a new independent study",
+    "processed_file": "data/breakthrough_20261002/batch22/source/GSE188639_mixed_cell_bulk_exp.csv.gz",
+    "bulk_file_sha256": "3b21ee7fda17f177a25e1fdc86a06362430526c4b3580fb3f881c3538c9c142c",
+    "columns": [
+      "prom_id",
+      "k562 exp",
+      "hek exp",
+      "input",
+      "k562_norm",
+      "hek_norm"
+    ],
+    "n_library_members": 676,
+    "n_with_published_133bp_sequence": 673,
+    "n_label_free_groups": 669,
+    "sequence_available": 1,
+    "sequence_definition": "Haberle et al. 2019 hg19 133 bp core promoter",
+    "target_units_hek": "log2(hek exp / input)",
+    "cell": "HEK293 (series is a HEK293+K562 mixture; processed file reports per-cell-type exp)",
+    "assay": "transient bulk MPRA (episomal/plasmid reporter), 2 replicates",
+    "note": "674 of 676 members usable after the 3 SCP1 mutants; the K562 columns are measurements of the SAME sequences -> extra rows do NOT add independent sequence groups (669 total)"
+  },
+  "leads": [
+    {
+      "lead": 1,
+      "accession": "GSE245191",
+      "cell": "HEK293T + K562 (genome-integrated)",
+      "assessment": {
+        "path": "data\\breakthrough_20261002\\batch23\\source\\GSE245191_architecture_INCOMPLETE_partial.txt.gz",
+        "sha256": "bbadebf5a2057ca2179192fd2dac52d3842558cd4cea677b0df04fefe03715e4",
+        "download_state": "INCOMPLETE (5.7 MB of 33 MB; corrupt/truncated gzip retained for honesty)",
+        "partial_head_path": "data\\breakthrough_20261002\\batch23\\source\\part_head.gz",
+        "partial_head_sha256": "532e3d05f33a2f78e9981ee5bf7311c1fa9b222f72f440a1c473547755a3e63e",
+        "columns": [
+          "lib_short_name",
+          "reporter_type_summary",
+          "reporter_ORF",
+          "promoter",
+          "U6_oBC",
+          "cHS4",
+          "mBC",
+          "biotype",
+          "biol_rep",
+          "tech_rep",
+          "umi_DNA",
+          "umi_RNA",
+          "reads_DNA",
+          "reads_RNA",
+          "norm_umi_DNA",
+          "norm_umi_RNA"
+        ],
+        "n_data_rows_read": 613762,
+        "n_distinct_promoter": 5,
+        "promoter_values": [
+          "EEF1A1p",
+          "Pgk1p",
+          "UBCp",
+          "minP",
+          "noP"
+        ],
+        "library_replicate_labels_biotype_col": {
+          "HEK293": 613762
+        },
+        "n_distinct_libraries_seen": 20,
+        "has_sequence_column": 0,
+        "rows_usable_as_promoter_activity": 0,
+        "reason": "the only processed supplementary for GSE245191 is the promoter-ARCHITECTURE/positional-effects table (5 fixed control promoters minP/UBCp/EEF1A1p/noP/Pgk1p); the 0.3k/10k/30k promoter-library samples exist only as raw sequence data with no processed sequence-activity table and no sequence definitions"
+      }
+    },
+    {
+      "lead": 2,
+      "accession": "GSE217680",
+      "cell": "HEK293T + HepG2 + K562 (genome-integrated)",
+      "assessment": {
+        "path": "data\\breakthrough_20261002\\batch23\\source\\GSE217680_bulk_MPRA_counts_promoter_series.txt.gz",
+        "sha256": "4c3301e4ac931916922c642c7e6a8177b51ee1995c2d4fcdb01c15edcfe94473",
+        "columns": [
+          "mBC",
+          "CRE_id",
+          "CRE_class",
+          "rep_id",
+          "cell_line",
+          "umi_DNA",
+          "umi_RNA",
+          "reads_DNA",
+          "reads_RNA"
+        ],
+        "n_data_rows": 6732,
+        "cell_lines": {
+          "Hek293": 2244,
+          "HepG2": 2244,
+          "K562": 2244
+        },
+        "CRE_class": {
+          "promoters": 6732
+        },
+        "reps": {
+          "repA": 3366,
+          "repB": 3366
+        },
+        "n_distinct_cre_id": 5,
+        "cre_ids": [
+          "eef1aP",
+          "minP",
+          "noP",
+          "pgk1P",
+          "ubcP"
+        ],
+        "has_sequence_column": 0,
+        "rows_usable_as_promoter_activity": 0,
+        "reason": "heavily-barcoded counts for 5 FIXED CONTROL promoters (noP/minP/UBCp/Pgk1P/eef1aP) only -- not a sequence-varied promoter library; no sequence column; cannot yield >=1000 sequence-activity rows"
+      }
+    },
+    {
+      "lead": 3,
+      "accession": "GSE306816",
+      "cell": "HEK293T (transient plasmid)",
+      "assessment": {
+        "accession": "GSE306816",
+        "title": "Systematic evaluation of the impact of promoter proximal short tandem repeats on gene expression",
+        "primary_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE306816",
+        "supplementary": [
+          "GSE306816_RAW.tar (22 MB)",
+          "GSE306816_dpSTR_HEK293_BC_cDNA_gDNA_ratio_rep1..3.csv.gz"
+        ],
+        "cell": "HEK293T (also HeLa/RNH arms)",
+        "assay": "transient plasmid MPRA, GFP reporter, cDNA/gDNA barcode ratio, 3 replicates",
+        "n_loci_reported": 19818,
+        "sequence_available": "in RAW.tar (not retrieved)",
+        "rows_usable_as_promoter_activity": 0,
+        "inclusion": "EXCLUDED",
+        "reason": "library = synthetic promoter variants carrying variable STR copy number/motif; the target is an STR-driven reporter effect, not the autonomous activity of a natural promoter sequence. Transient HEK293T plasmid context is closer to the local constructs, but the design is variant-effect and cannot be silently pooled.",
+        "possible_use": "a separate repeat-variant question only"
+      }
+    },
+    {
+      "lead": 4,
+      "accession": "GSE78709",
+      "cell": "K562",
+      "assessment": {
+        "accession": "GSE78709",
+        "title": "Genome-wide mapping of autonomous promoter activity in human cells (SuRE)",
+        "primary_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE78709",
+        "supplementary": [
+          "GSE78709_SuRE-counts-K562_B45_B55_LP170105.txt.gz (1.1 GB)",
+          "GSE78709_gencode.based.tss.SuRE.170828.txt.gz (1.1 MB)",
+          "bigWigs (multi-GB)"
+        ],
+        "cell": "K562 (this series)",
+        "assay": "SuRE: random 0.2-2 kb genomic fragments, plasmid, autonomous transcription, barcoded, 2 biological replicates",
+        "sequence_available": "genomic hg19 coordinates -> sequences derivable",
+        "rows_usable_as_promoter_activity": 0,
+        "inclusion": "EXCLUDED (as a HEK target-domain source)",
+        "reason": "K562 only in this series, not HEK293/HEK293T; processed counts are 1.1 GB + multi-GB bigWigs, exceeding the processed-download bound without a HEK file.",
+        "possible_use": "genome-wide autonomous-promoter reference in K562"
+      }
+    }
+  ],
+  "cohort_obtainable_within_bound": false,
+  "conclusion": "No coherent HEK293/HEK293T promoter-AUTONOMY sequence-activity cohort with >=1000 usable rows and >=500 independent sequence groups was obtainable within the bound. The two HEK293T bulk-MPRA processed tables (GSE245191, GSE217680) contain only 5 fixed control promoters each; the large HEK293T promoter library samples exist only as raw sequence data with no processed sequence-activity table and no sequence definitions; the HEK293T STR library (GSE306816) is a repeat-variant design, not promoter autonomy; SuRE (GSE78709) is K562.",
+  "what_this_does_not_prove": [
+    "It does NOT prove that data volume is the binding constraint.",
+    "It does NOT prove cell transfer must fail.",
+    "It does NOT lower or raise the batch21 from-scratch gate; the 673 reused rows are retained."
+  ],
+  "attempts": {
+    "downloaded": [
+      {
+        "file": "data\\breakthrough_20261002\\batch23\\source\\GSE217680_bulk_MPRA_counts_promoter_series.txt.gz",
+        "sha256": "4c3301e4ac931916922c642c7e6a8177b51ee1995c2d4fcdb01c15edcfe94473",
+        "bytes": 88412
+      },
+      {
+        "file": "data\\breakthrough_20261002\\batch23\\source\\GSE245191_architecture_INCOMPLETE_partial.txt.gz",
+        "sha256": "bbadebf5a2057ca2179192fd2dac52d3842558cd4cea677b0df04fefe03715e4",
+        "bytes": 5735600,
+        "state": "incomplete"
+      },
+      {
+        "file": "data\\breakthrough_20261002\\batch23\\source\\part_head.gz",
+        "sha256": "532e3d05f33a2f78e9981ee5bf7311c1fa9b222f72f440a1c473547755a3e63e",
+        "bytes": 2500001
+      }
+    ],
+    "processed_download_mb": 8.324,
+    "budget_mb": 750
+  }
+}

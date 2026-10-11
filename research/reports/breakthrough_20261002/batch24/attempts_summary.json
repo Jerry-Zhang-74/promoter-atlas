@@ -1,0 +1,17 @@
+{
+  "generated_at_local": "2026-10-03T16:26:40+0800",
+  "batch": "batch24",
+  "version": "v6.18.0-hek-kernel.rc1",
+  "n_attempts": 10,
+  "max_ridge_fits_budget": 10,
+  "by_recipe": {
+    "H1": 5,
+    "H2": 5
+  },
+  "neural_full_fits": 0,
+  "zero_neural_fits": true,
+  "pid": 37256,
+  "config_sha": "a4bcfca141893d139f2c36d303af0235c0c0f1834954a134abb1dc9a99532d60",
+  "elapsed_s": 0.3719749450683594,
+  "cached_R1_refits": 0
+}
