@@ -12,7 +12,7 @@
 - `partB_evidence.py`：整理检索证据矩阵和结论。
 - `make_figures.py`：使用 matplotlib Agg 生成最多 3 张图。
 
-从 `E:/promoter_atlas` 执行 `PYTHONUTF8=1 python -X utf8 <script>`。本轮使用保存的端点和模型分数，D28 结果保留 FAIL。
+从仓库根目录使用 `python scripts/run_historical.py code/batch33/build_context.py` 准备旧路径工作副本并运行端点整理；其他模块同样传入原始脚本路径。本轮使用保存的端点和模型分数，D28 方向判断为 FAIL。
 
 ---
 
@@ -26,4 +26,4 @@ Version `v6.22.1-assay-context.rc1` organizes existing measurements and literatu
 - `partB_evidence.py`: assemble the retrieved evidence matrix and conclusion.
 - `make_figures.py`: create up to three figures with matplotlib Agg.
 
-Run `PYTHONUTF8=1 python -X utf8 <script>` from `E:/promoter_atlas`. The batch uses saved endpoints and scores; the D28 verdict remains FAIL.
+From the repository root, use `python scripts/run_historical.py code/batch33/build_context.py` to prepare the original-layout workspace and assemble endpoints. Pass the corresponding original script path for other modules. The batch uses saved endpoints and scores; the D28 verdict remains FAIL.
