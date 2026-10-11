@@ -16,6 +16,8 @@ FASTA 接受 A/C/G/T/N，检查空文件/记录、全 N、重复 ID、非法字�
 
 测试阶段使用 CPU 人工夹具；正式权重前向由独占 GPU 评估阶段执行。固定核心各文件 SHA 见 PINNED_CORE_SHA256.json。
 
+以下为完整历史打包工作区中的命令。先在仓库根目录运行 `python scripts/run_historical.py --prepare-only`，进入 `workspaces/historical`，并使用已安装依赖的 Python 替换示例解释器路径。人工夹具入口用于软件检查，真实交付入口读取已训练的 bundle。
+
 ```bash
 .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch55_submission/tests/test_batch55.py
 .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch55_submission/make_fixture_model.py --out <fixture_dir>
@@ -38,6 +40,8 @@ Missing weights, checkpoint-SHA mismatch, target/source-SHA mismatch, unchanged 
 FASTA accepts A/C/G/T/N and checks empty/all-N records, duplicate IDs, invalid characters, and lengths above 600 bp. The model manifest requires kind=TRAINED, target_column=Log2RPM_HEK293, source SHA `1bbe5db71a5f4a92a281d19567b28ca3751f93d62959e6d61bd41188dd550d96`, config SHA `12488fae6f07c9a61abcee1dd1bf127bdc5cbd7ea2955a22c6fa3b5936dbf157`, checkpoint path/SHA/epoch, and normalizer mean/std.
 
 Software checks used artificial CPU fixtures; real-weight forward checks belong to the exclusive GPU evaluation stage. Per-file pinned-core hashes are in PINNED_CORE_SHA256.json.
+
+The commands below refer to the complete historical packaging workspace. Run `python scripts/run_historical.py --prepare-only` from the repository root, enter `workspaces/historical`, and replace the example interpreter path with your environment’s Python. Fixture creation checks software; delivery staging reads a trained bundle.
 
 ```bash
 .venv/Scripts/python.exe -X utf8 runs/breakthrough_20261002/code/batch55_submission/tests/test_batch55.py
