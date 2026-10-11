@@ -1,0 +1,5 @@
+# Portable CPU/GPU runtime; the original training environment is recorded separately.
+torch>=2.6,<3
+numpy>=1.26,<3
+pandas>=2.2,<4
+scipy>=1.12,<2
