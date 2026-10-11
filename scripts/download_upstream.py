@@ -1,6 +1,7 @@
 """Fetch optional upstream raw inputs and verify the recorded content hashes."""
 import argparse,gzip,hashlib,json,shutil,urllib.request
 from pathlib import Path
+from promoter_atlas.layout import canonical_path
 HERE=Path(__file__).resolve().parents[1]
 
 def digest(p):
@@ -11,7 +12,7 @@ def digest(p):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--target',default='research')
+    ap.add_argument('--target',default='.')
     ap.add_argument('--contains',required=True,help='Path substring, e.g. GTEx_, legacy_data/, or GRCh37; use ALL explicitly for all raw sources')
     ap.add_argument('--proxy')
     a=ap.parse_args();root=Path(a.target).resolve();root.mkdir(parents=True,exist_ok=True)
@@ -20,7 +21,7 @@ def main():
     if not rows:raise SystemExit('No matching upstream files')
     opener=urllib.request.build_opener(urllib.request.ProxyHandler({'https':a.proxy})) if a.proxy else urllib.request.build_opener()
     for r in rows:
-        dest=(root/r['path']).resolve()
+        dest=canonical_path(root,r['path'])
         if not dest.is_relative_to(root):raise ValueError('Unsafe path')
         if dest.exists():
             if dest.stat().st_size==r['bytes'] and digest(dest)==r['sha256']:print('Verified',r['path']);continue
