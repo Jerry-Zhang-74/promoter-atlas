@@ -6,301 +6,344 @@
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/bos_taurus/Bos_taurus.ARS-UCD1.3.113.gtf.gz",
       "bytes": 22213050,
       "sha256": "137463907bc5c9a70030b7f9e9ed356a7c097a1559486e87b44638a599922aff",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/bos_taurus/Bos_taurus.ARS-UCD1.3.113.gtf.gz"
     },
     {
       "path": "data/genomes/bos_taurus/Bos_taurus.ARS-UCD1.3.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/bos_taurus/dna/Bos_taurus.ARS-UCD1.3.dna.toplevel.fa.gz",
       "bytes": 817680774,
       "sha256": "5ebdc083de185da3145c6dc2220c57276397b446c0713c32b451ee5bbb6a5580",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/bos_taurus/Bos_taurus.ARS-UCD1.3.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/callithrix_jacchus/Callithrix_jacchus.mCalJac1.pat.X.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/callithrix_jacchus/Callithrix_jacchus.mCalJac1.pat.X.113.gtf.gz",
       "bytes": 20004390,
       "sha256": "9ec8b740af9d468c90c6c29bc05b9369af6a858136a672980f7b36faa3ec376e",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/callithrix_jacchus/Callithrix_jacchus.mCalJac1.pat.X.113.gtf.gz"
     },
     {
       "path": "data/genomes/callithrix_jacchus/Callithrix_jacchus.mCalJac1.pat.X.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/callithrix_jacchus/dna/Callithrix_jacchus.mCalJac1.pat.X.dna.toplevel.fa.gz",
       "bytes": 853457291,
       "sha256": "55cbb75aaed52a483cdd026f47ecdfb583a34d88976387e4616c44b6a81eb9b0",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/callithrix_jacchus/Callithrix_jacchus.mCalJac1.pat.X.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/canis_lupus_familiaris/Canis_lupus_familiaris.ROS_Cfam_1.0.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/canis_lupus_familiaris/Canis_lupus_familiaris.ROS_Cfam_1.0.113.gtf.gz",
       "bytes": 16804300,
       "sha256": "04473e2de0592599c434b586fa8aba87817c694dbe3ea5688193114e5280b40a",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/canis_lupus_familiaris/Canis_lupus_familiaris.ROS_Cfam_1.0.113.gtf.gz"
     },
     {
       "path": "data/genomes/canis_lupus_familiaris/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/canis_lupus_familiaris/dna/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa.gz",
       "bytes": 726351326,
       "sha256": "e1b4e9390e83598f1e8a1b08d7c6a3e661785a05f0a077ff255e83bee048faed",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/canis_lupus_familiaris/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/capra_hircus/Capra_hircus.ARS1.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/capra_hircus/Capra_hircus.ARS1.113.gtf.gz",
       "bytes": 12534696,
       "sha256": "039c579550219eb45ae4f4918cd19bc7ef71ffb96c6ed2150b49c9968ae28c7b",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/capra_hircus/Capra_hircus.ARS1.113.gtf.gz"
     },
     {
       "path": "data/genomes/capra_hircus/Capra_hircus.ARS1.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/capra_hircus/dna/Capra_hircus.ARS1.dna.toplevel.fa.gz",
       "bytes": 871055257,
       "sha256": "356814a8d4d0425a5e077085dc3282f28e4f26384afc8fb4537e6f5e8a834b88",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/capra_hircus/Capra_hircus.ARS1.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/cavia_porcellus/Cavia_porcellus.Cavpor3.0.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/cavia_porcellus/Cavia_porcellus.Cavpor3.0.113.gtf.gz",
       "bytes": 10587366,
       "sha256": "e1c67093793d377a56bf092edbbc2b2cd8a21ea95df6c901d7a91577346ceb5b",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/cavia_porcellus/Cavia_porcellus.Cavpor3.0.113.gtf.gz"
     },
     {
       "path": "data/genomes/cavia_porcellus/Cavia_porcellus.Cavpor3.0.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/cavia_porcellus/dna/Cavia_porcellus.Cavpor3.0.dna.toplevel.fa.gz",
       "bytes": 815064772,
       "sha256": "e945ee9c365be12647aebda0fbad76f90d15808486da709c791cda05547b97ba",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/cavia_porcellus/Cavia_porcellus.Cavpor3.0.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/equus_caballus/Equus_caballus.EquCab3.0.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/equus_caballus/Equus_caballus.EquCab3.0.113.gtf.gz",
       "bytes": 29844507,
       "sha256": "82862aeea15986d296147cee6905b67341ace0a13b5618a84155b1e7dc1cf565",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/equus_caballus/Equus_caballus.EquCab3.0.113.gtf.gz"
     },
     {
       "path": "data/genomes/equus_caballus/Equus_caballus.EquCab3.0.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/equus_caballus/dna/Equus_caballus.EquCab3.0.dna.toplevel.fa.gz",
       "bytes": 766873533,
       "sha256": "cc5b9620c2012d400d2e9f3727ad45c1c0f021df793b5b2e678e3519517a669b",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/equus_caballus/Equus_caballus.EquCab3.0.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/felis_catus/Felis_catus.Felis_catus_9.0.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/felis_catus/Felis_catus.Felis_catus_9.0.113.gtf.gz",
       "bytes": 16565210,
       "sha256": "cdade2328063a59998c7fc60b33872c8806e3df9b89fca7a889a9ba374622868",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/felis_catus/Felis_catus.Felis_catus_9.0.113.gtf.gz"
     },
     {
       "path": "data/genomes/felis_catus/Felis_catus.Felis_catus_9.0.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/felis_catus/dna/Felis_catus.Felis_catus_9.0.dna.toplevel.fa.gz",
       "bytes": 753101916,
       "sha256": "dde5e1619a35e4d85f3469c0761d122e9baab0e3c6a8847b2da9512f30494c45",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/felis_catus/Felis_catus.Felis_catus_9.0.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/loxodonta_africana/Loxodonta_africana.loxAfr3.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/loxodonta_africana/Loxodonta_africana.loxAfr3.113.gtf.gz",
       "bytes": 9317753,
       "sha256": "b21bcd70a24da366189ad9928efeba6289867e552bd74fa0d453fd7c0fdcfd01",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/loxodonta_africana/Loxodonta_africana.loxAfr3.113.gtf.gz"
     },
     {
       "path": "data/genomes/loxodonta_africana/Loxodonta_africana.loxAfr3.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/loxodonta_africana/dna/Loxodonta_africana.loxAfr3.dna.toplevel.fa.gz",
       "bytes": 960189643,
       "sha256": "0b02c2b56b3e42e098afe3d03618e065d0f18f2388b165372a2b7f1d05145874",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/loxodonta_africana/Loxodonta_africana.loxAfr3.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/macaca_mulatta/Macaca_mulatta.Mmul_10.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/macaca_mulatta/Macaca_mulatta.Mmul_10.113.gtf.gz",
       "bytes": 19791572,
       "sha256": "3540c6f50ab94e0b05f3bea3d5a2db9d633d44267161c352d994296df42d2e79",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/macaca_mulatta/Macaca_mulatta.Mmul_10.113.gtf.gz"
     },
     {
       "path": "data/genomes/macaca_mulatta/Macaca_mulatta.Mmul_10.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/macaca_mulatta/dna/Macaca_mulatta.Mmul_10.dna.toplevel.fa.gz",
       "bytes": 872921950,
       "sha256": "679dd90651c50366858152b62989c26d587340711e60622458815d19b272fd3a",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/macaca_mulatta/Macaca_mulatta.Mmul_10.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/monodelphis_domestica/Monodelphis_domestica.ASM229v1.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/monodelphis_domestica/Monodelphis_domestica.ASM229v1.113.gtf.gz",
       "bytes": 15154855,
       "sha256": "ed45dadd775a3a91610e6b201f768a6fb49848630b8b77c9a4bb38a399f93c7a",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/monodelphis_domestica/Monodelphis_domestica.ASM229v1.113.gtf.gz"
     },
     {
       "path": "data/genomes/monodelphis_domestica/Monodelphis_domestica.ASM229v1.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/monodelphis_domestica/dna/Monodelphis_domestica.ASM229v1.dna.toplevel.fa.gz",
       "bytes": 1063384540,
       "sha256": "d9b0e66a30ce523d0c9042d9a9cd688cfaef33c8892a0d66b59e4407e7f19d39",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/monodelphis_domestica/Monodelphis_domestica.ASM229v1.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/mus_musculus/Mus_musculus.GRCm39.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/mus_musculus/Mus_musculus.GRCm39.113.gtf.gz",
       "bytes": 40537437,
       "sha256": "b9fb3539f9883ae1c4b38a4e26d61e8a5367d59b175edf74fb2dadf0866840cf",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/mus_musculus/Mus_musculus.GRCm39.113.gtf.gz"
     },
     {
       "path": "data/genomes/mus_musculus/Mus_musculus.GRCm39.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.toplevel.fa.gz",
       "bytes": 806418890,
       "sha256": "40a0e42d1d8710540ecb11297bdcfd07e17e4adc83957962ecbca05603a0276c",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/mus_musculus/Mus_musculus.GRCm39.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/ornithorhynchus_anatinus/Ornithorhynchus_anatinus.mOrnAna1.p.v1.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/ornithorhynchus_anatinus/Ornithorhynchus_anatinus.mOrnAna1.p.v1.113.gtf.gz",
       "bytes": 14130027,
       "sha256": "d769d697150f317a245f0e1969d30ad9ec850f3b2472b529c4ece1307cb9bdac",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/ornithorhynchus_anatinus/Ornithorhynchus_anatinus.mOrnAna1.p.v1.113.gtf.gz"
     },
     {
       "path": "data/genomes/ornithorhynchus_anatinus/Ornithorhynchus_anatinus.mOrnAna1.p.v1.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/ornithorhynchus_anatinus/dna/Ornithorhynchus_anatinus.mOrnAna1.p.v1.dna.toplevel.fa.gz",
       "bytes": 555626702,
       "sha256": "537c8af60f51c9da84337160d1554c1f5816a5da94ace76007f8a18dd7d51552",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/ornithorhynchus_anatinus/Ornithorhynchus_anatinus.mOrnAna1.p.v1.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/oryctolagus_cuniculus/Oryctolagus_cuniculus.OryCun2.0.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/oryctolagus_cuniculus/Oryctolagus_cuniculus.OryCun2.0.113.gtf.gz",
       "bytes": 15732051,
       "sha256": "a9918d569707319eb4a5e0a9cd0adbacf892544553fc2668fad34f026466f5bf",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/oryctolagus_cuniculus/Oryctolagus_cuniculus.OryCun2.0.113.gtf.gz"
     },
     {
       "path": "data/genomes/oryctolagus_cuniculus/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/oryctolagus_cuniculus/dna/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa.gz",
       "bytes": 794458326,
       "sha256": "8021c206a23487bd9054bf601a4f4deb431065fb1074c41e48fba8a2bde5bd87",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/oryctolagus_cuniculus/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/ovis_aries/Ovis_aries_rambouillet.ARS-UI_Ramb_v2.0.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/ovis_aries/Ovis_aries_rambouillet.ARS-UI_Ramb_v2.0.113.gtf.gz",
       "bytes": 19644064,
       "sha256": "ecbba6fad0ff5fd532234b888614b1e66fd421f12f6c902db9585cdc23a9bdd9",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/ovis_aries/Ovis_aries_rambouillet.ARS-UI_Ramb_v2.0.113.gtf.gz"
     },
     {
       "path": "data/genomes/ovis_aries/Ovis_aries_rambouillet.ARS-UI_Ramb_v2.0.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/ovis_aries/dna/Ovis_aries_rambouillet.ARS-UI_Ramb_v2.0.dna.toplevel.fa.gz",
       "bytes": 801085741,
       "sha256": "de37e938aafc74f7fc3b9a3ed3a386c4b3d331ddfc9f04c963f73df5558075de",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/ovis_aries/Ovis_aries_rambouillet.ARS-UI_Ramb_v2.0.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/pan_troglodytes/Pan_troglodytes.Pan_tro_3.0.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/pan_troglodytes/Pan_troglodytes.Pan_tro_3.0.113.gtf.gz",
       "bytes": 18581133,
       "sha256": "b2d0f599316548191709a4da09dccf7a42b4354733063f8db9dd28748c896270",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/pan_troglodytes/Pan_troglodytes.Pan_tro_3.0.113.gtf.gz"
     },
     {
       "path": "data/genomes/pan_troglodytes/Pan_troglodytes.Pan_tro_3.0.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/pan_troglodytes/dna/Pan_troglodytes.Pan_tro_3.0.dna.toplevel.fa.gz",
       "bytes": 941866933,
       "sha256": "ecb1c3f2b04a0aeaa5a834ca855dbde469e553757e39ded613767d58fb329136",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/pan_troglodytes/Pan_troglodytes.Pan_tro_3.0.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/pteropus_vampyrus/Pteropus_vampyrus.pteVam1.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/pteropus_vampyrus/Pteropus_vampyrus.pteVam1.113.gtf.gz",
       "bytes": 7814638,
       "sha256": "88b5e507910277784df4e761b081bd07be254d80324412d11b100f47c557a81e",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/pteropus_vampyrus/Pteropus_vampyrus.pteVam1.113.gtf.gz"
     },
     {
       "path": "data/genomes/pteropus_vampyrus/Pteropus_vampyrus.pteVam1.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/pteropus_vampyrus/dna/Pteropus_vampyrus.pteVam1.dna.toplevel.fa.gz",
       "bytes": 571741516,
       "sha256": "0ceb3048e46dcab6d06b23c111234256d36ff44d35a3983efa5d6d0aff5b0e89",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/pteropus_vampyrus/Pteropus_vampyrus.pteVam1.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.113.gtf.gz",
       "bytes": 18101793,
       "sha256": "402aefe269ecccba845a8a03137304af4356455c83b77453f799001974b4eb7c",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.113.gtf.gz"
     },
     {
       "path": "data/genomes/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/rattus_norvegicus/dna/Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.gz",
       "bytes": 796828797,
       "sha256": "9e0cd229e1f0bc3c93e104c394a17ded4d30ef8acf30e6e4f6692a04c8160920",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.gz"
     },
     {
       "path": "data/genomes/sus_scrofa/Sus_scrofa.Sscrofa11.1.113.gtf.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/gtf/sus_scrofa/Sus_scrofa.Sscrofa11.1.113.gtf.gz",
       "bytes": 18768147,
       "sha256": "b581d688c6b26d905f24461e0697666d24d6e3b70a7bb1dee5cc0857d28814c8",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/sus_scrofa/Sus_scrofa.Sscrofa11.1.113.gtf.gz"
     },
     {
       "path": "data/genomes/sus_scrofa/Sus_scrofa.Sscrofa11.1.dna.toplevel.fa.gz",
       "url": "https://ftp.ensembl.org/pub/release-113/fasta/sus_scrofa/dna/Sus_scrofa.Sscrofa11.1.dna.toplevel.fa.gz",
       "bytes": 752879739,
       "sha256": "e7f06125db29b49143fceef05ff13f9ab7c5d39458fafde3da954a13e6cb06eb",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/genomes/sus_scrofa/Sus_scrofa.Sscrofa11.1.dna.toplevel.fa.gz"
     },
     {
       "path": "data/raw/GTEx_Analysis_v10_RNASeQCv2.4.2_gene_tpm.gct.gz",
       "url": "https://storage.googleapis.com/adult-gtex/bulk-gex/v10/rna-seq/GTEx_Analysis_v10_RNASeQCv2.4.2_gene_tpm.gct.gz",
       "bytes": 2256625137,
       "sha256": "63508984a06d05f42a633cd367ad08251a61c706dfe9161d21b7c1288ca24a82",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/GTEx_Analysis_v10_RNASeQCv2.4.2_gene_tpm.gct.gz"
     },
     {
       "path": "data/raw/GTEx_Analysis_v10_Annotations_SampleAttributesDS.txt",
       "url": "https://storage.googleapis.com/adult-gtex/annotations/v10/metadata-files/GTEx_Analysis_v10_Annotations_SampleAttributesDS.txt",
       "bytes": 38497961,
       "sha256": "98c246b3855edf62cb050982a7ca50f3069d010624baea47ef84a9465900ca4b",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/GTEx_Analysis_v10_Annotations_SampleAttributesDS.txt"
     },
     {
       "path": "data/breakthrough_20261002/batch52/reference/GRCh37.primary_assembly.fa.gz",
       "url": "https://ftp.ensembl.org/pub/grch37/current/fasta/homo_sapiens/dna/Homo_sapiens.GRCh37.dna.primary_assembly.fa.gz",
       "bytes": 869923173,
       "sha256": "0a43b56dec40debae976d6e70cac68ea6ed874f9fb7c8c814363702ff1d47865",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "experiments/breakthrough/batch52/data/reference/GRCh37.primary_assembly.fa.gz"
     },
     {
       "path": "legacy_data/GRCh38.primary_assembly.genome.fa",
       "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_49/GRCh38.primary_assembly.genome.fa.gz",
       "bytes": 3151417447,
       "sha256": "e49b92b3e4f321bf254c042f25b726d9931c4d74c7523e8b6bb530e63b0cfd4b",
-      "transport_compression": "gzip"
+      "transport_compression": "gzip",
+      "repository_path": "data/raw/gtex-legacy/GRCh38.primary_assembly.genome.fa"
     },
     {
       "path": "legacy_data/gencode.v49.annotation.gtf",
       "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_49/gencode.v49.annotation.gtf.gz",
       "bytes": 3323462848,
       "sha256": "ff32fd55c6799b3b94fe10aa17b2b5d4da952fa1de12fe44afadf32e949ec914",
-      "transport_compression": "gzip"
+      "transport_compression": "gzip",
+      "repository_path": "data/raw/gtex-legacy/gencode.v49.annotation.gtf"
     },
     {
       "path": "data/omics/raw/cage/fantom5_hg38_cage_peaks_phase1and2.bed.gz",
       "url": "https://fantom.gsc.riken.jp/5/datafiles/reprocessed/hg38_latest/extra/CAGE_peaks/hg38_fair+new_CAGE_peaks_phase1and2.bed.gz",
       "bytes": 5500816,
       "sha256": "7e007c3e1fd7a2e24404ad9d5a57d27f76cd7920a6fdc1acaa06b5c4fcfcb018",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/omics/cage/fantom5_hg38_cage_peaks_phase1and2.bed.gz"
     },
     {
       "path": "data/omics/raw/chip/remap2022_nr_macs2_hg38_v1_0.bed.gz",
       "url": "https://remap.univ-amu.fr/storage/remap2022/hg38/MACS2/remap2022_nr_macs2_hg38_v1_0.bed.gz",
       "bytes": 1456682065,
       "sha256": "3ba00dfca19d2d9ef57a2eb479350ba452cee88df818544d85e1a9c8345973d7",
-      "transport_compression": null
+      "transport_compression": null,
+      "repository_path": "data/raw/omics/chip/remap2022_nr_macs2_hg38_v1_0.bed.gz"
     }
   ]
 }
