@@ -15,8 +15,6 @@ __pycache__/
 *.part
 /results/
 verification_output/
-/models/
-.training-downloads/
 *.tar.zst.part*
 *.download
 *.restore-part
@@ -25,3 +23,12 @@ Thumbs.db
 *.egg-info/
 build/
 dist/
+
+.local/
+workspaces/
+publishing/
+*.pt.resume
+*.npz
+*.fasta
+*.fa
+*.fcs

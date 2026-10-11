@@ -1,2 +1,11 @@
 * text=auto eol=lf
-research/** -text
+experiments/** -text
+scripts/research/** -text
+models/** -text
+deliverables/submission-source/** -text
+reports/research/** -text
+docs/history/** -text
+docs/research/** -text
+docs/specifications/** -text
+artifacts/manifests/LEGACY_VERSION_MANIFEST.tsv -text
+data/processed/** -text
