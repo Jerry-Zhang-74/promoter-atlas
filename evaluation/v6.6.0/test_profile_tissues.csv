@@ -1,0 +1,55 @@
+tissue,n_gene,spearman,rmse
+Adipose - Subcutaneous,5594,0.594108,1.66031
+Adipose - Visceral (Omentum),5594,0.598596,1.63898
+Adrenal Gland,5594,0.603955,1.52501
+Artery - Aorta,5594,0.588139,1.71406
+Artery - Coronary,5594,0.595328,1.70299
+Artery - Tibial,5594,0.588197,1.70071
+Bladder,5594,0.603121,1.64585
+Brain - Amygdala,5594,0.62187,1.38913
+Brain - Anterior cingulate cortex (BA24),5594,0.619149,1.44456
+Brain - Caudate (basal ganglia),5594,0.617848,1.41557
+Brain - Cerebellar Hemisphere,5594,0.610682,1.63988
+Brain - Cerebellum,5594,0.608989,1.63004
+Brain - Cortex,5594,0.623894,1.4815
+Brain - Frontal Cortex (BA9),5594,0.621679,1.53117
+Brain - Hippocampus,5594,0.621974,1.39317
+Brain - Hypothalamus,5594,0.630447,1.44245
+Brain - Nucleus accumbens (basal ganglia),5594,0.621285,1.44027
+Brain - Putamen (basal ganglia),5594,0.614206,1.3734
+Brain - Spinal cord (cervical c-1),5594,0.61569,1.49635
+Brain - Substantia nigra,5594,0.620853,1.41562
+Breast - Mammary Tissue,5594,0.604403,1.65402
+Cells - Cultured fibroblasts,5594,0.591277,1.65157
+Cells - EBV-transformed lymphocytes,5594,0.57789,1.62854
+Cervix - Ectocervix,5594,0.604151,1.68159
+Cervix - Endocervix,5594,0.607475,1.71077
+Colon - Sigmoid,5594,0.608162,1.62533
+Colon - Transverse,5594,0.610853,1.59042
+Esophagus - Gastroesophageal Junction,5594,0.60434,1.6019
+Esophagus - Mucosa,5594,0.60992,1.54427
+Esophagus - Muscularis,5594,0.605359,1.5992
+Fallopian Tube,5594,0.606038,1.71216
+Heart - Atrial Appendage,5594,0.589249,1.42986
+Heart - Left Ventricle,5594,0.585893,1.31006
+Kidney - Cortex,5594,0.607352,1.46505
+Kidney - Medulla,5594,0.616428,1.56079
+Liver,5594,0.576129,1.40931
+Lung,5594,0.594541,1.75131
+Minor Salivary Gland,5594,0.597491,1.59792
+Muscle - Skeletal,5594,0.584548,1.4529
+Nerve - Tibial,5594,0.59463,1.73912
+Ovary,5594,0.598158,1.68608
+Pancreas,5594,0.595227,1.24394
+Pituitary,5594,0.628446,1.61035
+Prostate,5594,0.618741,1.64033
+Skin - Not Sun Exposed (Suprapubic),5594,0.599507,1.62489
+Skin - Sun Exposed (Lower leg),5594,0.598931,1.6463
+Small Intestine - Terminal Ileum,5594,0.608806,1.61934
+Spleen,5594,0.598705,1.67815
+Stomach,5594,0.611201,1.51131
+Testis,5594,0.622051,1.66824
+Thyroid,5594,0.611717,1.70069
+Uterus,5594,0.600486,1.71461
+Vagina,5594,0.604374,1.6772
+Whole Blood,5594,0.561546,1.4731

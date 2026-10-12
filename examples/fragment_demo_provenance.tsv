@@ -1,0 +1,4 @@
+candidate_id	cohort_row_index	coord_id	split	length_bp	measured_Log2RPM_HEK293
+fragment_01	164	chr12:8025458-8025605:+	TRAIN	147	2.68267
+fragment_02	165	chr12:8025762-8025964:-	TRAIN	202	1.187933
+fragment_03	166	chr12:8025282-8025557:-	TRAIN	275	4.612665

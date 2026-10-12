@@ -1,0 +1,18 @@
+{
+  "task": "esb",
+  "rows": 8,
+  "version": "v6.6.0",
+  "run_id": "v6.6.0-measured-20261012",
+  "checkpoint_basename": "v6.6.0.pt",
+  "checkpoint_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+  "parent_sha256": "109fc8919c570531f142390c703f956d4300cd63ccf825c65e7e3bd0748f1096",
+  "device": "cpu",
+  "batch_size": 4,
+  "units": {
+    "Score_E": "rank_normalized_score",
+    "Score_S": "rank_normalized_score",
+    "Score_B": "rank_normalized_score"
+  },
+  "units_note": "Score_E/S/B are rank-normalized predictions after undoing the training z-score; no clipping is applied.",
+  "elapsed_seconds": 0.285
+}

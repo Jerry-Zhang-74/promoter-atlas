@@ -1,0 +1,19 @@
+{
+  "scope": "DEV_cache_only",
+  "model_selection_changed": false,
+  "status": "completed",
+  "integrity_verified": true,
+  "inputs": {
+    "dev_best_esb.npz": "fa09870ede9c1782e7ae980a0691426cbe33f64c49ef37a8bfd3f816521bb70d",
+    "dev_best_esb.json": "0696d082ec330777d9a67504bf2acace85f46310c304ecdb7d728c25a61e9ef0",
+    "dev_last_esb.npz": "9393aab8f25d72db53f9211117b7c742d334cd16225b398771c8af0b848281b6",
+    "dev_last_esb.json": "c9b14c458b938e92905b8e99e7bae375d5cd130af1e5a70dd09487801c4d2351"
+  },
+  "selection_sha256": "3681c13187ec31abb7343a5c7a75e2144373cd0e50ca7ab36cc2d94e5fedddc2",
+  "preparation_sha256": "a24ea1978366e0ac5b73e8f2747a45609aa683d1e8fcbf35cba28b4385a42cee",
+  "outputs": {
+    "report.json": "832aada82ec10dc43e75bbf33a34ad2dab8f1d1cd49c556fb1a6c27e3c63a52a",
+    "gene_comparison.csv": "150583e55093257bfbfa62b50f53e4759adc9cdf4f9c74db125006460d16eba6",
+    "REPORT.md": "8cbd53846cabac503cb90376f92ad5216c78038babebb61816f36eef26b61e91"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "format": "promoter_atlas_epoch_early_stop.v1",
+  "metric": "fixed_dev_subset_gene_Score_E_spearman",
+  "evaluation_point": "completed_epoch_only",
+  "decline_definition": "current score strictly less than previous completed epoch score",
+  "required_consecutive_declines": 2,
+  "minimum_completed_epoch_scores": 3,
+  "equal_or_increased_score_resets_declines": true,
+  "S_B_reported_separately": true,
+  "deadline": "2026-10-12T20:28:00+08:00",
+  "checkpoint_selection": "existing best versus last full human DEV E selection remains unchanged",
+  "monitor": "external assessment of existing epoch-end scores; active trainer source unchanged"
+}

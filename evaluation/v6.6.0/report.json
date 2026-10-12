@@ -1,0 +1,891 @@
+{
+  "dev": {
+    "derived": {
+      "heads": {
+        "B_raw": {
+          "rmse": 0.517349644048046,
+          "spearman": 0.5852438293746455,
+          "valid_genes": 5604
+        },
+        "E_raw": {
+          "rmse": 1.4440106481421646,
+          "spearman": 0.634241436131212,
+          "valid_genes": 5604
+        },
+        "S_raw": {
+          "rmse": 0.4513751451281309,
+          "spearman": -0.02226333389161512,
+          "valid_genes": 1699
+        }
+      },
+      "n_complete_genes": 5604
+    },
+    "esb": {
+      "heads": {
+        "B": {
+          "bootstrap": {
+            "ci_high": 0.6727223857102761,
+            "ci_low": 0.6385347102465542,
+            "n_boot": 1000,
+            "point": 0.6570925530805272,
+            "valid_replicates": 1000
+          },
+          "rmse": 0.2445860950074428,
+          "spearman": 0.6570925530805272,
+          "valid_genes": 5606
+        },
+        "E": {
+          "bootstrap": {
+            "ci_high": 0.6706156477937121,
+            "ci_low": 0.637844571077677,
+            "n_boot": 1000,
+            "point": 0.655400919875656,
+            "valid_replicates": 1000
+          },
+          "rmse": 0.24643192105816808,
+          "spearman": 0.655400919875656,
+          "valid_genes": 5606
+        },
+        "S": {
+          "bootstrap": {
+            "ci_high": 0.40071259759977024,
+            "ci_low": 0.32073999454970126,
+            "n_boot": 1000,
+            "point": 0.36115389775490964,
+            "valid_replicates": 1000
+          },
+          "rmse": 0.08699314964379025,
+          "spearman": 0.36115389775490964,
+          "valid_genes": 1856
+        }
+      },
+      "n_genes": 5606,
+      "n_rows": 43517,
+      "raw_label_rows": 43517,
+      "raw_label_rows_per_head": {
+        "B": 43517,
+        "E": 43517,
+        "S": 30458
+      },
+      "source_index_fingerprint": "a90b5d33dac0054e97075cf64508b192e1451133dd9bc9e48bfd84d2fa73476d"
+    },
+    "fragment": {
+      "group_bootstrap": {
+        "ci_high": 0.8001270378754751,
+        "ci_low": 0.7308934713625881,
+        "n_boot": 1000,
+        "point": 0.7670562078994004,
+        "valid_replicates": 1000
+      },
+      "group_rmse": 0.5647268410408336,
+      "group_spearman": 0.7670562078994004,
+      "n_groups": 814,
+      "n_rows": 112640,
+      "raw_label_rows": 112640,
+      "rmse": 1.0510171387353056,
+      "source_index_fingerprint": "e00083f1e5204e934ae23ca8f4b154f357d9103e6842519968b38c141cf06acc",
+      "spearman": 0.5713589113660158,
+      "valid_groups": 814,
+      "valid_rows": 112640
+    },
+    "profile": {
+      "n_genes": 5606,
+      "n_rows": 43517,
+      "per_tissue": [
+        {
+          "n_gene": 5604,
+          "rmse": 1.6707640976316351,
+          "spearman": 0.5869972029974968,
+          "tissue": "Adipose - Subcutaneous"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6562344508042064,
+          "spearman": 0.5896611032521206,
+          "tissue": "Adipose - Visceral (Omentum)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.5328547238302652,
+          "spearman": 0.603143375466568,
+          "tissue": "Adrenal Gland"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.7137670610785045,
+          "spearman": 0.5855194428616523,
+          "tissue": "Artery - Aorta"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.7034875362397273,
+          "spearman": 0.5924256878425382,
+          "tissue": "Artery - Coronary"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6961070164550591,
+          "spearman": 0.5838186978780548,
+          "tissue": "Artery - Tibial"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6470730461230816,
+          "spearman": 0.6003222099751493,
+          "tissue": "Bladder"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4094516576820963,
+          "spearman": 0.6199331644055793,
+          "tissue": "Brain - Amygdala"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4541114258642132,
+          "spearman": 0.6186650647011447,
+          "tissue": "Brain - Anterior cingulate cortex (BA24)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4352471370319426,
+          "spearman": 0.6147840823646981,
+          "tissue": "Brain - Caudate (basal ganglia)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6443235300810453,
+          "spearman": 0.6068351579016895,
+          "tissue": "Brain - Cerebellar Hemisphere"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6372678286826825,
+          "spearman": 0.6032741333267511,
+          "tissue": "Brain - Cerebellum"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4960872959088785,
+          "spearman": 0.6197102279027925,
+          "tissue": "Brain - Cortex"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.542185250406612,
+          "spearman": 0.6182615206626102,
+          "tissue": "Brain - Frontal Cortex (BA9)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4180660220093246,
+          "spearman": 0.6179065989484004,
+          "tissue": "Brain - Hippocampus"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4564551881068546,
+          "spearman": 0.6269220776122844,
+          "tissue": "Brain - Hypothalamus"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.457511190269636,
+          "spearman": 0.616245763256365,
+          "tissue": "Brain - Nucleus accumbens (basal ganglia)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.3984961358589187,
+          "spearman": 0.6141190295492399,
+          "tissue": "Brain - Putamen (basal ganglia)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.5325212991669863,
+          "spearman": 0.6110763030896819,
+          "tissue": "Brain - Spinal cord (cervical c-1)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4412528950630408,
+          "spearman": 0.6204682109538696,
+          "tissue": "Brain - Substantia nigra"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6582405114272105,
+          "spearman": 0.5993056291584372,
+          "tissue": "Breast - Mammary Tissue"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.649678446968151,
+          "spearman": 0.5808283731310229,
+          "tissue": "Cells - Cultured fibroblasts"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6426007765084918,
+          "spearman": 0.5636757673989037,
+          "tissue": "Cells - EBV-transformed lymphocytes"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6826381379132882,
+          "spearman": 0.6001629284868206,
+          "tissue": "Cervix - Ectocervix"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.7019482307769533,
+          "spearman": 0.6069927000783369,
+          "tissue": "Cervix - Endocervix"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.618420130053952,
+          "spearman": 0.6042607750723769,
+          "tissue": "Colon - Sigmoid"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6107222853102254,
+          "spearman": 0.6017290968761483,
+          "tissue": "Colon - Transverse"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6047798998545166,
+          "spearman": 0.5996156338118444,
+          "tissue": "Esophagus - Gastroesophageal Junction"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.5618682385511837,
+          "spearman": 0.5962938422852708,
+          "tissue": "Esophagus - Mucosa"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6013112707496933,
+          "spearman": 0.6010551954128386,
+          "tissue": "Esophagus - Muscularis"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.7073602623908837,
+          "spearman": 0.6086473438028562,
+          "tissue": "Fallopian Tube"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4278484087401762,
+          "spearman": 0.5823334275083641,
+          "tissue": "Heart - Atrial Appendage"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.307131408765644,
+          "spearman": 0.5820991509189406,
+          "tissue": "Heart - Left Ventricle"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4639231862766813,
+          "spearman": 0.6041606325565905,
+          "tissue": "Kidney - Cortex"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.5319345261311503,
+          "spearman": 0.6187386808337983,
+          "tissue": "Kidney - Medulla"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4674219038263927,
+          "spearman": 0.5722332549023998,
+          "tissue": "Liver"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.7601784478432532,
+          "spearman": 0.5898970041399297,
+          "tissue": "Lung"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.601490908298621,
+          "spearman": 0.5897524641119248,
+          "tissue": "Minor Salivary Gland"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.452673692222673,
+          "spearman": 0.5773882254759587,
+          "tissue": "Muscle - Skeletal"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.7474103647938426,
+          "spearman": 0.5889864484112807,
+          "tissue": "Nerve - Tibial"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6892216843380699,
+          "spearman": 0.5977090240573445,
+          "tissue": "Ovary"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.2834308515654782,
+          "spearman": 0.5885476253016644,
+          "tissue": "Pancreas"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6060573008083485,
+          "spearman": 0.6268560452948769,
+          "tissue": "Pituitary"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6354218853829008,
+          "spearman": 0.614533524921407,
+          "tissue": "Prostate"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.5895813098777412,
+          "spearman": 0.5953284297216999,
+          "tissue": "Skin - Not Sun Exposed (Suprapubic)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6106832158232776,
+          "spearman": 0.5949135972156248,
+          "tissue": "Skin - Sun Exposed (Lower leg)"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6542006995242917,
+          "spearman": 0.5947434331365579,
+          "tissue": "Small Intestine - Terminal Ileum"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6894532289256052,
+          "spearman": 0.5899108850715814,
+          "tissue": "Spleen"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.5605930977855835,
+          "spearman": 0.6031238308622815,
+          "tissue": "Stomach"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6720112212635685,
+          "spearman": 0.6094582972159044,
+          "tissue": "Testis"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.6979804781940573,
+          "spearman": 0.6073027879281171,
+          "tissue": "Thyroid"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.703580779569227,
+          "spearman": 0.5995925625150635,
+          "tissue": "Uterus"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.677435093730523,
+          "spearman": 0.600456060791447,
+          "tissue": "Vagina"
+        },
+        {
+          "n_gene": 5604,
+          "rmse": 1.4565859171543232,
+          "spearman": 0.5590300121428977,
+          "tissue": "Whole Blood"
+        }
+      ],
+      "raw_label_rows": 43515,
+      "source_index_fingerprint": "a90b5d33dac0054e97075cf64508b192e1451133dd9bc9e48bfd84d2fa73476d",
+      "summary": {
+        "macro_rmse": 1.579057084993346,
+        "mean_spearman": 0.5999954026944295,
+        "median_spearman": 0.6003891353832982,
+        "n_tissue_with_spearman": 54
+      }
+    }
+  },
+  "format": "promoter_atlas_measured_eval.v1",
+  "initialization": "model initialized from v6.0 weights with historical homology supervision; original held-out split used",
+  "selection": {
+    "candidates": {
+      "best": {
+        "cache_meta_path": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\final_evaluation\\dev_best_esb.json",
+        "cache_path": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\final_evaluation\\dev_best_esb.npz",
+        "cache_sha256": "fa09870ede9c1782e7ae980a0691426cbe33f64c49ef37a8bfd3f816521bb70d",
+        "n_genes": 5606,
+        "sha256": "d19b0bc5c42964bf500497b18fe40f07c17053d0cb829a4fd5b428f65d0a8555",
+        "spearman_E": 0.6519002295741468,
+        "valid_genes_E": 5606
+      },
+      "last": {
+        "cache_meta_path": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\final_evaluation\\dev_last_esb.json",
+        "cache_path": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\final_evaluation\\dev_last_esb.npz",
+        "cache_sha256": "9393aab8f25d72db53f9211117b7c742d334cd16225b398771c8af0b848281b6",
+        "n_genes": 5606,
+        "sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+        "spearman_E": 0.655400919875656,
+        "valid_genes_E": 5606
+      }
+    },
+    "checkpoint_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+    "criterion": "max gene-level E Spearman on human DEV; tie -> last",
+    "selected": "last"
+  },
+  "test": {
+    "derived": {
+      "heads": {
+        "B_raw": {
+          "rmse": 0.5247967422921156,
+          "spearman": 0.5819164330989852,
+          "valid_genes": 5594
+        },
+        "E_raw": {
+          "rmse": 1.4416270453475974,
+          "spearman": 0.6412414639749526,
+          "valid_genes": 5594
+        },
+        "S_raw": {
+          "rmse": 0.45738284344353747,
+          "spearman": -0.020246186250323473,
+          "valid_genes": 1717
+        }
+      },
+      "n_complete_genes": 5594
+    },
+    "esb": {
+      "heads": {
+        "B": {
+          "bootstrap": {
+            "ci_high": 0.6805551932786404,
+            "ci_low": 0.6478711904983051,
+            "n_boot": 1000,
+            "point": 0.6645609156178874,
+            "valid_replicates": 1000
+          },
+          "rmse": 0.24315463779549742,
+          "spearman": 0.6645609156178874,
+          "valid_genes": 5603
+        },
+        "E": {
+          "bootstrap": {
+            "ci_high": 0.6775654594412627,
+            "ci_low": 0.6452552105164991,
+            "n_boot": 1000,
+            "point": 0.6611136738146578,
+            "valid_replicates": 1000
+          },
+          "rmse": 0.24622159606544483,
+          "spearman": 0.6611136738146578,
+          "valid_genes": 5603
+        },
+        "S": {
+          "bootstrap": {
+            "ci_high": 0.41469385017107924,
+            "ci_low": 0.33835694718584597,
+            "n_boot": 1000,
+            "point": 0.3758097852749756,
+            "valid_replicates": 1000
+          },
+          "rmse": 0.08667428229740565,
+          "spearman": 0.3758097852749756,
+          "valid_genes": 1855
+        }
+      },
+      "n_genes": 5603,
+      "n_rows": 45533,
+      "raw_label_rows": 45533,
+      "raw_label_rows_per_head": {
+        "B": 45533,
+        "E": 45533,
+        "S": 30325
+      },
+      "source_index_fingerprint": "d3e3eb7c142ffc3f12b3120c94a74d0c92c82ca1fb9071d519b74ffa44099d90"
+    },
+    "fragment": {
+      "group_bootstrap": {
+        "ci_high": 0.7890305791745545,
+        "ci_low": 0.71705977759205,
+        "n_boot": 1000,
+        "point": 0.7554064745875672,
+        "valid_replicates": 1000
+      },
+      "group_rmse": 0.5173368087612409,
+      "group_spearman": 0.7554064745875672,
+      "n_groups": 794,
+      "n_rows": 117155,
+      "raw_label_rows": 117155,
+      "rmse": 1.0419960937599653,
+      "source_index_fingerprint": "268c7b66ab7cd3ad9e2a9408a3395400a5189fa5ecd18637f757f04e911748d4",
+      "spearman": 0.5523131000010539,
+      "valid_groups": 794,
+      "valid_rows": 117155
+    },
+    "profile": {
+      "n_genes": 5603,
+      "n_rows": 45533,
+      "per_tissue": [
+        {
+          "n_gene": 5594,
+          "rmse": 1.660311620525147,
+          "spearman": 0.5941083167528565,
+          "tissue": "Adipose - Subcutaneous"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.638982926161269,
+          "spearman": 0.5985964468724018,
+          "tissue": "Adipose - Visceral (Omentum)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.5250076762750902,
+          "spearman": 0.6039546911657359,
+          "tissue": "Adrenal Gland"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7140616072012065,
+          "spearman": 0.5881390342635396,
+          "tissue": "Artery - Aorta"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7029920467594062,
+          "spearman": 0.5953281111992776,
+          "tissue": "Artery - Coronary"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7007089846420964,
+          "spearman": 0.588196970377558,
+          "tissue": "Artery - Tibial"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6458453102618738,
+          "spearman": 0.6031210438280487,
+          "tissue": "Bladder"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.3891303246804005,
+          "spearman": 0.6218703830561589,
+          "tissue": "Brain - Amygdala"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4445585082770267,
+          "spearman": 0.6191489628789555,
+          "tissue": "Brain - Anterior cingulate cortex (BA24)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4155662506614897,
+          "spearman": 0.617848278243253,
+          "tissue": "Brain - Caudate (basal ganglia)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6398793504228932,
+          "spearman": 0.6106819261569408,
+          "tissue": "Brain - Cerebellar Hemisphere"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6300433901430496,
+          "spearman": 0.6089893501884283,
+          "tissue": "Brain - Cerebellum"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.481496062596607,
+          "spearman": 0.6238935322664296,
+          "tissue": "Brain - Cortex"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.5311662166745164,
+          "spearman": 0.621679078527219,
+          "tissue": "Brain - Frontal Cortex (BA9)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.3931727263304294,
+          "spearman": 0.6219739494231653,
+          "tissue": "Brain - Hippocampus"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4424505682851192,
+          "spearman": 0.6304469788354093,
+          "tissue": "Brain - Hypothalamus"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4402722914917327,
+          "spearman": 0.621284542455518,
+          "tissue": "Brain - Nucleus accumbens (basal ganglia)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.3734025254959739,
+          "spearman": 0.6142055563224744,
+          "tissue": "Brain - Putamen (basal ganglia)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4963513475973573,
+          "spearman": 0.6156903130400967,
+          "tissue": "Brain - Spinal cord (cervical c-1)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4156197009704112,
+          "spearman": 0.6208530103392923,
+          "tissue": "Brain - Substantia nigra"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6540223018373796,
+          "spearman": 0.6044033236502921,
+          "tissue": "Breast - Mammary Tissue"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.651570105464113,
+          "spearman": 0.5912767311805891,
+          "tissue": "Cells - Cultured fibroblasts"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6285372133267293,
+          "spearman": 0.5778900732407058,
+          "tissue": "Cells - EBV-transformed lymphocytes"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6815923051641413,
+          "spearman": 0.6041508331477726,
+          "tissue": "Cervix - Ectocervix"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.710772375277825,
+          "spearman": 0.6074752688594045,
+          "tissue": "Cervix - Endocervix"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6253337868748023,
+          "spearman": 0.6081619370441859,
+          "tissue": "Colon - Sigmoid"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.590417311966383,
+          "spearman": 0.6108525260790341,
+          "tissue": "Colon - Transverse"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.601895767921208,
+          "spearman": 0.6043402664083373,
+          "tissue": "Esophagus - Gastroesophageal Junction"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.5442744575919272,
+          "spearman": 0.6099202000137017,
+          "tissue": "Esophagus - Mucosa"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.5991950558978119,
+          "spearman": 0.6053593488612867,
+          "tissue": "Esophagus - Muscularis"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7121589869230256,
+          "spearman": 0.6060377024311133,
+          "tissue": "Fallopian Tube"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4298570393751626,
+          "spearman": 0.5892494022161322,
+          "tissue": "Heart - Atrial Appendage"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.3100571806011578,
+          "spearman": 0.5858927834907874,
+          "tissue": "Heart - Left Ventricle"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4650491392669478,
+          "spearman": 0.6073515430369489,
+          "tissue": "Kidney - Cortex"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.560793827826275,
+          "spearman": 0.6164279128779078,
+          "tissue": "Kidney - Medulla"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.409310932890099,
+          "spearman": 0.5761288172509131,
+          "tissue": "Liver"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7513124809981178,
+          "spearman": 0.5945407742973864,
+          "tissue": "Lung"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.5979201410852264,
+          "spearman": 0.5974908941120379,
+          "tissue": "Minor Salivary Gland"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4528982740556093,
+          "spearman": 0.5845479348153888,
+          "tissue": "Muscle - Skeletal"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7391184778471185,
+          "spearman": 0.5946303554208766,
+          "tissue": "Nerve - Tibial"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.686079372356889,
+          "spearman": 0.5981584329152394,
+          "tissue": "Ovary"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.2439393098855254,
+          "spearman": 0.5952274516186413,
+          "tissue": "Pancreas"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6103520153827178,
+          "spearman": 0.6284462900136495,
+          "tissue": "Pituitary"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6403250143829782,
+          "spearman": 0.618740533459398,
+          "tissue": "Prostate"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.624888066528176,
+          "spearman": 0.5995073825697316,
+          "tissue": "Skin - Not Sun Exposed (Suprapubic)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6462987571276786,
+          "spearman": 0.5989307374066367,
+          "tissue": "Skin - Sun Exposed (Lower leg)"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6193380639754822,
+          "spearman": 0.6088056986210784,
+          "tissue": "Small Intestine - Terminal Ileum"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.67815285413052,
+          "spearman": 0.5987045021097634,
+          "tissue": "Spleen"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.5113142558775294,
+          "spearman": 0.6112006150835545,
+          "tissue": "Stomach"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.668235459144029,
+          "spearman": 0.6220507344575071,
+          "tissue": "Testis"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7006898905116858,
+          "spearman": 0.611717037017146,
+          "tissue": "Thyroid"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.7146075350522365,
+          "spearman": 0.600485688125331,
+          "tissue": "Uterus"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.6771983934242813,
+          "spearman": 0.6043738081790437,
+          "tissue": "Vagina"
+        },
+        {
+          "n_gene": 5594,
+          "rmse": 1.4730970479009116,
+          "spearman": 0.5615461075084393,
+          "tissue": "Whole Blood"
+        }
+      ],
+      "raw_label_rows": 45418,
+      "source_index_fingerprint": "d3e3eb7c142ffc3f12b3120c94a74d0c92c82ca1fb9071d519b74ffa44099d90",
+      "summary": {
+        "macro_rmse": 1.572067085802311,
+        "mean_spearman": 0.6047043356243096,
+        "median_spearman": 0.6048813362557894,
+        "n_tissue_with_spearman": 54
+      }
+    }
+  },
+  "title": "v6.6 \u539f\u7559\u51fa\u5206\u5272\u7ed3\u679c",
+  "units": {
+    "esb": "original Score_E/Score_S/Score_B scales",
+    "fragment": "Log2RPM_HEK293",
+    "profile": "log2(1+TPM)"
+  }
+}

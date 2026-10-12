@@ -1,6 +1,4 @@
-# 通用 CPU/GPU 运行依赖；原训练环境见 requirements-original.txt。
-# Portable CPU/GPU runtime; original training environment: requirements-original.txt.
-torch>=2.6,<3
-numpy>=1.26,<3
-pandas>=2.2,<4
-scipy>=1.12,<2
+torch==2.11.0
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1

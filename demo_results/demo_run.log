@@ -1,0 +1,9 @@
+$ predict.py --task esb --input examples\esb_demo.tsv --output esb_predictions.csv
+wrote esb_predictions.csv (8 rows)
+exit_code=0
+$ predict.py --task activity --input examples\fragment_demo.tsv --output fragment_activity.csv
+wrote fragment_activity.csv (3 rows)
+exit_code=0
+$ predict.py --task profile --input examples\esb_demo.tsv --output tissue_predictions.csv
+wrote tissue_predictions.csv (8 rows)
+exit_code=0

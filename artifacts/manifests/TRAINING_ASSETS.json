@@ -1,0 +1,141 @@
+{
+  "format": "pa.training_assets.v2",
+  "release": "training-data-20261012",
+  "release_id": 409388110,
+  "assets": [
+    {
+      "id": 629688815,
+      "name": "architecture-features.tar.zst.part001",
+      "bytes": 95965656,
+      "sha256": "4f6f7ca995e77ec3983395501901128d63b3a2e08a3ff4ea2bffcd94bd78d39f",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/architecture-features.tar.zst.part001"
+    },
+    {
+      "id": 629689457,
+      "name": "human-sequences.tar.zst.part001",
+      "bytes": 134217728,
+      "sha256": "60a7e6ddca4abee4f379ab3edde691f63df78e151cada534dc1fba017f1984c4",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/human-sequences.tar.zst.part001"
+    },
+    {
+      "id": 629690047,
+      "name": "human-sequences.tar.zst.part002",
+      "bytes": 134217728,
+      "sha256": "9a0b34bca00c1c64684ff1ae841b74920a69a7fb59a8b6428a5668d118d23782",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/human-sequences.tar.zst.part002"
+    },
+    {
+      "id": 629690382,
+      "name": "human-sequences.tar.zst.part003",
+      "bytes": 134217728,
+      "sha256": "c3ad906a1573fe9682f687e98fcf06fc4db0d147b9a81f77acea20a71350f62f",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/human-sequences.tar.zst.part003"
+    },
+    {
+      "id": 629690794,
+      "name": "human-sequences.tar.zst.part004",
+      "bytes": 59515114,
+      "sha256": "3076b2cb7449321040ec2dfb78af866a71c177b037e3ed1756863d2da372ce18",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/human-sequences.tar.zst.part004"
+    },
+    {
+      "id": 629693139,
+      "name": "joint-cohort.tar.zst.part001",
+      "bytes": 134217728,
+      "sha256": "5c46ada13a6d07f22d7e3d305510fcdd595862d64d7a98293ff25a882ada91ae",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/joint-cohort.tar.zst.part001"
+    },
+    {
+      "id": 629693644,
+      "name": "joint-cohort.tar.zst.part002",
+      "bytes": 15255939,
+      "sha256": "3ab30d0e97c77b94da901a33c9e35067874a08ed9917c3616696d68f151c416e",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/joint-cohort.tar.zst.part002"
+    },
+    {
+      "id": 629687646,
+      "name": "motif-features.tar.zst.part001",
+      "bytes": 134217728,
+      "sha256": "fc7926f688b1725f5e4e50fbf625fabeb4298c411f6294d5164f6d27e9b671ce",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/motif-features.tar.zst.part001"
+    },
+    {
+      "id": 629688497,
+      "name": "motif-features.tar.zst.part002",
+      "bytes": 72797749,
+      "sha256": "eb0f345e38797bf7c62bc3474d9dcbc025626eab573e5848507f486450c5c9c5",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/motif-features.tar.zst.part002"
+    },
+    {
+      "id": 629689259,
+      "name": "mpra-legacy.tar.zst.part001",
+      "bytes": 435327,
+      "sha256": "e331550e681cfc008ac1900ba705c90f6a9d9e2adb68b3612c25d82607780a09",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/mpra-legacy.tar.zst.part001"
+    },
+    {
+      "id": 629691257,
+      "name": "multispecies-sequences.tar.zst.part001",
+      "bytes": 134217728,
+      "sha256": "79979d0db2c02d55a083e4748ff17e7a842e6a6aaa792bda9656fc89056690a7",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/multispecies-sequences.tar.zst.part001"
+    },
+    {
+      "id": 629691510,
+      "name": "multispecies-sequences.tar.zst.part002",
+      "bytes": 134217728,
+      "sha256": "cdbb6c04ed4f631114e28706847d523bf4cbb4252ab0fe3cecaa7a81a3249d1a",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/multispecies-sequences.tar.zst.part002"
+    },
+    {
+      "id": 629692035,
+      "name": "multispecies-sequences.tar.zst.part003",
+      "bytes": 134217728,
+      "sha256": "01c97e8a65d74d3b9d5691cc68922d812969763b9c873991cd457285a8ff584a",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/multispecies-sequences.tar.zst.part003"
+    },
+    {
+      "id": 629692303,
+      "name": "multispecies-sequences.tar.zst.part004",
+      "bytes": 134217728,
+      "sha256": "606e2b2c107dcec207fe2e8f92faca82f5931a2ce16d85577b3c400e6876d840",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/multispecies-sequences.tar.zst.part004"
+    },
+    {
+      "id": 629692885,
+      "name": "multispecies-sequences.tar.zst.part005",
+      "bytes": 61717584,
+      "sha256": "8a1b71ff748f57cdd876339b43e3cceaa41e49c6ddf55570f96628d0631c24cd",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/multispecies-sequences.tar.zst.part005"
+    },
+    {
+      "id": 633401336,
+      "name": "omics-features.manifest.json",
+      "bytes": 4607,
+      "sha256": "f1b9c9c858a2fc09ef8b598fd1ff2641157ceea53b9b414a198eedb24c1b2e11",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/omics-features.manifest.json"
+    },
+    {
+      "id": 633401420,
+      "name": "omics-features.tar.zst.part001",
+      "bytes": 59176618,
+      "sha256": "7a9b59e17020b044a9c77590a67ff1afca7f3bb00bc22f1dfdb8e65e9f1da602",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/omics-features.tar.zst.part001"
+    },
+    {
+      "id": 629686929,
+      "name": "sequence-provenance.tar.zst.part001",
+      "bytes": 105521399,
+      "sha256": "d369faf15b1bd86cd1cca769647bdc07954bafa3ea1e3c3daf208247de7f4bf3",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/sequence-provenance.tar.zst.part001"
+    },
+    {
+      "id": 629755329,
+      "name": "UPSTREAM_DATA.json",
+      "bytes": 16150,
+      "sha256": "a6db25497460137bea6129535a97d7598330605d344587d1010470af7f783a7e",
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/training-data-20261012/UPSTREAM_DATA.json"
+    }
+  ],
+  "source_manifest": "data/DATA_SOURCE_MANIFEST.json"
+}

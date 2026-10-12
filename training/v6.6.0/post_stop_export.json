@@ -1,0 +1,60 @@
+{
+  "format": "promoter_atlas_user_stop_export.v1",
+  "request": "user_requested_stop_keep_best",
+  "request_sha256": "c4af6050662eb473a25ebcfa68754e92832b55ae237835c97aaaaa9bfc17940b",
+  "observer_sha256": "c3eeb8ab58f04e8b513b0aee65101670e6fa3ac4d86639525cfc37348d6f8e76",
+  "resume_sha256": "3115c1f8eba77df4c9a5239be26a556623ff7c2b0ef088d786072ecbd0188d16",
+  "last_before_sha256": "74ab71a36c7926b240248bfc4d63da9881436b0ef1bdac30ac57f8ba02d04661",
+  "last_export_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+  "best_sha256": "d19b0bc5c42964bf500497b18fe40f07c17053d0cb829a4fd5b428f65d0a8555",
+  "source_hashes_verified": true,
+  "frozen_source_hashes": {
+    "measured_train.py": "cbfda89a214c77894a0f166759fdb1d22938bb888f6c2dfc131465aa39705d79",
+    "model.py": "db5847c83be0c881a4feab109aae0a31d4154881b6819872c1b5f6ab3fad4226",
+    "measured_data.py": "f7e44d1facaf14725eebca4a66fd7de0d6c315b76453063850f8689045701491"
+  },
+  "actual_last_logged_step": 23209,
+  "latest_saved_checkpoint_step": 22817,
+  "unsaved_tail_steps": 392,
+  "tensor_verification": {
+    "strict_load": true,
+    "all_equal": true,
+    "tensor_count": 149
+  },
+  "field_schema_verified": true,
+  "exit_code": -1,
+  "ended_at": "2026-10-12T12:21:41.0510143Z",
+  "requested_at": "2026-10-12T20:21:39.998782+08:00",
+  "exported_at": "2026-10-12T12:37:04.485948+00:00",
+  "root_resume_sha256": "3115c1f8eba77df4c9a5239be26a556623ff7c2b0ef088d786072ecbd0188d16",
+  "root_resume_matches_backup": true,
+  "input_hashes": {
+    "experiments\\retrain\\v6.6_measured_20261012\\saved_last_export.json": "3fe74a8cbcc73828ed9608e29f6d49074ebbf559ada599127b3ea837f3a811a9",
+    "experiments\\retrain\\v6.6_measured_20261012\\user_stop_20261012\\request.json": "c4af6050662eb473a25ebcfa68754e92832b55ae237835c97aaaaa9bfc17940b",
+    "experiments\\retrain\\v6.6_measured_20261012\\run_completion.json": "c3eeb8ab58f04e8b513b0aee65101670e6fa3ac4d86639525cfc37348d6f8e76",
+    "experiments\\retrain\\v6.6_measured_20261012\\preparation.json": "a24ea1978366e0ac5b73e8f2747a45609aa683d1e8fcbf35cba28b4385a42cee",
+    "experiments\\retrain\\v6.6_measured_20261012\\source_hashes.json": "8038f3ebbbdd3eb3f9c5d93b72917cb840eff6700800924c552cde64d1318157",
+    "experiments\\retrain\\v6.6_measured_20261012\\effective_config.json": "71ab879b0a453be3fba3ad6fd221d3ea96cbaffb0c99784adefc5ecbebf84ef2",
+    "experiments\\retrain\\v6.6_measured_20261012\\losses.jsonl": "00eb781a1cd4999873d0081b09c00d6351bffde42228476c4c191189664deaba",
+    "experiments\\retrain\\v6.6_measured_20261012\\best.pt": "d19b0bc5c42964bf500497b18fe40f07c17053d0cb829a4fd5b428f65d0a8555",
+    "experiments\\retrain\\v6.6_measured_20261012\\last.pt": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+    "experiments\\retrain\\v6.6_measured_20261012\\checkpoints\\resume.pt": "3115c1f8eba77df4c9a5239be26a556623ff7c2b0ef088d786072ecbd0188d16",
+    "experiments\\retrain\\v6.6_measured_20261012\\user_stop_20261012\\best.pt": "d19b0bc5c42964bf500497b18fe40f07c17053d0cb829a4fd5b428f65d0a8555",
+    "experiments\\retrain\\v6.6_measured_20261012\\user_stop_20261012\\last.pt": "74ab71a36c7926b240248bfc4d63da9881436b0ef1bdac30ac57f8ba02d04661",
+    "experiments\\retrain\\v6.6_measured_20261012\\user_stop_20261012\\resume.pt": "3115c1f8eba77df4c9a5239be26a556623ff7c2b0ef088d786072ecbd0188d16",
+    "E:\\promoter_atlas\\src\\promoter_atlas\\measured_data.py": "f7e44d1facaf14725eebca4a66fd7de0d6c315b76453063850f8689045701491",
+    "E:\\promoter_atlas\\src\\promoter_atlas\\measured_train.py": "cbfda89a214c77894a0f166759fdb1d22938bb888f6c2dfc131465aa39705d79",
+    "E:\\promoter_atlas\\src\\promoter_atlas\\model.py": "db5847c83be0c881a4feab109aae0a31d4154881b6819872c1b5f6ab3fad4226",
+    "experiments\\retrain\\v6.6_measured_20261012\\source\\measured_data.py": "f7e44d1facaf14725eebca4a66fd7de0d6c315b76453063850f8689045701491",
+    "experiments\\retrain\\v6.6_measured_20261012\\source\\measured_train.py": "cbfda89a214c77894a0f166759fdb1d22938bb888f6c2dfc131465aa39705d79",
+    "experiments\\retrain\\v6.6_measured_20261012\\source\\model.py": "db5847c83be0c881a4feab109aae0a31d4154881b6819872c1b5f6ab3fad4226",
+    "E:\\promoter_atlas\\configs\\v6.6.json": "83c3e64b7445429f2ae77bf73a544ff25cc712cb0cefc817b4ecfee025f955c7",
+    "experiments\\retrain\\v6.6_measured_20261012\\source\\v6.6.json": "83c3e64b7445429f2ae77bf73a544ff25cc712cb0cefc817b4ecfee025f955c7"
+  },
+  "exporter_proof_sha256": "3fe74a8cbcc73828ed9608e29f6d49074ebbf559ada599127b3ea837f3a811a9",
+  "units": {
+    "ESB Score_E/S/B": "inverse zstats",
+    "profile": "log2(1+TPM) inverse profile_normalizers",
+    "activity": "Log2RPM_HEK293 inverse activity_normalizer"
+  }
+}

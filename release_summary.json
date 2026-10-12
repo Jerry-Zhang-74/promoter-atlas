@@ -1,0 +1,51 @@
+{
+  "project_title": "AI驱动的启动子核酸元件模块化设计与Bxb1定点整合系统验证平台",
+  "version": "v6.6.0",
+  "parameter_count": 4869741,
+  "training": {
+    "started_at": "2026-10-12T18:06:31.5514657+08:00",
+    "ended_at": "2026-10-12T12:21:41.0510143Z",
+    "global_step": 23209,
+    "completed_epochs": 2,
+    "partial_epoch_steps": 1001,
+    "stop_reason": "user_requested",
+    "optimization_seconds": 7998.622969798453,
+    "latest_saved_checkpoint_step": 22817,
+    "unsaved_tail_steps": 392,
+    "observer_exit_code": -1
+  },
+  "selected": {
+    "checkpoint_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+    "origin": "last"
+  },
+  "test_esb": {
+    "E": {
+      "n": 5603,
+      "spearman": 0.6611136738146578,
+      "ci_low": 0.6452552105164991,
+      "ci_high": 0.6775654594412627
+    },
+    "S": {
+      "n": 1855,
+      "spearman": 0.3758097852749756,
+      "ci_low": 0.33835694718584597,
+      "ci_high": 0.41469385017107924
+    },
+    "B": {
+      "n": 5603,
+      "spearman": 0.6645609156178874,
+      "ci_low": 0.6478711904983051,
+      "ci_high": 0.6805551932786404
+    }
+  },
+  "history_count": 27,
+  "snapshot_count": 9,
+  "demo": {
+    "esb_rows": 8,
+    "activity_rows": 3,
+    "tissues": 54,
+    "elapsed_seconds": 9.302,
+    "selected_candidates": 3
+  },
+  "data_manifest_path": "data/DATA_SOURCE_MANIFEST.json"
+}

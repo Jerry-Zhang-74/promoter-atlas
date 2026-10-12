@@ -1,0 +1,354 @@
+{
+  "sources": [
+    {
+      "bytes": 7289557,
+      "included": false,
+      "path": "data/processed/features/multispecies/ortholog_human_to_species.tsv",
+      "sha256": "c640ea3a5da1ac59b8b81f2d13d80ca0d9ba74cfa9cd0f28f165596e12724104",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 13022,
+      "included": false,
+      "path": "data/processed/features/omics/chip_tf_manifest_v1.tsv",
+      "sha256": "d0f5bbec475cabe7c7e93a97f29dd80eed4df943a1d1f95ab3e65987e2566772",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 13085483,
+      "included": false,
+      "path": "data/processed/features/omics/chip_tf_row_index_v1.tsv",
+      "sha256": "d4576fb7e1bcb34de07152fa37af3e6a2d297b5b7ddbbf4c718a0bbb0df43003",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 202946128,
+      "included": false,
+      "path": "data/processed/features/omics/promoter_chip_tf_matrix_v1_uint8.memmap",
+      "sha256": "bdde5c8db1addae4834f7d6d53c42d47c373c67ff4f058a5cb294e9e766e537a",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 37680914,
+      "included": false,
+      "path": "data/processed/features/omics/promoter_omics_targets_v1.tsv",
+      "sha256": "1274842a4ccb75ad69a185da4e4858a87fdd2c91612245824c44ceec2b8d4168",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 188524316,
+      "included": false,
+      "path": "data/processed/labels/build/gene_expression_table.tsv",
+      "sha256": "9876abd64aa8f5dc46f09796d4dffec4f2385e553e281f32120a72a23c606ae4",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 242881840,
+      "included": false,
+      "path": "data/processed/labels/build/promoter_atlas_v6_6_input.tsv",
+      "sha256": "353f8c372f27dfa12f33a6bdf555e24b95612eb131ee4a7bf549aab82acb8931",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 16814703,
+      "included": false,
+      "path": "data/processed/labels/releases/promoter_split_core.tsv",
+      "sha256": "07c14d76be7ee12d3411f4a9eefaddc5fdc2d945bcfeee62c0610f14ffeed7f1",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 32874400,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/bos_taurus_sym400_uint8.memmap",
+      "sha256": "4d307a660e2d4c4e4a7e1178746e93f46bc9074dc7b8bd5c4f84f2422033ad26",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 164372000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/bos_taurus_up2000_uint8.memmap",
+      "sha256": "892960ad74c6a2c9a0f43895272118fcc62790724fb2382cb93a98eba5a9ac3f",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 28282800,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/callithrix_jacchus_sym400_uint8.memmap",
+      "sha256": "e80e1bdba9284396832cc94e8a6d016f2874c08b66c6744fd026601330a442a7",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 141414000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/callithrix_jacchus_up2000_uint8.memmap",
+      "sha256": "343633e3f267bff80b82e12ee76ee75f3abecbc4544378265338863f4cf4eccf",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 22082400,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/canis_lupus_familiaris_sym400_uint8.memmap",
+      "sha256": "2190acdead873299704d5ee6521fa4f2b9347d4207dbe754b5c034aed7ff974e",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 110412000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/canis_lupus_familiaris_up2000_uint8.memmap",
+      "sha256": "c0536e132d77ec464dfdd7966164888173dc73cc5c5db403bf2352d66408c26b",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 16695200,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/capra_hircus_sym400_uint8.memmap",
+      "sha256": "520b36c293d600b25e4eac4964b8d556c120b098bc0d9bd003f32dd8cd3f9cfa",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 83476000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/capra_hircus_up2000_uint8.memmap",
+      "sha256": "3879d4b31484ae484507ad6914a3adace8e077b9a28c5c4c5119a2a84eac44d0",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 13906000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/cavia_porcellus_sym400_uint8.memmap",
+      "sha256": "80b0229ef9bc1bfe1cbbf9e2ff11ce86356d9068d0494fd17d8d0d4ad1745050",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 69530000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/cavia_porcellus_up2000_uint8.memmap",
+      "sha256": "b92b0579b858c5f6a8824c5f198c88d22cf54bdd066e08aee5dddc98f910da24",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 45585600,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/equus_caballus_sym400_uint8.memmap",
+      "sha256": "c64cde40908e3cfd9b343755a1d9e4e1909ae87db3ea820ad341e6fd6dd6994a",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 227928000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/equus_caballus_up2000_uint8.memmap",
+      "sha256": "144e12ba6a3f720ea6b161ad8204ec46bf606e5731f98358d6f3b681dde1f2f5",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 21742400,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/felis_catus_sym400_uint8.memmap",
+      "sha256": "bf03d927ba1f6d0a2acf803227d68a2c83fa78056b37607ff18117940d280456",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 108712000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/felis_catus_up2000_uint8.memmap",
+      "sha256": "b7f38e47e0b28d358ee124db1fb39744577e5a64515f4f4391b4e1210e997c85",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 11538800,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/loxodonta_africana_sym400_uint8.memmap",
+      "sha256": "297dd9bdcf61b63132b1c17dba14bca4ad442194391a16948bbb78bf7d9ce093",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 57694000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/loxodonta_africana_up2000_uint8.memmap",
+      "sha256": "1918f5fb11874ea09492c0d1b966ec293ef6d4f3b0db821cd57a00b8bad97aa3",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 25335200,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/macaca_mulatta_sym400_uint8.memmap",
+      "sha256": "181ab7f64bfcc6a44562839a9e936e5a4b78c646965f0696c5afa6268c3cf103",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 126676000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/macaca_mulatta_up2000_uint8.memmap",
+      "sha256": "3d7d4805858860121d037ad73f543b28f81fcf3f814c5c25c40e1fdc5c79880e",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 23533600,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/monodelphis_domestica_sym400_uint8.memmap",
+      "sha256": "0f84fbe918e67cc5fa248ff0dd81aeeadaca4739d257f9426cbeab9b6a2087fe",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 117668000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/monodelphis_domestica_up2000_uint8.memmap",
+      "sha256": "0ab81027346fa81825c17a5039548ca24632a9d860069074d5d0f7b8b436569e",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 109693200,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/mus_musculus_sym400_uint8.memmap",
+      "sha256": "bf330610bb7e1360795c26ce32765a93c68f034b19f0fc4cdcc0e6b673609d92",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 548466000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/mus_musculus_up2000_uint8.memmap",
+      "sha256": "cace6ab0c732035f060a90591da35d244df696f3d03bff8dc0c220a33495356c",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 17141600,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/ornithorhynchus_anatinus_sym400_uint8.memmap",
+      "sha256": "ec5724dc391c8f15ac01738bf8fdfc802b66ccd80f72a1b396368c0316a74d28",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 85708000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/ornithorhynchus_anatinus_up2000_uint8.memmap",
+      "sha256": "10d1bd8527705a427a2b53abc30ec97bd168d382b915129fd3812429c5aabc9e",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 20713600,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/oryctolagus_cuniculus_sym400_uint8.memmap",
+      "sha256": "240e99fd34593b0017ada6dd8f760ee1a8b520957d0fe9100cc1d9157bb1574c",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 103568000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/oryctolagus_cuniculus_up2000_uint8.memmap",
+      "sha256": "10280d35bf10323076b76785bce851e99c13e766f08985f2c6ab5fc7711f5483",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 26922000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/ovis_aries_sym400_uint8.memmap",
+      "sha256": "bb96b41a7c715617a33d519e1c178be7dddf324a7629b1d56d21d19b127bc0a4",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 134610000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/ovis_aries_up2000_uint8.memmap",
+      "sha256": "b7dd40f429fdd7d5ddded0d6fe447fffc633c6e816c1a2d15778758d570b8700",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 24468000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/pan_troglodytes_sym400_uint8.memmap",
+      "sha256": "facb1d42593adee4bfcd6436c4ebfaa614c666d0f3ac6601a5acc102f7857bc8",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 122340000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/pan_troglodytes_up2000_uint8.memmap",
+      "sha256": "6ceb26222c0bc61ddf24bce238535bfdef13a0d7f18b503198f56b5adeab3481",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 8902800,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/pteropus_vampyrus_sym400_uint8.memmap",
+      "sha256": "d7b113f14fc773fb126a6387700c75eeffeca2809820a9c1cb02f655bb4ea0ff",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 44514000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/pteropus_vampyrus_up2000_uint8.memmap",
+      "sha256": "5ffaba63374074603aa77ceb0425970ac3c5dbd11ef342184568037ed7452cf6",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 21943200,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/rattus_norvegicus_sym400_uint8.memmap",
+      "sha256": "01dc5a81954b2135dff4a7f587221d8a1538e15a1a616dbc86165e73fc14e611",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 109716000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/rattus_norvegicus_up2000_uint8.memmap",
+      "sha256": "7a6918c93652caa520205aa00c7d13d9d4ef1e096e267423851f67721b185f34",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 24148400,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/sus_scrofa_sym400_uint8.memmap",
+      "sha256": "dd2440e29e8bc7c29862531df732d15310f980f537b18d07b7425cd466082958",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 120742000,
+      "included": false,
+      "path": "data/processed/multispecies/memmap/sus_scrofa_up2000_uint8.memmap",
+      "sha256": "638caeb71c5e2ecaa42949883806e1814b59dab7a655fb4bc4a312cf216af3de",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 202946000,
+      "included": false,
+      "path": "data/processed/promoters/memmap/promoter_sym400_uint8.memmap",
+      "sha256": "e6fff961c532ada5fe1f16f0be10ed0a739fa9db9e875179bef4d64e163bc0f6",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 1014730000,
+      "included": false,
+      "path": "data/processed/promoters/memmap/promoter_up2000_uint8.memmap",
+      "sha256": "a44c82f14bb265932996a28698a081817410ef8165ca7ef69fe06177933be441",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 3655944128,
+      "included": false,
+      "path": "experiments/breakthrough/batch52/data/corrected/cohort_v2/codes_int64.npy",
+      "sha256": "d052d3b2c516dbbbcfaf0a412846cc2f3cffdd8dc052f4c9f6df898e78b08cf7",
+      "included_in_competition_package": false
+    },
+    {
+      "bytes": 82325805,
+      "included": false,
+      "path": "experiments/breakthrough/batch52/data/corrected/cohort_v2/endpoints.tsv",
+      "sha256": "017f2d99b958ebf9e3db708e603c0c78c579b3ce638f8c9d66634a0e28393327",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 376165,
+      "included": false,
+      "path": "experiments/breakthrough/batch52/data/corrected/cohort_v2/groups.tsv",
+      "sha256": "d0b71a14c35051c160be445281f55aec5a5b6f9172167bff3c783e85ddf2e9d7",
+      "included_in_competition_package": true
+    },
+    {
+      "bytes": 509,
+      "included": false,
+      "path": "experiments/breakthrough/batch52/data/corrected/cohort_v2/manifest.json",
+      "sha256": "9318314de6971fbc3dcde8f4f0730280af0a53613612d068e9490a1afbb856f0",
+      "included_in_competition_package": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "request": "user_requested_stop_keep_best",
+  "requested_at": "2026-10-12T20:21:39.998782+08:00",
+  "worker_pid": 42816,
+  "launcher_pid": 68484,
+  "preserved": [
+    {
+      "source": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\best.pt",
+      "saved": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\user_stop_20261012\\best.pt",
+      "bytes": 19535125,
+      "sha256": "d19b0bc5c42964bf500497b18fe40f07c17053d0cb829a4fd5b428f65d0a8555",
+      "global_step": null,
+      "epoch": null,
+      "next_step": null
+    },
+    {
+      "source": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\checkpoints\\resume.pt",
+      "saved": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\user_stop_20261012\\resume.pt",
+      "bytes": 58943883,
+      "sha256": "3115c1f8eba77df4c9a5239be26a556623ff7c2b0ef088d786072ecbd0188d16",
+      "global_step": 22817,
+      "epoch": 2,
+      "next_step": 609
+    },
+    {
+      "source": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\last.pt",
+      "saved": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\user_stop_20261012\\last.pt",
+      "bytes": 19535125,
+      "sha256": "74ab71a36c7926b240248bfc4d63da9881436b0ef1bdac30ac57f8ba02d04661",
+      "global_step": null,
+      "epoch": null,
+      "next_step": null
+    }
+  ]
+}

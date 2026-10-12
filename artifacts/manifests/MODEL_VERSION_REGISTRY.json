@@ -1,0 +1,810 @@
+{
+  "rule": "retrospective route-based identifiers; not historical release dates or benchmark superiority",
+  "models": [
+    {
+      "public_model_id": "v2.1.0-motif-only",
+      "legacy_name": "motif_only_pilot_v1",
+      "checkpoint": "models/checkpoints/motif_only_pilot_v1.pt",
+      "sha256": "4a3a3af02721d500bdf8904df504eb229a57be24b7d45ebf65922de3d02b4082",
+      "bytes": 411543,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_motif_only_pilot_v1.py"
+      ],
+      "card": "models/cards/motif_only_pilot_v1_card.txt",
+      "evaluation_files": [
+        "models/eval/motif_only_pilot_v1_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T16:58:03.631854+08:00",
+      "source_mtime_ns": 1773565083631854200,
+      "source_creation_time": "2026-03-15T16:58:03.631854+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v2.1.0-motif-only",
+      "repository_directory": "models/versions/v2.1.0-motif-only",
+      "repository_checkpoint": "models/versions/v2.1.0-motif-only/weights/motif_only_pilot_v1.pt",
+      "repository_card": "models/versions/v2.1.0-motif-only/cards/motif_only_pilot_v1_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v2.1.0-motif-only/evaluation/motif_only_pilot_v1_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_motif_only_pilot_v1.py"
+      ]
+    },
+    {
+      "public_model_id": "auxiliary-mpra-finetune",
+      "legacy_name": "mpra_finetune",
+      "checkpoint": "models/checkpoints/mpra_finetune.pt",
+      "sha256": "f2873f4f1bfaabf0a5e93787c09a5cb5e2ac6b2a0a7209eca16b6b57ae9e6459",
+      "bytes": 834917,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_mpra_finetune.py"
+      ],
+      "card": "models/cards/mpra_finetune_card.txt",
+      "evaluation_files": [
+        "models/eval/mpra_finetune_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T17:24:41.431867+08:00",
+      "source_mtime_ns": 1789032281431867400,
+      "source_creation_time": "2026-09-10T17:24:41.427855+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.3.0-mpra-finetune",
+      "repository_directory": "models/versions/v5.3.0-mpra-finetune",
+      "repository_checkpoint": "models/versions/v5.3.0-mpra-finetune/weights/mpra_finetune.pt",
+      "repository_card": "models/versions/v5.3.0-mpra-finetune/cards/mpra_finetune_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.3.0-mpra-finetune/evaluation/mpra_finetune_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_mpra_finetune.py"
+      ]
+    },
+    {
+      "public_model_id": "auxiliary-mpra-frozen",
+      "legacy_name": "mpra_frozen",
+      "checkpoint": "models/checkpoints/mpra_frozen.pt",
+      "sha256": "e692bd304af36ef03ab1fda16d2a46762c1b16a289039d7ebea679f416da1bc2",
+      "bytes": 834885,
+      "status": "historical-experiment",
+      "trainer_candidates": [],
+      "card": "models/cards/mpra_frozen_card.txt",
+      "evaluation_files": [
+        "models/eval/mpra_frozen_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T17:25:29.974996+08:00",
+      "source_mtime_ns": 1789032329974995700,
+      "source_creation_time": "2026-09-10T17:25:29.969195+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.3.0-mpra-frozen",
+      "repository_directory": "models/versions/v5.3.0-mpra-frozen",
+      "repository_checkpoint": "models/versions/v5.3.0-mpra-frozen/weights/mpra_frozen.pt",
+      "repository_card": "models/versions/v5.3.0-mpra-frozen/cards/mpra_frozen_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.3.0-mpra-frozen/evaluation/mpra_frozen_metrics.tsv"
+      ],
+      "repository_trainer_candidates": []
+    },
+    {
+      "public_model_id": "auxiliary-mpra-scratch",
+      "legacy_name": "mpra_scratch",
+      "checkpoint": "models/checkpoints/mpra_scratch.pt",
+      "sha256": "78d4ff1c6d70da3edc81e988a1b82d61b335659105368273f42ee7e64f360b78",
+      "bytes": 834901,
+      "status": "historical-experiment",
+      "trainer_candidates": [],
+      "card": "models/cards/mpra_scratch_card.txt",
+      "evaluation_files": [
+        "models/eval/mpra_scratch_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T17:25:08.151474+08:00",
+      "source_mtime_ns": 1789032308151474400,
+      "source_creation_time": "2026-09-10T17:25:08.149474+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.3.0-mpra-scratch",
+      "repository_directory": "models/versions/v5.3.0-mpra-scratch",
+      "repository_checkpoint": "models/versions/v5.3.0-mpra-scratch/weights/mpra_scratch.pt",
+      "repository_card": "models/versions/v5.3.0-mpra-scratch/cards/mpra_scratch_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.3.0-mpra-scratch/evaluation/mpra_scratch_metrics.tsv"
+      ],
+      "repository_trainer_candidates": []
+    },
+    {
+      "public_model_id": "v6.0.0-invalidated",
+      "legacy_name": "promoter_atlas_v6_round1",
+      "checkpoint": "models/checkpoints/promoter_atlas_v6_round1.pt",
+      "sha256": "109fc8919c570531f142390c703f956d4300cd63ccf825c65e7e3bd0748f1096",
+      "bytes": 19064936,
+      "status": "invalidated-metrics",
+      "trainer_candidates": [
+        "models/versions/v6.0.0/source/trainer_v6_round1.py"
+      ],
+      "card": "models/cards/promoter_atlas_v6_round1_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_atlas_v6_round1_design_task.tsv",
+        "models/eval/promoter_atlas_v6_round1_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-13T17:33:37.507472+08:00",
+      "source_mtime_ns": 1789292017507472200,
+      "source_creation_time": "2026-09-13T17:33:37.478032+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v6.0.0",
+      "repository_directory": "models/versions/v6.0.0",
+      "repository_checkpoint": "models/versions/v6.0.0/weights/promoter_atlas_v6_round1.pt",
+      "repository_card": "models/versions/v6.0.0/cards/promoter_atlas_v6_round1_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v6.0.0/evaluation/promoter_atlas_v6_round1_design_task.tsv",
+        "models/versions/v6.0.0/evaluation/promoter_atlas_v6_round1_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "models/versions/v6.0.0/source/trainer_v6_round1.py"
+      ]
+    },
+    {
+      "public_model_id": "v1.0.0",
+      "legacy_name": "promoter_model_v1",
+      "checkpoint": "models/checkpoints/promoter_model_v1.pt",
+      "sha256": "42224cbe39155b7b96ed86c0aa038d52f468f2192c840b294b17e1d48827d2f4",
+      "bytes": 837889,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v1.py"
+      ],
+      "card": "models/cards/promoter_model_v1_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v1_metrics.tsv",
+        "models/eval/promoter_model_v1_metrics_unified.tsv"
+      ],
+      "source_mtime": "2026-03-15T13:02:55.776448+08:00",
+      "source_mtime_ns": 1773550975776448500,
+      "source_creation_time": "2026-03-15T13:02:55.776448+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v1.0.0",
+      "repository_directory": "models/versions/v1.0.0",
+      "repository_checkpoint": "models/versions/v1.0.0/weights/promoter_model_v1.pt",
+      "repository_card": "models/versions/v1.0.0/cards/promoter_model_v1_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v1.0.0/evaluation/promoter_model_v1_metrics.tsv",
+        "models/versions/v1.0.0/evaluation/promoter_model_v1_metrics_unified.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v1.py"
+      ]
+    },
+    {
+      "public_model_id": "v2.0.0-sequence-motif",
+      "legacy_name": "promoter_model_v2_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v2_pilot.pt",
+      "sha256": "007d8f0c18d2a2407aeb968e03bfec8b62a290974dc810c4dcf4fe0d571483a6",
+      "bytes": 1310471,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v2_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v2_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T15:57:05.398602+08:00",
+      "source_mtime_ns": 1773561425398601800,
+      "source_creation_time": "2026-03-15T15:57:05.398602+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v2.0.0-sequence-motif",
+      "repository_directory": "models/versions/v2.0.0-sequence-motif",
+      "repository_checkpoint": "models/versions/v2.0.0-sequence-motif/weights/promoter_model_v2_pilot.pt",
+      "repository_card": "models/versions/v2.0.0-sequence-motif/cards/promoter_model_v2_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v2.0.0-sequence-motif/evaluation/promoter_model_v2_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v2.2.0-reduced-motif",
+      "legacy_name": "promoter_model_v2_reduced_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v2_reduced_pilot.pt",
+      "sha256": "fdec86985ab9f9186429197f0cfd728e96d47a4765485a4ae92faed46faecf60",
+      "bytes": 1008855,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_reduced_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v2_reduced_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v2_reduced_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T17:10:18.276481+08:00",
+      "source_mtime_ns": 1773565818276481100,
+      "source_creation_time": "2026-03-15T17:10:18.276481+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v2.2.0-reduced-motif",
+      "repository_directory": "models/versions/v2.2.0-reduced-motif",
+      "repository_checkpoint": "models/versions/v2.2.0-reduced-motif/weights/promoter_model_v2_reduced_pilot.pt",
+      "repository_card": "models/versions/v2.2.0-reduced-motif/cards/promoter_model_v2_reduced_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v2.2.0-reduced-motif/evaluation/promoter_model_v2_reduced_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_reduced_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v3.0.0-pair-grammar",
+      "legacy_name": "promoter_model_v3_pair_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v3_pair_pilot.pt",
+      "sha256": "74f448e3929cda96f9a18372c24db4101a8a5b645d7180a4693016cf9128c924",
+      "bytes": 937801,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v3_pair_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v3_pair_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v3_pair_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T17:18:46.098737+08:00",
+      "source_mtime_ns": 1773566326098737300,
+      "source_creation_time": "2026-03-15T17:18:46.098737+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v3.0.0-pair-grammar",
+      "repository_directory": "models/versions/v3.0.0-pair-grammar",
+      "repository_checkpoint": "models/versions/v3.0.0-pair-grammar/weights/promoter_model_v3_pair_pilot.pt",
+      "repository_card": "models/versions/v3.0.0-pair-grammar/cards/promoter_model_v3_pair_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v3.0.0-pair-grammar/evaluation/promoter_model_v3_pair_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v3_pair_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v4.1.0-architecture-fusion",
+      "legacy_name": "promoter_model_v4_arch2_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v4_arch2_pilot.pt",
+      "sha256": "719f0f71ed24b7e786135cc8418dd9935a26af1f9c48ea11003499687a61bbc6",
+      "bytes": 936931,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v4_arch2_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v4_arch2_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v4_arch2_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T22:44:11.083556+08:00",
+      "source_mtime_ns": 1773585851083555700,
+      "source_creation_time": "2026-03-15T22:44:11.083556+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v4.1.0-architecture-fusion",
+      "repository_directory": "models/versions/v4.1.0-architecture-fusion",
+      "repository_checkpoint": "models/versions/v4.1.0-architecture-fusion/weights/promoter_model_v4_arch2_pilot.pt",
+      "repository_card": "models/versions/v4.1.0-architecture-fusion/cards/promoter_model_v4_arch2_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v4.1.0-architecture-fusion/evaluation/promoter_model_v4_arch2_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v4_arch2_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v4.4.0-reduced-architecture",
+      "legacy_name": "promoter_model_v4_arch2_reduced_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v4_arch2_reduced_pilot.pt",
+      "sha256": "d61128afeebbc05f6b38bcb9507c06696d3326c8d28f0ff3408b5fc49af9e46d",
+      "bytes": 36699,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v4_arch2_reduced_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v4_arch2_reduced_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v4_arch2_reduced_pilot_best_summary.tsv",
+        "models/eval/promoter_model_v4_arch2_reduced_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-16T13:01:41.806236+08:00",
+      "source_mtime_ns": 1773637301806235700,
+      "source_creation_time": "2026-03-16T13:01:41.806236+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v4.4.0-reduced-architecture",
+      "repository_directory": "models/versions/v4.4.0-reduced-architecture",
+      "repository_checkpoint": "models/versions/v4.4.0-reduced-architecture/weights/promoter_model_v4_arch2_reduced_pilot.pt",
+      "repository_card": "models/versions/v4.4.0-reduced-architecture/cards/promoter_model_v4_arch2_reduced_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v4.4.0-reduced-architecture/evaluation/promoter_model_v4_arch2_reduced_pilot_best_summary.tsv",
+        "models/versions/v4.4.0-reduced-architecture/evaluation/promoter_model_v4_arch2_reduced_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v4_arch2_reduced_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v4.3.0-architecture",
+      "legacy_name": "promoter_model_v4_arch3_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v4_arch3_pilot.pt",
+      "sha256": "4044f950aa377bcb255e4f636b8c34ac6fa7bafb8bc26ac1c30fe8daaf6a192a",
+      "bytes": 53387,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v4_arch3_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v4_arch3_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v4_arch3_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T23:16:05.738280+08:00",
+      "source_mtime_ns": 1773587765738279800,
+      "source_creation_time": "2026-03-15T23:16:05.738280+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v4.3.0-architecture",
+      "repository_directory": "models/versions/v4.3.0-architecture",
+      "repository_checkpoint": "models/versions/v4.3.0-architecture/weights/promoter_model_v4_arch3_pilot.pt",
+      "repository_card": "models/versions/v4.3.0-architecture/cards/promoter_model_v4_arch3_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v4.3.0-architecture/evaluation/promoter_model_v4_arch3_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v4_arch3_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v4.2.0-architecture-only",
+      "legacy_name": "promoter_model_v4_arch_only_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v4_arch_only_pilot.pt",
+      "sha256": "13a1c1585e54fed1c540d1ee172e009eee89c4e9f0df488fa6f8072290a68377",
+      "bytes": 36947,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v4_arch_only_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v4_arch_only_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v4_arch_only_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T23:02:36.470202+08:00",
+      "source_mtime_ns": 1773586956470202500,
+      "source_creation_time": "2026-03-15T23:02:36.470202+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v4.2.0-architecture-only",
+      "repository_directory": "models/versions/v4.2.0-architecture-only",
+      "repository_checkpoint": "models/versions/v4.2.0-architecture-only/weights/promoter_model_v4_arch_only_pilot.pt",
+      "repository_card": "models/versions/v4.2.0-architecture-only/cards/promoter_model_v4_arch_only_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v4.2.0-architecture-only/evaluation/promoter_model_v4_arch_only_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v4_arch_only_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v4.0.0-architecture-fusion",
+      "legacy_name": "promoter_model_v4_arch_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v4_arch_pilot.pt",
+      "sha256": "ac98ec9fce443a703906a1d4531ab494dc874fb062a0ebe561878afcea8fa925",
+      "bytes": 917961,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v4_arch_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v4_arch_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v4_arch_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-15T22:07:08.842940+08:00",
+      "source_mtime_ns": 1773583628842939800,
+      "source_creation_time": "2026-03-15T22:07:08.842940+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v4.0.0-architecture-fusion",
+      "repository_directory": "models/versions/v4.0.0-architecture-fusion",
+      "repository_checkpoint": "models/versions/v4.0.0-architecture-fusion/weights/promoter_model_v4_arch_pilot.pt",
+      "repository_card": "models/versions/v4.0.0-architecture-fusion/cards/promoter_model_v4_arch_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v4.0.0-architecture-fusion/evaluation/promoter_model_v4_arch_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v4_arch_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v4.5.0-gated-fusion",
+      "legacy_name": "promoter_model_v4_fusion_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v4_fusion_pilot.pt",
+      "sha256": "c17345d688e8e3010556d13b39f3a590ff91dc75cd156581cd9ee12c3f016548",
+      "bytes": 980493,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v4_fusion_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v4_fusion_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v4_fusion_pilot_best_summary.tsv",
+        "models/eval/promoter_model_v4_fusion_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-16T22:48:17.214337+08:00",
+      "source_mtime_ns": 1773672497214337400,
+      "source_creation_time": "2026-03-16T22:48:17.214337+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v4.5.0-gated-fusion",
+      "repository_directory": "models/versions/v4.5.0-gated-fusion",
+      "repository_checkpoint": "models/versions/v4.5.0-gated-fusion/weights/promoter_model_v4_fusion_pilot.pt",
+      "repository_card": "models/versions/v4.5.0-gated-fusion/cards/promoter_model_v4_fusion_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v4.5.0-gated-fusion/evaluation/promoter_model_v4_fusion_pilot_best_summary.tsv",
+        "models/versions/v4.5.0-gated-fusion/evaluation/promoter_model_v4_fusion_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v4_fusion_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v4.6.0-residual-s",
+      "legacy_name": "promoter_model_v4_residual_s_pilot",
+      "checkpoint": "models/checkpoints/promoter_model_v4_residual_s_pilot.pt",
+      "sha256": "a56ed305bd5b0e86d6fc7e1e215e340300f53d372a2826acf1827723245a8af2",
+      "bytes": 37285,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v4_residual_s_pilot.py"
+      ],
+      "card": "models/cards/promoter_model_v4_residual_s_pilot_card.txt",
+      "evaluation_files": [
+        "models/eval/promoter_model_v4_residual_s_pilot_best_summary.tsv",
+        "models/eval/promoter_model_v4_residual_s_pilot_metrics.tsv"
+      ],
+      "source_mtime": "2026-03-17T11:30:38.484770+08:00",
+      "source_mtime_ns": 1773718238484769500,
+      "source_creation_time": "2026-03-17T11:30:38.484770+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v4.6.0-residual-s",
+      "repository_directory": "models/versions/v4.6.0-residual-s",
+      "repository_checkpoint": "models/versions/v4.6.0-residual-s/weights/promoter_model_v4_residual_s_pilot.pt",
+      "repository_card": "models/versions/v4.6.0-residual-s/cards/promoter_model_v4_residual_s_pilot_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v4.6.0-residual-s/evaluation/promoter_model_v4_residual_s_pilot_best_summary.tsv",
+        "models/versions/v4.6.0-residual-s/evaluation/promoter_model_v4_residual_s_pilot_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v4_residual_s_pilot.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.0.0-baseline-repro",
+      "legacy_name": "v2_baseline_repro",
+      "checkpoint": "models/checkpoints/v2_baseline_repro.pt",
+      "sha256": "430298fb8173184b9699f36b906592a24a94867982539d063e481ca8365ca352",
+      "bytes": 836005,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_distill.py"
+      ],
+      "card": "models/cards/v2_baseline_repro_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_baseline_repro_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T00:56:20.570762+08:00",
+      "source_mtime_ns": 1788972980570762500,
+      "source_creation_time": "2026-09-10T00:56:20.567878+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.0.0-baseline-repro",
+      "repository_directory": "models/versions/v5.0.0-baseline-repro",
+      "repository_checkpoint": "models/versions/v5.0.0-baseline-repro/weights/v2_baseline_repro.pt",
+      "repository_card": "models/versions/v5.0.0-baseline-repro/cards/v2_baseline_repro_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.0.0-baseline-repro/evaluation/v2_baseline_repro_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_distill.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.0.0-conv-arch",
+      "legacy_name": "v2_conv_arch",
+      "checkpoint": "models/checkpoints/v2_conv_arch.pt",
+      "sha256": "d982c271e5d6ba2c0b4e67f49314feb09df611d41af3973670520e30f62e0f0c",
+      "bytes": 844949,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_fusion.py"
+      ],
+      "card": "models/cards/v2_conv_arch_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_conv_arch_distill_metrics.tsv",
+        "models/eval/v2_conv_arch_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T01:41:12.508048+08:00",
+      "source_mtime_ns": 1788975672508048100,
+      "source_creation_time": "2026-09-10T01:41:12.505357+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.0.0-conv-arch",
+      "repository_directory": "models/versions/v5.0.0-conv-arch",
+      "repository_checkpoint": "models/versions/v5.0.0-conv-arch/weights/v2_conv_arch.pt",
+      "repository_card": "models/versions/v5.0.0-conv-arch/cards/v2_conv_arch_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.0.0-conv-arch-distill/evaluation/v2_conv_arch_distill_metrics.tsv",
+        "models/versions/v5.0.0-conv-arch/evaluation/v2_conv_arch_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_fusion.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.0.0-conv-both",
+      "legacy_name": "v2_conv_both",
+      "checkpoint": "models/checkpoints/v2_conv_both.pt",
+      "sha256": "add7bcd1cdea7a268d887dc8081d7336de0d2e5e892430725e970d1d0c5836f0",
+      "bytes": 880341,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_fusion.py"
+      ],
+      "card": "models/cards/v2_conv_both_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_conv_both_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T01:49:57.803682+08:00",
+      "source_mtime_ns": 1788976197803681700,
+      "source_creation_time": "2026-09-10T01:49:57.800685+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.0.0-conv-both",
+      "repository_directory": "models/versions/v5.0.0-conv-both",
+      "repository_checkpoint": "models/versions/v5.0.0-conv-both/weights/v2_conv_both.pt",
+      "repository_card": "models/versions/v5.0.0-conv-both/cards/v2_conv_both_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.0.0-conv-both/evaluation/v2_conv_both_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_fusion.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.0.0-dilated-base",
+      "legacy_name": "v2_dilated_base",
+      "checkpoint": "models/checkpoints/v2_dilated_base.pt",
+      "sha256": "a5e9b20066ae4e92d301e0d710a4eec7a3458ae1f8b8ea0e301ba8fc88ea81af",
+      "bytes": 2000424,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_distill.py"
+      ],
+      "card": "models/cards/v2_dilated_base_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_dilated_base_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T01:13:28.451851+08:00",
+      "source_mtime_ns": 1788974008451851000,
+      "source_creation_time": "2026-09-10T01:13:28.444702+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.0.0-dilated-base",
+      "repository_directory": "models/versions/v5.0.0-dilated-base",
+      "repository_checkpoint": "models/versions/v5.0.0-dilated-base/weights/v2_dilated_base.pt",
+      "repository_card": "models/versions/v5.0.0-dilated-base/cards/v2_dilated_base_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.0.0-dilated-base/evaluation/v2_dilated_base_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_distill.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.2.0-dual-nobn",
+      "legacy_name": "v2_dual_nobn",
+      "checkpoint": "models/checkpoints/v2_dual_nobn.pt",
+      "sha256": "5dce45c0fff27fa01933130c34351a6fe27fe16696b0398a104c6fbab873020d",
+      "bytes": 2151833,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_dual.py"
+      ],
+      "card": "models/cards/v2_dual_nobn_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_dual_nobn_metrics.tsv",
+        "models/eval/v2_dual_nobn_zs_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T10:06:20.157856+08:00",
+      "source_mtime_ns": 1789005980157855700,
+      "source_creation_time": "2026-09-10T10:06:20.150857+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.2.0-dual-nobn",
+      "repository_directory": "models/versions/v5.2.0-dual-nobn",
+      "repository_checkpoint": "models/versions/v5.2.0-dual-nobn/weights/v2_dual_nobn.pt",
+      "repository_card": "models/versions/v5.2.0-dual-nobn/cards/v2_dual_nobn_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.2.0-dual-nobn/evaluation/v2_dual_nobn_metrics.tsv",
+        "models/versions/v5.2.0-dual-nobn-zs/evaluation/v2_dual_nobn_zs_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_dual.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.2.0-dual-nobn-zs",
+      "legacy_name": "v2_dual_nobn_zs",
+      "checkpoint": "models/checkpoints/v2_dual_nobn_zs.pt",
+      "sha256": "a6863c7b9f0a1c47adf0aab864da04ee12f7dc413f2fb5cbe7c09c84e2edbfb4",
+      "bytes": 2151983,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_dual.py"
+      ],
+      "card": "models/cards/v2_dual_nobn_zs_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_dual_nobn_zs_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T11:00:13.807596+08:00",
+      "source_mtime_ns": 1789009213807596200,
+      "source_creation_time": "2026-09-10T11:00:13.801594+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.2.0-dual-nobn-zs",
+      "repository_directory": "models/versions/v5.2.0-dual-nobn-zs",
+      "repository_checkpoint": "models/versions/v5.2.0-dual-nobn-zs/weights/v2_dual_nobn_zs.pt",
+      "repository_card": "models/versions/v5.2.0-dual-nobn-zs/cards/v2_dual_nobn_zs_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.2.0-dual-nobn-zs/evaluation/v2_dual_nobn_zs_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_dual.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.1.0-long-base",
+      "legacy_name": "v2_long_base",
+      "checkpoint": "models/checkpoints/v2_long_base.pt",
+      "sha256": "3980ca41295c04463e72eca6213d5c82e6172c0e36b2dc9aeb1b123dd6424c58",
+      "bytes": 1301817,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_longcontext.py"
+      ],
+      "card": "models/cards/v2_long_base_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_long_base_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T08:02:27.556206+08:00",
+      "source_mtime_ns": 1788998547556205400,
+      "source_creation_time": "2026-09-10T08:02:27.544686+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.1.0-long-base",
+      "repository_directory": "models/versions/v5.1.0-long-base",
+      "repository_checkpoint": "models/versions/v5.1.0-long-base/weights/v2_long_base.pt",
+      "repository_card": "models/versions/v5.1.0-long-base/cards/v2_long_base_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.1.0-long-base/evaluation/v2_long_base_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_longcontext.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.1.0-long-both",
+      "legacy_name": "v2_long_both",
+      "checkpoint": "models/checkpoints/v2_long_both.pt",
+      "sha256": "7824947740a26cc9851dc37ebfd401f3ef5b411b476f3ed82c0b2eb801697717",
+      "bytes": 1346489,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_longcontext.py"
+      ],
+      "card": "models/cards/v2_long_both_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_long_both_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T08:30:36.680589+08:00",
+      "source_mtime_ns": 1789000236680588800,
+      "source_creation_time": "2026-09-10T08:30:36.672061+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.1.0-long-both",
+      "repository_directory": "models/versions/v5.1.0-long-both",
+      "repository_checkpoint": "models/versions/v5.1.0-long-both/weights/v2_long_both.pt",
+      "repository_card": "models/versions/v5.1.0-long-both/cards/v2_long_both_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.1.0-long-both/evaluation/v2_long_both_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_longcontext.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.1.0-long-ln",
+      "legacy_name": "v2_long_ln",
+      "checkpoint": "models/checkpoints/v2_long_ln.pt",
+      "sha256": "0594c4e71d23e2f45217a3e989a543c57843bf150238b536684383748b2c516a",
+      "bytes": 1279157,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_longcontext.py"
+      ],
+      "card": "models/cards/v2_long_ln_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_long_ln_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T09:39:41.030607+08:00",
+      "source_mtime_ns": 1789004381030606700,
+      "source_creation_time": "2026-09-10T09:39:41.023607+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.1.0-long-ln",
+      "repository_directory": "models/versions/v5.1.0-long-ln",
+      "repository_checkpoint": "models/versions/v5.1.0-long-ln/weights/v2_long_ln.pt",
+      "repository_card": "models/versions/v5.1.0-long-ln/cards/v2_long_ln_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.1.0-long-ln/evaluation/v2_long_ln_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_longcontext.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.1.0-long-nobn",
+      "legacy_name": "v2_long_nobn",
+      "checkpoint": "models/checkpoints/v2_long_nobn.pt",
+      "sha256": "27a0994830d413a3d5d493f3fd1bdcb87d72c5144164e6efdfc4662136bc8785",
+      "bytes": 1261769,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_longcontext.py"
+      ],
+      "card": "models/cards/v2_long_nobn_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_long_nobn_metrics.tsv",
+        "models/eval/v2_long_nobn_zs_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T08:59:23.075276+08:00",
+      "source_mtime_ns": 1789001963075276400,
+      "source_creation_time": "2026-09-10T08:59:23.070277+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.1.0-long-nobn",
+      "repository_directory": "models/versions/v5.1.0-long-nobn",
+      "repository_checkpoint": "models/versions/v5.1.0-long-nobn/weights/v2_long_nobn.pt",
+      "repository_card": "models/versions/v5.1.0-long-nobn/cards/v2_long_nobn_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.1.0-long-nobn/evaluation/v2_long_nobn_metrics.tsv",
+        "models/versions/v5.1.0-long-nobn-zs/evaluation/v2_long_nobn_zs_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_longcontext.py"
+      ]
+    },
+    {
+      "public_model_id": "v5.1.0-long-nobn-zs",
+      "legacy_name": "v2_long_nobn_zs",
+      "checkpoint": "models/checkpoints/v2_long_nobn_zs.pt",
+      "sha256": "501b4bba256d6c5628b6c8a12033071b4cb1f5173d07edaa4bc4508bda64f97e",
+      "bytes": 1261895,
+      "status": "historical-experiment",
+      "trainer_candidates": [
+        "runs/scripts/train_promoter_model_v2_longcontext.py"
+      ],
+      "card": "models/cards/v2_long_nobn_zs_card.txt",
+      "evaluation_files": [
+        "models/eval/v2_long_nobn_zs_metrics.tsv"
+      ],
+      "source_mtime": "2026-09-10T10:33:31.892241+08:00",
+      "source_mtime_ns": 1789007611892241100,
+      "source_creation_time": "2026-09-10T10:33:31.887240+08:00",
+      "time_basis": "original local filesystem, captured 2026-10-11; mtime is not necessarily training completion",
+      "release_tag": "v5.1.0-long-nobn-zs",
+      "repository_directory": "models/versions/v5.1.0-long-nobn-zs",
+      "repository_checkpoint": "models/versions/v5.1.0-long-nobn-zs/weights/v2_long_nobn_zs.pt",
+      "repository_card": "models/versions/v5.1.0-long-nobn-zs/cards/v2_long_nobn_zs_card.txt",
+      "repository_evaluation_files": [
+        "models/versions/v5.1.0-long-nobn-zs/evaluation/v2_long_nobn_zs_metrics.tsv"
+      ],
+      "repository_trainer_candidates": [
+        "scripts/research/training/train_promoter_model_v2_longcontext.py"
+      ]
+    },
+    {
+      "public_model_id": "v6.6.0",
+      "release_tag": "v6.6.0",
+      "repository_directory": "models/versions/v6.6.0",
+      "repository_checkpoint": "models/v6.6.0.pt",
+      "sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+      "bytes": 19533077,
+      "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/v6.6.0/promoter_atlas_v6.6.0.pt",
+      "repository_trainer_candidates": [
+        "src/promoter_atlas/measured_train.py"
+      ],
+      "status": "current-release"
+    }
+  ],
+  "current_release": "v6.6.0"
+}

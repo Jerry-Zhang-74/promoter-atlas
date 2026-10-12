@@ -1,0 +1,117 @@
+{
+  "run_id": "v6.6.0-measured-20261012",
+  "model_version": "v6.6.0",
+  "training_completed": true,
+  "evaluated": true,
+  "dual_demo_completed": true,
+  "fragment_demo_completed": true,
+  "tissue_profile_demo_completed": true,
+  "status": "stopped_by_user",
+  "epoch_completed": 2,
+  "epoch_target": 8,
+  "optimizer_steps": 23209,
+  "tissue_names": [
+    "Adipose - Subcutaneous",
+    "Adipose - Visceral (Omentum)",
+    "Adrenal Gland",
+    "Artery - Aorta",
+    "Artery - Coronary",
+    "Artery - Tibial",
+    "Bladder",
+    "Brain - Amygdala",
+    "Brain - Anterior cingulate cortex (BA24)",
+    "Brain - Caudate (basal ganglia)",
+    "Brain - Cerebellar Hemisphere",
+    "Brain - Cerebellum",
+    "Brain - Cortex",
+    "Brain - Frontal Cortex (BA9)",
+    "Brain - Hippocampus",
+    "Brain - Hypothalamus",
+    "Brain - Nucleus accumbens (basal ganglia)",
+    "Brain - Putamen (basal ganglia)",
+    "Brain - Spinal cord (cervical c-1)",
+    "Brain - Substantia nigra",
+    "Breast - Mammary Tissue",
+    "Cells - Cultured fibroblasts",
+    "Cells - EBV-transformed lymphocytes",
+    "Cervix - Ectocervix",
+    "Cervix - Endocervix",
+    "Colon - Sigmoid",
+    "Colon - Transverse",
+    "Esophagus - Gastroesophageal Junction",
+    "Esophagus - Mucosa",
+    "Esophagus - Muscularis",
+    "Fallopian Tube",
+    "Heart - Atrial Appendage",
+    "Heart - Left Ventricle",
+    "Kidney - Cortex",
+    "Kidney - Medulla",
+    "Liver",
+    "Lung",
+    "Minor Salivary Gland",
+    "Muscle - Skeletal",
+    "Nerve - Tibial",
+    "Ovary",
+    "Pancreas",
+    "Pituitary",
+    "Prostate",
+    "Skin - Not Sun Exposed (Suprapubic)",
+    "Skin - Sun Exposed (Lower leg)",
+    "Small Intestine - Terminal Ileum",
+    "Spleen",
+    "Stomach",
+    "Testis",
+    "Thyroid",
+    "Uterus",
+    "Vagina",
+    "Whole Blood"
+  ],
+  "selected_checkpoint": "models/v6.6.0.pt",
+  "selected_checkpoint_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+  "profile_output": "demo_results/tissue_predictions.csv",
+  "artifacts": [
+    {
+      "path": "demo_results/esb_predictions.csv",
+      "sha256": "f03236a9ad6c71f2778839341b9a95d5f4fc7b3695bb3cba9b4fb6eb8fd517bd",
+      "kind": "esb_demo"
+    },
+    {
+      "path": "demo_results/fragment_activity.csv",
+      "sha256": "c0114d1584b8a12ce6b4b82f9fda4b66367185752bbb85cce2cb740db0777f45",
+      "kind": "fragment_demo"
+    },
+    {
+      "path": "demo_results/tissue_predictions.csv",
+      "sha256": "ebba19a4d4ef843048a68427ab93c8d896008079bf9635e27166eca191854601",
+      "kind": "profile_demo"
+    },
+    {
+      "path": "evaluation/v6.6.0/report.json",
+      "sha256": "f7db7f8185d25761dc9969326e8769dfe9037e949b2aecf8a005c78b34a16589",
+      "kind": "evaluation"
+    },
+    {
+      "path": "training/v6.6.0/losses.jsonl",
+      "sha256": "00eb781a1cd4999873d0081b09c00d6351bffde42228476c4c191189664deaba",
+      "kind": "training_log"
+    },
+    {
+      "path": "configs/v6.6.json",
+      "sha256": "83c3e64b7445429f2ae77bf73a544ff25cc712cb0cefc817b4ecfee025f955c7",
+      "kind": "training_config"
+    },
+    {
+      "path": "models/v6.6.0.pt",
+      "sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+      "kind": "selected_checkpoint"
+    }
+  ],
+  "stop_reason": "user_requested",
+  "latest_saved_checkpoint_step": 22817,
+  "unsaved_tail_steps": 392,
+  "observer_exit_code": -1,
+  "user_stop_proof": {
+    "path": "training/v6.6.0/post_stop_export.json",
+    "sha256": "f261a8198d52e83b7a8fb0e0f61e32b79718704ed34b7d5b5eb1aacd6f7d9c44"
+  }
+}

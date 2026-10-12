@@ -1,0 +1,17 @@
+{
+  "task": "activity",
+  "rows": 3,
+  "version": "v6.6.0",
+  "run_id": "v6.6.0-measured-20261012",
+  "checkpoint_basename": "v6.6.0.pt",
+  "checkpoint_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+  "parent_sha256": "109fc8919c570531f142390c703f956d4300cd63ccf825c65e7e3bd0748f1096",
+  "device": "cpu",
+  "batch_size": 4,
+  "units": {
+    "predicted_Log2RPM_HEK293": "log2 RPM in HEK293 (predicted)"
+  },
+  "fragment_padding": "right_to_600",
+  "fragment_padding_length": 600,
+  "elapsed_seconds": 0.146
+}

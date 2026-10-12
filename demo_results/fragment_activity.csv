@@ -1,0 +1,4 @@
+candidate_id,length_bp,predicted_Log2RPM_HEK293,model_version,run_id
+fragment_01,147,1.185424175961849,v6.6.0,v6.6.0-measured-20261012
+fragment_02,202,1.0428080089700487,v6.6.0,v6.6.0-measured-20261012
+fragment_03,275,1.6769575538277692,v6.6.0,v6.6.0-measured-20261012

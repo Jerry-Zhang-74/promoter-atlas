@@ -1,0 +1,10 @@
+{
+  "format": "pa.single_checkpoint.v1",
+  "version": "v6.6.0",
+  "checkpoint_file": "models/v6.6.0.pt",
+  "bytes": 19533077,
+  "sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+  "download_url": "https://github.com/Jerry-Zhang-74/promoter-atlas/releases/download/v6.6.0/promoter_atlas_v6.6.0.pt",
+  "release_id": 410588203,
+  "asset_id": 633758349
+}

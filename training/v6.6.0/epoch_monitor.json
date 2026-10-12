@@ -1,0 +1,27 @@
+{
+  "completed_epochs": [
+    {
+      "B": 0.6686570131997566,
+      "E": 0.6729806756953086,
+      "S": 0.3941578145658926,
+      "checkpoint_sha256": "f0724e6f166102590129d8b8e5255123884a5f2d38c7d37a5d42a845dac5b27b",
+      "epoch": 1,
+      "global_step": 11104
+    },
+    {
+      "B": 0.6533142043193462,
+      "E": 0.6499294468152048,
+      "S": 0.37290091831767463,
+      "checkpoint_sha256": "4f5456c9566249691a74a9e03c63e9a9e92c7f284c6ed998160a3776340efc4b",
+      "epoch": 2,
+      "global_step": 22208
+    }
+  ],
+  "consecutive_declines": 1,
+  "deadline": "2026-10-12T20:28:00+08:00",
+  "metric": "fixed_DEV_subset_gene_Score_E_spearman",
+  "observed_at": "2026-10-12T12:18:44.046772+00:00",
+  "periodic_evaluation_count": 7,
+  "status": "ok",
+  "stop_required": false
+}

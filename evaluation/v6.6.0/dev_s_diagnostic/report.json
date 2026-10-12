@@ -1,0 +1,196 @@
+{
+  "scope": "DEV_cache_only",
+  "model_selection_changed": false,
+  "selected": "last",
+  "selected_checkpoint_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+  "criterion": "max gene-level E Spearman on human DEV; tie -> last",
+  "checkpoint_identity_note": "Checkpoint identity validated through selection<->candidate<->DEV cache metadata chain; this is a cache integrity check, not fresh checkpoint-file verification. No .pt file was opened.",
+  "target_units": "direct ESB original Score scales; profile log2(1+TPM); no inverse transform applied",
+  "gate_definition": "detectable if log2(1+TPM)>=1 (TPM>=1); S_raw=-median(|det-median(det)|) if #det>=3 and B_raw>=0.3 else NaN",
+  "bootstrap": {
+    "n": 1000,
+    "seed": 20261012
+  },
+  "inputs": {
+    "dev_best_esb.npz": "fa09870ede9c1782e7ae980a0691426cbe33f64c49ef37a8bfd3f816521bb70d",
+    "dev_best_esb.json": "0696d082ec330777d9a67504bf2acace85f46310c304ecdb7d728c25a61e9ef0",
+    "dev_last_esb.npz": "9393aab8f25d72db53f9211117b7c742d334cd16225b398771c8af0b848281b6",
+    "dev_last_esb.json": "c9b14c458b938e92905b8e99e7bae375d5cd130af1e5a70dd09487801c4d2351"
+  },
+  "selection_sha256": "3681c13187ec31abb7343a5c7a75e2144373cd0e50ca7ab36cc2d94e5fedddc2",
+  "preparation": {
+    "path": "E:\\promoter_atlas\\experiments\\retrain\\v6.6_measured_20261012\\preparation.json",
+    "sha256": "a24ea1978366e0ac5b73e8f2747a45609aa683d1e8fcbf35cba28b4385a42cee",
+    "notes": [
+      "preparation loaded"
+    ]
+  },
+  "checkpoints": {
+    "best": {
+      "sha256": "d19b0bc5c42964bf500497b18fe40f07c17053d0cb829a4fd5b428f65d0a8555",
+      "cache_sha256": "fa09870ede9c1782e7ae980a0691426cbe33f64c49ef37a8bfd3f816521bb70d",
+      "n_rows": 43517,
+      "n_genes": 5606,
+      "full_direct_gene_count": 1856,
+      "full_direct_spearman": 0.3836376214165516,
+      "complete_target_profile_count": 1855,
+      "true_profile_derived_S_defined_count": 1855,
+      "predicted_profile_derived_S_defined_count": 1716,
+      "pairwise_gene_count": 1716,
+      "pairwise_coverage": 0.9245689655172413,
+      "pairwise_bootstrap": {
+        "n_genes": 1716,
+        "n_boot": 1000,
+        "valid_replicates": 1000,
+        "delta": -0.3631477172228126,
+        "ci_low": -0.42003876277167046,
+        "ci_high": -0.3049736476764211,
+        "rho_direct": 0.3829091759749171,
+        "rho_derived": 0.01976145875210451
+      },
+      "cohort_fingerprint": "1ee2744df3c6c194b2f6f806d2bd03973d3c50705a64a08092b1d2f8d0341400"
+    },
+    "last": {
+      "sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+      "cache_sha256": "9393aab8f25d72db53f9211117b7c742d334cd16225b398771c8af0b848281b6",
+      "n_rows": 43517,
+      "n_genes": 5606,
+      "full_direct_gene_count": 1856,
+      "full_direct_spearman": 0.3611538977549096,
+      "complete_target_profile_count": 1855,
+      "true_profile_derived_S_defined_count": 1855,
+      "predicted_profile_derived_S_defined_count": 1699,
+      "pairwise_gene_count": 1699,
+      "pairwise_coverage": 0.9154094827586207,
+      "pairwise_bootstrap": {
+        "n_genes": 1699,
+        "n_boot": 1000,
+        "valid_replicates": 1000,
+        "delta": -0.3795341360764748,
+        "ci_low": -0.44460401691534834,
+        "ci_high": -0.32120593487301585,
+        "rho_direct": 0.3572708021848597,
+        "rho_derived": -0.02226333389161512
+      },
+      "cohort_fingerprint": "a18532538029e5a47829723376739fc1ad951f3c12da810962b37849ab2f04a7"
+    }
+  },
+  "across_checkpoint": {
+    "common_gene_count": 1683,
+    "common_fingerprint": "e79b19f2166ba2e4f64baf324bde38077290a6308eb44f626be00d5c03c16438",
+    "direct_S_last_minus_best": {
+      "n_genes": 1683,
+      "n_boot": 1000,
+      "valid_replicates": 1000,
+      "delta": -0.023884755530282853,
+      "ci_low": -0.03967736316581355,
+      "ci_high": -0.009238355144136423,
+      "rho_direct": 0.3845960363306078,
+      "rho_derived": 0.36071128080032494
+    },
+    "derived_S_last_minus_best": {
+      "n_genes": 1683,
+      "n_boot": 1000,
+      "valid_replicates": 1000,
+      "delta": -0.03031223594355205,
+      "ci_low": -0.06248118218007746,
+      "ci_high": -4.717173526233015e-06,
+      "rho_direct": 0.009776986826056303,
+      "rho_derived": -0.020535249117495744
+    },
+    "within_best": {
+      "n_genes": 1683,
+      "n_boot": 1000,
+      "valid_replicates": 1000,
+      "delta": -0.37481904950455147,
+      "ci_low": -0.4337302606962321,
+      "ci_high": -0.3132209569348021,
+      "rho_direct": 0.3845960363306078,
+      "rho_derived": 0.009776986826056303
+    },
+    "within_last": {
+      "n_genes": 1683,
+      "n_boot": 1000,
+      "valid_replicates": 1000,
+      "delta": -0.3812465299178207,
+      "ci_low": -0.44748105521147574,
+      "ci_high": -0.31756976943816423,
+      "rho_direct": 0.36071128080032494,
+      "rho_derived": -0.020535249117495744
+    },
+    "note": "ranking tradeoff diagnostic; does not alter selection"
+  },
+  "formula_consistency": {
+    "best": {
+      "common_finite_count": 1855,
+      "spearman_true_raw_vs_Score_S": 1.0,
+      "raw_tie_groups": 0,
+      "raw_tie_members": 0,
+      "score_tie_groups": 0,
+      "score_tie_members": 0,
+      "adjacent_order_inversions": 0,
+      "undefined_raw_with_Score_S": 1,
+      "missing_profile_count": 1,
+      "note": "Score_S is full-catalog rank normalized; raw-vs-Score Spearman need not be exactly 1"
+    },
+    "last": {
+      "common_finite_count": 1855,
+      "spearman_true_raw_vs_Score_S": 1.0,
+      "raw_tie_groups": 0,
+      "raw_tie_members": 0,
+      "score_tie_groups": 0,
+      "score_tie_members": 0,
+      "adjacent_order_inversions": 0,
+      "undefined_raw_with_Score_S": 1,
+      "missing_profile_count": 1,
+      "note": "Score_S is full-catalog rank normalized; raw-vs-Score Spearman need not be exactly 1"
+    }
+  },
+  "ambiguity": {
+    "known": true,
+    "preparation_count": 45,
+    "note": "missing profile is not automatically labeled ambiguity",
+    "best": {
+      "ambiguous_in_dev_count": 2,
+      "ambiguous_in_dev_ids": [
+        "ENSG00000223773",
+        "ENSG00000228410"
+      ],
+      "ambiguous_in_s_eligible_count": 1,
+      "ambiguous_in_s_eligible_ids": [
+        "ENSG00000223773"
+      ],
+      "ambiguous_among_missing_profile_count": 1,
+      "ambiguous_among_missing_profile_ids": [
+        "ENSG00000223773"
+      ]
+    },
+    "last": {
+      "ambiguous_in_dev_count": 2,
+      "ambiguous_in_dev_ids": [
+        "ENSG00000223773",
+        "ENSG00000228410"
+      ],
+      "ambiguous_in_s_eligible_count": 1,
+      "ambiguous_in_s_eligible_ids": [
+        "ENSG00000223773"
+      ],
+      "ambiguous_among_missing_profile_count": 1,
+      "ambiguous_among_missing_profile_ids": [
+        "ENSG00000223773"
+      ]
+    }
+  },
+  "unknown_missing_profile": {
+    "best": {
+      "count": 0,
+      "ids": []
+    },
+    "last": {
+      "count": 0,
+      "ids": []
+    }
+  },
+  "status": "completed",
+  "integrity_verified": true
+}

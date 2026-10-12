@@ -1,0 +1,75 @@
+{"global_step": 306, "optimization_elapsed": 120.03338529955363, "profile_weight": 0.019956191699922785}
+{"global_step": 659, "optimization_elapsed": 239.9639616999193, "profile_weight": 0.03994666856665087}
+{"global_step": 1020, "optimization_elapsed": 360.01141390018165, "profile_weight": 0.05995486270002826}
+{"global_step": 1387, "optimization_elapsed": 479.77779820014257, "profile_weight": 0.07989376001669249}
+{"global_step": 1757, "optimization_elapsed": 599.6694094997365, "profile_weight": 0.09989672194995607}
+{"global_step": 2127, "optimization_elapsed": 719.6405268997187, "profile_weight": 0.1198753039832906}
+{"global_step": 2506, "optimization_elapsed": 839.5075322992052, "profile_weight": 0.13987264731653462}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6544878209888854}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6608757370588513}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.4251795112993271}}, "n": 4096}}
+{"global_step": 2844, "optimization_elapsed": 946.674717999238, "profile_weight": 0.15773475049988095}
+{"global_step": 3227, "optimization_elapsed": 1066.5630863987026, "profile_weight": 0.17771481086645508}
+{"global_step": 3600, "optimization_elapsed": 1186.5330628987867, "profile_weight": 0.1977105275997892}
+{"global_step": 3987, "optimization_elapsed": 1306.354667498963, "profile_weight": 0.21766320328316455}
+{"global_step": 4382, "optimization_elapsed": 1426.4600367991952, "profile_weight": 0.23768174858320465}
+{"global_step": 4775, "optimization_elapsed": 1546.5849907987867, "profile_weight": 0.2577006314331375}
+{"global_step": 5159, "optimization_elapsed": 1666.3700281987549, "profile_weight": 0.2776840295997875}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6616281740191323}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6659895467210262}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.4160576721121307}}, "n": 4096}}
+{"global_step": 5540, "optimization_elapsed": 1784.2466581986519, "profile_weight": 0.29732617328311123}
+{"global_step": 5925, "optimization_elapsed": 1904.016908698657, "profile_weight": 0.3}
+{"global_step": 6313, "optimization_elapsed": 2024.042712398863, "profile_weight": 0.3}
+{"global_step": 6699, "optimization_elapsed": 2143.9927775983815, "profile_weight": 0.3}
+{"global_step": 7096, "optimization_elapsed": 2263.7910519985016, "profile_weight": 0.3}
+{"global_step": 7495, "optimization_elapsed": 2383.8254244977143, "profile_weight": 0.3}
+{"global_step": 7895, "optimization_elapsed": 2503.8078880982357, "profile_weight": 0.3}
+{"global_step": 8296, "optimization_elapsed": 2623.8139556988026, "profile_weight": 0.3}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6710994667368119}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6729397357100897}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.4068446446031813}}, "n": 4096}}
+{"global_step": 8684, "optimization_elapsed": 2740.9833404984674, "profile_weight": 0.3}
+{"global_step": 9079, "optimization_elapsed": 2861.063728399051, "profile_weight": 0.3}
+{"global_step": 9478, "optimization_elapsed": 2980.8080641989945, "profile_weight": 0.3}
+{"global_step": 9882, "optimization_elapsed": 3100.570463998709, "profile_weight": 0.3}
+{"global_step": 10283, "optimization_elapsed": 3220.3252995991497, "profile_weight": 0.3}
+{"global_step": 10681, "optimization_elapsed": 3340.2709291991778, "profile_weight": 0.3}
+{"global_step": 11084, "optimization_elapsed": 3460.0830349990865, "profile_weight": 0.3}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6686570131997566}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6729806756953086}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.3941578145658926}}, "n": 4096}}
+{"global_step": 11430, "optimization_elapsed": 3577.2140599986888, "profile_weight": 0.3}
+{"global_step": 11837, "optimization_elapsed": 3697.019513098756, "profile_weight": 0.3}
+{"global_step": 12232, "optimization_elapsed": 3816.9260207985644, "profile_weight": 0.3}
+{"global_step": 12632, "optimization_elapsed": 3936.696544998791, "profile_weight": 0.3}
+{"global_step": 13038, "optimization_elapsed": 4056.597195599461, "profile_weight": 0.3}
+{"global_step": 13446, "optimization_elapsed": 4176.334136799851, "profile_weight": 0.3}
+{"global_step": 13851, "optimization_elapsed": 4296.236132300226, "profile_weight": 0.3}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6607719103837504}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6594231468288309}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.4082005601999215}}, "n": 4096}}
+{"global_step": 14249, "optimization_elapsed": 4413.495572099986, "profile_weight": 0.3}
+{"global_step": 14660, "optimization_elapsed": 4533.4217057995265, "profile_weight": 0.3}
+{"global_step": 15067, "optimization_elapsed": 4653.242888499866, "profile_weight": 0.3}
+{"global_step": 15459, "optimization_elapsed": 4773.1108363995445, "profile_weight": 0.3}
+{"global_step": 15836, "optimization_elapsed": 4892.990672499058, "profile_weight": 0.3}
+{"global_step": 16227, "optimization_elapsed": 5012.915254699357, "profile_weight": 0.3}
+{"global_step": 16614, "optimization_elapsed": 5132.791055099748, "profile_weight": 0.3}
+{"global_step": 17000, "optimization_elapsed": 5252.797334599018, "profile_weight": 0.3}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6711164578552583}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6682948211341689}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.38653022266329123}}, "n": 4096}}
+{"global_step": 17376, "optimization_elapsed": 5370.180550199177, "profile_weight": 0.3}
+{"global_step": 17756, "optimization_elapsed": 5490.0993769989, "profile_weight": 0.3}
+{"global_step": 18148, "optimization_elapsed": 5609.915760898613, "profile_weight": 0.3}
+{"global_step": 18544, "optimization_elapsed": 5729.697534598003, "profile_weight": 0.3}
+{"global_step": 18924, "optimization_elapsed": 5849.63431039796, "profile_weight": 0.3}
+{"global_step": 19136, "optimization_elapsed": 5969.978781198035, "profile_weight": 0.3}
+{"global_step": 19387, "optimization_elapsed": 6089.9369980976335, "profile_weight": 0.3}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6767647846418037}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6755833360404819}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.39403074317796744}}, "n": 4096}}
+{"global_step": 19592, "optimization_elapsed": 6203.176199197362, "profile_weight": 0.3}
+{"global_step": 19779, "optimization_elapsed": 6323.535442797234, "profile_weight": 0.3}
+{"global_step": 19950, "optimization_elapsed": 6443.526010897767, "profile_weight": 0.3}
+{"global_step": 20146, "optimization_elapsed": 6563.931114098057, "profile_weight": 0.3}
+{"global_step": 20318, "optimization_elapsed": 6684.089708298445, "profile_weight": 0.3}
+{"global_step": 20503, "optimization_elapsed": 6804.302295598434, "profile_weight": 0.3}
+{"global_step": 20678, "optimization_elapsed": 6924.42512629804, "profile_weight": 0.3}
+{"global_step": 20966, "optimization_elapsed": 7044.391749198316, "profile_weight": 0.3}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6782845140412287}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6738033500063618}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.388761535181034}}, "n": 4096}}
+{"global_step": 21165, "optimization_elapsed": 7161.897297898307, "profile_weight": 0.3}
+{"global_step": 21350, "optimization_elapsed": 7281.836705498397, "profile_weight": 0.3}
+{"global_step": 21525, "optimization_elapsed": 7402.058447998075, "profile_weight": 0.3}
+{"global_step": 21718, "optimization_elapsed": 7522.377791298262, "profile_weight": 0.3}
+{"global_step": 22051, "optimization_elapsed": 7642.255597898271, "profile_weight": 0.3}
+{"dev": {"axes": {"Score_B": {"n": 4096, "n_genes": 1855, "spearman": 0.6533142043193462}, "Score_E": {"n": 4096, "n_genes": 1855, "spearman": 0.6499294468152048}, "Score_S": {"n": 2875, "n_genes": 1095, "spearman": 0.37290091831767463}}, "n": 4096}}
+{"global_step": 22428, "optimization_elapsed": 7759.709750598355, "profile_weight": 0.3}
+{"global_step": 22817, "optimization_elapsed": 7879.553753899003, "profile_weight": 0.3}

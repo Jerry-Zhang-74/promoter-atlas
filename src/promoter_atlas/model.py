@@ -78,7 +78,7 @@ class ContextStem(nn.Module):
 
 class PromoterAtlasNet(nn.Module):
     def __init__(self, n_tf=0, n_omics=0, n_dist=3, local_ch=160, ctx_ch=192, ctx_blocks=8,
-                 local_blocks=6, tf_layers=0, ctx10k=False, ctx10k_ch=128):
+                 local_blocks=6, tf_layers=0, ctx10k=False, ctx10k_ch=128, n_profile=0):
         super().__init__()
         self.local = LocalStem(ch=local_ch, blocks=local_blocks)
         self.context = ContextStem(ch=ctx_ch, blocks=ctx_blocks)
@@ -113,6 +113,7 @@ class PromoterAtlasNet(nn.Module):
         self.head_dist = nn.Linear(512, n_dist) if n_dist else None
         self.head_mpra = nn.Linear(512, 1)
         self.head_species = nn.Linear(local_ch * 2 + ctx_dim, N_SPECIES)
+        self.head_profile = nn.Linear(512, n_profile) if n_profile else None
 
     def forward(self, x400, x400_masked, x2000, species, x10000=None):
         def oh(x):
@@ -151,6 +152,8 @@ class PromoterAtlasNet(nn.Module):
             out["omics"] = self.head_omics(z)
         if self.head_tf is not None:
             out["tf"] = self.head_tf(z)
+        if self.head_profile is not None:
+            out["profile"] = self.head_profile(z)
         return out
 
 
@@ -162,9 +165,9 @@ class JointDualESBModel(nn.Module):
     """
 
     def __init__(self, arch: dict, n_tf=0, n_omics=0, n_dist=3,
-                 activity_hidden=256, activity_dropout=0.1):
+                 activity_hidden=256, activity_dropout=0.1, n_profile=0):
         super().__init__()
-        self.base = PromoterAtlasNet(n_tf=n_tf, n_omics=n_omics, n_dist=n_dist, **arch)
+        self.base = PromoterAtlasNet(n_tf=n_tf, n_omics=n_omics, n_dist=n_dist, n_profile=n_profile, **arch)
         self.local_ch = int(arch["local_ch"])
         self.head_activity = nn.Sequential(
             nn.Linear(2 * self.local_ch, activity_hidden), nn.ReLU(inplace=True),
@@ -177,7 +180,8 @@ class JointDualESBModel(nn.Module):
                                         "tf_layers", "ctx10k")},
                 n_tf=obj.get("n_tf", 0), n_omics=obj.get("n_omics", 0), n_dist=obj.get("n_dist", 3),
                 activity_hidden=obj.get("activity_hidden", 256),
-                activity_dropout=obj.get("activity_dropout", 0.1))
+                activity_dropout=obj.get("activity_dropout", 0.1),
+                n_profile=obj.get("n_profile", 0))
         return m
 
     @classmethod

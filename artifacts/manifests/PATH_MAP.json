@@ -1,0 +1,10 @@
+{
+  "paths": {
+    "data/breakthrough_20261002/batch52": "experiments/breakthrough/batch52/data",
+    "data/multispecies": "data/processed/multispecies",
+    "features": "data/processed/features",
+    "labels": "data/processed/labels",
+    "promoters": "data/processed/promoters"
+  },
+  "schema": 1
+}

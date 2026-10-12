@@ -1,0 +1,8 @@
+{
+  "checkpoint_sha256": "b0a90dddc2325efd3dd5a09822047362d51968865a4bc3ee6ab647ecd626d548",
+  "count": 117155,
+  "format": "promoter_atlas_measured_eval.v1",
+  "kind": "fragment",
+  "npz_sha256": "8b96332c7ebdc67782c4c64cd1bcfe2b0cf00d94519b97515223c5c51f91bc1b",
+  "split": "TEST"
+}
